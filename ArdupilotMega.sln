@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPlanner", "MissionPlanner.csproj", "{A2E22272-95FE-47B6-B050-9AE7E2055BF5}"
 EndProject
@@ -71,6 +71,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tlogThumbnailHandler", "ExtLibs\tlogThumbnailHandler\tlogThumbnailHandler.csproj", "{ABA78B2E-77C3-4377-8568-9542AC227971}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtGuided", "ExtLibs\ExtGuided\ExtGuided.csproj", "{B5211B56-CA30-4B2A-843B-832849F18CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPlanner.Gridv3", "ExtLibs\MissionPlanner.Gridv3\MissionPlanner.Gridv3.csproj", "{5DFE72FE-B64F-411C-A479-BD93FCFD4156}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -422,6 +424,17 @@ Global
 		{B5211B56-CA30-4B2A-843B-832849F18CEA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B5211B56-CA30-4B2A-843B-832849F18CEA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B5211B56-CA30-4B2A-843B-832849F18CEA}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Debug|x86.Build.0 = Debug|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -451,9 +464,7 @@ Global
 		{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98} = {7E264F12-9EC3-4CDC-A187-6879C2B2BFCF}
 		{ABA78B2E-77C3-4377-8568-9542AC227971} = {7E264F12-9EC3-4CDC-A187-6879C2B2BFCF}
 		{B5211B56-CA30-4B2A-843B-832849F18CEA} = {9B3AC501-5FCB-4A2A-A628-BE0985DB2BD4}
-	EndGlobalSection
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
+		{5DFE72FE-B64F-411C-A479-BD93FCFD4156} = {9B3AC501-5FCB-4A2A-A628-BE0985DB2BD4}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = MissionPlanner.csproj
