@@ -23,6 +23,8 @@ namespace MissionPlanner
         const float rad2deg = (float)(180 / Math.PI);
         const float deg2rad = (float)(1.0 / rad2deg);
 
+        const double MinDistanceBetweenLines = 50;
+
         public struct linelatlng
         {
             // start of line
@@ -58,7 +60,6 @@ namespace MissionPlanner
            // map.Invalidate();
         }
 
-
         static void addtomap(utmpos pos, string tag)
         {
             return;
@@ -68,6 +69,13 @@ namespace MissionPlanner
             //map.ZoomAndCenterMarkers("polygons");
 
             //map.Invalidate();
+        }
+
+        public static double cos_aob (utmpos a, utmpos o, utmpos b)
+        {
+            double A = a.GetDistance(o), B = b.GetDistance(o), C = a.GetDistance(b);
+
+            return (- C * C + A * A + B * B) / (2 * A * B);
         }
 
         public static List<PointLatLngAlt> CreateGrid(List<PointLatLngAlt> polygon, double altitude, double distance, double spacing, double angle, double overshoot1,double overshoot2, StartPosition startpos, bool shutter, float minLaneSeparation)
@@ -87,6 +95,14 @@ namespace MissionPlanner
                 minLaneSeparation += 0.5F;
             // Lane Separation in meters
             double minLaneSeparationINMeters = minLaneSeparation * distance;
+         /*
+            if (minLaneSeparationINMeters < MinDistanceBetweenLines)
+            {
+                CustomMessageBox.Show("Sorry, minimal distance between lines is " + MinDistanceBetweenLines + " meters");
+                minLaneSeparation = (float)(MinDistanceBetweenLines / distance + 1);
+                minLaneSeparationINMeters = minLaneSeparation * distance;            
+            }
+        */
 
             List<PointLatLngAlt> ans = new List<PointLatLngAlt>();
 
@@ -306,13 +322,18 @@ namespace MissionPlanner
                 lastpnt = closest.p2;
             }
 
+            utmpos newstart = utmpos.Zero, newend = utmpos.Zero, oldstart = newstart, oldend = newend;
+            int i = 0;
+            bool flightForward = closest.p1.GetDistance(lastpnt) < closest.p2.GetDistance(lastpnt);
+
             while (grid.Count > 0)
             {
-                if (closest.p1.GetDistance(lastpnt) < closest.p2.GetDistance(lastpnt))
-                {
+                oldend = newend;
+                oldstart = newstart;
 
-                    addtomap(closest.p1, "S");
-                    ans.Add(closest.p1);
+                if (flightForward)
+                {
+                    newstart = newpos(closest.p1, 180 + angle, overshoot1);
 
                     if (spacing > 0)
                     {
@@ -333,25 +354,20 @@ namespace MissionPlanner
                     }
 
 
-                    utmpos newend = newpos(closest.p2, angle, overshoot1);
+                    newend = newpos(closest.p2, angle, overshoot1);
                   //  if (overshoot1 > 0)
                    //     ans.Add(new utmpos(closest.p2) { Tag = "M" });
-                    addtomap(newend, "E");
-                    ans.Add(newend);
 
                     lastpnt = closest.p2;
 
                     grid.Remove(closest);
-                    if (grid.Count == 0)
-                        break;
-
-                    closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
+                    if (grid.Count != 0)
+                        closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
                 }
                 else
                 {
-                    addtomap(closest.p2,"S");
-                    ans.Add(closest.p2);
-
+                    newstart = newpos(closest.p2, 180 + angle, -overshoot2);
+                    
                     if (spacing > 0)
                     {
                         for (int d = (int)((closest.basepnt.GetDistance(closest.p2)) % spacing);
@@ -370,20 +386,49 @@ namespace MissionPlanner
                         }
                     }
 
-                    utmpos newend = newpos(closest.p1, angle, -overshoot2);
+                    newend = newpos(closest.p1, angle, -overshoot2);
                  //   if (overshoot2 > 0)
                  //       ans.Add(new utmpos(closest.p1) { Tag = "M" });
-                    addtomap(newend, "E");
-                    ans.Add(newend);
-
+                    
                     lastpnt = closest.p1;
 
                     grid.Remove(closest);
-                    if (grid.Count == 0)
-                        break;
-                    closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
+                    if (grid.Count != 0)
+                        closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
                 }
-            }
+
+                if (i != 0)
+                {
+                    int sign = flightForward  ? -1 : 1;
+                    double addDist  = oldend.GetDistance(newstart) * cos_aob(oldend, newstart, newend);
+
+                    if (addDist < 0)
+                    {
+                        newstart = newpos(newstart, 180 + angle, sign * addDist);
+                    }
+                    else
+                    {
+                        oldend = newpos(oldend, angle, sign * addDist);
+                    }
+
+                    addtomap(oldstart, "S");
+                    ans.Add(oldstart);
+
+                    addtomap(oldend, "E");
+                    ans.Add(oldend);
+
+                }
+                flightForward = !flightForward;
+                i++;
+            }    
+
+            addtomap(newstart, "S");
+            ans.Add(newstart);
+
+            addtomap(newend, "E");
+            ans.Add(newend);
+
+                
 
             // set the altitude on all points
             ans.ForEach(plla => { plla.Alt = altitude; });
