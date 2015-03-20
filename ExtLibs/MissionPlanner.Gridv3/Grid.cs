@@ -309,8 +309,10 @@ namespace MissionPlanner
           //      FindPath(grid, startposutm);
 
             // find closest line point to home
-            linelatlng closest = findClosestLine(startposutm, grid, 0 /*Lane separation does not apply to starting point*/, angle);
-
+            Tuple <linelatlng, bool> closest_ = findClosestLine(startposutm, grid, 0 /*Lane separation does not apply to starting point*/, angle);
+            linelatlng closest = closest_.Item1;
+            bool isFurtherMinDintace = closest_.Item2;
+            bool oldIsFurtherMinDintace = closest_.Item2; 
             utmpos lastpnt;
 
             if (closest.p1.GetDistance(startposutm) < closest.p2.GetDistance(startposutm))
@@ -330,6 +332,7 @@ namespace MissionPlanner
             {
                 oldend = newend;
                 oldstart = newstart;
+                oldIsFurtherMinDintace = isFurtherMinDintace;
 
                 if (flightForward)
                 {
@@ -361,8 +364,11 @@ namespace MissionPlanner
                     lastpnt = closest.p2;
 
                     grid.Remove(closest);
-                    if (grid.Count != 0)
-                        closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
+                    if (grid.Count != 0) { 
+                        closest_ = findClosestLine(newend, grid, minLaneSeparationINMeters, angle); 
+                        closest = closest_.Item1;
+                        isFurtherMinDintace = closest_.Item2;
+                    }
                 }
                 else
                 {
@@ -394,13 +400,18 @@ namespace MissionPlanner
 
                     grid.Remove(closest);
                     if (grid.Count != 0)
-                        closest = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
+                    {
+                        closest_ = findClosestLine(newend, grid, minLaneSeparationINMeters, angle);
+                        closest = closest_.Item1;
+                        isFurtherMinDintace = closest_.Item2;
+                    }
                 }
 
                 if (i != 0)
                 {
-                    int sign = flightForward  ? -1 : 1;
-                    double addDist  = oldend.GetDistance(newstart) * cos_aob(oldend, newstart, newend);
+                    
+                    int sign = flightForward ? -1 : 1;
+                    double addDist = oldend.GetDistance(newstart) * cos_aob(oldend, newstart, newend);
 
                     if (addDist < 0)
                     {
@@ -411,12 +422,35 @@ namespace MissionPlanner
                         oldend = newpos(oldend, angle, sign * addDist);
                     }
 
+                    
                     addtomap(oldstart, "S");
                     ans.Add(oldstart);
 
                     addtomap(oldend, "E");
                     ans.Add(oldend);
 
+                    //flying around in a circle
+                    if (!oldIsFurtherMinDintace)
+                    {
+                        double tmpAngle = angle;
+                        utmpos midpos = newpos(oldend, 90 + tmpAngle, minLaneSeparationINMeters);
+                        
+                        if (midpos.GetDistance(oldend) < midpos.GetDistance(newstart) &&
+                            midpos.GetDistance(newstart) > newstart.GetDistance(oldend))
+                        {
+                        }
+                        else
+                        {
+                            tmpAngle += 180;
+                        }
+                       
+                        midpos = newpos(oldend, 90 + tmpAngle, 2 * minLaneSeparationINMeters);                      
+                        ans.Add(midpos);
+                        midpos = newpos(midpos, angle, 2 * sign * minLaneSeparationINMeters);
+                        ans.Add(midpos);
+                        midpos = newpos(midpos, 270 + tmpAngle, 2 *minLaneSeparationINMeters);
+                        ans.Add(midpos);
+                    }
                 }
                 flightForward = !flightForward;
                 i++;
@@ -726,11 +760,11 @@ namespace MissionPlanner
             return angle;
         }
 
-        static linelatlng findClosestLine(utmpos start, List<linelatlng> list, double minDistance, double angle)
+        static Tuple<linelatlng, bool> findClosestLine(utmpos start, List<linelatlng> list, double minDistance, double angle)
         {
             // By now, just add 5.000 km to our lines so they are long enough to allow intersection
             double METERS_TO_EXTEND = 5000000;
-
+            bool IsFutherMinDistance = true;
             double perperndicularOrientation = AddAngle(angle, 90);
 
             // Calculation of a perpendicular line to the grid lines containing the "start" point
@@ -786,10 +820,13 @@ namespace MissionPlanner
 
             // If no line is selected (because all of them are closer than minDistance, then get the farest one
             if (key == double.MaxValue)
-                key = ordered_keys[ordered_keys.Count-1];
+            {
+                key = ordered_keys[ordered_keys.Count - 1];
+                IsFutherMinDistance = false;
+            }
 
             // return line
-            return intersectedPoints[ordered_min_to_max[key]];
+            return Tuple.Create(intersectedPoints[ordered_min_to_max[key]], IsFutherMinDistance);
 
         }
 
