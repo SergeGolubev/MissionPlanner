@@ -283,7 +283,7 @@ namespace MissionPlanner
                 return ans;
 
             utmpos startposutm;
-
+         
             switch (startpos)
             {
                 default:
@@ -451,6 +451,37 @@ namespace MissionPlanner
                         midpos = newpos(midpos, 270 + tmpAngle, 2 *minLaneSeparationINMeters);
                         ans.Add(midpos);
                     }
+                } else {
+                    double cos_phi = cos_aob(startposutm, newstart, newend);
+                    if (cos_phi > 0)
+                    {
+                        if (Math.Pow(startposutm.GetDistance(newstart), 2) * (1 - cos_phi * cos_phi) > 4 * Math.Pow(minLaneSeparationINMeters, 2))
+                        {
+                            utmpos midpos = newpos(newstart, 90 + angle, 2 * minLaneSeparationINMeters);
+                            if (midpos.GetDistance(startposutm) > startposutm.GetDistance(newstart))
+                            {
+                                midpos = newpos(newstart, 270 + angle, 2 * minLaneSeparationINMeters);
+                            }
+                            ans.Add(midpos);
+                        }
+                        else
+                        {
+                            utmpos midpos = newpos(newstart, 90 + angle, 2 * minLaneSeparationINMeters);
+                            double tmpAngle = angle;
+                            if (midpos.GetDistance(startposutm) < startposutm.GetDistance(newstart))
+                            {
+                                tmpAngle += 180;
+                            }
+                            int sign = flightForward ? -1 : 1;
+                            midpos = newpos(newstart, 90 + tmpAngle, 2 * minLaneSeparationINMeters);
+                            ans.Add(midpos);
+                            midpos = newpos(midpos, angle, 2 * sign * minLaneSeparationINMeters);
+                            ans.Add(midpos);
+                            midpos = newpos(midpos, 270 + tmpAngle, 2 * minLaneSeparationINMeters);
+                            ans.Add(midpos);
+                        }
+                    }
+
                 }
                 flightForward = !flightForward;
                 i++;
