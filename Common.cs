@@ -159,7 +159,7 @@ namespace MissionPlanner
             if (txtsize.Width > 15)
                 midw -= 4;
 
-                g.DrawString(wpno, SystemFonts.DefaultFont, Brushes.Black , new PointF(midw, midh));
+                g.DrawString(wpno, SystemFonts.DefaultFont, Brushes.DarkRed , new PointF(midw, midh));
 
             //Matrix temp = g.Transform;
             //g.TranslateTransform(LocalPosition.X, LocalPosition.Y);
@@ -713,7 +713,7 @@ namespace MissionPlanner
 
             chk.Tag = ("SHOWAGAIN_" + title.Replace(" ", "_"));
             chk.AutoSize = true;
-            chk.Text = Strings.ShowMeAgain;
+            chk.Text = "Show me again?";
             chk.Checked = true;
             chk.Location = new Point(9, 80);
 
@@ -728,7 +728,7 @@ namespace MissionPlanner
 
             chk.CheckStateChanged += new EventHandler(chk_CheckStateChanged);
 
-            buttonOk.Text = Strings.OK;
+            buttonOk.Text = "OK";
             buttonOk.DialogResult = DialogResult.OK;
             buttonOk.Location = new Point(form.Right - 100, 80);
 

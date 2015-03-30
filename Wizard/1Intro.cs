@@ -12,70 +12,93 @@ namespace MissionPlanner.Wizard
 {
     public partial class _1Intro : MyUserControl, IWizard
     {
+        public int a;
+        Color general;
+        Color change;
         public _1Intro()
         {
             InitializeComponent();
+            a = 1;
+            general = label_1.BackColor;
+            change = Color.FromArgb(0,128,0);
+            label_1.BackColor = change;
+            label_2.Visible = false;
+            label_3.Visible = false;
+            label_4.Visible = false;
+            label_5.Visible = false;
+            label_6.Visible = false;
+            label_7.Visible = false;
+            label_8.Visible = false;
         }
 
         public int  WizardValidate()
         {
-            //check if we have a valid selection 
-            if (Wizard.config.ContainsKey("fwtype")) {
-                if (Wizard.config["fwtype"].ToString() == "copter")
-                    // check if its a quad, and show the frame type screen
-                    return 1;
-                else
-                    // skip the frame type screen as its not valid for anythine else
-                    return 2;
-            }
-
-            return 0;
+            Wizard.config["fwtype"] = "plane";
+            return 1;
         }
-
         public bool WizardBusy()
         {
-            return false;
-        }
-        void setfwtype(object sender)
-        {
-            // only remembers the last selected item
-            Wizard.config["fwtype"] = ((Control)sender).Tag.ToString();
-        }
-
-        private void pictureBoxplane_Click(object sender, EventArgs e)
-        {
-            DeselectAll();
-            (sender as PictureBoxMouseOver).selected = true;
-            setfwtype(sender);
+            if (a == 9)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
 
-        private void pictureBoxrover_Click(object sender, EventArgs e)
+       
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            DeselectAll();
-            (sender as PictureBoxMouseOver).selected = true;
-            setfwtype(sender);
+            if( a < 9 )
+                a += 1;
+            switch (a)
+            {
+                case 2:
+                    label_1.BackColor = general;
+                    label_2.Visible = true;
+                    label_2.BackColor = change;
+                    break;
+                case 3:
+                    label_2.BackColor = general;
+                    label_3.Visible = true;
+                    label_3.BackColor = change;
+                    break;
+                case 4:
+                    label_3.BackColor = general;
+                    label_4.Visible = true;
+                    label_4.BackColor = change;
+                    break;
+                case 5:
+                    label_4.BackColor = general;
+                    label_5.Visible = true;
+                    label_5.BackColor = change;
+                    break;
+                case 6:
+                    label_5.BackColor = general;
+                    label_6.Visible = true;
+                    label_6.BackColor = change;
+                    break;
+                case 7:
+                    label_6.BackColor = general;
+                    label_7.Visible = true;
+                    label_7.BackColor = change;
+                    break;
+                case 8:
+                    label_7.BackColor = general;
+                    label_8.Visible = true;
+                    label_8.BackColor = change;
+                    break;
+                case 9:
+                    label_8.BackColor = general;
+                    break;
+            }
+            
         }
 
-        private void pictureBoxquad_Click(object sender, EventArgs e)
-        {
-            DeselectAll();
-            (sender as PictureBoxMouseOver).selected = true;
-            setfwtype(sender);
-        }
-
-        private void pictureBoxheli_Click(object sender, EventArgs e)
-        {
-            DeselectAll();
-            (sender as PictureBoxMouseOver).selected = true;
-            setfwtype(sender);
-        }
-
-        void DeselectAll()
-        {
-            pictureBoxplane.selected = false;
-            pictureBoxheli.selected = false;
-            pictureBoxquad.selected = false;
-            pictureBoxrover.selected = false;
-        }
+       
     }
 }

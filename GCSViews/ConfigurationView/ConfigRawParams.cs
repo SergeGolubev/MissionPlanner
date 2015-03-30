@@ -399,7 +399,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             this.ResumeLayout();
 
-            Common.MessageShowAgain(Strings.RawParamWarning, Strings.RawParamWarningi);
+            Common.MessageShowAgain("Raw Param Warning", "All values on this screen are not min/max checked. Please double check your input.\n Please use Standard/Advanced Params for the safe settings");
 
             CMB_paramfiles.Enabled = false;
             BUT_paramfileload.Enabled = false;

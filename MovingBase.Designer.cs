@@ -62,7 +62,7 @@
             "38400",
             "57600",
             "115200"});
-            this.CMB_baudrate.Location = new System.Drawing.Point(140, 22);
+            this.CMB_baudrate.Location = new System.Drawing.Point(140, 23);
             this.CMB_baudrate.Name = "CMB_baudrate";
             this.CMB_baudrate.Size = new System.Drawing.Size(97, 21);
             this.CMB_baudrate.TabIndex = 2;
