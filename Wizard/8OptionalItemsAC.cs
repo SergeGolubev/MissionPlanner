@@ -21,9 +21,11 @@ namespace MissionPlanner.Wizard
         public void Activate()
         {
             //
-            if (MainV2.comPort.MAV.param.ContainsKey("RNGFND_TYPE"))
+            if (MainV2.comPort.MAV.param.ContainsKey("SONAR_ENABLE"))
             {
-                mavlinkComboBox1.setup(Utilities.ParameterMetaDataRepository.GetParameterOptionsInt("RNGFND_TYPE", MainV2.comPort.MAV.cs.firmware.ToString()), "RNGFND_TYPE", MainV2.comPort.MAV.param);
+                mavlinkCheckBox1.setup(1, 0, "SONAR_ENABLE", MainV2.comPort.MAV.param, mavlinkComboBox1);
+
+                mavlinkComboBox1.setup(Utilities.ParameterMetaDataRepository.GetParameterOptionsInt("SONAR_TYPE", MainV2.comPort.MAV.cs.firmware.ToString()), "SONAR_TYPE", MainV2.comPort.MAV.param);
 
                 mavlinkCheckBox2.setup(1, 0, "FLOW_ENABLE", MainV2.comPort.MAV.param);
 

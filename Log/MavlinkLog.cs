@@ -1447,7 +1447,7 @@ namespace MissionPlanner.Log
                             progressBar1.Refresh();
                         }
 
-                        ushort count = 0;
+                        byte count = 0;
                         try
                         {
                             count = mine.getWPCount();

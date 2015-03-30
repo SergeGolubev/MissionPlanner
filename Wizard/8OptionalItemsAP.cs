@@ -58,9 +58,9 @@ namespace MissionPlanner.Wizard
         {
             if (!MainV2.comPort.BaseStream.IsOpen)
             {
-                CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR);
+                CustomMessageBox.Show(Strings.ErrorNotConnected, Strings.ERROR); // нужно потом раскомментить
                 Wizard.instance.Close();
-            }
+            } 
         }
 
         public void Activate()
@@ -94,13 +94,13 @@ namespace MissionPlanner.Wizard
 
         public int WizardValidate()
         {
-            connected();
+            //connected();
 
-            timer1.Stop();
+            //timer1.Stop();
 
-            updateosd();
+            //updateosd();
 
-            return 1;
+            return 1; // было 1
         }
 
         public bool WizardBusy()
@@ -110,6 +110,17 @@ namespace MissionPlanner.Wizard
         private void timer1_Tick(object sender, EventArgs e)
         {
             LBL_airspeed.Text = MainV2.comPort.MAV.cs.airspeed.ToString("0.00") + " m/s";
+            LBL_Height.Text = MainV2.comPort.MAV.cs.alt.ToString();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

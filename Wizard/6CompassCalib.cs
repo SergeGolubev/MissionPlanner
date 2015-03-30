@@ -19,7 +19,7 @@ namespace MissionPlanner.Wizard
 
         public int WizardValidate()
         {
-            return 1;
+            return 1; // было 1
         }
 
         public bool WizardBusy()

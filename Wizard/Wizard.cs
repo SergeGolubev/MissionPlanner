@@ -34,23 +34,27 @@ namespace MissionPlanner.Wizard
             wiz_main = new MainSwitcher(this.panel1);
 
             wiz_main.AddScreen(new MainSwitcher.Screen("Intro", new _1Intro(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("FrameFW", new _2FrameFW(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("FrameFW", new _2FrameFW(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("Connect", new _3ConnectAP(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("FrameType", new _4FrameType(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("FrameType", new _4FrameType(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("AccelCalib", new _5AccelCalib(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("CompassCalib", new _6CompassCalib(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("BatteryMonitor", new _7BatteryMonitor(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("OptionalAC", new _8OptionalItemsAC(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("OptionalAP", new _8OptionalItemsAP(), true));
+          
+            //wiz_main.AddScreen(new MainSwitcher.Screen("BatteryMonitor", new _7BatteryMonitor(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("OptionalAC", new _8OptionalItemsAC(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("OptionalAP", new _8OptionalItemsAP(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("Radio Calib", new _9RadioCalibration(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("Flight Modes",new _10FlightModes(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("Verify", new _11Verify(), true));
-            wiz_main.AddScreen(new MainSwitcher.Screen("Failsafe", new _12FailSafe(), true));
+            wiz_main.AddScreen(new MainSwitcher.Screen("GPS Check", new GPS_Check(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("Flight Modes",new _10FlightModes(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("Verify", new _11Verify(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("Failsafe", new _12FailSafe(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("GeoFence", new _13GeoFence(), true));
+            wiz_main.AddScreen(new MainSwitcher.Screen("StabilCheck", new DS_Check(), true));
+            wiz_main.AddScreen(new MainSwitcher.Screen("Finish", new Finish(), true));
 
-            wiz_main.AddScreen(new MainSwitcher.Screen("DontForget", new _98DontForget(), true));
+            //wiz_main.AddScreen(new MainSwitcher.Screen("DontForget", new _98DontForget(), true));
 
-            if (MainV2.comPort.BaseStream.IsOpen)
+            /*if (MainV2.comPort.BaseStream.IsOpen)
             {
                 if (MainV2.comPort.MAV.aptype == MAVLink.MAV_TYPE.FIXED_WING)
                 {
@@ -70,13 +74,13 @@ namespace MissionPlanner.Wizard
                 }
             }
             else
-            {
-                wiz_main.ShowScreen("Intro");
-            }
+            {*/
+            wiz_main.ShowScreen("Intro");
+            //} 
 
             history.Add(wiz_main.current.Name);
 
-            progressStep1.Maximum = wiz_main.screens.Count + 1;
+            progressStep1.Maximum = wiz_main.screens.Count;
             progressStep1.Step = 1;
         }
 

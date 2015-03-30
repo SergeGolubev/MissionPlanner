@@ -13,6 +13,7 @@ using MissionPlanner.Utilities;
 using MissionPlanner;
 using System.Drawing;
 using System.Text.RegularExpressions;
+using MissionPlanner.Wizard;
 
 namespace MissionPlanner
 {
@@ -210,7 +211,14 @@ namespace MissionPlanner
                 //System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
 
                 Thread.CurrentThread.Name = "Base Thread";
-                Application.Run(new MainV2());
+                MainV2 misplanner = new MainV2();
+                MissionPlanner.Wizard.Wizard a = new MissionPlanner.Wizard.Wizard();
+                MissionPlanner.GCSViews.Simple b = new MissionPlanner.GCSViews.Simple();
+                Application.Run(misplanner);
+                //Application.Run(new Form1());
+                //Application.Run(misplanner);
+                
+               
             }
             catch (Exception ex)
             {

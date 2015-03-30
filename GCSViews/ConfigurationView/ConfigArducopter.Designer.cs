@@ -30,82 +30,76 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigArducopter));
-            this.TUNE_LOW = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.TUNE_HIGH = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.TUNE_LOW = new System.Windows.Forms.NumericUpDown();
+            this.TUNE_HIGH = new System.Windows.Forms.NumericUpDown();
             this.TUNE = new System.Windows.Forms.ComboBox();
             this.CH7_OPT = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.THR_RATE_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.THR_RATE_P = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
             this.CHK_lockrollpitch = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.WPNAV_SPEED_UP = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.WPNAV_SPEED_UP = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
-            this.WPNAV_LOIT_SPEED = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.WPNAV_LOIT_SPEED = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.WPNAV_SPEED_DN = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.WPNAV_SPEED_DN = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.WPNAV_RADIUS = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.WPNAV_RADIUS = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
-            this.WPNAV_SPEED = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.WPNAV_SPEED = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.THR_ALT_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.THR_ALT_P = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.HLD_LAT_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.HLD_LAT_P = new System.Windows.Forms.NumericUpDown();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.STB_YAW_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.STB_YAW_P = new System.Windows.Forms.NumericUpDown();
             this.label35 = new System.Windows.Forms.Label();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.STB_PIT_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.STB_PIT_P = new System.Windows.Forms.NumericUpDown();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.STB_RLL_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.STB_RLL_P = new System.Windows.Forms.NumericUpDown();
             this.label46 = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.RATE_YAW_FF = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.RATE_YAW_D = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_YAW_D = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.RATE_YAW_IMAX = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_YAW_IMAX = new System.Windows.Forms.NumericUpDown();
             this.label47 = new System.Windows.Forms.Label();
-            this.RATE_YAW_I = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_YAW_I = new System.Windows.Forms.NumericUpDown();
             this.label77 = new System.Windows.Forms.Label();
-            this.RATE_YAW_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_YAW_P = new System.Windows.Forms.NumericUpDown();
             this.label82 = new System.Windows.Forms.Label();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.RATE_PITCH_FF = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.RATE_PIT_D = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_PIT_D = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.RATE_PIT_IMAX = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_PIT_IMAX = new System.Windows.Forms.NumericUpDown();
             this.label84 = new System.Windows.Forms.Label();
-            this.RATE_PIT_I = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_PIT_I = new System.Windows.Forms.NumericUpDown();
             this.label86 = new System.Windows.Forms.Label();
-            this.RATE_PIT_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_PIT_P = new System.Windows.Forms.NumericUpDown();
             this.label87 = new System.Windows.Forms.Label();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.RATE_ROLL_FF = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.RATE_RLL_D = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_RLL_D = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.RATE_RLL_IMAX = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_RLL_IMAX = new System.Windows.Forms.NumericUpDown();
             this.label88 = new System.Windows.Forms.Label();
-            this.RATE_RLL_I = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_RLL_I = new System.Windows.Forms.NumericUpDown();
             this.label90 = new System.Windows.Forms.Label();
-            this.RATE_RLL_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.RATE_RLL_P = new System.Windows.Forms.NumericUpDown();
             this.label91 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LOITER_LAT_D = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.LOITER_LAT_D = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.LOITER_LAT_IMAX = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.LOITER_LAT_IMAX = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.LOITER_LAT_I = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.LOITER_LAT_I = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.LOITER_LAT_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.LOITER_LAT_P = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.BUT_rerequestparams = new MissionPlanner.Controls.MyButton();
             this.BUT_writePIDS = new MissionPlanner.Controls.MyButton();
@@ -113,17 +107,23 @@
             this.myLabel2 = new MissionPlanner.Controls.MyLabel();
             this.myLabel1 = new MissionPlanner.Controls.MyLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.THR_ACCEL_D = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.THR_ACCEL_D = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.THR_ACCEL_IMAX = new MissionPlanner.Controls.MavlinkNumericUpDown();
-            this.THR_ACCEL_I = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.THR_ACCEL_IMAX = new System.Windows.Forms.NumericUpDown();
+            this.THR_ACCEL_I = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.THR_ACCEL_P = new MissionPlanner.Controls.MavlinkNumericUpDown();
+            this.THR_ACCEL_P = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.BUT_refreshpart = new MissionPlanner.Controls.MyButton();
             this.myLabel4 = new MissionPlanner.Controls.MyLabel();
             this.CH8_OPT = new System.Windows.Forms.ComboBox();
+            this.RATE_ROLL_FF = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.RATE_PITCH_FF = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.RATE_YAW_FF = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TUNE_LOW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TUNE_HIGH)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -145,19 +145,16 @@
             this.groupBox22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.STB_RLL_P)).BeginInit();
             this.groupBox23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_FF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_D)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_IMAX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_P)).BeginInit();
             this.groupBox24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_PITCH_FF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_D)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_IMAX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_P)).BeginInit();
             this.groupBox25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_ROLL_FF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_D)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_IMAX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_I)).BeginInit();
@@ -172,27 +169,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_IMAX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_I)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_P)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_ROLL_FF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_PITCH_FF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_FF)).BeginInit();
             this.SuspendLayout();
             // 
             // TUNE_LOW
             // 
             resources.ApplyResources(this.TUNE_LOW, "TUNE_LOW");
-            this.TUNE_LOW.Max = 1F;
-            this.TUNE_LOW.Min = 0F;
             this.TUNE_LOW.Name = "TUNE_LOW";
-            this.TUNE_LOW.param = null;
-            this.TUNE_LOW.ParamName = null;
-            this.TUNE_LOW.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // TUNE_HIGH
             // 
             resources.ApplyResources(this.TUNE_HIGH, "TUNE_HIGH");
-            this.TUNE_HIGH.Max = 1F;
-            this.TUNE_HIGH.Min = 0F;
             this.TUNE_HIGH.Name = "TUNE_HIGH";
-            this.TUNE_HIGH.param = null;
-            this.TUNE_HIGH.ParamName = null;
-            this.TUNE_HIGH.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // TUNE
             // 
@@ -221,12 +211,7 @@
             // THR_RATE_P
             // 
             resources.ApplyResources(this.THR_RATE_P, "THR_RATE_P");
-            this.THR_RATE_P.Max = 1F;
-            this.THR_RATE_P.Min = 0F;
             this.THR_RATE_P.Name = "THR_RATE_P";
-            this.THR_RATE_P.param = null;
-            this.THR_RATE_P.ParamName = null;
-            this.THR_RATE_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label25
             // 
@@ -260,12 +245,7 @@
             // WPNAV_SPEED_UP
             // 
             resources.ApplyResources(this.WPNAV_SPEED_UP, "WPNAV_SPEED_UP");
-            this.WPNAV_SPEED_UP.Max = 1F;
-            this.WPNAV_SPEED_UP.Min = 0F;
             this.WPNAV_SPEED_UP.Name = "WPNAV_SPEED_UP";
-            this.WPNAV_SPEED_UP.param = null;
-            this.WPNAV_SPEED_UP.ParamName = null;
-            this.WPNAV_SPEED_UP.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label27
             // 
@@ -275,12 +255,7 @@
             // WPNAV_LOIT_SPEED
             // 
             resources.ApplyResources(this.WPNAV_LOIT_SPEED, "WPNAV_LOIT_SPEED");
-            this.WPNAV_LOIT_SPEED.Max = 1F;
-            this.WPNAV_LOIT_SPEED.Min = 0F;
             this.WPNAV_LOIT_SPEED.Name = "WPNAV_LOIT_SPEED";
-            this.WPNAV_LOIT_SPEED.param = null;
-            this.WPNAV_LOIT_SPEED.ParamName = null;
-            this.WPNAV_LOIT_SPEED.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label9
             // 
@@ -290,12 +265,7 @@
             // WPNAV_SPEED_DN
             // 
             resources.ApplyResources(this.WPNAV_SPEED_DN, "WPNAV_SPEED_DN");
-            this.WPNAV_SPEED_DN.Max = 1F;
-            this.WPNAV_SPEED_DN.Min = 0F;
             this.WPNAV_SPEED_DN.Name = "WPNAV_SPEED_DN";
-            this.WPNAV_SPEED_DN.param = null;
-            this.WPNAV_SPEED_DN.ParamName = null;
-            this.WPNAV_SPEED_DN.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label13
             // 
@@ -305,12 +275,7 @@
             // WPNAV_RADIUS
             // 
             resources.ApplyResources(this.WPNAV_RADIUS, "WPNAV_RADIUS");
-            this.WPNAV_RADIUS.Max = 1F;
-            this.WPNAV_RADIUS.Min = 0F;
             this.WPNAV_RADIUS.Name = "WPNAV_RADIUS";
-            this.WPNAV_RADIUS.param = null;
-            this.WPNAV_RADIUS.ParamName = null;
-            this.WPNAV_RADIUS.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label15
             // 
@@ -320,12 +285,7 @@
             // WPNAV_SPEED
             // 
             resources.ApplyResources(this.WPNAV_SPEED, "WPNAV_SPEED");
-            this.WPNAV_SPEED.Max = 1F;
-            this.WPNAV_SPEED.Min = 0F;
             this.WPNAV_SPEED.Name = "WPNAV_SPEED";
-            this.WPNAV_SPEED.param = null;
-            this.WPNAV_SPEED.ParamName = null;
-            this.WPNAV_SPEED.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label16
             // 
@@ -343,12 +303,7 @@
             // THR_ALT_P
             // 
             resources.ApplyResources(this.THR_ALT_P, "THR_ALT_P");
-            this.THR_ALT_P.Max = 1F;
-            this.THR_ALT_P.Min = 0F;
             this.THR_ALT_P.Name = "THR_ALT_P";
-            this.THR_ALT_P.param = null;
-            this.THR_ALT_P.ParamName = null;
-            this.THR_ALT_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label22
             // 
@@ -366,12 +321,7 @@
             // HLD_LAT_P
             // 
             resources.ApplyResources(this.HLD_LAT_P, "HLD_LAT_P");
-            this.HLD_LAT_P.Max = 1F;
-            this.HLD_LAT_P.Min = 0F;
             this.HLD_LAT_P.Name = "HLD_LAT_P";
-            this.HLD_LAT_P.param = null;
-            this.HLD_LAT_P.ParamName = null;
-            this.HLD_LAT_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label31
             // 
@@ -389,12 +339,7 @@
             // STB_YAW_P
             // 
             resources.ApplyResources(this.STB_YAW_P, "STB_YAW_P");
-            this.STB_YAW_P.Max = 1F;
-            this.STB_YAW_P.Min = 0F;
             this.STB_YAW_P.Name = "STB_YAW_P";
-            this.STB_YAW_P.param = null;
-            this.STB_YAW_P.ParamName = null;
-            this.STB_YAW_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label35
             // 
@@ -412,12 +357,7 @@
             // STB_PIT_P
             // 
             resources.ApplyResources(this.STB_PIT_P, "STB_PIT_P");
-            this.STB_PIT_P.Max = 1F;
-            this.STB_PIT_P.Min = 0F;
             this.STB_PIT_P.Name = "STB_PIT_P";
-            this.STB_PIT_P.param = null;
-            this.STB_PIT_P.ParamName = null;
-            this.STB_PIT_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label42
             // 
@@ -435,12 +375,7 @@
             // STB_RLL_P
             // 
             resources.ApplyResources(this.STB_RLL_P, "STB_RLL_P");
-            this.STB_RLL_P.Max = 1F;
-            this.STB_RLL_P.Min = 0F;
             this.STB_RLL_P.Name = "STB_RLL_P";
-            this.STB_RLL_P.param = null;
-            this.STB_RLL_P.ParamName = null;
-            this.STB_RLL_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label46
             // 
@@ -463,30 +398,10 @@
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.TabStop = false;
             // 
-            // RATE_YAW_FF
-            // 
-            resources.ApplyResources(this.RATE_YAW_FF, "RATE_YAW_FF");
-            this.RATE_YAW_FF.Max = 1F;
-            this.RATE_YAW_FF.Min = 0F;
-            this.RATE_YAW_FF.Name = "RATE_YAW_FF";
-            this.RATE_YAW_FF.param = null;
-            this.RATE_YAW_FF.ParamName = null;
-            this.RATE_YAW_FF.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
             // RATE_YAW_D
             // 
             resources.ApplyResources(this.RATE_YAW_D, "RATE_YAW_D");
-            this.RATE_YAW_D.Max = 1F;
-            this.RATE_YAW_D.Min = 0F;
             this.RATE_YAW_D.Name = "RATE_YAW_D";
-            this.RATE_YAW_D.param = null;
-            this.RATE_YAW_D.ParamName = null;
-            this.RATE_YAW_D.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label10
             // 
@@ -496,12 +411,7 @@
             // RATE_YAW_IMAX
             // 
             resources.ApplyResources(this.RATE_YAW_IMAX, "RATE_YAW_IMAX");
-            this.RATE_YAW_IMAX.Max = 1F;
-            this.RATE_YAW_IMAX.Min = 0F;
             this.RATE_YAW_IMAX.Name = "RATE_YAW_IMAX";
-            this.RATE_YAW_IMAX.param = null;
-            this.RATE_YAW_IMAX.ParamName = null;
-            this.RATE_YAW_IMAX.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label47
             // 
@@ -511,12 +421,7 @@
             // RATE_YAW_I
             // 
             resources.ApplyResources(this.RATE_YAW_I, "RATE_YAW_I");
-            this.RATE_YAW_I.Max = 1F;
-            this.RATE_YAW_I.Min = 0F;
             this.RATE_YAW_I.Name = "RATE_YAW_I";
-            this.RATE_YAW_I.param = null;
-            this.RATE_YAW_I.ParamName = null;
-            this.RATE_YAW_I.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label77
             // 
@@ -526,12 +431,7 @@
             // RATE_YAW_P
             // 
             resources.ApplyResources(this.RATE_YAW_P, "RATE_YAW_P");
-            this.RATE_YAW_P.Max = 1F;
-            this.RATE_YAW_P.Min = 0F;
             this.RATE_YAW_P.Name = "RATE_YAW_P";
-            this.RATE_YAW_P.param = null;
-            this.RATE_YAW_P.ParamName = null;
-            this.RATE_YAW_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label82
             // 
@@ -554,30 +454,10 @@
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.TabStop = false;
             // 
-            // RATE_PITCH_FF
-            // 
-            resources.ApplyResources(this.RATE_PITCH_FF, "RATE_PITCH_FF");
-            this.RATE_PITCH_FF.Max = 1F;
-            this.RATE_PITCH_FF.Min = 0F;
-            this.RATE_PITCH_FF.Name = "RATE_PITCH_FF";
-            this.RATE_PITCH_FF.param = null;
-            this.RATE_PITCH_FF.ParamName = null;
-            this.RATE_PITCH_FF.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.Name = "label14";
-            // 
             // RATE_PIT_D
             // 
             resources.ApplyResources(this.RATE_PIT_D, "RATE_PIT_D");
-            this.RATE_PIT_D.Max = 1F;
-            this.RATE_PIT_D.Min = 0F;
             this.RATE_PIT_D.Name = "RATE_PIT_D";
-            this.RATE_PIT_D.param = null;
-            this.RATE_PIT_D.ParamName = null;
-            this.RATE_PIT_D.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label11
             // 
@@ -587,12 +467,7 @@
             // RATE_PIT_IMAX
             // 
             resources.ApplyResources(this.RATE_PIT_IMAX, "RATE_PIT_IMAX");
-            this.RATE_PIT_IMAX.Max = 1F;
-            this.RATE_PIT_IMAX.Min = 0F;
             this.RATE_PIT_IMAX.Name = "RATE_PIT_IMAX";
-            this.RATE_PIT_IMAX.param = null;
-            this.RATE_PIT_IMAX.ParamName = null;
-            this.RATE_PIT_IMAX.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label84
             // 
@@ -602,12 +477,7 @@
             // RATE_PIT_I
             // 
             resources.ApplyResources(this.RATE_PIT_I, "RATE_PIT_I");
-            this.RATE_PIT_I.Max = 1F;
-            this.RATE_PIT_I.Min = 0F;
             this.RATE_PIT_I.Name = "RATE_PIT_I";
-            this.RATE_PIT_I.param = null;
-            this.RATE_PIT_I.ParamName = null;
-            this.RATE_PIT_I.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label86
             // 
@@ -617,12 +487,7 @@
             // RATE_PIT_P
             // 
             resources.ApplyResources(this.RATE_PIT_P, "RATE_PIT_P");
-            this.RATE_PIT_P.Max = 1F;
-            this.RATE_PIT_P.Min = 0F;
             this.RATE_PIT_P.Name = "RATE_PIT_P";
-            this.RATE_PIT_P.param = null;
-            this.RATE_PIT_P.ParamName = null;
-            this.RATE_PIT_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label87
             // 
@@ -645,30 +510,10 @@
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.TabStop = false;
             // 
-            // RATE_ROLL_FF
-            // 
-            resources.ApplyResources(this.RATE_ROLL_FF, "RATE_ROLL_FF");
-            this.RATE_ROLL_FF.Max = 1F;
-            this.RATE_ROLL_FF.Min = 0F;
-            this.RATE_ROLL_FF.Name = "RATE_ROLL_FF";
-            this.RATE_ROLL_FF.param = null;
-            this.RATE_ROLL_FF.ParamName = null;
-            this.RATE_ROLL_FF.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
-            // 
             // RATE_RLL_D
             // 
             resources.ApplyResources(this.RATE_RLL_D, "RATE_RLL_D");
-            this.RATE_RLL_D.Max = 1F;
-            this.RATE_RLL_D.Min = 0F;
             this.RATE_RLL_D.Name = "RATE_RLL_D";
-            this.RATE_RLL_D.param = null;
-            this.RATE_RLL_D.ParamName = null;
-            this.RATE_RLL_D.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label17
             // 
@@ -678,12 +523,7 @@
             // RATE_RLL_IMAX
             // 
             resources.ApplyResources(this.RATE_RLL_IMAX, "RATE_RLL_IMAX");
-            this.RATE_RLL_IMAX.Max = 1F;
-            this.RATE_RLL_IMAX.Min = 0F;
             this.RATE_RLL_IMAX.Name = "RATE_RLL_IMAX";
-            this.RATE_RLL_IMAX.param = null;
-            this.RATE_RLL_IMAX.ParamName = null;
-            this.RATE_RLL_IMAX.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label88
             // 
@@ -693,12 +533,7 @@
             // RATE_RLL_I
             // 
             resources.ApplyResources(this.RATE_RLL_I, "RATE_RLL_I");
-            this.RATE_RLL_I.Max = 1F;
-            this.RATE_RLL_I.Min = 0F;
             this.RATE_RLL_I.Name = "RATE_RLL_I";
-            this.RATE_RLL_I.param = null;
-            this.RATE_RLL_I.ParamName = null;
-            this.RATE_RLL_I.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label90
             // 
@@ -708,12 +543,7 @@
             // RATE_RLL_P
             // 
             resources.ApplyResources(this.RATE_RLL_P, "RATE_RLL_P");
-            this.RATE_RLL_P.Max = 1F;
-            this.RATE_RLL_P.Min = 0F;
             this.RATE_RLL_P.Name = "RATE_RLL_P";
-            this.RATE_RLL_P.param = null;
-            this.RATE_RLL_P.ParamName = null;
-            this.RATE_RLL_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label91
             // 
@@ -743,12 +573,7 @@
             // LOITER_LAT_D
             // 
             resources.ApplyResources(this.LOITER_LAT_D, "LOITER_LAT_D");
-            this.LOITER_LAT_D.Max = 1F;
-            this.LOITER_LAT_D.Min = 0F;
             this.LOITER_LAT_D.Name = "LOITER_LAT_D";
-            this.LOITER_LAT_D.param = null;
-            this.LOITER_LAT_D.ParamName = null;
-            this.LOITER_LAT_D.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label1
             // 
@@ -758,12 +583,7 @@
             // LOITER_LAT_IMAX
             // 
             resources.ApplyResources(this.LOITER_LAT_IMAX, "LOITER_LAT_IMAX");
-            this.LOITER_LAT_IMAX.Max = 1F;
-            this.LOITER_LAT_IMAX.Min = 0F;
             this.LOITER_LAT_IMAX.Name = "LOITER_LAT_IMAX";
-            this.LOITER_LAT_IMAX.param = null;
-            this.LOITER_LAT_IMAX.ParamName = null;
-            this.LOITER_LAT_IMAX.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label2
             // 
@@ -773,12 +593,7 @@
             // LOITER_LAT_I
             // 
             resources.ApplyResources(this.LOITER_LAT_I, "LOITER_LAT_I");
-            this.LOITER_LAT_I.Max = 1F;
-            this.LOITER_LAT_I.Min = 0F;
             this.LOITER_LAT_I.Name = "LOITER_LAT_I";
-            this.LOITER_LAT_I.param = null;
-            this.LOITER_LAT_I.ParamName = null;
-            this.LOITER_LAT_I.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label3
             // 
@@ -788,12 +603,7 @@
             // LOITER_LAT_P
             // 
             resources.ApplyResources(this.LOITER_LAT_P, "LOITER_LAT_P");
-            this.LOITER_LAT_P.Max = 1F;
-            this.LOITER_LAT_P.Min = 0F;
             this.LOITER_LAT_P.Name = "LOITER_LAT_P";
-            this.LOITER_LAT_P.param = null;
-            this.LOITER_LAT_P.ParamName = null;
-            this.LOITER_LAT_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label4
             // 
@@ -849,12 +659,7 @@
             // THR_ACCEL_D
             // 
             resources.ApplyResources(this.THR_ACCEL_D, "THR_ACCEL_D");
-            this.THR_ACCEL_D.Max = 1F;
-            this.THR_ACCEL_D.Min = 0F;
             this.THR_ACCEL_D.Name = "THR_ACCEL_D";
-            this.THR_ACCEL_D.param = null;
-            this.THR_ACCEL_D.ParamName = null;
-            this.THR_ACCEL_D.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label5
             // 
@@ -869,27 +674,17 @@
             // THR_ACCEL_IMAX
             // 
             resources.ApplyResources(this.THR_ACCEL_IMAX, "THR_ACCEL_IMAX");
-            this.THR_ACCEL_IMAX.Max = 1F;
             this.THR_ACCEL_IMAX.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.THR_ACCEL_IMAX.Min = 0F;
             this.THR_ACCEL_IMAX.Name = "THR_ACCEL_IMAX";
-            this.THR_ACCEL_IMAX.param = null;
-            this.THR_ACCEL_IMAX.ParamName = null;
-            this.THR_ACCEL_IMAX.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // THR_ACCEL_I
             // 
             resources.ApplyResources(this.THR_ACCEL_I, "THR_ACCEL_I");
-            this.THR_ACCEL_I.Max = 1F;
-            this.THR_ACCEL_I.Min = 0F;
             this.THR_ACCEL_I.Name = "THR_ACCEL_I";
-            this.THR_ACCEL_I.param = null;
-            this.THR_ACCEL_I.ParamName = null;
-            this.THR_ACCEL_I.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label7
             // 
@@ -899,12 +694,7 @@
             // THR_ACCEL_P
             // 
             resources.ApplyResources(this.THR_ACCEL_P, "THR_ACCEL_P");
-            this.THR_ACCEL_P.Max = 1F;
-            this.THR_ACCEL_P.Min = 0F;
             this.THR_ACCEL_P.Name = "THR_ACCEL_P";
-            this.THR_ACCEL_P.param = null;
-            this.THR_ACCEL_P.ParamName = null;
-            this.THR_ACCEL_P.ValueUpdated += new System.EventHandler(this.numeric_ValueUpdated);
             // 
             // label8
             // 
@@ -931,6 +721,36 @@
             this.CH8_OPT.FormattingEnabled = true;
             resources.ApplyResources(this.CH8_OPT, "CH8_OPT");
             this.CH8_OPT.Name = "CH8_OPT";
+            // 
+            // RATE_ROLL_FF
+            // 
+            resources.ApplyResources(this.RATE_ROLL_FF, "RATE_ROLL_FF");
+            this.RATE_ROLL_FF.Name = "RATE_ROLL_FF";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // RATE_PITCH_FF
+            // 
+            resources.ApplyResources(this.RATE_PITCH_FF, "RATE_PITCH_FF");
+            this.RATE_PITCH_FF.Name = "RATE_PITCH_FF";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // RATE_YAW_FF
+            // 
+            resources.ApplyResources(this.RATE_YAW_FF, "RATE_YAW_FF");
+            this.RATE_YAW_FF.Name = "RATE_YAW_FF";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
             // 
             // ConfigArducopter
             // 
@@ -983,19 +803,16 @@
             this.groupBox22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.STB_RLL_P)).EndInit();
             this.groupBox23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_FF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_D)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_IMAX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_P)).EndInit();
             this.groupBox24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_PITCH_FF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_D)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_IMAX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_PIT_P)).EndInit();
             this.groupBox25.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RATE_ROLL_FF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_D)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_IMAX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RATE_RLL_I)).EndInit();
@@ -1010,108 +827,109 @@
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_IMAX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_I)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.THR_ACCEL_P)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_ROLL_FF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_PITCH_FF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RATE_YAW_FF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-  
-
         #endregion
 
         private Controls.MyLabel myLabel3;
-        private Controls.MavlinkNumericUpDown TUNE_LOW;
-        private Controls.MavlinkNumericUpDown TUNE_HIGH;
+        private System.Windows.Forms.NumericUpDown TUNE_LOW;
+        private System.Windows.Forms.NumericUpDown TUNE_HIGH;
         private Controls.MyLabel myLabel2;
         private System.Windows.Forms.ComboBox TUNE;
         private Controls.MyLabel myLabel1;
         private System.Windows.Forms.ComboBox CH7_OPT;
         private System.Windows.Forms.GroupBox groupBox5;
-        private Controls.MavlinkNumericUpDown THR_RATE_P;
+        private System.Windows.Forms.NumericUpDown THR_RATE_P;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.CheckBox CHK_lockrollpitch;
         private System.Windows.Forms.GroupBox groupBox4;
-        private Controls.MavlinkNumericUpDown WPNAV_SPEED_UP;
+        private System.Windows.Forms.NumericUpDown WPNAV_SPEED_UP;
         private System.Windows.Forms.Label label27;
-        private Controls.MavlinkNumericUpDown WPNAV_LOIT_SPEED;
+        private System.Windows.Forms.NumericUpDown WPNAV_LOIT_SPEED;
         private System.Windows.Forms.Label label9;
-        private Controls.MavlinkNumericUpDown WPNAV_SPEED_DN;
+        private System.Windows.Forms.NumericUpDown WPNAV_SPEED_DN;
         private System.Windows.Forms.Label label13;
-        private Controls.MavlinkNumericUpDown WPNAV_RADIUS;
+        private System.Windows.Forms.NumericUpDown WPNAV_RADIUS;
         private System.Windows.Forms.Label label15;
-        private Controls.MavlinkNumericUpDown WPNAV_SPEED;
+        private System.Windows.Forms.NumericUpDown WPNAV_SPEED;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox7;
-        private Controls.MavlinkNumericUpDown THR_ALT_P;
+        private System.Windows.Forms.NumericUpDown THR_ALT_P;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox19;
-        private Controls.MavlinkNumericUpDown HLD_LAT_P;
+        private System.Windows.Forms.NumericUpDown HLD_LAT_P;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.GroupBox groupBox20;
-        private Controls.MavlinkNumericUpDown STB_YAW_P;
+        private System.Windows.Forms.NumericUpDown STB_YAW_P;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.GroupBox groupBox21;
-        private Controls.MavlinkNumericUpDown STB_PIT_P;
+        private System.Windows.Forms.NumericUpDown STB_PIT_P;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.GroupBox groupBox22;
-        private Controls.MavlinkNumericUpDown STB_RLL_P;
+        private System.Windows.Forms.NumericUpDown STB_RLL_P;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.GroupBox groupBox23;
-        private Controls.MavlinkNumericUpDown RATE_YAW_D;
+        private System.Windows.Forms.NumericUpDown RATE_YAW_D;
         private System.Windows.Forms.Label label10;
-        private Controls.MavlinkNumericUpDown RATE_YAW_IMAX;
+        private System.Windows.Forms.NumericUpDown RATE_YAW_IMAX;
         private System.Windows.Forms.Label label47;
-        private Controls.MavlinkNumericUpDown RATE_YAW_I;
+        private System.Windows.Forms.NumericUpDown RATE_YAW_I;
         private System.Windows.Forms.Label label77;
-        private Controls.MavlinkNumericUpDown RATE_YAW_P;
+        private System.Windows.Forms.NumericUpDown RATE_YAW_P;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.GroupBox groupBox24;
-        private Controls.MavlinkNumericUpDown RATE_PIT_D;
+        private System.Windows.Forms.NumericUpDown RATE_PIT_D;
         private System.Windows.Forms.Label label11;
-        private Controls.MavlinkNumericUpDown RATE_PIT_IMAX;
+        private System.Windows.Forms.NumericUpDown RATE_PIT_IMAX;
         private System.Windows.Forms.Label label84;
-        private Controls.MavlinkNumericUpDown RATE_PIT_I;
+        private System.Windows.Forms.NumericUpDown RATE_PIT_I;
         private System.Windows.Forms.Label label86;
-        private Controls.MavlinkNumericUpDown RATE_PIT_P;
+        private System.Windows.Forms.NumericUpDown RATE_PIT_P;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.GroupBox groupBox25;
-        private Controls.MavlinkNumericUpDown RATE_RLL_D;
+        private System.Windows.Forms.NumericUpDown RATE_RLL_D;
         private System.Windows.Forms.Label label17;
-        private Controls.MavlinkNumericUpDown RATE_RLL_IMAX;
+        private System.Windows.Forms.NumericUpDown RATE_RLL_IMAX;
         private System.Windows.Forms.Label label88;
-        private Controls.MavlinkNumericUpDown RATE_RLL_I;
+        private System.Windows.Forms.NumericUpDown RATE_RLL_I;
         private System.Windows.Forms.Label label90;
-        private Controls.MavlinkNumericUpDown RATE_RLL_P;
+        private System.Windows.Forms.NumericUpDown RATE_RLL_P;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.ToolTip toolTip1;
         private Controls.MyButton BUT_writePIDS;
         private Controls.MyButton BUT_rerequestparams;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Controls.MavlinkNumericUpDown LOITER_LAT_D;
+        private System.Windows.Forms.NumericUpDown LOITER_LAT_D;
         private System.Windows.Forms.Label label1;
-        private Controls.MavlinkNumericUpDown LOITER_LAT_IMAX;
+        private System.Windows.Forms.NumericUpDown LOITER_LAT_IMAX;
         private System.Windows.Forms.Label label2;
-        private Controls.MavlinkNumericUpDown LOITER_LAT_I;
+        private System.Windows.Forms.NumericUpDown LOITER_LAT_I;
         private System.Windows.Forms.Label label3;
-        private Controls.MavlinkNumericUpDown LOITER_LAT_P;
+        private System.Windows.Forms.NumericUpDown LOITER_LAT_P;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Controls.MavlinkNumericUpDown THR_ACCEL_D;
+        private System.Windows.Forms.NumericUpDown THR_ACCEL_D;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private Controls.MavlinkNumericUpDown THR_ACCEL_IMAX;
-        private Controls.MavlinkNumericUpDown THR_ACCEL_I;
+        private System.Windows.Forms.NumericUpDown THR_ACCEL_IMAX;
+        private System.Windows.Forms.NumericUpDown THR_ACCEL_I;
         private System.Windows.Forms.Label label7;
-        private Controls.MavlinkNumericUpDown THR_ACCEL_P;
+        private System.Windows.Forms.NumericUpDown THR_ACCEL_P;
         private System.Windows.Forms.Label label8;
         private Controls.MyButton BUT_refreshpart;
         private Controls.MyLabel myLabel4;
         private System.Windows.Forms.ComboBox CH8_OPT;
-        private Controls.MavlinkNumericUpDown RATE_YAW_FF;
+        private System.Windows.Forms.NumericUpDown RATE_YAW_FF;
         private System.Windows.Forms.Label label18;
-        private Controls.MavlinkNumericUpDown RATE_PITCH_FF;
+        private System.Windows.Forms.NumericUpDown RATE_PITCH_FF;
         private System.Windows.Forms.Label label14;
-        private Controls.MavlinkNumericUpDown RATE_ROLL_FF;
+        private System.Windows.Forms.NumericUpDown RATE_ROLL_FF;
         private System.Windows.Forms.Label label12;
     }
 }

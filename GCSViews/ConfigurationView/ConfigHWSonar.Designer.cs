@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigHWSonar));
-            this.CMB_sonartype = new MissionPlanner.Controls.MavlinkComboBox();
+            this.CMB_sonartype = new Controls.MavlinkComboBox();
+            this.CHK_enablesonar = new MissionPlanner.Controls.MavlinkCheckBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -44,17 +45,25 @@
             // 
             // CMB_sonartype
             // 
-            this.CMB_sonartype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.CMB_sonartype, "CMB_sonartype");
             this.CMB_sonartype.FormattingEnabled = true;
             this.CMB_sonartype.Items.AddRange(new object[] {
             resources.GetString("CMB_sonartype.Items"),
             resources.GetString("CMB_sonartype.Items1"),
             resources.GetString("CMB_sonartype.Items2"),
             resources.GetString("CMB_sonartype.Items3")});
+            resources.ApplyResources(this.CMB_sonartype, "CMB_sonartype");
             this.CMB_sonartype.Name = "CMB_sonartype";
-            this.CMB_sonartype.param = null;
-            this.CMB_sonartype.ParamName = null;
+            // 
+            // CHK_enablesonar
+            // 
+            resources.ApplyResources(this.CHK_enablesonar, "CHK_enablesonar");
+            this.CHK_enablesonar.Name = "CHK_enablesonar";
+            this.CHK_enablesonar.OffValue = 0F;
+            this.CHK_enablesonar.OnValue = 1F;
+            this.CHK_enablesonar.param = null;
+            this.CHK_enablesonar.ParamName = null;
+            this.CHK_enablesonar.UseVisualStyleBackColor = true;
+            this.CHK_enablesonar.CheckedChanged += new System.EventHandler(this.CHK_enablesonar_CheckedChanged);
             // 
             // pictureBox3
             // 
@@ -109,6 +118,7 @@
             this.Controls.Add(this.LBL_dist);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.CHK_enablesonar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CMB_sonartype);
@@ -123,6 +133,7 @@
         #endregion
 
         private Controls.MavlinkComboBox CMB_sonartype;
+        private Controls.MavlinkCheckBox CHK_enablesonar;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;

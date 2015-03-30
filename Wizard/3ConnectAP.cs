@@ -86,7 +86,7 @@ namespace MissionPlanner.Wizard
 
         public int WizardValidate()
         {
-            comport = CMB_port.Text;
+           /* comport = CMB_port.Text;
 
             if (comport == "")
             {
@@ -128,7 +128,7 @@ namespace MissionPlanner.Wizard
             if (!MainV2.comPort.BaseStream.IsOpen)
                 return 0;
 
-            if (string.IsNullOrEmpty(pdr.doWorkArgs.ErrorMessage))
+            /*if (string.IsNullOrEmpty(pdr.doWorkArgs.ErrorMessage))
             {
                 if (Wizard.config["fwtype"].ToString() == "copter" && Wizard.config["fwframe"].ToString() == "tri")
                     // check if its a tri, and skip the frame type screen
@@ -142,9 +142,9 @@ namespace MissionPlanner.Wizard
                 else
                     // skip the frame type screen as its not valid for anythine else
                     return 2;
-            }
+            } */
 
-            return 0;
+            return 1; // было 0
         }
 
         public bool WizardBusy()
@@ -294,5 +294,22 @@ namespace MissionPlanner.Wizard
             usebeta = true;
             CustomMessageBox.Show("Using beta FW");
         }
+
+        private void radialGradientBG1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CMB_port_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

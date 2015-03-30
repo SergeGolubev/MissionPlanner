@@ -591,9 +591,6 @@
     <EmbeddedResource Include="Antenna\Tracker.zh-TW.resx">
       <DependentUpon>Tracker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ConnectionControl.zh-Hans.resx">
-      <DependentUpon>ConnectionControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ConnectionStats.zh-Hans.resx">
       <DependentUpon>ConnectionStats.cs</DependentUpon>
     </EmbeddedResource>
@@ -1061,6 +1058,15 @@
     <EmbeddedResource Include="Wizard\9RadioCalibration.zh-TW.resx">
       <DependentUpon>9RadioCalibration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\DS_Check.resx">
+      <DependentUpon>DS_Check.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\Finish.resx">
+      <DependentUpon>Finish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\GPS_Check.resx">
+      <DependentUpon>GPS_Check.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\Wizard.zh-Hans.resx">
       <DependentUpon>Wizard.cs</DependentUpon>
     </EmbeddedResource>
@@ -1286,6 +1292,24 @@
     </Compile>
     <Compile Include="Wizard\98DontForget.Designer.cs">
       <DependentUpon>98DontForget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizard\DS_Check.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\DS_Check.Designer.cs">
+      <DependentUpon>DS_Check.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizard\Finish.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\Finish.Designer.cs">
+      <DependentUpon>Finish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizard\GPS_Check.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizard\GPS_Check.Designer.cs">
+      <DependentUpon>GPS_Check.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizard\IWizard.cs" />
     <Compile Include="Wizard\Wizard.cs">
@@ -2671,6 +2695,7 @@
   <ItemGroup>
     <Content Include="acsimplepids.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="aircraft.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -6561,6 +6586,7 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
