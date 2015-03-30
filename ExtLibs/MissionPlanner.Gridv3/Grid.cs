@@ -322,12 +322,16 @@ namespace MissionPlanner
             utmpos newstart = utmpos.Zero, newend = utmpos.Zero, oldstart = newstart, oldend = newend;
             int i = 0;
             bool flightForward = closest.p1.GetDistance(lastpnt) < closest.p2.GetDistance(lastpnt);
+            List<PointLatLngAlt> tmp = new List<PointLatLngAlt>();
+            List<PointLatLngAlt> oldTmp;
 
             while (grid.Count > 0)
             {
                 oldend = newend;
                 oldstart = newstart;
                 oldIsFurtherMinDintace = isFurtherMinDintace;
+                oldTmp = tmp;
+                tmp = new List<PointLatLngAlt>();
 
                 if (flightForward)
                 {
@@ -344,7 +348,8 @@ namespace MissionPlanner
 
                             newpos(ref ax, ref ay, angle, d);
                             addtomap(new utmpos(ax,ay,utmzone),"M");
-                            ans.Add((new utmpos(ax, ay, utmzone) { Tag = "M" }));
+                            tmp.Add((new utmpos(ax, ay, utmzone) { Tag = "M"}));
+                          //ans.Add((new utmpos(ax, ay, utmzone) { Tag = "M" }));
 
                           //  if (shutter.ToLower().StartsWith("y"))
                               //  AddDigicamControlPhoto();
@@ -380,7 +385,8 @@ namespace MissionPlanner
 
                             newpos(ref ax, ref ay, angle, -d);
                             addtomap(new utmpos(ax, ay, utmzone), "M");
-                            ans.Add((new utmpos(ax, ay, utmzone) { Tag = "M" }));
+                            tmp.Add((new utmpos(ax, ay, utmzone) { Tag = "M" }));
+                            //ans.Add((new utmpos(ax, ay, utmzone) { Tag = "M" }));
 
                            // if (shutter.ToLower().StartsWith("y"))
                             //    AddDigicamControlPhoto();
@@ -420,9 +426,11 @@ namespace MissionPlanner
                     
                     addtomap(oldstart, "S");
                     ans.Add(oldstart);
-
+                    for (int j = 0; j < oldTmp.Count; j++)
+                        ans.Add(oldTmp[j]);
                     addtomap(oldend, "E");
                     ans.Add(oldend);
+                    oldTmp.Clear();
 
                     //flying around in a circle
                     if (!oldIsFurtherMinDintace)
@@ -484,7 +492,9 @@ namespace MissionPlanner
 
             addtomap(newstart, "S");
             ans.Add(newstart);
-
+            for (int j = 0; j < tmp.Count; j++)
+                ans.Add(tmp[j]);
+            tmp.Clear();
             addtomap(newend, "E");
             ans.Add(newend);
 
