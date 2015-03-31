@@ -757,6 +757,7 @@
             // tabSimple
             // 
             this.tabSimple.Controls.Add(this.groupBox6);
+            this.tabSimple.Controls.Add(this.groupBox4);
             this.tabSimple.Controls.Add(this.BUT_Accept);
             resources.ApplyResources(this.tabSimple, "tabSimple");
             this.tabSimple.Name = "tabSimple";
@@ -955,6 +956,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabSimple);
             this.tabControl1.Controls.Add(this.tabCamera);
+            this.tabControl1.Controls.Add(this.tabGrid);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1002,7 +1004,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.TRK_zoom);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.map);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControl1);

@@ -48,7 +48,7 @@ namespace MissionPlanner.GCSViews
         bool splinemode = false;
         altmode currentaltmode = altmode.Relative;
 
-        bool grid = false;
+        bool grid_chkd = false;
 
         public static FlightPlanner instance = null;
 
@@ -5004,7 +5004,7 @@ namespace MissionPlanner.GCSViews
         {
             // draw utm grid
             {
-                if (!grid)
+                if (!grid_chkd)
                     return;
 
                 if (MainMap.Zoom < 10)
@@ -5079,7 +5079,7 @@ namespace MissionPlanner.GCSViews
 
         private void chk_grid_CheckedChanged(object sender, EventArgs e)
         {
-            grid = chk_grid.Checked;
+            grid_chkd = chk_grid.Checked;
         }
 
         private void insertWpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5842,5 +5842,42 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 }
             }
         }
+
+        private void Survey_Grid_Click(object sender, EventArgs e)
+        {
+
+           // var gridui = new GridUIv3(this);
+           // MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
+
+            if ((new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.drawnpolygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.drawnpolygon.Stroke })  != null && (new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.drawnpolygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.drawnpolygon.Stroke }).Points.Count > 2)
+            {
+                panelAction.Visible = false;
+                panel6.Visible = true;
+                init(sender, e);
+            }
+            else
+            {
+                if (CustomMessageBox.Show("No polygon defined. Load a file?", "Load File", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    LoadGrid();
+                    
+                    panelAction.Visible = false;
+                    panel6.Visible = true;
+                    init(sender, e);
+                }
+                else
+                {
+                    CustomMessageBox.Show("Please define a polygon.", "Error");
+                }
+            }
+
+        }
+
+        private void myButton1_Click(object sender, EventArgs e)
+        {
+            panel6.Visible = false;
+            panelAction.Visible = true;
+        }
+
     }
 }
