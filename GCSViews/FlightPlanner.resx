@@ -2639,8 +2639,8 @@
   <data name="CMB_camera.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
   </data>
-  <data name="CMB_camera.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="CMB_camera.Text" xml:space="preserve">
+    <value>MyCam</value>
   </data>
   <data name="&gt;&gt;CMB_camera.Name" xml:space="preserve">
     <value>CMB_camera</value>
@@ -3794,9 +3794,6 @@
   <data name="BUT_save.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="BUT_save.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;BUT_save.Name" xml:space="preserve">
     <value>BUT_save</value>
   </data>
@@ -4142,30 +4139,6 @@
   <data name="&gt;&gt;NUM_spacing.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 77</value>
-  </data>
-  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="label20.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label20.Name" xml:space="preserve">
-    <value>label20</value>
-  </data>
-  <data name="&gt;&gt;label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label20.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="NUM_Distance.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 24</value>
   </data>
@@ -4185,7 +4158,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;NUM_Distance.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 20</value>

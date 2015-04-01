@@ -100,7 +100,7 @@ namespace MissionPlanner.GCSViews
         public void init(object sender, EventArgs e)
         {
             
-            InitializeComponent();
+       //     InitializeComponent();
 
             
            // MainV2.FPDrawnPolygon.Points.ForEach(x => { list.Add(x); });
@@ -114,8 +114,8 @@ namespace MissionPlanner.GCSViews
             // set and angle that is good
             Angle = (decimal)((getAngleOfLongestSide(list) + 360) % 360);
             TXT_headinghold.Text = (Math.Round(Angle)).ToString();
-            domainUpDown1_ValueChanged(sender, e);
-            BUT_Accept_Click(sender, e);
+    //        domainUpDown1_ValueChanged(sender, e);
+    //        BUT_Accept_Click(sender, e);
         }
        
         private void GridUI_Load(object sender, EventArgs e)
@@ -480,7 +480,7 @@ namespace MissionPlanner.GCSViews
 
             // new grid system test
 
-            grid = Grid.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)TBAR_zoom.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)Angle, double.Parse(TXT_turn_radius.Text), (Grid.StartPosition)Enum.Parse(typeof(Grid.StartPosition), "Home"), false);
+            grid = Grid1.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)TBAR_zoom.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)Angle, double.Parse(TXT_turn_radius.Text), (Grid1.StartPosition)Enum.Parse(typeof(Grid1.StartPosition), "Home"), false);
 
             List<PointLatLng> list2 = new List<PointLatLng>();
 
@@ -648,10 +648,11 @@ namespace MissionPlanner.GCSViews
             lbl_flighttime.Text = secondsToNice(seconds);
             seconds = ((routetotal * 1000.0) / (flyspeedms));
             lbl_photoevery.Text = secondsToNice(((double)NUM_spacing.Value / flyspeedms));
+        
+             * */
             MainMap.HoldInvalidation = false;
             if (!isMouseDown)
                 MainMap.ZoomAndCenterMarkers("routes");
-            */
             CalcHeadingHold();
         }
 
@@ -1387,14 +1388,17 @@ namespace MissionPlanner.GCSViews
 
                 // Redraw the polygon in FP
                 MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
-
+             
                 savesettings();
 
                 MainV2.instance.FlightPlanner.quickadd = false;
 
                 MainV2.instance.FlightPlanner.writeKML();
 
-                this.Close();
+                panel6.Visible = false;
+                panelAction.Visible = true;
+       
+       //         this.Close();
             }
             else
             {

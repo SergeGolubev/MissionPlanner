@@ -94,16 +94,6 @@
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
             this.lbl_distance = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.NUM_repttime = new System.Windows.Forms.NumericUpDown();
-            this.num_reptpwm = new System.Windows.Forms.NumericUpDown();
-            this.NUM_reptservo = new System.Windows.Forms.NumericUpDown();
-            this.rad_digicam = new System.Windows.Forms.RadioButton();
-            this.rad_repeatservo = new System.Windows.Forms.RadioButton();
-            this.rad_trigdist = new System.Windows.Forms.RadioButton();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
             this.trackBar1 = new MissionPlanner.Controls.MyTrackBar();
@@ -175,6 +165,16 @@
             this.modifyAltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enterUTMCoordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.switchDockingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.NUM_repttime = new System.Windows.Forms.NumericUpDown();
+            this.num_reptpwm = new System.Windows.Forms.NumericUpDown();
+            this.NUM_reptservo = new System.Windows.Forms.NumericUpDown();
+            this.rad_digicam = new System.Windows.Forms.RadioButton();
+            this.rad_repeatservo = new System.Windows.Forms.RadioButton();
+            this.rad_trigdist = new System.Windows.Forms.RadioButton();
             this.panelBASE = new System.Windows.Forms.Panel();
             this.panelAction = new BSE.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -273,19 +273,18 @@
             this.label19 = new System.Windows.Forms.Label();
             this.LBL_copter_delay = new System.Windows.Forms.Label();
             this.NUM_spacing = new System.Windows.Forms.NumericUpDown();
-            this.label20 = new System.Windows.Forms.Label();
             this.NUM_Distance = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_repttime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_reptpwm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_reptservo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.panelBASE.SuspendLayout();
             this.panelAction.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -643,114 +642,6 @@
             // 
             resources.ApplyResources(this.lbl_distance, "lbl_distance");
             this.lbl_distance.Name = "lbl_distance";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.NUM_repttime);
-            this.groupBox3.Controls.Add(this.num_reptpwm);
-            this.groupBox3.Controls.Add(this.NUM_reptservo);
-            this.groupBox3.Controls.Add(this.rad_digicam);
-            this.groupBox3.Controls.Add(this.rad_repeatservo);
-            this.groupBox3.Controls.Add(this.rad_trigdist);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // label18
-            // 
-            resources.ApplyResources(this.label18, "label18");
-            this.label18.Name = "label18";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // label16
-            // 
-            resources.ApplyResources(this.label16, "label16");
-            this.label16.Name = "label16";
-            // 
-            // NUM_repttime
-            // 
-            resources.ApplyResources(this.NUM_repttime, "NUM_repttime");
-            this.NUM_repttime.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.NUM_repttime.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_repttime.Name = "NUM_repttime";
-            this.NUM_repttime.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // num_reptpwm
-            // 
-            resources.ApplyResources(this.num_reptpwm, "num_reptpwm");
-            this.num_reptpwm.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.num_reptpwm.Name = "num_reptpwm";
-            this.num_reptpwm.Value = new decimal(new int[] {
-            1100,
-            0,
-            0,
-            0});
-            // 
-            // NUM_reptservo
-            // 
-            resources.ApplyResources(this.NUM_reptservo, "NUM_reptservo");
-            this.NUM_reptservo.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.NUM_reptservo.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.NUM_reptservo.Name = "NUM_reptservo";
-            this.NUM_reptservo.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // rad_digicam
-            // 
-            resources.ApplyResources(this.rad_digicam, "rad_digicam");
-            this.rad_digicam.Name = "rad_digicam";
-            this.rad_digicam.Tag = "";
-            this.rad_digicam.UseVisualStyleBackColor = true;
-            // 
-            // rad_repeatservo
-            // 
-            resources.ApplyResources(this.rad_repeatservo, "rad_repeatservo");
-            this.rad_repeatservo.Name = "rad_repeatservo";
-            this.rad_repeatservo.Tag = "";
-            this.rad_repeatservo.UseVisualStyleBackColor = true;
-            // 
-            // rad_trigdist
-            // 
-            resources.ApplyResources(this.rad_trigdist, "rad_trigdist");
-            this.rad_trigdist.Checked = true;
-            this.rad_trigdist.Name = "rad_trigdist";
-            this.rad_trigdist.TabStop = true;
-            this.rad_trigdist.Tag = "";
-            this.rad_trigdist.UseVisualStyleBackColor = true;
             // 
             // lbl_homedist
             // 
@@ -1266,6 +1157,114 @@
             resources.ApplyResources(this.switchDockingToolStripMenuItem, "switchDockingToolStripMenuItem");
             this.switchDockingToolStripMenuItem.Click += new System.EventHandler(this.switchDockingToolStripMenuItem_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.NUM_repttime);
+            this.groupBox3.Controls.Add(this.num_reptpwm);
+            this.groupBox3.Controls.Add(this.NUM_reptservo);
+            this.groupBox3.Controls.Add(this.rad_digicam);
+            this.groupBox3.Controls.Add(this.rad_repeatservo);
+            this.groupBox3.Controls.Add(this.rad_trigdist);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // label18
+            // 
+            resources.ApplyResources(this.label18, "label18");
+            this.label18.Name = "label18";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // NUM_repttime
+            // 
+            resources.ApplyResources(this.NUM_repttime, "NUM_repttime");
+            this.NUM_repttime.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.NUM_repttime.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUM_repttime.Name = "NUM_repttime";
+            this.NUM_repttime.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // num_reptpwm
+            // 
+            resources.ApplyResources(this.num_reptpwm, "num_reptpwm");
+            this.num_reptpwm.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.num_reptpwm.Name = "num_reptpwm";
+            this.num_reptpwm.Value = new decimal(new int[] {
+            1100,
+            0,
+            0,
+            0});
+            // 
+            // NUM_reptservo
+            // 
+            resources.ApplyResources(this.NUM_reptservo, "NUM_reptservo");
+            this.NUM_reptservo.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.NUM_reptservo.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.NUM_reptservo.Name = "NUM_reptservo";
+            this.NUM_reptservo.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // rad_digicam
+            // 
+            resources.ApplyResources(this.rad_digicam, "rad_digicam");
+            this.rad_digicam.Name = "rad_digicam";
+            this.rad_digicam.Tag = "";
+            this.rad_digicam.UseVisualStyleBackColor = true;
+            // 
+            // rad_repeatservo
+            // 
+            resources.ApplyResources(this.rad_repeatservo, "rad_repeatservo");
+            this.rad_repeatservo.Name = "rad_repeatservo";
+            this.rad_repeatservo.Tag = "";
+            this.rad_repeatservo.UseVisualStyleBackColor = true;
+            // 
+            // rad_trigdist
+            // 
+            resources.ApplyResources(this.rad_trigdist, "rad_trigdist");
+            this.rad_trigdist.Checked = true;
+            this.rad_trigdist.Name = "rad_trigdist";
+            this.rad_trigdist.TabStop = true;
+            this.rad_trigdist.Tag = "";
+            this.rad_trigdist.UseVisualStyleBackColor = true;
+            // 
             // panelBASE
             // 
             this.panelBASE.Controls.Add(this.splitter2);
@@ -1569,7 +1568,7 @@
             resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
             this.BUT_Accept.Name = "BUT_Accept";
             this.BUT_Accept.UseVisualStyleBackColor = true;
-            this.BUT_Accept.Click += new System.EventHandler(this.myButton1_Click);
+            this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
             // 
             // label36
             // 
@@ -1621,13 +1620,14 @@
             this.TBAR_overlap.TickFrequency = 5;
             this.TBAR_overlap.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.TBAR_overlap.Value = 30;
-            this.TBAR_overlap.Scroll += new System.EventHandler(this.NUM_ValueChanged);
+            this.TBAR_overlap.Scroll += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CMB_camera
             // 
             this.CMB_camera.FormattingEnabled = true;
             resources.ApplyResources(this.CMB_camera, "CMB_camera");
             this.CMB_camera.Name = "CMB_camera";
+            this.CMB_camera.SelectedIndexChanged += new System.EventHandler(this.CMB_camera_SelectedIndexChanged);
             // 
             // label37
             // 
@@ -1641,6 +1641,7 @@
             this.CHK_camdirection.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_camdirection.Name = "CHK_camdirection";
             this.CHK_camdirection.UseVisualStyleBackColor = true;
+            this.CHK_camdirection.CheckedChanged += new System.EventHandler(this.CHK_camdirection_CheckedChanged);
             // 
             // label12
             // 
@@ -1657,6 +1658,7 @@
             this.TBAR_zoom.TickFrequency = 5;
             this.TBAR_zoom.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.TBAR_zoom.Value = 100;
+            this.TBAR_zoom.Scroll += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // TXT_cmpixel
             // 
@@ -1679,20 +1681,25 @@
             // CHK_advanced
             // 
             resources.ApplyResources(this.CHK_advanced, "CHK_advanced");
+            this.CHK_advanced.Checked = true;
+            this.CHK_advanced.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_advanced.Name = "CHK_advanced";
             this.CHK_advanced.UseVisualStyleBackColor = true;
+            this.CHK_advanced.CheckedChanged += new System.EventHandler(this.CHK_advanced_CheckedChanged);
             // 
             // CHK_footprints
             // 
             resources.ApplyResources(this.CHK_footprints, "CHK_footprints");
             this.CHK_footprints.Name = "CHK_footprints";
             this.CHK_footprints.UseVisualStyleBackColor = true;
+            this.CHK_footprints.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CHK_internals
             // 
             resources.ApplyResources(this.CHK_internals, "CHK_internals");
             this.CHK_internals.Name = "CHK_internals";
             this.CHK_internals.UseVisualStyleBackColor = true;
+            this.CHK_internals.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CHK_grid1
             // 
@@ -1701,6 +1708,7 @@
             this.CHK_grid1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_grid1.Name = "CHK_grid1";
             this.CHK_grid1.UseVisualStyleBackColor = true;
+            this.CHK_grid1.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CHK_markers
             // 
@@ -1709,6 +1717,7 @@
             this.CHK_markers.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_markers.Name = "CHK_markers";
             this.CHK_markers.UseVisualStyleBackColor = true;
+            this.CHK_markers.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CHK_boundary
             // 
@@ -1717,6 +1726,7 @@
             this.CHK_boundary.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_boundary.Name = "CHK_boundary";
             this.CHK_boundary.UseVisualStyleBackColor = true;
+            this.CHK_boundary.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // tabCamera
             // 
@@ -1768,6 +1778,7 @@
             0,
             0,
             0});
+            this.NUM_UpDownFlySpeed.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // TXT_max_flight_time
             // 
@@ -1788,16 +1799,19 @@
             // 
             resources.ApplyResources(this.TXT_turn_radius, "TXT_turn_radius");
             this.TXT_turn_radius.Name = "TXT_turn_radius";
+            this.TXT_turn_radius.TextChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // TXT_max_alt
             // 
             resources.ApplyResources(this.TXT_max_alt, "TXT_max_alt");
             this.TXT_max_alt.Name = "TXT_max_alt";
+            this.TXT_max_alt.TextChanged += new System.EventHandler(this.TXT_max_alt_TextChanged);
             // 
             // TXT_min_alt
             // 
             resources.ApplyResources(this.TXT_min_alt, "TXT_min_alt");
             this.TXT_min_alt.Name = "TXT_min_alt";
+            this.TXT_min_alt.TextChanged += new System.EventHandler(this.TXT_min_alt_TextChanged);
             // 
             // label42
             // 
@@ -1872,21 +1886,25 @@
             // 
             resources.ApplyResources(this.TXT_sensheight, "TXT_sensheight");
             this.TXT_sensheight.Name = "TXT_sensheight";
+            this.TXT_sensheight.TextChanged += new System.EventHandler(this.NUM_ValueChanged);
             // 
             // TXT_senswidth
             // 
             resources.ApplyResources(this.TXT_senswidth, "TXT_senswidth");
             this.TXT_senswidth.Name = "TXT_senswidth";
+            this.TXT_senswidth.TextChanged += new System.EventHandler(this.NUM_ValueChanged);
             // 
             // TXT_imgheight
             // 
             resources.ApplyResources(this.TXT_imgheight, "TXT_imgheight");
             this.TXT_imgheight.Name = "TXT_imgheight";
+            this.TXT_imgheight.TextChanged += new System.EventHandler(this.NUM_ValueChanged);
             // 
             // TXT_imgwidth
             // 
             resources.ApplyResources(this.TXT_imgwidth, "TXT_imgwidth");
             this.TXT_imgwidth.Name = "TXT_imgwidth";
+            this.TXT_imgwidth.TextChanged += new System.EventHandler(this.NUM_ValueChanged);
             // 
             // NUM_focallength
             // 
@@ -1913,6 +1931,7 @@
             0,
             0,
             0});
+            this.NUM_focallength.ValueChanged += new System.EventHandler(this.NUM_ValueChanged);
             // 
             // label10
             // 
@@ -1934,6 +1953,7 @@
             resources.ApplyResources(this.BUT_save, "BUT_save");
             this.BUT_save.Name = "BUT_save";
             this.BUT_save.UseVisualStyleBackColor = true;
+            this.BUT_save.Click += new System.EventHandler(this.BUT_save_Click);
             // 
             // tabGrid
             // 
@@ -2012,7 +2032,6 @@
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.LBL_copter_delay);
             this.groupBox1.Controls.Add(this.NUM_spacing);
-            this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.NUM_Distance);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
@@ -2037,11 +2056,7 @@
             0,
             0});
             this.NUM_spacing.Name = "NUM_spacing";
-            // 
-            // label20
-            // 
-            resources.ApplyResources(this.label20, "label20");
-            this.label20.Name = "label20";
+            this.NUM_spacing.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // NUM_Distance
             // 
@@ -2062,6 +2077,7 @@
             0,
             0,
             0});
+            this.NUM_Distance.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // timer1
             // 
@@ -2083,13 +2099,13 @@
             this.panelWaypoints.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_repttime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_reptpwm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_reptservo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.panelBASE.ResumeLayout(false);
             this.panelAction.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -2349,7 +2365,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label LBL_copter_delay;
         private System.Windows.Forms.NumericUpDown NUM_spacing;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.NumericUpDown NUM_Distance;
     }
 }

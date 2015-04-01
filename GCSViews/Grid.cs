@@ -16,7 +16,7 @@ using ProjNet.CoordinateSystems.Transformations;
 
 namespace MissionPlanner
 {
-    public class Grid
+    public class Grid1
     {
         public static MissionPlanner.Plugin.PluginHost Host2;
 

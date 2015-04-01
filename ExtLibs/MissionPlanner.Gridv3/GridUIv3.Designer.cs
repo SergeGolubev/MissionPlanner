@@ -122,7 +122,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.TBAR_zoom = new System.Windows.Forms.TrackBar();
             this.TXT_cmpixel = new System.Windows.Forms.Label();
-            this.BUT_Accept = new MissionPlanner.Controls.MyButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CHK_advanced = new System.Windows.Forms.CheckBox();
             this.CHK_footprints = new System.Windows.Forms.CheckBox();
@@ -130,6 +129,7 @@
             this.CHK_grid = new System.Windows.Forms.CheckBox();
             this.CHK_markers = new System.Windows.Forms.CheckBox();
             this.CHK_boundary = new System.Windows.Forms.CheckBox();
+            this.BUT_Accept = new MissionPlanner.Controls.MyButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.map = new MissionPlanner.Controls.myGMAP();
             this.TRK_zoom = new MissionPlanner.Controls.MyTrackBar();
@@ -885,13 +885,6 @@
             resources.ApplyResources(this.TXT_cmpixel, "TXT_cmpixel");
             this.TXT_cmpixel.Name = "TXT_cmpixel";
             // 
-            // BUT_Accept
-            // 
-            resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
-            this.BUT_Accept.Name = "BUT_Accept";
-            this.BUT_Accept.UseVisualStyleBackColor = true;
-            this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.CHK_advanced);
@@ -951,6 +944,13 @@
             this.CHK_boundary.Name = "CHK_boundary";
             this.CHK_boundary.UseVisualStyleBackColor = true;
             this.CHK_boundary.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
+            // 
+            // BUT_Accept
+            // 
+            resources.ApplyResources(this.BUT_Accept, "BUT_Accept");
+            this.BUT_Accept.Name = "BUT_Accept";
+            this.BUT_Accept.UseVisualStyleBackColor = true;
+            this.BUT_Accept.Click += new System.EventHandler(this.BUT_Accept_Click);
             // 
             // tabControl1
             // 
