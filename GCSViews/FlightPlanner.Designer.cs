@@ -207,6 +207,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSimple = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TXT_overlap = new System.Windows.Forms.Label();
+            this.Decline = new MissionPlanner.Controls.MyButton();
             this.label32 = new System.Windows.Forms.Label();
             this.BUT_Accept = new MissionPlanner.Controls.MyButton();
             this.label36 = new System.Windows.Forms.Label();
@@ -215,9 +217,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.CHK_toandland = new System.Windows.Forms.CheckBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.TBAR_overlap = new System.Windows.Forms.TrackBar();
-            this.CMB_camera = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
             this.CHK_camdirection = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -260,6 +260,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BUT_save = new MissionPlanner.Controls.MyButton();
+            this.CMB_camera = new System.Windows.Forms.ComboBox();
             this.tabGrid = new System.Windows.Forms.TabPage();
             this.groupBox_copter = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -269,11 +270,6 @@
             this.NUM_copter_delay = new System.Windows.Forms.NumericUpDown();
             this.BUT_headingholdplus = new System.Windows.Forms.Button();
             this.BUT_headingholdminus = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.LBL_copter_delay = new System.Windows.Forms.Label();
-            this.NUM_spacing = new System.Windows.Forms.NumericUpDown();
-            this.NUM_Distance = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
@@ -310,9 +306,6 @@
             this.tabGrid.SuspendLayout();
             this.groupBox_copter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_spacing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_Distance)).BeginInit();
             this.SuspendLayout();
             // 
             // Commands
@@ -1523,7 +1516,6 @@
             // 
             this.tabControl1.Controls.Add(this.tabSimple);
             this.tabControl1.Controls.Add(this.tabCamera);
-            this.tabControl1.Controls.Add(this.tabGrid);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1538,6 +1530,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.TXT_overlap);
+            this.groupBox6.Controls.Add(this.Decline);
             this.groupBox6.Controls.Add(this.label32);
             this.groupBox6.Controls.Add(this.BUT_Accept);
             this.groupBox6.Controls.Add(this.label36);
@@ -1546,9 +1540,7 @@
             this.groupBox6.Controls.Add(this.label44);
             this.groupBox6.Controls.Add(this.CHK_toandland);
             this.groupBox6.Controls.Add(this.label43);
-            this.groupBox6.Controls.Add(this.label26);
             this.groupBox6.Controls.Add(this.TBAR_overlap);
-            this.groupBox6.Controls.Add(this.CMB_camera);
             this.groupBox6.Controls.Add(this.label37);
             this.groupBox6.Controls.Add(this.CHK_camdirection);
             this.groupBox6.Controls.Add(this.label12);
@@ -1557,6 +1549,19 @@
             resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
+            // 
+            // TXT_overlap
+            // 
+            this.TXT_overlap.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.TXT_overlap, "TXT_overlap");
+            this.TXT_overlap.Name = "TXT_overlap";
+            // 
+            // Decline
+            // 
+            resources.ApplyResources(this.Decline, "Decline");
+            this.Decline.Name = "Decline";
+            this.Decline.UseVisualStyleBackColor = true;
+            this.Decline.Click += new System.EventHandler(this.Decline_Click);
             // 
             // label32
             // 
@@ -1606,11 +1611,6 @@
             resources.ApplyResources(this.label43, "label43");
             this.label43.Name = "label43";
             // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
-            // 
             // TBAR_overlap
             // 
             resources.ApplyResources(this.TBAR_overlap, "TBAR_overlap");
@@ -1620,14 +1620,7 @@
             this.TBAR_overlap.TickFrequency = 5;
             this.TBAR_overlap.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.TBAR_overlap.Value = 30;
-            this.TBAR_overlap.Scroll += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
-            // CMB_camera
-            // 
-            this.CMB_camera.FormattingEnabled = true;
-            resources.ApplyResources(this.CMB_camera, "CMB_camera");
-            this.CMB_camera.Name = "CMB_camera";
-            this.CMB_camera.SelectedIndexChanged += new System.EventHandler(this.CMB_camera_SelectedIndexChanged);
+            this.TBAR_overlap.Scroll += new System.EventHandler(this.TBAR_overlap_Scroll);
             // 
             // label37
             // 
@@ -1641,7 +1634,7 @@
             this.CHK_camdirection.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CHK_camdirection.Name = "CHK_camdirection";
             this.CHK_camdirection.UseVisualStyleBackColor = true;
-            this.CHK_camdirection.CheckedChanged += new System.EventHandler(this.CHK_camdirection_CheckedChanged);
+            this.CHK_camdirection.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // label12
             // 
@@ -1668,7 +1661,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.CHK_advanced);
+            //this.groupBox4.Controls.Add(this.CHK_advanced);
             this.groupBox4.Controls.Add(this.CHK_footprints);
             this.groupBox4.Controls.Add(this.CHK_internals);
             this.groupBox4.Controls.Add(this.CHK_grid1);
@@ -1931,7 +1924,7 @@
             0,
             0,
             0});
-            this.NUM_focallength.ValueChanged += new System.EventHandler(this.NUM_ValueChanged);
+            this.NUM_focallength.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // label10
             // 
@@ -1955,10 +1948,16 @@
             this.BUT_save.UseVisualStyleBackColor = true;
             this.BUT_save.Click += new System.EventHandler(this.BUT_save_Click);
             // 
+            // CMB_camera
+            // 
+            this.CMB_camera.FormattingEnabled = true;
+            resources.ApplyResources(this.CMB_camera, "CMB_camera");
+            this.CMB_camera.Name = "CMB_camera";
+            this.CMB_camera.SelectedIndexChanged += new System.EventHandler(this.CMB_camera_SelectedIndexChanged);
+            // 
             // tabGrid
             // 
             this.tabGrid.Controls.Add(this.groupBox_copter);
-            this.tabGrid.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.tabGrid, "tabGrid");
             this.tabGrid.Name = "tabGrid";
             this.tabGrid.UseVisualStyleBackColor = true;
@@ -2027,58 +2026,6 @@
             this.BUT_headingholdminus.Name = "BUT_headingholdminus";
             this.BUT_headingholdminus.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.LBL_copter_delay);
-            this.groupBox1.Controls.Add(this.NUM_spacing);
-            this.groupBox1.Controls.Add(this.NUM_Distance);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // label19
-            // 
-            resources.ApplyResources(this.label19, "label19");
-            this.label19.Name = "label19";
-            // 
-            // LBL_copter_delay
-            // 
-            resources.ApplyResources(this.LBL_copter_delay, "LBL_copter_delay");
-            this.LBL_copter_delay.Name = "LBL_copter_delay";
-            // 
-            // NUM_spacing
-            // 
-            resources.ApplyResources(this.NUM_spacing, "NUM_spacing");
-            this.NUM_spacing.Maximum = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.NUM_spacing.Name = "NUM_spacing";
-            this.NUM_spacing.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
-            // NUM_Distance
-            // 
-            resources.ApplyResources(this.NUM_Distance, "NUM_Distance");
-            this.NUM_Distance.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.NUM_Distance.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUM_Distance.Name = "NUM_Distance";
-            this.NUM_Distance.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.NUM_Distance.ValueChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1200;
@@ -2139,9 +2086,6 @@
             this.groupBox_copter.ResumeLayout(false);
             this.groupBox_copter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_spacing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_Distance)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2297,7 +2241,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.CheckBox CHK_toandland;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TrackBar TBAR_overlap;
         private System.Windows.Forms.ComboBox CMB_camera;
         private System.Windows.Forms.Label label37;
@@ -2361,10 +2304,7 @@
         private System.Windows.Forms.NumericUpDown NUM_copter_delay;
         private System.Windows.Forms.Button BUT_headingholdplus;
         private System.Windows.Forms.Button BUT_headingholdminus;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label LBL_copter_delay;
-        private System.Windows.Forms.NumericUpDown NUM_spacing;
-        private System.Windows.Forms.NumericUpDown NUM_Distance;
+        private Controls.MyButton Decline;
+        private System.Windows.Forms.Label TXT_overlap;
     }
 }

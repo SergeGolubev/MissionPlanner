@@ -30,7 +30,7 @@ namespace MissionPlanner.GCSViews
        // static public Object thisLock = new Object();
 
         GMapOverlay routesOverlay;
-        List<PointLatLngAlt> list = new List<PointLatLngAlt>();
+        List<PointLatLng> list;// = new List<PointLatLng>();
         List<PointLatLngAlt> grid;
 
         Dictionary<string, camerainfo> cameras = new Dictionary<string, camerainfo>();
@@ -42,6 +42,8 @@ namespace MissionPlanner.GCSViews
         public string fovH = "";
         public string fovV = "";
         public decimal Angle;
+        public decimal Distance;
+        public decimal Spacing;
 
 
         //internal PointLatLng MouseDownStart = new PointLatLng();
@@ -66,7 +68,7 @@ namespace MissionPlanner.GCSViews
         }
         public struct GridData
         {
-            public List<PointLatLngAlt> poly;
+            public List<PointLatLng> poly;
             public string camera;
             public decimal alt;
             public decimal angle;
@@ -103,9 +105,7 @@ namespace MissionPlanner.GCSViews
        //     InitializeComponent();
 
             
-           // MainV2.FPDrawnPolygon.Points.ForEach(x => { list.Add(x); });
-           (new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.drawnpolygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.drawnpolygon.Stroke }).Points.ForEach(x => { list.Add(x); });
-
+            list = MainV2.instance.FlightPlanner.drawnpolygon.Points;
             if (MainV2.config["distunits"] != null)
                 DistUnits = MainV2.config["distunits"].ToString();
             routesOverlay = new GMapOverlay("routes");
@@ -114,8 +114,9 @@ namespace MissionPlanner.GCSViews
             // set and angle that is good
             Angle = (decimal)((getAngleOfLongestSide(list) + 360) % 360);
             TXT_headinghold.Text = (Math.Round(Angle)).ToString();
-    //        domainUpDown1_ValueChanged(sender, e);
-    //        BUT_Accept_Click(sender, e);
+
+            domainUpDown1_ValueChanged(sender, e);
+
         }
        
         private void GridUI_Load(object sender, EventArgs e)
@@ -192,10 +193,10 @@ namespace MissionPlanner.GCSViews
 
             CHK_usespeed.Checked = griddata.usespeed;
 
-           // NUM_Distance.Value = griddata.dist;
+            Distance = griddata.dist;
             TXT_turn_radius.Text = griddata.turn_radius.ToString();
             TBAR_overlap.Value = (int)griddata.overlap;
-           // NUM_spacing.Value = griddata.spacing;
+           // Spacing = griddata.spacing;
             
             CHK_toandland.Checked = griddata.autotakeoff;
             CHK_toandland_RTL.Checked = griddata.autotakeoff_RTL;
@@ -228,10 +229,10 @@ namespace MissionPlanner.GCSViews
             griddata.usespeed = CHK_usespeed.Checked;
 
 
-            griddata.dist = NUM_Distance.Value;
+            griddata.dist = Distance;
             griddata.turn_radius = decimal.Parse(TXT_turn_radius.Text);
             griddata.overlap = TBAR_overlap.Value;
-            griddata.spacing = NUM_spacing.Value;
+            griddata.spacing = Spacing;
 
             griddata.autotakeoff = CHK_toandland.Checked;
             griddata.autotakeoff_RTL = CHK_toandland_RTL.Checked;
@@ -247,7 +248,7 @@ namespace MissionPlanner.GCSViews
             // Copter Settings
             griddata.copter_delay = NUM_copter_delay.Value;
             griddata.copter_headinghold_chk = CHK_copter_headinghold.Checked;
-            griddata.copter_headinghold = NUM_spacing.Value;
+            griddata.copter_headinghold = Spacing;
 
             return griddata;
         }
@@ -263,10 +264,10 @@ namespace MissionPlanner.GCSViews
 
                 loadsetting("grid_usespeed", CHK_usespeed);
 
-                loadsetting("grid_dist", NUM_Distance);
+             //   loadsetting("grid_dist", NUM_Distance);
                 loadsetting("grid_turn_radius", TXT_turn_radius);
                 loadsetting("grid_overlap", TBAR_overlap);
-                loadsetting("grid_spacing", NUM_spacing);
+                //loadsetting("grid_spacing", NUM_spacing);
 
                 loadsetting("grid_autotakeoff", CHK_toandland);
                 loadsetting("grid_autotakeoff_RTL", CHK_toandland_RTL);
@@ -331,10 +332,10 @@ namespace MissionPlanner.GCSViews
 
             MainV2.config["grid_usespeed"] = CHK_usespeed.Checked.ToString();
 
-            MainV2.config["grid_dist"] = NUM_Distance.Value.ToString();
+            MainV2.config["grid_dist"] = Distance.ToString();
             MainV2.config["grid_turn_radius"] = TXT_turn_radius.Text;
             MainV2.config["grid_overlap"] = TBAR_overlap.Value.ToString();
-            MainV2.config["grid_spacing"] = NUM_spacing.Value.ToString();
+            MainV2.config["grid_spacing"] = Spacing.ToString();
 
             MainV2.config["grid_autotakeoff"] = CHK_toandland.Checked.ToString();
             MainV2.config["grid_autotakeoff_RTL"] = CHK_toandland_RTL.Checked.ToString();
@@ -475,12 +476,12 @@ namespace MissionPlanner.GCSViews
         // Do Work
         private void domainUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if (CMB_camera.Text != "")
+           // if (CMB_camera.Text != "")
                 doCalc();
 
             // new grid system test
 
-            grid = Grid1.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)TBAR_zoom.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)Angle, double.Parse(TXT_turn_radius.Text), (Grid1.StartPosition)Enum.Parse(typeof(Grid1.StartPosition), "Home"), false);
+            grid = Grid1.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)TBAR_zoom.Value), (double)Distance, (double)Spacing, (double)Angle, double.Parse(TXT_turn_radius.Text), (Grid1.StartPosition)Enum.Parse(typeof(Grid1.StartPosition), "Home"), false);
 
             List<PointLatLng> list2 = new List<PointLatLng>();
 
@@ -496,10 +497,17 @@ namespace MissionPlanner.GCSViews
             {
                 return;
             }
-
+             
             if (CHK_boundary.Checked)
-                AddDrawPolygon();
+            {
+                redrawPolygonSurvey(new List<PointLatLng>(list));
+            }
+            else
+            {
+                drawnpolygonsoverlay.Clear();
+            }
 
+            
             int strips = 0;
             int images = 0;
             int a = 1;
@@ -623,9 +631,9 @@ namespace MissionPlanner.GCSViews
                     lbl_distance.Text = distance.ToString("0.##") + " miles";
                 }
 
-                lbl_spacing.Text = (NUM_spacing.Value * 3.2808399m).ToString("#") + " ft";
+                lbl_spacing.Text = (Spacing * 3.2808399m).ToString("#") + " ft";
                 lbl_altitude.Text = (TBAR_zoom.Value * 3.2808399m).ToString("#") + " ft";
-                lbl_distbetweenlines.Text = (NUM_Distance.Value * 3.2808399m).ToString("0.##") + " ft";
+                lbl_distbetweenlines.Text = (Distance * 3.2808399m).ToString("0.##") + " ft";
                 lbl_footprint.Text = feet_fovH + " x " + feet_fovV + " ft";
             }
             else
@@ -633,9 +641,9 @@ namespace MissionPlanner.GCSViews
                 // Meters
                 lbl_area.Text = calcpolygonarea(list).ToString("#") + " m^2";
                 lbl_distance.Text = routetotal.ToString("0.##") + " km";
-                lbl_spacing.Text = NUM_spacing.Value.ToString("#") + " m";
+                lbl_spacing.Text = Spacing.ToString("#") + " m";
                 lbl_altitude.Text = TBAR_zoom.Value.ToString();
-                lbl_distbetweenlines.Text = NUM_Distance.Value.ToString("0.##") + " m";
+                lbl_distbetweenlines.Text = Distance.ToString("0.##") + " m";
                 lbl_footprint.Text = fovH + " x " + fovV + " m";
             }
 
@@ -647,7 +655,7 @@ namespace MissionPlanner.GCSViews
             // reduce flying speed by 20 %
             lbl_flighttime.Text = secondsToNice(seconds);
             seconds = ((routetotal * 1000.0) / (flyspeedms));
-            lbl_photoevery.Text = secondsToNice(((double)NUM_spacing.Value / flyspeedms));
+            lbl_photoevery.Text = secondsToNice(((double)Spacing / flyspeedms));
         
              * */
             MainMap.HoldInvalidation = false;
@@ -763,7 +771,7 @@ namespace MissionPlanner.GCSViews
             return Math.Abs(answer);
         }
 
-        double getAngleOfLongestSide(List<PointLatLngAlt> list)
+        double getAngleOfLongestSide(List<PointLatLng> list)
         {
             if (list.Count == 0)
                 return 0;
@@ -772,10 +780,10 @@ namespace MissionPlanner.GCSViews
             PointLatLngAlt last = list[list.Count - 1];
             foreach (var item in list)
             {
-                if (item.GetDistance(last) > maxdist)
+                if (((PointLatLngAlt)item).GetDistance(last) > maxdist)
                 {
-                    angle = item.GetBearing(last);
-                    maxdist = item.GetDistance(last);
+                    angle = ((PointLatLngAlt)item).GetBearing(last);
+                    maxdist = ((PointLatLngAlt)item).GetDistance(last);
                 }
                 last = item;
             }
@@ -823,13 +831,13 @@ namespace MissionPlanner.GCSViews
 
                 if (CHK_camdirection.Checked)
                 {
-                    NUM_spacing.Value = (decimal)((1 - (overlap / 100.0f)) * viewheight);
-                    NUM_Distance.Value = (decimal)((1 - (sidelap / 100.0f)) * viewwidth);
+                    Spacing = (decimal)((1 - (overlap / 100.0f)) * viewheight);
+                    Distance = (decimal)((1 - (sidelap / 100.0f)) * viewwidth);
                 }
                 else
                 {
-                    NUM_spacing.Value = (decimal)((1 - (overlap / 100.0f)) * viewwidth);
-                    NUM_Distance.Value = (decimal)((1 - (sidelap / 100.0f)) * viewheight);
+                    Spacing = (decimal)((1 - (overlap / 100.0f)) * viewwidth);
+                    Distance = (decimal)((1 - (sidelap / 100.0f)) * viewheight);
                 }
 
             }
@@ -1075,18 +1083,12 @@ namespace MissionPlanner.GCSViews
                 TXT_sensheight.Text = camera.sensorheight.ToString();
                 TXT_senswidth.Text = camera.sensorwidth.ToString();
 
-                NUM_Distance.Enabled = false;
             }
 
             doCalc();
         }
 
         private void TXT_TextChanged(object sender, EventArgs e)
-        {
-            doCalc();
-        }
-
-        private void CHK_camdirection_CheckedChanged(object sender, EventArgs e)
         {
             doCalc();
         }
@@ -1353,7 +1355,7 @@ namespace MissionPlanner.GCSViews
                         AddWP(plla.Lng, plla.Lat, plla.Alt);
                         if (rad_trigdist.Checked)
                         {
-                            MainV2.instance.FlightPlanner.AddCommand(MAVLink.MAV_CMD.DO_SET_CAM_TRIGG_DIST, (float)NUM_spacing.Value, 0, 0, 0, 0, 0, 0);
+                            MainV2.instance.FlightPlanner.AddCommand(MAVLink.MAV_CMD.DO_SET_CAM_TRIGG_DIST, (float)Spacing, 0, 0, 0, 0, 0, 0);
                         }
                     }
                     ++i;
@@ -1387,7 +1389,9 @@ namespace MissionPlanner.GCSViews
                 }
 
                 // Redraw the polygon in FP
-                MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+                redrawPolygonSurvey(new List<PointLatLng>(list));
+        
+        //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
              
                 savesettings();
 
@@ -1405,6 +1409,19 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show("Bad Grid", "Error");
             }
         }
+
+        private void Decline_Click(object sender, EventArgs e)
+        {
+            routesOverlay.Routes.Clear();
+            routesOverlay.Polygons.Clear();
+            routesOverlay.Markers.Clear();
+            grid.Clear();
+      //      list.Clear();
+            redrawPolygonSurvey(new List<PointLatLng>(list));
+            panel6.Visible = false;
+            panelAction.Visible = true;
+        }
+
 
        /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {

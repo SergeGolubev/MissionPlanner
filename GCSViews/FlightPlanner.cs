@@ -2509,7 +2509,12 @@ namespace MissionPlanner.GCSViews
                 }
             }
             catch { }
+            if (panel6.Visible)
+            {
+                domainUpDown1_ValueChanged(null, null);
+            }
             return;
+            
         }
 
         void MainMap_OnMapTypeChanged(GMapProvider type)
@@ -3255,9 +3260,31 @@ namespace MissionPlanner.GCSViews
 
             MainMap.Invalidate();
 
+            if (panel6.Visible)
+            {
+                domainUpDown1_ValueChanged(sender, e);
+            }
+
         }
 
         public void redrawPolygonSurvey(List<PointLatLngAlt> list)
+        {
+            drawnpolygon.Points.Clear();
+            drawnpolygonsoverlay.Clear();
+
+            int tag = 0;
+            list.ForEach(x =>
+            {
+                tag++;
+                drawnpolygon.Points.Add(x);
+                addpolygonmarkergrid(tag.ToString(), x.Lng, x.Lat, 0);
+            });
+
+            drawnpolygonsoverlay.Polygons.Add(drawnpolygon);
+            MainMap.UpdatePolygonLocalPosition(drawnpolygon);
+            MainMap.Invalidate();
+        }
+        public void redrawPolygonSurvey(List<PointLatLng> list)
         {
             drawnpolygon.Points.Clear();
             drawnpolygonsoverlay.Clear();
@@ -5873,11 +5900,12 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         }
 
-        private void myButton1_Click(object sender, EventArgs e)
+        private void TBAR_overlap_Scroll(object sender, EventArgs e)
         {
-            panel6.Visible = false;
-            panelAction.Visible = true;
+            TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
+            domainUpDown1_ValueChanged(sender, e);
         }
 
+        
     }
 }
