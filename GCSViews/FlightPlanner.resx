@@ -1878,7 +1878,7 @@
     <value>NoControl</value>
   </data>
   <data name="myButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 44</value>
+    <value>21, 37</value>
   </data>
   <data name="myButton2.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 23</value>
@@ -1905,7 +1905,7 @@
     <value>NoControl</value>
   </data>
   <data name="myButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 15</value>
+    <value>21, 8</value>
   </data>
   <data name="myButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 23</value>
@@ -1929,7 +1929,7 @@
     <value>1</value>
   </data>
   <data name="Survey_Grid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 71</value>
+    <value>21, 66</value>
   </data>
   <data name="Survey_Grid.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 23</value>
