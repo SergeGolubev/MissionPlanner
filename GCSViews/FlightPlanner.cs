@@ -1475,7 +1475,7 @@ namespace MissionPlanner.GCSViews
                     }
                     sw.Close();
 
-                    lbl_wpfile.Text = "Saved "+Path.GetFileName(file);
+                    //lbl_wpfile.Text = "Saved "+Path.GetFileName(file);
                 }
                 catch (Exception) { CustomMessageBox.Show(Strings.ERROR); }
             }
@@ -1584,7 +1584,7 @@ namespace MissionPlanner.GCSViews
 
                     MainV2.comPort.giveComport = false;
 
-                    BUT_read.Enabled = true;
+                    //BUT_read.Enabled = true;
 
                     writeKML();
 
@@ -2241,7 +2241,7 @@ namespace MissionPlanner.GCSViews
                     readQGC110wpfile(file);
                 }
 
-                lbl_wpfile.Text = "Loaded "+Path.GetFileName(file);
+                //lbl_wpfile.Text = "Loaded "+Path.GetFileName(file);
             }
         }
 
@@ -5904,6 +5904,21 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
             domainUpDown1_ValueChanged(sender, e);
+        }
+
+        private void myButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void myButton1_Click_1(object sender, EventArgs e)
+        {
+            addPolygonPointToolStripMenuItem_Click(null, null);
+        }
+
+        private void myButton2_Click(object sender, EventArgs e)
+        {
+            clearPolygonToolStripMenuItem_Click(null, null);
         }
 
         
