@@ -29,29 +29,48 @@ namespace MissionPlanner.Wizard
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_5AccelCalib));
+            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.BUT_continue = new MissionPlanner.Controls.MyButton();
-            this.imageLabel1 = new MissionPlanner.Controls.ImageLabel();
             this.BUT_start = new MissionPlanner.Controls.MyButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.hudWizard = new MissionPlanner.Controls.HUD();
+            this.imageLabel1 = new MissionPlanner.Controls.ImageLabel();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bindingSourceHud
+            // 
+            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BUT_continue);
-            this.panel1.Controls.Add(this.imageLabel1);
             this.panel1.Controls.Add(this.BUT_start);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.hudWizard);
+            this.panel1.Controls.Add(this.imageLabel1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BUT_continue
             // 
@@ -59,12 +78,6 @@ namespace MissionPlanner.Wizard
             this.BUT_continue.Name = "BUT_continue";
             this.BUT_continue.UseVisualStyleBackColor = true;
             this.BUT_continue.Click += new System.EventHandler(this.BUT_continue_Click);
-            // 
-            // imageLabel1
-            // 
-            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.calibration01;
-            resources.ApplyResources(this.imageLabel1, "imageLabel1");
-            this.imageLabel1.Name = "imageLabel1";
             // 
             // BUT_start
             // 
@@ -82,6 +95,89 @@ namespace MissionPlanner.Wizard
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            // 
+            // hudWizard
+            // 
+            this.hudWizard.airspeed = 0F;
+            this.hudWizard.alt = 0F;
+            this.hudWizard.BackColor = System.Drawing.Color.Black;
+            this.hudWizard.batterylevel = 0F;
+            this.hudWizard.batteryremaining = 0F;
+            this.hudWizard.connected = false;
+            this.hudWizard.current = 0F;
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("airspeed", this.bindingSourceHud, "airspeed", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("alt", this.bindingSourceHud, "alt", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("batterylevel", this.bindingSourceHud, "battery_voltage", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("batteryremaining", this.bindingSourceHud, "battery_remaining", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("connected", this.bindingSourceHud, "connected", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("current", this.bindingSourceHud, "current", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("datetime", this.bindingSourceHud, "datetime", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("disttowp", this.bindingSourceHud, "wp_dist", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("failsafe", this.bindingSourceHud, "failsafe", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("gpsfix", this.bindingSourceHud, "gpsstatus", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("gpshdop", this.bindingSourceHud, "gpshdop", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("groundalt", this.bindingSourceHud, "HomeAlt", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("groundcourse", this.bindingSourceHud, "groundcourse", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("groundspeed", this.bindingSourceHud, "groundspeed", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("heading", this.bindingSourceHud, "yaw", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("linkqualitygcs", this.bindingSourceHud, "linkqualitygcs", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("message", this.bindingSourceHud, "messageHigh", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("messagetime", this.bindingSourceHud, "messageHighTime", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("mode", this.bindingSourceHud, "mode", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("navpitch", this.bindingSourceHud, "nav_pitch", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("navroll", this.bindingSourceHud, "nav_roll", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("pitch", this.bindingSourceHud, "pitch", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("roll", this.bindingSourceHud, "roll", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("status", this.bindingSourceHud, "armed", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("targetalt", this.bindingSourceHud, "targetalt", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("targetheading", this.bindingSourceHud, "nav_bearing", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("targetspeed", this.bindingSourceHud, "targetairspeed", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("turnrate", this.bindingSourceHud, "turnrate", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("verticalspeed", this.bindingSourceHud, "verticalspeed", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("wpno", this.bindingSourceHud, "wpno", true));
+            this.hudWizard.DataBindings.Add(new System.Windows.Forms.Binding("xtrack_error", this.bindingSourceHud, "xtrack_error", true));
+            this.hudWizard.datetime = new System.DateTime(((long)(0)));
+            this.hudWizard.disttowp = 0F;
+            this.hudWizard.failsafe = false;
+            this.hudWizard.gpsfix = 0F;
+            this.hudWizard.gpshdop = 0F;
+            this.hudWizard.groundalt = 0F;
+            this.hudWizard.groundcourse = 0F;
+            this.hudWizard.groundspeed = 0F;
+            this.hudWizard.heading = 0F;
+            this.hudWizard.hudcolor = System.Drawing.Color.White;
+            this.hudWizard.linkqualitygcs = 0F;
+            resources.ApplyResources(this.hudWizard, "hudWizard");
+            this.hudWizard.lowairspeed = false;
+            this.hudWizard.lowgroundspeed = false;
+            this.hudWizard.lowvoltagealert = false;
+            this.hudWizard.message = "";
+            this.hudWizard.messagetime = new System.DateTime(((long)(0)));
+            this.hudWizard.mode = "Unknown";
+            this.hudWizard.Name = "hudWizard";
+            this.hudWizard.navpitch = 0F;
+            this.hudWizard.navroll = 0F;
+            this.hudWizard.opengl = true;
+            this.hudWizard.pitch = 0F;
+            this.hudWizard.roll = 0F;
+            this.hudWizard.Russian = false;
+            this.hudWizard.status = false;
+            this.hudWizard.streamjpg = null;
+            this.hudWizard.targetalt = 0F;
+            this.hudWizard.targetheading = 0F;
+            this.hudWizard.targetspeed = 0F;
+            this.hudWizard.turnrate = 0F;
+            this.hudWizard.UseOpenGL = true;
+            this.hudWizard.verticalspeed = 0F;
+            this.hudWizard.VSync = false;
+            this.hudWizard.wpno = 0;
+            this.hudWizard.xtrack_error = 0F;
+            // 
+            // imageLabel1
+            // 
+            this.imageLabel1.Image = global::MissionPlanner.Properties.Resources.calibration01;
+            resources.ApplyResources(this.imageLabel1, "imageLabel1");
+            this.imageLabel1.Name = "imageLabel1";
             // 
             // radialGradientBG1
             // 
@@ -125,6 +221,7 @@ namespace MissionPlanner.Wizard
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_5AccelCalib";
             resources.ApplyResources(this, "$this");
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).EndInit();
@@ -134,6 +231,7 @@ namespace MissionPlanner.Wizard
 
         #endregion
 
+        private System.Windows.Forms.BindingSource bindingSourceHud;
         private Panel panel1;
         private Label label1;
         private Controls.GradientBG radialGradientBG1;
@@ -141,6 +239,8 @@ namespace MissionPlanner.Wizard
         private Controls.ImageLabel imageLabel1;
         private Controls.MyButton BUT_start;
         private Controls.MyButton BUT_continue;
+        private Controls.HUD hudWizard;
+        private Button button1;
 
     }
 }

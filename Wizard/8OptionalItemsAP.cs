@@ -94,11 +94,11 @@ namespace MissionPlanner.Wizard
 
         public int WizardValidate()
         {
-            //connected();
+            connected();
 
-            //timer1.Stop();
+            timer1.Stop();
 
-            //updateosd();
+            updateosd();
 
             return 1; // было 1
         }

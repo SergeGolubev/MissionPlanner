@@ -363,21 +363,21 @@ namespace MissionPlanner.GCSViews
             InitializeComponent();
 
             // config map             
-            MainMap.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "gmapcache" + Path.DirectorySeparatorChar;
-            MainMap.MapProvider = GoogleSatelliteMapProvider.Instance;
+            //MainMap.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "gmapcache" + Path.DirectorySeparatorChar;
+            //MainMap.MapProvider = GoogleSatelliteMapProvider.Instance;
 
             // map events
-            MainMap.OnPositionChanged += new PositionChanged(MainMap_OnCurrentPositionChanged);
-            MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
-            MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
-            MainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarkerClick);
-            MainMap.OnMapZoomChanged += new MapZoomChanged(MainMap_OnMapZoomChanged);
-            MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
-            MainMap.MouseMove += new MouseEventHandler(MainMap_MouseMove);
-            MainMap.MouseDown += new MouseEventHandler(MainMap_MouseDown);
-            MainMap.MouseUp += new MouseEventHandler(MainMap_MouseUp);
-            MainMap.OnMarkerEnter += new MarkerEnter(MainMap_OnMarkerEnter);
-            MainMap.OnMarkerLeave += new MarkerLeave(MainMap_OnMarkerLeave);
+            //MainMap.OnPositionChanged += new PositionChanged(MainMap_OnCurrentPositionChanged);
+            //MainMap.OnTileLoadStart += new TileLoadStart(MainMap_OnTileLoadStart);
+            //MainMap.OnTileLoadComplete += new TileLoadComplete(MainMap_OnTileLoadComplete);
+            //MainMap.OnMarkerClick += new MarkerClick(MainMap_OnMarkerClick);
+            //MainMap.OnMapZoomChanged += new MapZoomChanged(MainMap_OnMapZoomChanged);
+            //MainMap.OnMapTypeChanged += new MapTypeChanged(MainMap_OnMapTypeChanged);
+            //MainMap.MouseMove += new MouseEventHandler(MainMap_MouseMove);
+            //MainMap.MouseDown += new MouseEventHandler(MainMap_MouseDown);
+            //MainMap.MouseUp += new MouseEventHandler(MainMap_MouseUp);
+            //MainMap.OnMarkerEnter += new MarkerEnter(MainMap_OnMarkerEnter);
+            //MainMap.OnMarkerLeave += new MarkerLeave(MainMap_OnMarkerLeave);
 
             MainMap.MapScaleInfoEnabled = false;
             MainMap.ScalePen = new Pen(Color.Red);

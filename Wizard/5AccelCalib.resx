@@ -117,13 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="bindingSourceHud.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="button1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 121</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 23</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Показать авиагоризонт</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="BUT_continue.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BUT_continue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 308</value>
+    <value>24, 299</value>
   </data>
   <data name="BUT_continue.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -144,31 +174,10 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;BUT_continue.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="imageLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 106</value>
-  </data>
-  <data name="imageLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 290</value>
-  </data>
-  <data name="imageLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;imageLabel1.Name" xml:space="preserve">
-    <value>imageLabel1</value>
-  </data>
-  <data name="&gt;&gt;imageLabel1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ImageLabel, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;imageLabel1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;imageLabel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="BUT_start.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 144</value>
+    <value>24, 165</value>
   </data>
   <data name="BUT_start.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -251,6 +260,48 @@
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="hudWizard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>462, 165</value>
+  </data>
+  <data name="hudWizard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 157</value>
+  </data>
+  <data name="hudWizard.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;hudWizard.Name" xml:space="preserve">
+    <value>hudWizard</value>
+  </data>
+  <data name="&gt;&gt;hudWizard.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.HUD, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;hudWizard.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;hudWizard.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="imageLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 165</value>
+  </data>
+  <data name="imageLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 157</value>
+  </data>
+  <data name="imageLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;imageLabel1.Name" xml:space="preserve">
+    <value>imageLabel1</value>
+  </data>
+  <data name="&gt;&gt;imageLabel1.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.ImageLabel, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;imageLabel1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;imageLabel1.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 65</value>
@@ -335,6 +386,12 @@
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>800, 500</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceHud.Name" xml:space="preserve">
+    <value>bindingSourceHud</value>
+  </data>
+  <data name="&gt;&gt;bindingSourceHud.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>_5AccelCalib</value>

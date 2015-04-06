@@ -86,10 +86,10 @@
             this.panelMap.Controls.Add(this.trackBar1);
             this.panelMap.Controls.Add(this.label11);
             this.panelMap.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelMap.Location = new System.Drawing.Point(3, 63);
+            this.panelMap.Location = new System.Drawing.Point(3, 38);
             this.panelMap.MinimumSize = new System.Drawing.Size(27, 27);
             this.panelMap.Name = "panelMap";
-            this.panelMap.Size = new System.Drawing.Size(800, 375);
+            this.panelMap.Size = new System.Drawing.Size(800, 459);
             this.panelMap.TabIndex = 52;
             this.panelMap.Text = "panel6";
             this.panelMap.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMap_Paint);
@@ -137,7 +137,7 @@
             this.MainMap.GrayScaleMode = false;
             this.MainMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.MainMap.LevelsKeepInMemmory = 5;
-            this.MainMap.Location = new System.Drawing.Point(27, 103);
+            this.MainMap.Location = new System.Drawing.Point(27, 59);
             this.MainMap.MarkersEnabled = true;
             this.MainMap.MaxZoom = 19;
             this.MainMap.MinZoom = 0;
@@ -150,7 +150,7 @@
             this.MainMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.MainMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.MainMap.ShowTileGridLines = false;
-            this.MainMap.Size = new System.Drawing.Size(722, 233);
+            this.MainMap.Size = new System.Drawing.Size(722, 384);
             this.MainMap.TabIndex = 45;
             this.MainMap.Zoom = 0D;
             this.MainMap.Paint += new System.Windows.Forms.PaintEventHandler(this.MainMap_Paint);
@@ -161,12 +161,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.trackBar1.LargeChange = 0.005F;
-            this.trackBar1.Location = new System.Drawing.Point(755, 69);
+            this.trackBar1.Location = new System.Drawing.Point(755, 56);
             this.trackBar1.Maximum = 24F;
             this.trackBar1.Minimum = 1F;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 303);
+            this.trackBar1.Size = new System.Drawing.Size(45, 387);
             this.trackBar1.SmallChange = 0.001F;
             this.trackBar1.TabIndex = 46;
             this.trackBar1.TickFrequency = 1F;

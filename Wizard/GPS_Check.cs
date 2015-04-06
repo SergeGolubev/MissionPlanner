@@ -18,14 +18,14 @@ namespace MissionPlanner.Wizard
     public partial class GPS_Check : MyUserControl, IWizard
     {
         PointLatLngAlt currentloc;
-        bool grid = false;
+        bool grid = true; // было false
         public static GMapOverlay poioverlay = new GMapOverlay("POI");
         public GPS_Check()
         {
            
             InitializeComponent();
-            MainMap.MapProvider = GoogleSatelliteMapProvider.Instance;
             MainMap.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + "/gmapcache/";
+            MainMap.MapProvider = GoogleSatelliteMapProvider.Instance;
             currentloc = new PointLatLngAlt(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
             MainMap.RoutesEnabled = true;
 
@@ -74,7 +74,7 @@ namespace MissionPlanner.Wizard
                 cnt++;
             }
 
-            MainMap.Position = currentloc;
+            //MainMap.Position;
         }
         public int WizardValidate()
         {

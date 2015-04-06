@@ -24,6 +24,8 @@ namespace MissionPlanner.Wizard
 
         public _3ConnectAP()
         {
+            InitializeComponent();
+            
             fwmap.Add(new KeyValuePair<string,string>("rover", "ar2"));
             fwmap.Add(new KeyValuePair<string,string>("rover", "APMRover"));
 
@@ -64,7 +66,7 @@ namespace MissionPlanner.Wizard
             fwmap.Add(new KeyValuePair<string,string>("octa", "-octa/ArduCopter"));
 
 
-            InitializeComponent();
+            
 
             CMB_port.Items.AddRange(SerialPort.GetPortNames());
         }
@@ -86,7 +88,7 @@ namespace MissionPlanner.Wizard
 
         public int WizardValidate()
         {
-           /* comport = CMB_port.Text;
+            comport = CMB_port.Text;
 
             if (comport == "")
             {

@@ -213,10 +213,9 @@ namespace MissionPlanner
                 Thread.CurrentThread.Name = "Base Thread";
                 MainV2 misplanner = new MainV2();
                 MissionPlanner.Wizard.Wizard a = new MissionPlanner.Wizard.Wizard();
-                MissionPlanner.GCSViews.Simple b = new MissionPlanner.GCSViews.Simple();
-                Application.Run(misplanner);
+                //Application.Run(a);
                 //Application.Run(new Form1());
-                //Application.Run(misplanner);
+                Application.Run(misplanner);
                 
                
             }

@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,64 +71,48 @@
             this.radialGradientBG1.Size = new System.Drawing.Size(800, 41);
             this.radialGradientBG1.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(281, 72);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(207, 35);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Начать проверку";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(39, 74);
+            this.label1.Location = new System.Drawing.Point(190, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(567, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = " В режиме MANUAL отклонить ручки на пульте и проверить отклонение рулей";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "label1";
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(39, 117);
-            this.label2.MaximumSize = new System.Drawing.Size(2000, 2000);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(380, 36);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Переключиться в режим FBWA (тумблер на пульте)\r\nПроверить то же что и в предыдуще" +
-    "м пункте.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(39, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(707, 18);
-            this.label3.TabIndex = 8;
-            this.label3.Text = " Не трогая ручки на пульте наклонять самолет в разные стороны и проверить отклоне" +
-    "ние рулей.";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(39, 237);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(193, 18);
-            this.label7.TabIndex = 12;
-            this.label7.Text = " Вернуть режим MANUAL";
+            this.button2.AutoSize = true;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(334, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 32);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Continue";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // DS_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.radialGradientBG1);
             this.Name = "DS_Check";
             this.Size = new System.Drawing.Size(800, 500);
@@ -142,9 +125,8 @@
         #endregion
 
         private Controls.GradientBG radialGradientBG1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
     }
 }
