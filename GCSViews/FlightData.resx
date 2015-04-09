@@ -643,7 +643,11 @@
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Parent" xml:space="preserve">
     <value>tabActions</value>
@@ -664,7 +668,11 @@
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Parent" xml:space="preserve">
     <value>tabActions</value>
@@ -1438,7 +1446,11 @@
     <value>servoOptions1</value>
   </data>
   <data name="&gt;&gt;servoOptions1.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions1.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1459,7 +1471,11 @@
     <value>servoOptions2</value>
   </data>
   <data name="&gt;&gt;servoOptions2.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions2.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1480,7 +1496,11 @@
     <value>servoOptions3</value>
   </data>
   <data name="&gt;&gt;servoOptions3.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions3.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1501,7 +1521,11 @@
     <value>servoOptions4</value>
   </data>
   <data name="&gt;&gt;servoOptions4.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions4.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1522,7 +1546,11 @@
     <value>servoOptions5</value>
   </data>
   <data name="&gt;&gt;servoOptions5.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions5.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1543,7 +1571,11 @@
     <value>servoOptions6</value>
   </data>
   <data name="&gt;&gt;servoOptions6.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions6.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -1564,7 +1596,11 @@
     <value>servoOptions7</value>
   </data>
   <data name="&gt;&gt;servoOptions7.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;servoOptions7.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -2722,7 +2758,11 @@
     <value>zg1</value>
   </data>
   <data name="&gt;&gt;zg1.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>ZedGraph.ZedGraphControl, ZedGraph, Version=5.1.5.42984, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>ZedGraph.ZedGraphControl, ZedGraph, Version=5.1.5.2796, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;zg1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
@@ -2758,7 +2798,11 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
+<<<<<<< HEAD
     <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.1.5572.20965, Culture=neutral, PublicKeyToken=null</value>
+=======
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.1.5552.42087, Culture=neutral, PublicKeyToken=null</value>
+>>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
