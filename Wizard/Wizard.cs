@@ -76,7 +76,7 @@ namespace MissionPlanner.Wizard
             }
             else
             {*/
-            wiz_main.ShowScreen("GPS Check");
+            wiz_main.ShowScreen("Intro");
             //} //Здесь поменять 
 
             history.Add(wiz_main.current.Name);
