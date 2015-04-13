@@ -2397,17 +2397,10 @@ namespace MissionPlanner.GCSViews
                 try
                 {
                     fieldValue = field.GetValue(thisBoxed, null); // Get value
-<<<<<<< HEAD
 
                     if (fieldValue == null)
                         continue;
 
-=======
-
-                    if (fieldValue == null)
-                        continue;
-
->>>>>>> 180dafc37264cb356e3ee7edac66104b89e7d12f
                     // Get the TypeCode enumeration. Multiple types get mapped to a common typecode.
                     typeCode = Type.GetTypeCode(fieldValue.GetType());
 
