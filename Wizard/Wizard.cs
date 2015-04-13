@@ -33,6 +33,7 @@ namespace MissionPlanner.Wizard
 
             wiz_main = new MainSwitcher(this.panel1);
 
+            //wiz_main.AddScreen(new MainSwitcher.Screen("GPS Check", new GPS_Check(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("Intro", new _1Intro(), true));
             //wiz_main.AddScreen(new MainSwitcher.Screen("FrameFW", new _2FrameFW(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("Connect", new _3ConnectAP(), true));
@@ -75,8 +76,8 @@ namespace MissionPlanner.Wizard
             }
             else
             {*/
-            wiz_main.ShowScreen("Intro");
-            //} 
+            wiz_main.ShowScreen("GPS Check");
+            //} //Здесь поменять 
 
             history.Add(wiz_main.current.Name);
 
