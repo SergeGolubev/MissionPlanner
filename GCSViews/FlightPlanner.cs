@@ -2769,10 +2769,17 @@ namespace MissionPlanner.GCSViews
                 PointLatLng point = MainMap.FromLocalToLatLng(e.X, e.Y);
                 var rect = RectangleF.FromLTRB((float)MouseDownStart.Lng, (float)MouseDownStart.Lat, (float)point.Lng, (float)point.Lat);
 
+                //if (boxpoly != null)
+                //    drawnpolygon.Polygons.Remove(boxpoly);
+
                 drawnpolygon.Points.Add(MouseDownStart);
                 drawnpolygon.Points.Add(new PointLatLng(rect.Top, rect.Right));
                 drawnpolygon.Points.Add(point);
                 drawnpolygon.Points.Add(new PointLatLng(rect.Bottom, rect.Left));
+             /*   addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), MouseDownStart.Lng, MouseDownStart.Lat, 0);
+                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Top, rect.Right).Lng, new PointLatLng(rect.Top, rect.Right).Lat, 0);
+                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), point.Lng, point.Lat, 0);
+                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Bottom, rect.Left).Lng, new PointLatLng(rect.Bottom, rect.Left).Lat, 0); */
             }
             isMouseDraging = false;
         }
