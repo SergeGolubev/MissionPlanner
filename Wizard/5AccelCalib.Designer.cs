@@ -31,9 +31,7 @@ namespace MissionPlanner.Wizard
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_5AccelCalib));
-            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.BUT_continue = new MissionPlanner.Controls.MyButton();
             this.BUT_start = new MissionPlanner.Controls.MyButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,20 +39,18 @@ namespace MissionPlanner.Wizard
             this.hudWizard = new MissionPlanner.Controls.HUD();
             this.imageLabel1 = new MissionPlanner.Controls.ImageLabel();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
+            this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bindingSourceHud
-            // 
-            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.myButton1);
             this.panel1.Controls.Add(this.BUT_continue);
             this.panel1.Controls.Add(this.BUT_start);
             this.panel1.Controls.Add(this.label2);
@@ -63,14 +59,6 @@ namespace MissionPlanner.Wizard
             this.panel1.Controls.Add(this.imageLabel1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // BUT_continue
             // 
@@ -187,6 +175,7 @@ namespace MissionPlanner.Wizard
             // 
             // 
             this.radialGradientBG1.Image.BackColor = System.Drawing.Color.Transparent;
+            this.radialGradientBG1.Image.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("radialGradientBG1.Image.ImeMode")));
             this.radialGradientBG1.Image.Location = ((System.Drawing.Point)(resources.GetObject("radialGradientBG1.Image.Location")));
             this.radialGradientBG1.Image.MaximumSize = ((System.Drawing.Size)(resources.GetObject("radialGradientBG1.Image.MaximumSize")));
             this.radialGradientBG1.Image.MinimumSize = ((System.Drawing.Size)(resources.GetObject("radialGradientBG1.Image.MinimumSize")));
@@ -202,6 +191,7 @@ namespace MissionPlanner.Wizard
             this.radialGradientBG1.Label.BackColor = System.Drawing.Color.Transparent;
             this.radialGradientBG1.Label.Font = ((System.Drawing.Font)(resources.GetObject("radialGradientBG1.Label.Font")));
             this.radialGradientBG1.Label.ForeColor = System.Drawing.Color.Black;
+            this.radialGradientBG1.Label.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("radialGradientBG1.Label.ImeMode")));
             this.radialGradientBG1.Label.Location = ((System.Drawing.Point)(resources.GetObject("radialGradientBG1.Label.Location")));
             this.radialGradientBG1.Label.Name = "_Label";
             this.radialGradientBG1.Label.Size = ((System.Drawing.Size)(resources.GetObject("radialGradientBG1.Label.Size")));
@@ -210,6 +200,17 @@ namespace MissionPlanner.Wizard
             resources.ApplyResources(this.radialGradientBG1, "radialGradientBG1");
             this.radialGradientBG1.Name = "radialGradientBG1";
             this.radialGradientBG1.OutsideColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(107)))), ((int)(((byte)(10)))));
+            // 
+            // bindingSourceHud
+            // 
+            this.bindingSourceHud.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // myButton1
+            // 
+            resources.ApplyResources(this.myButton1, "myButton1");
+            this.myButton1.Name = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            this.myButton1.Click += new System.EventHandler(this.myButton1_Click);
             // 
             // _5AccelCalib
             // 
@@ -221,10 +222,10 @@ namespace MissionPlanner.Wizard
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_5AccelCalib";
             resources.ApplyResources(this, "$this");
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,7 +241,7 @@ namespace MissionPlanner.Wizard
         private Controls.MyButton BUT_start;
         private Controls.MyButton BUT_continue;
         private Controls.HUD hudWizard;
-        private Button button1;
+        private Controls.MyButton myButton1;
 
     }
 }

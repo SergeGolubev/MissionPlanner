@@ -16,8 +16,6 @@ namespace MissionPlanner.Wizard
         public _8OptionalItemsAP()
         {
             InitializeComponent();
-            CHK_airspeeduse.Visible = false;
-            CHK_enableairspeed.Visible = false;
         }
 
         void updateosd()
@@ -71,8 +69,8 @@ namespace MissionPlanner.Wizard
 
             if (MainV2.comPort.MAV.param.ContainsKey("ARSPD_ENABLE"))
             {
-               CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainV2.comPort.MAV.param);
-               CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainV2.comPort.MAV.param);
+              // CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainV2.comPort.MAV.param);
+              // CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainV2.comPort.MAV.param);
 
                 timer1.Start();
             }
@@ -112,7 +110,7 @@ namespace MissionPlanner.Wizard
         private void timer1_Tick(object sender, EventArgs e)
         {
             LBL_airspeed.Text = MainV2.comPort.MAV.cs.airspeed.ToString("0.00") + " m/s";
-            LBL_Height.Text = MainV2.comPort.MAV.cs.alt.ToString();
+            LBL_Height.Text = MainV2.comPort.MAV.cs.alt.ToString("0.00") + " m";
         }
 
         private void label5_Click(object sender, EventArgs e)

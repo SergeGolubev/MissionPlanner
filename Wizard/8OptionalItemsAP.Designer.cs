@@ -41,8 +41,6 @@ namespace MissionPlanner.Wizard
             this.label2 = new System.Windows.Forms.Label();
             this.Label_Height = new System.Windows.Forms.Label();
             this.LBL_Height = new System.Windows.Forms.Label();
-            this.CHK_enableairspeed = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.CHK_airspeeduse = new MissionPlanner.Controls.MavlinkCheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.SuspendLayout();
@@ -51,8 +49,6 @@ namespace MissionPlanner.Wizard
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.CHK_airspeeduse);
-            this.panel1.Controls.Add(this.CHK_enableairspeed);
             this.panel1.Controls.Add(this.LBL_airspeed);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label1);
@@ -136,26 +132,6 @@ namespace MissionPlanner.Wizard
             this.LBL_Height.Name = "LBL_Height";
             this.LBL_Height.Click += new System.EventHandler(this.label6_Click);
             // 
-            // CHK_enableairspeed
-            // 
-            resources.ApplyResources(this.CHK_enableairspeed, "CHK_enableairspeed");
-            this.CHK_enableairspeed.Name = "CHK_enableairspeed";
-            this.CHK_enableairspeed.OffValue = 0F;
-            this.CHK_enableairspeed.OnValue = 1F;
-            this.CHK_enableairspeed.param = null;
-            this.CHK_enableairspeed.ParamName = null;
-            this.CHK_enableairspeed.UseVisualStyleBackColor = true;
-            // 
-            // CHK_airspeeduse
-            // 
-            resources.ApplyResources(this.CHK_airspeeduse, "CHK_airspeeduse");
-            this.CHK_airspeeduse.Name = "CHK_airspeeduse";
-            this.CHK_airspeeduse.OffValue = 0F;
-            this.CHK_airspeeduse.OnValue = 1F;
-            this.CHK_airspeeduse.param = null;
-            this.CHK_airspeeduse.ParamName = null;
-            this.CHK_airspeeduse.UseVisualStyleBackColor = true;
-            // 
             // _8OptionalItemsAP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -190,8 +166,6 @@ namespace MissionPlanner.Wizard
         private Label label2;
         private Label Label_Height;
         private Label LBL_Height;
-        private Controls.MavlinkCheckBox CHK_airspeeduse;
-        private Controls.MavlinkCheckBox CHK_enableairspeed;
 
     }
 }

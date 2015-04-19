@@ -321,9 +321,9 @@
     <value>3</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>Выберите ваш компорт из списка
+    <value>Выберите ваш com порт из списка
 
-Правильное название будет "Arduino Mega 2560" или "PX4 FMU"
+Нужное название будет "Arduino Mega 2560" или "PX4 FMU"
 
 </value>
   </data>

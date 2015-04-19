@@ -33,7 +33,7 @@ namespace MissionPlanner.Wizard
 {
     public partial class _6CompassCalib : MyUserControl, IWizard, IActivate, IDeactivate
     {
-
+        private float prevDegree;
         internal PointLatLng MouseDownStart = new PointLatLng();
         public _6CompassCalib()
         {
@@ -51,7 +51,7 @@ namespace MissionPlanner.Wizard
 
             gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
             //gMapControl1.Position = new PointLatLng( 243, 67);
-                 
+            prevDegree = 0;     
         }
 
         public int WizardValidate()
@@ -251,11 +251,12 @@ namespace MissionPlanner.Wizard
         }
 
         private void timer2_Tick(object sender, EventArgs e)
-        {
+        { 
             gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
             //gMapControl1.Position = new PointLatLng(12, 67); /////////////////////////////////////////////////////// поменять
-            pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictureBox1.Image.Width / 2), MainV2.comPort.MAV.cs.yaw - 45);
+            pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictureBox1.Image.Width / 2), MainV2.comPort.MAV.cs.yaw - prevDegree);
             //pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictur);
+            prevDegree = MainV2.comPort.MAV.cs.yaw;
         }
 
         //methods of Map

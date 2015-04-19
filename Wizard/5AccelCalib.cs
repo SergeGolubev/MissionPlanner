@@ -19,19 +19,24 @@ namespace MissionPlanner.Wizard
         static bool busy = false;
         DateTime lastScreenUpdate;
         Thread accel_thread;
+        bool thread_started = false;
 
         public _5AccelCalib()
         {
             InitializeComponent();
             hudWizard.Enabled = true;
             lastScreenUpdate = DateTime.Now;
-            accel_thread = new Thread(updateAccelerometrDisplay);
         }
 
         public int WizardValidate()
         {
+            if (thread_started == true)
+            {
+                accel_thread.Abort();
+            }
             accelDispalying = false;
             //MainV2.comPort.giveComport = false;
+            
             return 1;
         }
 
@@ -42,10 +47,15 @@ namespace MissionPlanner.Wizard
 
         private void BUT_start_Click(object sender, EventArgs e)
         {
-            button1.Visible = false;
+            myButton1.Enabled = false;
             ((MyButton)sender).Enabled = false;
             BUT_continue.Enabled = true;
             accelDispalying = false; // stop displaying accelerometr horizon
+            if (thread_started)
+            {
+                accel_thread.Abort();
+                thread_started = false;
+            }
    
             busy = true;
 
@@ -94,6 +104,7 @@ namespace MissionPlanner.Wizard
                 {
                     local.imageLabel1.Text = "Done";
                     local.BUT_continue.Enabled = false; // было false
+                    local.myButton1.Enabled = true;
                 });
             }
             catch { }
@@ -206,11 +217,13 @@ namespace MissionPlanner.Wizard
                 this.lastScreenUpdate = DateTime.Now;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void myButton1_Click(object sender, EventArgs e)
         {
+            thread_started = true;
             accelDispalying = true;
+            accel_thread = new Thread(updateAccelerometrDisplay);
             accel_thread.Start();
+            myButton1.Enabled = false;
         }
 
     }

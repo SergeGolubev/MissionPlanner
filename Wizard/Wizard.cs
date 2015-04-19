@@ -62,7 +62,7 @@ namespace MissionPlanner.Wizard
                 }
             }
 
-            if (wiz_main.screens.IndexOf(wiz_main.current) == ( wiz_main.screens.Count-1))
+            if (wiz_main.screens.IndexOf(wiz_main.current) == ( wiz_main.screens.Count - 1))
             {
                 this.Close();
                 return;
@@ -115,6 +115,7 @@ namespace MissionPlanner.Wizard
             {
                 BUT_Back.Enabled = false;
             }
+            BUT_Next.Text = "Next >>";
         }
 
         private void BUT_Back_Click(object sender, EventArgs e)
