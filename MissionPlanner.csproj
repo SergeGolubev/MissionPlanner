@@ -968,53 +968,17 @@
     <EmbeddedResource Include="Warnings\WarningsManager.resx">
       <DependentUpon>WarningsManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\10FlightModes.zh-Hant.resx">
-      <DependentUpon>10FlightModes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\10FlightModes.zh-TW.resx">
-      <DependentUpon>10FlightModes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\11Verify.zh-Hant.resx">
-      <DependentUpon>11Verify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\11Verify.zh-TW.resx">
-      <DependentUpon>11Verify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\12FailSafe.zh-Hant.resx">
-      <DependentUpon>12FailSafe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\12FailSafe.zh-TW.resx">
-      <DependentUpon>12FailSafe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\13GeoFence.zh-Hant.resx">
-      <DependentUpon>13GeoFence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\13GeoFence.zh-TW.resx">
-      <DependentUpon>13GeoFence.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\1Intro.zh-Hant.resx">
       <DependentUpon>1Intro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\1Intro.zh-TW.resx">
       <DependentUpon>1Intro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\2FrameFW.zh-Hant.resx">
-      <DependentUpon>2FrameFW.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\2FrameFW.zh-TW.resx">
-      <DependentUpon>2FrameFW.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\3ConnectAP.zh-Hant.resx">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\3ConnectAP.zh-TW.resx">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\4FrameType.zh-Hant.resx">
-      <DependentUpon>4FrameType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\4FrameType.zh-TW.resx">
-      <DependentUpon>4FrameType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\5AccelCalib.zh-Hant.resx">
       <DependentUpon>5AccelCalib.cs</DependentUpon>
@@ -1028,44 +992,17 @@
     <EmbeddedResource Include="Wizard\6CompassCalib.zh-TW.resx">
       <DependentUpon>6CompassCalib.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\7BatteryMonitor.zh-Hant.resx">
-      <DependentUpon>7BatteryMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\7BatteryMonitor.zh-TW.resx">
-      <DependentUpon>7BatteryMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\8OptionalItemsAC.zh-Hant.resx">
-      <DependentUpon>8OptionalItemsAC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\8OptionalItemsAC.zh-TW.resx">
-      <DependentUpon>8OptionalItemsAC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\8OptionalItemsAP.zh-Hant.resx">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\8OptionalItemsAP.zh-TW.resx">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\98DontForget.zh-Hant.resx">
-      <DependentUpon>98DontForget.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\98DontForget.zh-TW.resx">
-      <DependentUpon>98DontForget.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\9RadioCalibration.zh-Hant.resx">
-      <DependentUpon>9RadioCalibration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\9RadioCalibration.zh-TW.resx">
-      <DependentUpon>9RadioCalibration.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\DS_Check.resx">
       <DependentUpon>DS_Check.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\Finish.resx">
       <DependentUpon>Finish.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\GPS_Check.resx">
-      <DependentUpon>GPS_Check.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\Wizard.zh-Hans.resx">
       <DependentUpon>Wizard.cs</DependentUpon>
@@ -1209,23 +1146,11 @@
     <Compile Include="Wizard\1Intro.Designer.cs">
       <DependentUpon>1Intro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\2FrameFW.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\2FrameFW.Designer.cs">
-      <DependentUpon>2FrameFW.cs</DependentUpon>
-    </Compile>
     <Compile Include="Wizard\3ConnectAP.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Wizard\3ConnectAP.Designer.cs">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\4FrameType.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\4FrameType.Designer.cs">
-      <DependentUpon>4FrameType.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizard\5AccelCalib.cs">
       <SubType>UserControl</SubType>
@@ -1239,59 +1164,11 @@
     <Compile Include="Wizard\6CompassCalib.Designer.cs">
       <DependentUpon>6CompassCalib.cs</DependentUpon>
     </Compile>
-    <Compile Include="Wizard\7BatteryMonitor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\7BatteryMonitor.Designer.cs">
-      <DependentUpon>7BatteryMonitor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\8OptionalItemsAC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\8OptionalItemsAC.Designer.cs">
-      <DependentUpon>8OptionalItemsAC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Wizard\8OptionalItemsAP.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Wizard\8OptionalItemsAP.Designer.cs">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\9RadioCalibration.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\9RadioCalibration.Designer.cs">
-      <DependentUpon>9RadioCalibration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\10FlightModes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\10FlightModes.Designer.cs">
-      <DependentUpon>10FlightModes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\11Verify.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\11Verify.Designer.cs">
-      <DependentUpon>11Verify.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\12FailSafe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\12FailSafe.Designer.cs">
-      <DependentUpon>12FailSafe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\13GeoFence.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\13GeoFence.Designer.cs">
-      <DependentUpon>13GeoFence.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\98DontForget.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\98DontForget.Designer.cs">
-      <DependentUpon>98DontForget.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizard\DS_Check.cs">
       <SubType>UserControl</SubType>
@@ -1304,12 +1181,6 @@
     </Compile>
     <Compile Include="Wizard\Finish.Designer.cs">
       <DependentUpon>Finish.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Wizard\GPS_Check.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Wizard\GPS_Check.Designer.cs">
-      <DependentUpon>GPS_Check.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizard\IWizard.cs" />
     <Compile Include="Wizard\Wizard.cs">
@@ -1585,41 +1456,17 @@
     <EmbeddedResource Include="Swarm\FollowPathControl.resx">
       <DependentUpon>FollowPathControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\10FlightModes.zh-Hans.resx">
-      <DependentUpon>10FlightModes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\11Verify.zh-Hans.resx">
-      <DependentUpon>11Verify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\12FailSafe.zh-Hans.resx">
-      <DependentUpon>12FailSafe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\13GeoFence.zh-Hans.resx">
-      <DependentUpon>13GeoFence.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\1Intro.resx">
       <DependentUpon>1Intro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\1Intro.zh-Hans.resx">
       <DependentUpon>1Intro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\2FrameFW.resx">
-      <DependentUpon>2FrameFW.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\2FrameFW.zh-Hans.resx">
-      <DependentUpon>2FrameFW.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\3ConnectAP.resx">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\3ConnectAP.zh-Hans.resx">
       <DependentUpon>3ConnectAP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\4FrameType.resx">
-      <DependentUpon>4FrameType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\4FrameType.zh-Hans.resx">
-      <DependentUpon>4FrameType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\5AccelCalib.resx">
       <DependentUpon>5AccelCalib.cs</DependentUpon>
@@ -1633,47 +1480,11 @@
     <EmbeddedResource Include="Wizard\6CompassCalib.zh-Hans.resx">
       <DependentUpon>6CompassCalib.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\7BatteryMonitor.resx">
-      <DependentUpon>7BatteryMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\7BatteryMonitor.zh-Hans.resx">
-      <DependentUpon>7BatteryMonitor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\8OptionalItemsAC.resx">
-      <DependentUpon>8OptionalItemsAC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\8OptionalItemsAC.zh-Hans.resx">
-      <DependentUpon>8OptionalItemsAC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\8OptionalItemsAP.resx">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\8OptionalItemsAP.zh-Hans.resx">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\98DontForget.zh-Hans.resx">
-      <DependentUpon>98DontForget.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\9RadioCalibration.resx">
-      <DependentUpon>9RadioCalibration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\10FlightModes.resx">
-      <DependentUpon>10FlightModes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\11Verify.resx">
-      <DependentUpon>11Verify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\12FailSafe.resx">
-      <DependentUpon>12FailSafe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\13GeoFence.resx">
-      <DependentUpon>13GeoFence.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\98DontForget.resx">
-      <DependentUpon>98DontForget.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Wizard\9RadioCalibration.zh-Hans.resx">
-      <DependentUpon>9RadioCalibration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Wizard\Wizard.resx">
       <DependentUpon>Wizard.cs</DependentUpon>

@@ -45,8 +45,8 @@ namespace MissionPlanner.Wizard
             button1.Visible = false;
             ((MyButton)sender).Enabled = false;
             BUT_continue.Enabled = true;
-            accelDispalying = false; // stop displaying accelerometr horizon 
-               
+            accelDispalying = false; // stop displaying accelerometr horizon
+   
             busy = true;
 
              try
@@ -209,6 +209,7 @@ namespace MissionPlanner.Wizard
 
         private void button1_Click(object sender, EventArgs e)
         {
+            accelDispalying = true;
             accel_thread.Start();
         }
 

@@ -144,19 +144,21 @@ namespace MissionPlanner.Utilities
 
 
             temp.Add(new Wizard._1Intro());
-            temp.Add(new Wizard._2FrameFW());
+           // temp.Add(new Wizard._2FrameFW());
             temp.Add(new Wizard._3ConnectAP());
-            temp.Add(new Wizard._4FrameType());
+            //temp.Add(new Wizard._4FrameType());
             temp.Add(new Wizard._5AccelCalib());
             temp.Add(new Wizard._6CompassCalib());
-            temp.Add(new Wizard._7BatteryMonitor());
-            temp.Add(new Wizard._8OptionalItemsAC());
-            temp.Add(new Wizard._9RadioCalibration());
-            temp.Add(new Wizard._10FlightModes());
-            temp.Add(new Wizard._11Verify());
-            temp.Add(new Wizard._12FailSafe());
-            temp.Add(new Wizard._13GeoFence());
-            temp.Add(new Wizard._98DontForget());
+            temp.Add(new Wizard.DS_Check());
+            temp.Add(new Wizard.Finish());
+            //temp.Add(new Wizard._7BatteryMonitor());
+           // temp.Add(new Wizard._8OptionalItemsAC());
+            //temp.Add(new Wizard._9RadioCalibration());
+            //temp.Add(new Wizard._10FlightModes());
+            //temp.Add(new Wizard._11Verify());
+            //temp.Add(new Wizard._12FailSafe());
+            //temp.Add(new Wizard._13GeoFence());
+            //temp.Add(new Wizard._98DontForget());
 
             temp.Add(new GCSViews.ConfigurationView.ConfigAC_Fence());
             temp.Add(new GCSViews.ConfigurationView.ConfigAccelerometerCalibrationPlane());

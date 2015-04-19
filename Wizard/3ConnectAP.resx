@@ -117,65 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>30, 65</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>740, 187</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>464, 4</value>
   </data>
@@ -186,6 +128,7 @@
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -217,9 +160,9 @@
     <value>3</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Connect your autopilot to the computer via the USB port.
+    <value>Присоедините autopilot к USB порту вашего компьютера
 
-NOTE: USB hubs might not provide adequate power, connect directly to your computer.</value>
+ПРЕДУПРЕЖДЕНИЕ: USB концентратор может не давать требуемой мощности, необходимо прямое подключение к порту компьютера</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -243,13 +186,13 @@ NOTE: USB hubs might not provide adequate power, connect directly to your comput
     <value>4, 4</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 22</value>
+    <value>338, 22</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>CONNECT YOUR AUTOPILOT</value>
+    <value>ПРИСОЕДИНИТЕ ВАШ AUTOPILOT</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -261,6 +204,27 @@ NOTE: USB hubs might not provide adequate power, connect directly to your comput
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>30, 65</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>740, 187</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="radialGradientBG1.Image.Location" type="System.Drawing.Point, System.Drawing">
@@ -291,13 +255,13 @@ NOTE: USB hubs might not provide adequate power, connect directly to your comput
     <value>30, 5</value>
   </data>
   <data name="radialGradientBG1.Label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 29</value>
+    <value>504, 29</value>
   </data>
   <data name="radialGradientBG1.Label.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="radialGradientBG1.Label.Text" xml:space="preserve">
-    <value>Connecting your autopilot</value>
+    <value>НАСТРОЙКА СОЕДИНЕНИЯ С AUTOPOLIT</value>
   </data>
   <data name="radialGradientBG1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -357,9 +321,9 @@ NOTE: USB hubs might not provide adequate power, connect directly to your comput
     <value>3</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>Please select your comport from the list.
+    <value>Выберите ваш компорт из списка
 
-The correct comport will apear as "Arduino Mega 2560" or "PX4 FMU"
+Правильное название будет "Arduino Mega 2560" или "PX4 FMU"
 
 </value>
   </data>
@@ -385,13 +349,13 @@ The correct comport will apear as "Arduino Mega 2560" or "PX4 FMU"
     <value>4, 4</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>198, 22</value>
+    <value>232, 22</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
-    <value>SELECT COM PORT</value>
+    <value>ВЫБЕРИТЕ COM PORT</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>

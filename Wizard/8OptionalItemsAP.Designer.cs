@@ -32,12 +32,8 @@ namespace MissionPlanner.Wizard
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_8OptionalItemsAP));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CHK_airspeeduse = new MissionPlanner.Controls.MavlinkCheckBox();
             this.LBL_airspeed = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CHK_enableairspeed = new MissionPlanner.Controls.MavlinkCheckBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,8 +41,9 @@ namespace MissionPlanner.Wizard
             this.label2 = new System.Windows.Forms.Label();
             this.Label_Height = new System.Windows.Forms.Label();
             this.LBL_Height = new System.Windows.Forms.Label();
+            this.CHK_enableairspeed = new MissionPlanner.Controls.MavlinkCheckBox();
+            this.CHK_airspeeduse = new MissionPlanner.Controls.MavlinkCheckBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,24 +52,12 @@ namespace MissionPlanner.Wizard
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.CHK_airspeeduse);
+            this.panel1.Controls.Add(this.CHK_enableairspeed);
             this.panel1.Controls.Add(this.LBL_airspeed);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.CHK_enableairspeed);
-            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.label1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // CHK_airspeeduse
-            // 
-            resources.ApplyResources(this.CHK_airspeeduse, "CHK_airspeeduse");
-            this.CHK_airspeeduse.Name = "CHK_airspeeduse";
-            this.CHK_airspeeduse.OffValue = 0F;
-            this.CHK_airspeeduse.OnValue = 1F;
-            this.CHK_airspeeduse.param = null;
-            this.CHK_airspeeduse.ParamName = null;
-            this.CHK_airspeeduse.UseVisualStyleBackColor = true;
             // 
             // LBL_airspeed
             // 
@@ -83,30 +68,6 @@ namespace MissionPlanner.Wizard
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // CHK_enableairspeed
-            // 
-            resources.ApplyResources(this.CHK_enableairspeed, "CHK_enableairspeed");
-            this.CHK_enableairspeed.Name = "CHK_enableairspeed";
-            this.CHK_enableairspeed.OffValue = 0F;
-            this.CHK_enableairspeed.OnValue = 1F;
-            this.CHK_enableairspeed.param = null;
-            this.CHK_enableairspeed.ParamName = null;
-            this.CHK_enableairspeed.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.BackgroundImage = global::MissionPlanner.Properties.Resources.airspeed;
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.TabStop = false;
             // 
             // label1
             // 
@@ -175,6 +136,26 @@ namespace MissionPlanner.Wizard
             this.LBL_Height.Name = "LBL_Height";
             this.LBL_Height.Click += new System.EventHandler(this.label6_Click);
             // 
+            // CHK_enableairspeed
+            // 
+            resources.ApplyResources(this.CHK_enableairspeed, "CHK_enableairspeed");
+            this.CHK_enableairspeed.Name = "CHK_enableairspeed";
+            this.CHK_enableairspeed.OffValue = 0F;
+            this.CHK_enableairspeed.OnValue = 1F;
+            this.CHK_enableairspeed.param = null;
+            this.CHK_enableairspeed.ParamName = null;
+            this.CHK_enableairspeed.UseVisualStyleBackColor = true;
+            // 
+            // CHK_airspeeduse
+            // 
+            resources.ApplyResources(this.CHK_airspeeduse, "CHK_airspeeduse");
+            this.CHK_airspeeduse.Name = "CHK_airspeeduse";
+            this.CHK_airspeeduse.OffValue = 0F;
+            this.CHK_airspeeduse.OnValue = 1F;
+            this.CHK_airspeeduse.param = null;
+            this.CHK_airspeeduse.ParamName = null;
+            this.CHK_airspeeduse.UseVisualStyleBackColor = true;
+            // 
             // _8OptionalItemsAP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -191,7 +172,6 @@ namespace MissionPlanner.Wizard
             resources.ApplyResources(this, "$this");
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,17 +183,15 @@ namespace MissionPlanner.Wizard
         private Panel panel1;
         private Label label1;
         private Controls.GradientBG radialGradientBG1;
-        private PictureBox pictureBox3;
-        private Controls.MavlinkCheckBox CHK_enableairspeed;
-        private Label label3;
         private Timer timer1;
         private Label label4;
         private Label LBL_airspeed;
-        private Controls.MavlinkCheckBox CHK_airspeeduse;
         private ListView listView1;
         private Label label2;
         private Label Label_Height;
         private Label LBL_Height;
+        private Controls.MavlinkCheckBox CHK_airspeeduse;
+        private Controls.MavlinkCheckBox CHK_enableairspeed;
 
     }
 }

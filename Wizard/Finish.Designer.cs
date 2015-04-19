@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +101,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(215, 270);
+            this.label3.Location = new System.Drawing.Point(215, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(285, 25);
             this.label3.TabIndex = 8;
@@ -115,6 +117,10 @@
             this.label4.Size = new System.Drawing.Size(287, 62);
             this.label4.TabIndex = 9;
             this.label4.Text = "Предупреждение!  \r\nГаз не заблокирован!";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Finish
             // 
@@ -141,5 +147,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -7,14 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MissionPlanner.Controls;
+using GMap.NET;
+using GMap.NET.WindowsForms;
+using System.Globalization; // language
+using GMap.NET.WindowsForms.Markers;
+using ZedGraph; // Graphs
+using System.Drawing.Drawing2D;
+using MissionPlanner.Utilities;
+using MissionPlanner.Controls.BackstageView;
+//using Crom.Controls.Docking;
+using log4net;
+using System.Reflection;
+using MissionPlanner.Log;
+using GMap.NET.MapProviders;
+using System.IO; // file io
+
 
 namespace MissionPlanner.Wizard
 {
     public partial class _6CompassCalib : MyUserControl, IWizard, IActivate, IDeactivate
     {
+
+        internal PointLatLng MouseDownStart = new PointLatLng();
         public _6CompassCalib()
         {
             InitializeComponent();
+
+            // map configuring
+            gMapControl1.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "gmapcache" + Path.DirectorySeparatorChar;
+            gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
+            gMapControl1.MinZoom = 0;
+            gMapControl1.MaxZoom = 24;
+            gMapControl1.Zoom = 3;
+            gMapControl1.DisableFocusOnMouseEnter = true;
+            gMapControl1.RoutesEnabled = true;
+            gMapControl1.PolygonsEnabled = true;
+
+            gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
+            //gMapControl1.Position = new PointLatLng( 243, 67);
+                 
         }
 
         public int WizardValidate()
@@ -27,31 +58,33 @@ namespace MissionPlanner.Wizard
             return false;
         }
         public void Activate()
-        { 
-            timer1.Start(); 
+        {
+            timer1.Start();
+            timer2.Start();
         }
 
         public void Deactivate()
-        { 
+        {
             timer1.Stop();
+            timer2.Stop();
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
+        /*private void pictureBox_Click(object sender, EventArgs e)
         {
             DeselectAll();
             (sender as PictureBoxMouseOver).selected = true;
-        }
+        }*/
 
-        void DeselectAll()
-        {
-            foreach (var ctl in this.panel1.Controls)
-            {
-                if (ctl.GetType() == typeof(PictureBoxMouseOver))
-                {
-                    (ctl as PictureBoxMouseOver).selected = false;
-                }
-            }
-        }
+        /* void DeselectAll()
+         {
+             foreach (var ctl in this.panel1.Controls)
+             {
+                 if (ctl.GetType() == typeof(PictureBoxMouseOver))
+                 {
+                     (ctl as PictureBoxMouseOver).selected = false;
+                 }
+             }
+         }*/
 
         private void BUT_MagCalibration_Click(object sender, EventArgs e)
         {
@@ -94,46 +127,6 @@ namespace MissionPlanner.Wizard
         HIL.Vector3 south;
         HIL.Vector3 west;
 
-        private void BUT_compassorient_Click(object sender, EventArgs e)
-        {
-            BUT_compassorient.Text = "Continue";
-
-            MainV2.comPort.requestDatastream(MAVLink.MAV_DATA_STREAM.RAW_SENSORS, 10);
-
-            switch (step)
-            {
-                case 0:
-                    label5.Text = "Please face the autopilot north";
-                    break;
-                case 1:
-                    north = new HIL.Vector3(MainV2.comPort.MAV.cs.mx, MainV2.comPort.MAV.cs.my, MainV2.comPort.MAV.cs.mz);
-                    label5.Text = "Please face the autopilot east";
-                    break;
-                case 2:
-                    east = new HIL.Vector3(MainV2.comPort.MAV.cs.mx, MainV2.comPort.MAV.cs.my, MainV2.comPort.MAV.cs.mz);
-                    label5.Text = "Please face the autopilot south";
-                    break;
-                case 3:
-                    south = new HIL.Vector3(MainV2.comPort.MAV.cs.mx, MainV2.comPort.MAV.cs.my, MainV2.comPort.MAV.cs.mz);
-                    label5.Text = "Please face the autopilot west";
-                    break;
-                case 4:
-                    west = new HIL.Vector3(MainV2.comPort.MAV.cs.mx, MainV2.comPort.MAV.cs.my, MainV2.comPort.MAV.cs.mz);
-                    label5.Text = "Calculating";
-                    if (docalc())
-                    {
-
-                    }
-                    else
-                    {
-                        label5.Text = "Error, please try again, verify where north is.";
-                    }
-                    BUT_compassorient.Text = "Start";
-                    step = 0;
-                    return;
-            }
-            step++;
-        }
 
         const float rad2deg = (float)(180 / Math.PI);
         const float deg2rad = (float)(1.0 / rad2deg);
@@ -201,7 +194,7 @@ namespace MissionPlanner.Wizard
                             if (withinMargin(calcheading(westc), 35, 270))
                             {
                                 Console.WriteLine("Rotation " + item.ToString());
-                                label5.Text = "Done Rotation: " + item.ToString();
+                                //label5.Text = "Done Rotation: " + item.ToString();
                                 return true;
                             }
                         }
@@ -237,8 +230,38 @@ namespace MissionPlanner.Wizard
             if (target > 45)
                 target -= 90f;
 
+        }
 
-            label6.Text = target.ToString("0");
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
+            gMapControl1.Position = new PointLatLng(12, 67); /////////////////////////////////////////////////////// поменять
+        }
+
+        //methods of Map
+
+        private void gMapControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseDownStart = gMapControl1.FromLocalToLatLng(e.X, e.Y);
+
+        }
+
+
+        private void gMapControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                PointLatLng point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
+
+                double latdif = MouseDownStart.Lat - point.Lat;
+                double lngdif = MouseDownStart.Lng - point.Lng;
+
+                try
+                {
+                    gMapControl1.Position = new PointLatLng(gMapControl1.Position.Lat + latdif, gMapControl1.Position.Lng + lngdif);
+                }
+                catch { }
+            }
         }
     }
 }

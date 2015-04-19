@@ -126,16 +126,17 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>520, 121</value>
+    <value>324, 71</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 23</value>
+    <value>122, 36</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
-    <value>Показать авиагоризонт</value>
+    <value>ПОКАЗАТЬ 
+АВИАГОРИЗОНТ</value>
   </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
@@ -152,17 +153,20 @@
   <data name="BUT_continue.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="BUT_continue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="BUT_continue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 299</value>
+    <value>324, 330</value>
   </data>
   <data name="BUT_continue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>122, 23</value>
   </data>
   <data name="BUT_continue.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="BUT_continue.Text" xml:space="preserve">
-    <value>Continue</value>
+    <value>Продолжить</value>
   </data>
   <data name="&gt;&gt;BUT_continue.Name" xml:space="preserve">
     <value>BUT_continue</value>
@@ -176,17 +180,20 @@
   <data name="&gt;&gt;BUT_continue.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="BUT_start.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="BUT_start.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 165</value>
+    <value>324, 196</value>
   </data>
   <data name="BUT_start.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>122, 23</value>
   </data>
   <data name="BUT_start.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="BUT_start.Text" xml:space="preserve">
-    <value>Start</value>
+    <value>СТАРТ</value>
   </data>
   <data name="&gt;&gt;BUT_start.Name" xml:space="preserve">
     <value>BUT_start</value>
@@ -208,16 +215,22 @@
     <value>Arial, 12pt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 44</value>
+    <value>5, 39</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 59</value>
+    <value>297, 314</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Here we will calibrate the minimum and maximum values seen by your accelerometer. Please click start and follow the pictures indicated.</value>
+    <value>Здесь будет произведена настройка минимального и максимального значения измеряемого вашим акселерометром.
+
+Для демонстрации авиагоризонта и проверки калибровки нажмите ПОКАЗАТЬ АВИАГОРИЗОНТ
+
+Для начала калибровки нажмите СТАРТ( авиагоризонт будет отключен) 
+и следуйте картинкам . 
+Располагайте свое устройство согласно изображениям</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -247,7 +260,7 @@
     <value>1</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>ACCELEROMETER CALIBRATION</value>
+    <value>КАЛИБРОВКА АКСЕЛЕРОМЕТРА</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -262,10 +275,10 @@
     <value>4</value>
   </data>
   <data name="hudWizard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>462, 165</value>
+    <value>455, 13</value>
   </data>
   <data name="hudWizard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 157</value>
+    <value>263, 157</value>
   </data>
   <data name="hudWizard.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -283,10 +296,10 @@
     <value>5</value>
   </data>
   <data name="imageLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 165</value>
+    <value>455, 196</value>
   </data>
   <data name="imageLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 157</value>
+    <value>263, 157</value>
   </data>
   <data name="imageLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -352,13 +365,13 @@
     <value>30, 5</value>
   </data>
   <data name="radialGradientBG1.Label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>344, 29</value>
+    <value>480, 29</value>
   </data>
   <data name="radialGradientBG1.Label.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="radialGradientBG1.Label.Text" xml:space="preserve">
-    <value>Calibrate your Accelerometer</value>
+    <value>ОТКАЛИБРУЙТЕ ВАШ АКСЕЛЕРОМЕТР</value>
   </data>
   <data name="radialGradientBG1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

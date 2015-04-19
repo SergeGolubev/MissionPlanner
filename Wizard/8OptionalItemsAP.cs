@@ -16,6 +16,8 @@ namespace MissionPlanner.Wizard
         public _8OptionalItemsAP()
         {
             InitializeComponent();
+            CHK_airspeeduse.Visible = false;
+            CHK_enableairspeed.Visible = false;
         }
 
         void updateosd()
@@ -69,8 +71,8 @@ namespace MissionPlanner.Wizard
 
             if (MainV2.comPort.MAV.param.ContainsKey("ARSPD_ENABLE"))
             {
-                CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainV2.comPort.MAV.param);
-                CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainV2.comPort.MAV.param);
+               CHK_airspeeduse.setup(1, 0, "ARSPD_USE", MainV2.comPort.MAV.param);
+               CHK_enableairspeed.setup(1, 0, "ARSPD_ENABLE", MainV2.comPort.MAV.param);
 
                 timer1.Start();
             }

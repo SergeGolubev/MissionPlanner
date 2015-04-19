@@ -35,21 +35,21 @@ namespace MissionPlanner.Wizard
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxwizard = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label_8 = new System.Windows.Forms.Label();
+            this.label_7 = new System.Windows.Forms.Label();
+            this.label_6 = new System.Windows.Forms.Label();
+            this.label_5 = new System.Windows.Forms.Label();
+            this.label_4 = new System.Windows.Forms.Label();
+            this.label_3 = new System.Windows.Forms.Label();
+            this.label_2 = new System.Windows.Forms.Label();
+            this.label_1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label_1 = new System.Windows.Forms.Label();
-            this.label_2 = new System.Windows.Forms.Label();
-            this.label_3 = new System.Windows.Forms.Label();
-            this.label_4 = new System.Windows.Forms.Label();
-            this.label_5 = new System.Windows.Forms.Label();
-            this.label_6 = new System.Windows.Forms.Label();
-            this.label_7 = new System.Windows.Forms.Label();
-            this.label_8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxwizard)).BeginInit();
             this.panel2.SuspendLayout();
@@ -104,6 +104,59 @@ namespace MissionPlanner.Wizard
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label_8
+            // 
+            resources.ApplyResources(this.label_8, "label_8");
+            this.label_8.Name = "label_8";
+            // 
+            // label_7
+            // 
+            resources.ApplyResources(this.label_7, "label_7");
+            this.label_7.Name = "label_7";
+            // 
+            // label_6
+            // 
+            resources.ApplyResources(this.label_6, "label_6");
+            this.label_6.Name = "label_6";
+            // 
+            // label_5
+            // 
+            resources.ApplyResources(this.label_5, "label_5");
+            this.label_5.Name = "label_5";
+            // 
+            // label_4
+            // 
+            resources.ApplyResources(this.label_4, "label_4");
+            this.label_4.Name = "label_4";
+            // 
+            // label_3
+            // 
+            resources.ApplyResources(this.label_3, "label_3");
+            this.label_3.Name = "label_3";
+            // 
+            // label_2
+            // 
+            resources.ApplyResources(this.label_2, "label_2");
+            this.label_2.Name = "label_2";
+            // 
+            // label_1
+            // 
+            resources.ApplyResources(this.label_1, "label_1");
+            this.label_1.Name = "label_1";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
@@ -151,59 +204,6 @@ namespace MissionPlanner.Wizard
             resources.ApplyResources(this.radialGradientBG1, "radialGradientBG1");
             this.radialGradientBG1.Name = "radialGradientBG1";
             this.radialGradientBG1.OutsideColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(107)))), ((int)(((byte)(10)))));
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label_1
-            // 
-            resources.ApplyResources(this.label_1, "label_1");
-            this.label_1.Name = "label_1";
-            // 
-            // label_2
-            // 
-            resources.ApplyResources(this.label_2, "label_2");
-            this.label_2.Name = "label_2";
-            // 
-            // label_3
-            // 
-            resources.ApplyResources(this.label_3, "label_3");
-            this.label_3.Name = "label_3";
-            // 
-            // label_4
-            // 
-            resources.ApplyResources(this.label_4, "label_4");
-            this.label_4.Name = "label_4";
-            // 
-            // label_5
-            // 
-            resources.ApplyResources(this.label_5, "label_5");
-            this.label_5.Name = "label_5";
-            // 
-            // label_6
-            // 
-            resources.ApplyResources(this.label_6, "label_6");
-            this.label_6.Name = "label_6";
-            // 
-            // label_7
-            // 
-            resources.ApplyResources(this.label_7, "label_7");
-            this.label_7.Name = "label_7";
-            // 
-            // label_8
-            // 
-            resources.ApplyResources(this.label_8, "label_8");
-            this.label_8.Name = "label_8";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // _1Intro
             // 

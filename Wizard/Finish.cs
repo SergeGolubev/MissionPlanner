@@ -6,10 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MissionPlanner.Controls;
+
 
 namespace MissionPlanner.Wizard
 {
-    public partial class Finish : MyUserControl, IWizard
+    public partial class Finish : MyUserControl, IWizard, IActivate
     {
         float throttle;
         float minThrottle;
@@ -26,7 +28,7 @@ namespace MissionPlanner.Wizard
         {
             return false;
         }
-        public void FinishStartShow()
+        public void Activate()
         {
             label4.Visible = true;
             label2.Visible = false;
@@ -40,6 +42,16 @@ namespace MissionPlanner.Wizard
             label4.Visible = false;
             label2.Visible = true;
             label3.Visible = true;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            throttle = MainV2.comPort.MAV.cs.ch3in;
+            if (throttle >= minThrottle + 50)
+            {
+                label4.Visible = true;
+            }
+            label4.Visible = false;
         }
     }
 }
