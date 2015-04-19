@@ -39,7 +39,9 @@ namespace MissionPlanner.Wizard
             this.gMapControl1 = new MissionPlanner.Controls.myGMAP();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BUT_MagCalibrationLive
@@ -122,22 +124,32 @@ namespace MissionPlanner.Wizard
             // 
             // timer2
             // 
-            this.timer2.Interval = 2000;
+            this.timer2.Interval = 500;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = global::MissionPlanner.Properties.Resources.APM_airframes_001;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // _6CompassCalib
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
-            this.BackgroundImage = global::MissionPlanner.Properties.Resources.planebackground;
+            resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.BUT_MagCalibrationLive);
             this.Controls.Add(this.radialGradientBG1);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_6CompassCalib";
-            resources.ApplyResources(this, "$this");
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +157,7 @@ namespace MissionPlanner.Wizard
 
         #endregion
 
+        private System.Windows.Forms.PictureBox pictureBox1;
         private LinkLabel linkLabel1;
         private Controls.MyButton BUT_MagCalibrationLive;
         private Timer timer1;

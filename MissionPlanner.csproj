@@ -6137,6 +6137,7 @@
     <Content Include="ParameterMetaDataBackup.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\13934.png" />
     <Content Include="Resources\APM_rover-firmware.png" />
     <None Include="Resources\frames-h.png" />
     <None Include="Resources\dark_connect_icon.png" />

@@ -21,7 +21,13 @@ using System.Reflection;
 using MissionPlanner.Log;
 using GMap.NET.MapProviders;
 using System.IO; // file io
-
+using System.IO.Ports; // serial
+using System.Collections; // hashs
+using System.Text.RegularExpressions; // regex
+using System.Xml; // GE xml alt reader
+using System.Net; // dns, ip address
+using System.Net.Sockets; // tcplistner
+using System.Threading;
 
 namespace MissionPlanner.Wizard
 {
@@ -69,22 +75,6 @@ namespace MissionPlanner.Wizard
             timer2.Stop();
         }
 
-        /*private void pictureBox_Click(object sender, EventArgs e)
-        {
-            DeselectAll();
-            (sender as PictureBoxMouseOver).selected = true;
-        }*/
-
-        /* void DeselectAll()
-         {
-             foreach (var ctl in this.panel1.Controls)
-             {
-                 if (ctl.GetType() == typeof(PictureBoxMouseOver))
-                 {
-                     (ctl as PictureBoxMouseOver).selected = false;
-                 }
-             }
-         }*/
 
         private void BUT_MagCalibration_Click(object sender, EventArgs e)
         {
@@ -232,10 +222,40 @@ namespace MissionPlanner.Wizard
 
         }
 
+
+        public static Bitmap RotateImage(Image image, PointF offset, float angle)
+        {
+            if (image == null)
+                throw new ArgumentNullException("image");
+
+            //create a new empty bitmap to hold rotated image
+            Bitmap rotatedBmp = new Bitmap(image.Width, image.Height);
+            rotatedBmp.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            //make a graphics object from the empty bitmap
+            Graphics g = Graphics.FromImage(rotatedBmp);
+
+            //Put the rotation point in the center of the image
+            g.TranslateTransform(offset.X, offset.Y);
+
+            //rotate the image
+            g.RotateTransform(angle);
+
+            //move the image back
+            g.TranslateTransform(-offset.X, -offset.Y);
+
+            //draw passed in image onto graphics object
+            g.DrawImage(image, new PointF(0, 0));
+
+            return rotatedBmp;
+        }
+
         private void timer2_Tick(object sender, EventArgs e)
         {
-            //gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
-            gMapControl1.Position = new PointLatLng(12, 67); /////////////////////////////////////////////////////// поменять
+            gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
+            //gMapControl1.Position = new PointLatLng(12, 67); /////////////////////////////////////////////////////// поменять
+            pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictureBox1.Image.Width / 2), MainV2.comPort.MAV.cs.yaw - 45);
+            //pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictur);
         }
 
         //methods of Map
