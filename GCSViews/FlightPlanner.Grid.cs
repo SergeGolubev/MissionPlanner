@@ -550,10 +550,18 @@ namespace MissionPlanner.GCSViews
                             double bearing = (double)Angle;// (prevpoint.GetBearing(item) + 360.0) % 360;
 
                             List<PointLatLng> footprint = new List<PointLatLng>();
-                            footprint.Add(item.newpos(bearing + angle1, dist1));
-                            footprint.Add(item.newpos(bearing + 180 - angle1, dist1));
-                            footprint.Add(item.newpos(bearing + 180 + angle1, dist1));
-                            footprint.Add(item.newpos(bearing - angle1, dist1));
+
+                            float sensorwidth = float.Parse(TXT_senswidth.Text);
+                            float sensorheight = float.Parse(TXT_sensheight.Text);
+                            float focallen = (float)NUM_focallength.Value;
+                            float ch = (float)(Math.Atan(sensorwidth / (2 * focallen)) * rad2deg * 2);
+                            float cw = (float)(Math.Atan(sensorheight / (2 * focallen)) * rad2deg * 2);
+
+                            camerainfo camera = cameras[CMB_camera.Text];
+                            footprint.Add(item.newpos(bearing + angle1, ch));
+                            footprint.Add(item.newpos(bearing + 180 - angle1, ch));
+                            footprint.Add(item.newpos(bearing + 180 + angle1, cw));
+                            footprint.Add(item.newpos(bearing - angle1, cw));
 
                             GMapPolygon poly = new GMapPolygon(footprint, a.ToString());
                             poly.Stroke = new Pen(Color.FromArgb(250 - ((a * 5) % 240), 250 - ((a * 3) % 240), 250 - ((a * 9) % 240)), 1);
