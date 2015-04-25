@@ -27,7 +27,7 @@ namespace MissionPlanner.GCSViews
         // private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         //private GridPluginv3 plugin;
-       // static public Object thisLock = new Object();
+        // static public Object thisLock = new Object();
 
         GMapOverlay routesOverlay;
         List<PointLatLng> list;// = new List<PointLatLng>();
@@ -55,7 +55,7 @@ namespace MissionPlanner.GCSViews
         int CurrentGMapMarkerIndex = 0;
         //bool isMouseDown = false;
         //bool isMouseDraging = false;
-       
+
         // Structures
         public struct camerainfo
         {
@@ -97,14 +97,14 @@ namespace MissionPlanner.GCSViews
             public bool copter_headinghold_chk;
             public decimal copter_headinghold;
         }
-        
+
         // GridUI
         public void init(object sender, EventArgs e)
         {
-            
-       //     InitializeComponent();
 
-            
+            //     InitializeComponent();
+
+
             list = MainV2.instance.FlightPlanner.drawnpolygon.Points;
             if (MainV2.config["distunits"] != null)
                 DistUnits = MainV2.config["distunits"].ToString();
@@ -118,7 +118,7 @@ namespace MissionPlanner.GCSViews
             domainUpDown1_ValueChanged(sender, e);
 
         }
-       
+
         private void GridUI_Load(object sender, EventArgs e)
         {
             xmlcamera(false, "camerasBuiltin.xml");
@@ -134,10 +134,10 @@ namespace MissionPlanner.GCSViews
 
             //TRK_zoom.Value = (float)map.Zoom;
 
-           // label1.Text += " (" + CurrentState.DistanceUnit+")";
-           // label21.Text += " (" + CurrentState.SpeedUnit + ")";
+            // label1.Text += " (" + CurrentState.DistanceUnit+")";
+            // label21.Text += " (" + CurrentState.SpeedUnit + ")";
         }
-        
+
         private void GridUI_Resize(object sender, EventArgs e)
         {
             MainMap.ZoomAndCenterMarkers("polygons");
@@ -196,8 +196,8 @@ namespace MissionPlanner.GCSViews
             Distance = griddata.dist;
             TXT_turn_radius.Text = griddata.turn_radius.ToString();
             TBAR_overlap.Value = (int)griddata.overlap;
-           // Spacing = griddata.spacing;
-            
+            // Spacing = griddata.spacing;
+
             CHK_toandland.Checked = griddata.autotakeoff;
             CHK_toandland_RTL.Checked = griddata.autotakeoff_RTL;
 
@@ -209,9 +209,9 @@ namespace MissionPlanner.GCSViews
             rad_digicam.Checked = griddata.digicam;
             rad_repeatservo.Checked = griddata.repeatservo;
 
-             //Copter Settings
-             NUM_copter_delay.Value = griddata.copter_delay;
-             CHK_copter_headinghold.Checked = griddata.copter_headinghold_chk; //UNcomment after adding headinghold offset function
+            //Copter Settings
+            NUM_copter_delay.Value = griddata.copter_delay;
+            CHK_copter_headinghold.Checked = griddata.copter_headinghold_chk; //UNcomment after adding headinghold offset function
 
         }
 
@@ -252,7 +252,7 @@ namespace MissionPlanner.GCSViews
 
             return griddata;
         }
-        
+
         void loadsettings()
         {
             if (MainV2.config.ContainsKey("grid_camera"))
@@ -264,7 +264,7 @@ namespace MissionPlanner.GCSViews
 
                 loadsetting("grid_usespeed", CHK_usespeed);
 
-             //   loadsetting("grid_dist", NUM_Distance);
+                //   loadsetting("grid_dist", NUM_Distance);
                 loadsetting("grid_turn_radius", TXT_turn_radius);
                 loadsetting("grid_overlap", TBAR_overlap);
                 //loadsetting("grid_spacing", NUM_spacing);
@@ -472,12 +472,12 @@ namespace MissionPlanner.GCSViews
                 }
             }
         }
-        
+
         // Do Work
         private void domainUpDown1_ValueChanged(object sender, EventArgs e)
         {
-           // if (CMB_camera.Text != "")
-                doCalc();
+            // if (CMB_camera.Text != "")
+            doCalc();
 
             // new grid system test
 
@@ -497,7 +497,7 @@ namespace MissionPlanner.GCSViews
             {
                 return;
             }
-             
+
             if (CHK_boundary.Checked)
             {
                 redrawPolygonSurvey(new List<PointLatLng>(list));
@@ -507,7 +507,7 @@ namespace MissionPlanner.GCSViews
                 drawnpolygonsoverlay.Clear();
             }
 
-            
+
             int strips = 0;
             int images = 0;
             int a = 1;
@@ -849,16 +849,16 @@ namespace MissionPlanner.GCSViews
 
         private void CalcHeadingHold()
         {
-           // int previous = (int)Math.Round(Convert.ToDecimal(((UpDownBase)NUM_angle).Text)); //((UpDownBase)sender).Text
-            int previous = (int)Math.Round(Angle); 
+            // int previous = (int)Math.Round(Convert.ToDecimal(((UpDownBase)NUM_angle).Text)); //((UpDownBase)sender).Text
+            int previous = (int)Math.Round(Angle);
             int current = (int)Math.Round(Angle);
 
             int change = current - previous;
-            
+
             if (change > 0) // Positive change
             {
                 int val = Convert.ToInt32(TXT_headinghold.Text) + change;
-                if (val > 359) 
+                if (val > 359)
                 {
                     val = val - 360;
                 }
@@ -943,7 +943,7 @@ namespace MissionPlanner.GCSViews
 
         private void map_MouseUp(object sender, MouseEventArgs e)
         {
-            MouseDownEnd =MainMap.FromLocalToLatLng(e.X, e.Y);
+            MouseDownEnd = MainMap.FromLocalToLatLng(e.X, e.Y);
 
             // Console.WriteLine("MainMap MU");
 
@@ -1057,17 +1057,17 @@ namespace MissionPlanner.GCSViews
             catch { }
         }
         */
-      /*  private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            try
-            {
-                lock (thisLock)
-                {
-                    MainMap.Zoom = TRK_zoom.Value;
-                }
-            }
-            catch { }
-        }*/
+        /*  private void trackBar1_Scroll(object sender, EventArgs e)
+          {
+              try
+              {
+                  lock (thisLock)
+                  {
+                      MainMap.Zoom = TRK_zoom.Value;
+                  }
+              }
+              catch { }
+          }*/
 
         private void NUM_ValueChanged(object sender, EventArgs e)
         {
@@ -1143,8 +1143,8 @@ namespace MissionPlanner.GCSViews
         private void BUT_headingholdplus_Click(object sender, EventArgs e)
         {
             int previous = Convert.ToInt32(TXT_headinghold.Text);
-            if(!CHK_copter_headingholdlock.Checked)
-            {                
+            if (!CHK_copter_headingholdlock.Checked)
+            {
                 if (previous + 180 > 359)
                 {
                     TXT_headinghold.Text = (previous - 180).ToString();
@@ -1170,7 +1170,7 @@ namespace MissionPlanner.GCSViews
         private void BUT_headingholdminus_Click(object sender, EventArgs e)
         {
             int previous = Convert.ToInt32(TXT_headinghold.Text);
-            
+
             if (!CHK_copter_headingholdlock.Checked)
             {
                 if (previous - 180 < 0)
@@ -1393,9 +1393,9 @@ namespace MissionPlanner.GCSViews
 
                 // Redraw the polygon in FP
                 redrawPolygonSurvey(new List<PointLatLng>(list));
-        
-        //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
-             
+
+                //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+
                 savesettings();
 
                 MainV2.instance.FlightPlanner.quickadd = false;
@@ -1404,8 +1404,8 @@ namespace MissionPlanner.GCSViews
 
                 panel6.Visible = false;
                 panelAction.Visible = true;
-       
-       //         this.Close();
+
+                //         this.Close();
             }
             else
             {
@@ -1419,31 +1419,31 @@ namespace MissionPlanner.GCSViews
             routesOverlay.Polygons.Clear();
             routesOverlay.Markers.Clear();
             grid.Clear();
-      //      list.Clear();
+            //      list.Clear();
             redrawPolygonSurvey(new List<PointLatLng>(list));
             panel6.Visible = false;
             panelAction.Visible = true;
         }
 
 
-       /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Control | Keys.O))
-            {
-                LoadGrid();
+        /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+         {
+             if (keyData == (Keys.Control | Keys.O))
+             {
+                 LoadGrid();
 
-                return true;
-            }
-            if (keyData == (Keys.Control | Keys.S))
-            {
-                SaveGrid();
+                 return true;
+             }
+             if (keyData == (Keys.Control | Keys.S))
+             {
+                 SaveGrid();
 
-                return true;
-            }
+                 return true;
+             }
 
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-        */
+             return base.ProcessCmdKey(ref msg, keyData);
+         }
+         */
         private void NUM_Lane_Dist_ValueChanged(object sender, EventArgs e)
         {
             // doCalc

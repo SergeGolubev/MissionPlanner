@@ -3404,7 +3404,6 @@ namespace MissionPlanner.GCSViews
             polygongridmode = false;
             if (drawnpolygon == null)
                 return;
-            
             drawnpolygon.Points.Clear();
             drawnpolygonsoverlay.Markers.Clear();
             MainMap.Invalidate();
