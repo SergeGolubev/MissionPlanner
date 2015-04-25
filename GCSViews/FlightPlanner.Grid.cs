@@ -550,10 +550,6 @@ namespace MissionPlanner.GCSViews
                             double bearing = (double)Angle;// (prevpoint.GetBearing(item) + 360.0) % 360;
 
                             List<PointLatLng> footprint = new List<PointLatLng>();
-
-                            float sensorwidth = float.Parse(TXT_senswidth.Text);
-                            float sensorheight = float.Parse(TXT_sensheight.Text);
-                            float focallen = (float)NUM_focallength.Value;
                             float ch = (float)(fovh);
                             float cw = (float)(fovv);
 
