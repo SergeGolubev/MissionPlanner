@@ -246,6 +246,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CHK_footprints = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.BUT_samplephoto = new MissionPlanner.Controls.MyButton();
@@ -271,7 +272,6 @@
             this.BUT_headingholdminus = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.CHK_footprints = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
@@ -1850,6 +1850,13 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // CHK_footprints
+            // 
+            resources.ApplyResources(this.CHK_footprints, "CHK_footprints");
+            this.CHK_footprints.Name = "CHK_footprints";
+            this.CHK_footprints.UseVisualStyleBackColor = true;
+            this.CHK_footprints.CheckedChanged += new System.EventHandler(this.CHK_footprints_CheckedChanged);
+            // 
             // label14
             // 
             resources.ApplyResources(this.label14, "label14");
@@ -2030,12 +2037,6 @@
             // 
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // CHK_footprints
-            // 
-            resources.ApplyResources(this.CHK_footprints, "CHK_footprints");
-            this.CHK_footprints.Name = "CHK_footprints";
-            this.CHK_footprints.UseVisualStyleBackColor = true;
             // 
             // FlightPlanner
             // 
