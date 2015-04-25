@@ -554,12 +554,13 @@ namespace MissionPlanner.GCSViews
                             float sensorwidth = float.Parse(TXT_senswidth.Text);
                             float sensorheight = float.Parse(TXT_sensheight.Text);
                             float focallen = (float)NUM_focallength.Value;
-                            float ch = (float)(fovh);
-                            float cw = (float)(fovv);
+                            float ch = (float)(Math.Atan(sensorwidth / (2 * focallen)) * rad2deg * 2);
+                            float cw = (float)(Math.Atan(sensorheight / (2 * focallen)) * rad2deg * 2);
 
-                            footprint.Add(item.newpos(bearing + angle1, cw));
+                            camerainfo camera = cameras[CMB_camera.Text];
+                            footprint.Add(item.newpos(bearing + angle1, ch));
                             footprint.Add(item.newpos(bearing + 180 - angle1, ch));
-                            footprint.Add(item.newpos(bearing + 180 + angle1, ch));
+                            footprint.Add(item.newpos(bearing + 180 + angle1, cw));
                             footprint.Add(item.newpos(bearing - angle1, cw));
 
                             GMapPolygon poly = new GMapPolygon(footprint, a.ToString());

@@ -3404,7 +3404,6 @@ namespace MissionPlanner.GCSViews
             polygongridmode = false;
             if (drawnpolygon == null)
                 return;
-            
             drawnpolygon.Points.Clear();
             drawnpolygonsoverlay.Markers.Clear();
             MainMap.Invalidate();
@@ -6039,11 +6038,6 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         private void toolStripButtoneditbox_Click_1(object sender, EventArgs e)
         {
             currentmode = mode.editbox;
-        }
-
-        private void CHK_footprints_CheckedChanged(object sender, EventArgs e)
-        {
-            domainUpDown1_ValueChanged(null, null);
         }
         
     }
