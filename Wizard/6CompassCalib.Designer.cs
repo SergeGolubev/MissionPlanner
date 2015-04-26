@@ -37,10 +37,11 @@ namespace MissionPlanner.Wizard
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
             this.gMapControl1 = new MissionPlanner.Controls.myGMAP();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
+            this.gMapControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@ namespace MissionPlanner.Wizard
             // 
             this.gMapControl1.Bearing = 0F;
             this.gMapControl1.CanDragMap = true;
+            this.gMapControl1.Controls.Add(this.pictureBox1);
             this.gMapControl1.EmptyTileColor = System.Drawing.Color.Gray;
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
@@ -118,15 +120,6 @@ namespace MissionPlanner.Wizard
             this.gMapControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseDown);
             this.gMapControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseMove);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 500;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -136,12 +129,20 @@ namespace MissionPlanner.Wizard
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 500;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // _6CompassCalib
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.BUT_MagCalibrationLive);
@@ -149,6 +150,7 @@ namespace MissionPlanner.Wizard
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_6CompassCalib";
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).EndInit();
+            this.gMapControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

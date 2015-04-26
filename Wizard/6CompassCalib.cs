@@ -245,7 +245,8 @@ namespace MissionPlanner.Wizard
             g.TranslateTransform(-offset.X, -offset.Y);
 
             //draw passed in image onto graphics object
-            g.DrawImage(image, new PointF(0, 0));
+            PointF point = new PointF(0, 0);
+            g.DrawImage(image, point);
 
             return rotatedBmp;
         }

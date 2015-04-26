@@ -110,6 +110,7 @@ namespace MissionPlanner.Wizard
             // listView1
             // 
             this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listView1.ForeColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.listView1, "listView1");
             this.listView1.Name = "listView1";

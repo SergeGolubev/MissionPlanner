@@ -11,14 +11,16 @@ using MissionPlanner.Controls;
 
 namespace MissionPlanner.Wizard
 {
-    public partial class Finish : MyUserControl, IWizard, IActivate
+    public partial class Finish : MyUserControl, IWizard
     {
         float throttle;
         float minThrottle;
+        bool first_time;
         public Finish()
         {
             InitializeComponent();
             label4.Visible = false;
+            first_time = true;
         }
         public int WizardValidate()
         {
@@ -28,13 +30,22 @@ namespace MissionPlanner.Wizard
         {
             return false;
         }
-        public void Activate()
+        public void Finish_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        public void Finish_Close()
+        {
+            timer1.Stop();
+        }
+        public void Throttle_check()
         {
             label4.Visible = true;
             label2.Visible = false;
             label3.Visible = false;
             throttle = MainV2.comPort.MAV.cs.ch3in;
-            minThrottle = (float)MainV2.comPort.MAV.param["RC3_MIN"];
+            minThrottle = 900; //(float)MainV2.comPort.MAV.param["RC3_MIN"];
             while (throttle >= minThrottle + 50)
             {
                 throttle = MainV2.comPort.MAV.cs.ch3in;
@@ -46,6 +57,11 @@ namespace MissionPlanner.Wizard
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (first_time)
+            {
+                first_time = false;
+                Throttle_check();
+            }
             throttle = MainV2.comPort.MAV.cs.ch3in;
             if (throttle >= minThrottle + 50)
             {

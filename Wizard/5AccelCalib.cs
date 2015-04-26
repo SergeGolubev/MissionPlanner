@@ -20,14 +20,15 @@ namespace MissionPlanner.Wizard
         DateTime lastScreenUpdate;
         Thread accel_thread;
         bool thread_started = false;
+        DialCalib calibration;
 
         public _5AccelCalib()
         {
             InitializeComponent();
             hudWizard.Enabled = true;
             lastScreenUpdate = DateTime.Now;
+            calibration = new DialCalib();
         }
-
         public int WizardValidate()
         {
             if (thread_started == true)
@@ -42,14 +43,16 @@ namespace MissionPlanner.Wizard
 
         public bool WizardBusy()
         {
+            busy = calibration.Busy();
             return busy;
         }
 
+        
         private void BUT_start_Click(object sender, EventArgs e)
         {
-            myButton1.Enabled = false;
+            //myButton1.Enabled = false;
             ((MyButton)sender).Enabled = false;
-            BUT_continue.Enabled = true;
+           // BUT_continue.Enabled = true;
             accelDispalying = false; // stop displaying accelerometr horizon
             if (thread_started)
             {
@@ -59,21 +62,22 @@ namespace MissionPlanner.Wizard
    
             busy = true;
 
-             try
-            {
-                // start the process off
-                MainV2.comPort.doCommand(MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 1, 0, 0);
-                MainV2.comPort.giveComport = true;
-            }
-            catch { busy = false; CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR); return; }
+            // try
+            //{
+              //  // start the process off
+                //MainV2.comPort.doCommand(MAVLink.MAV_CMD.PREFLIGHT_CALIBRATION, 0, 0, 0, 0, 1, 0, 0);
+                //MainV2.comPort.giveComport = true;
+            //}
+            //catch { busy = false; CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR); return; }
 
+            calibration.Show();
             // start thread to update display 
-            System.Threading.ThreadPool.QueueUserWorkItem(readmessage, this);
-            BUT_continue.Focus();
+            //System.Threading.ThreadPool.QueueUserWorkItem(readmessage, this);
+            //BUT_continue.Focus();
         }
 
 
-        static void readmessage(object item)
+      /*  static void readmessage(object item)
         {
             _5AccelCalib local = (_5AccelCalib)item;
             
@@ -108,48 +112,48 @@ namespace MissionPlanner.Wizard
                 });
             }
             catch { }
-        }
+        } */
 
-        public void UpdateUserMessage()
+       /* public void UpdateUserMessage()
         {
             this.Invoke((MethodInvoker)delegate()
             {
-                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("initi") /*|| count == 0*/ ) // #### добавлено второе условие
+                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("initi") ) // #### добавлено второе условие
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("level") /*|| count == 1 */)
+                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("level") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("left") /*|| count == 2*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("left") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration07;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("right") /*|| count == 3*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("right") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration05;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("down") /*|| count == 4*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("down") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration04;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("up") /*|| count == 5*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("up") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration06;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("back") /*|| count == 6*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("back") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration03;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("calibration") /*|| count == 7*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("calibration") )
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
@@ -157,7 +161,7 @@ namespace MissionPlanner.Wizard
 
                 imageLabel1.Refresh();
             });
-        }
+        } */
 
         private void BUT_continue_Click(object sender, EventArgs e)
         {
@@ -187,19 +191,13 @@ namespace MissionPlanner.Wizard
                     if (MainV2.comPort.BaseStream.IsOpen)
                     {
                         MainV2.comPort.logreadmode = false;
-                        //try
-                        //{
                         MainV2.comPort.logplaybackfile.Close();
-                        //}
-                        //catch { log.Error("Failed to close logfile"); }
                         MainV2.comPort.logplaybackfile = null;
                     }
                 }
                 MainV2.comPort.readPacket();
                 updateBindingSource();
-            }
-            //MainV2.comPort.giveComport = false;
-               
+            }          
         }
         
         private void updateBindingSource()
@@ -210,21 +208,30 @@ namespace MissionPlanner.Wizard
             {
                 this.BeginInvoke((MethodInvoker)delegate()
                 {
-                    // async
-                    //Console.Write("bindingSourceHud ");
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(this.bindingSourceHud);
                 });
                 this.lastScreenUpdate = DateTime.Now;
             }
         }
-        private void myButton1_Click(object sender, EventArgs e)
+        private void ShowHorizon(object sender, EventArgs e)
         {
             thread_started = true;
             accelDispalying = true;
             accel_thread = new Thread(updateAccelerometrDisplay);
             accel_thread.Start();
-            myButton1.Enabled = false;
+            //myButton1.Enabled = false;
         }
 
+        private void hudWizard_Load(object sender, EventArgs e)
+        {
+            hudWizard.Controls["_batterylevel"].Hide();
+            hudWizard.Controls["_gpshdop"].Hide();
+        }
+
+        public void AccelCalib_Close()
+        {
+            accelDispalying = false;
+            accel_thread.Abort();
+        }
     }
 }

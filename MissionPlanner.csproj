@@ -998,6 +998,9 @@
     <EmbeddedResource Include="Wizard\8OptionalItemsAP.zh-TW.resx">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Wizard\DialCalib.resx">
+      <DependentUpon>DialCalib.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Wizard\DS_Check.resx">
       <DependentUpon>DS_Check.cs</DependentUpon>
     </EmbeddedResource>
@@ -1169,6 +1172,12 @@
     </Compile>
     <Compile Include="Wizard\8OptionalItemsAP.Designer.cs">
       <DependentUpon>8OptionalItemsAP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizard\DialCalib.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Wizard\DialCalib.Designer.cs">
+      <DependentUpon>DialCalib.cs</DependentUpon>
     </Compile>
     <Compile Include="Wizard\DS_Check.cs">
       <SubType>UserControl</SubType>
