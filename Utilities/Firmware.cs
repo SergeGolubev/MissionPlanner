@@ -335,7 +335,6 @@ namespace MissionPlanner.Utilities
             log.Info("load done");
 
             updateProgress(-1, Strings.ReceivedList);
-
             return softwares;
         }
 

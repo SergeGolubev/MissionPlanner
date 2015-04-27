@@ -48,8 +48,8 @@ namespace MissionPlanner.Wizard
             wiz_main.AddScreen(new MainSwitcher.Screen("StabilCheck", new DS_Check(), true));
             wiz_main.AddScreen(new MainSwitcher.Screen("Finish", finish, true));
 
-          
-            wiz_main.ShowScreen("Finish");
+
+            wiz_main.ShowScreen("Intro");
             history.Add(wiz_main.current.Name);
 
             progressStep1.Maximum = wiz_main.screens.Count;
