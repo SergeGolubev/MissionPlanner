@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -544,19 +544,20 @@ namespace MissionPlanner.GCSViews
                                 startangle = 90;
                             }
 
-                            double angle1 = startangle - (Math.Tan((fovv / 2.0) / (fovh / 2.0)) * rad2deg);
+                            float sensorwidth = float.Parse(TXT_senswidth.Text);
+                            float sensorheight = float.Parse(TXT_sensheight.Text);
+
+                            double angle1 = startangle - (Math.Atan(sensorwidth/sensorheight) * rad2deg);
                             double dist1 = Math.Sqrt(Math.Pow(fovh / 2.0, 2) + Math.Pow(fovv / 2.0, 2));
 
                             double bearing = (double)Angle;// (prevpoint.GetBearing(item) + 360.0) % 360;
 
                             List<PointLatLng> footprint = new List<PointLatLng>();
-                            float ch = (float)(fovh);
-                            float cw = (float)(fovv);
 
-                            footprint.Add(item.newpos(bearing + angle1, cw));
-                            footprint.Add(item.newpos(bearing + 180 - angle1, ch));
-                            footprint.Add(item.newpos(bearing + 180 + angle1, ch));
-                            footprint.Add(item.newpos(bearing - angle1, cw));
+                            footprint.Add(item.newpos(bearing + angle1, dist1));
+                            footprint.Add(item.newpos(bearing + 180 - angle1, dist1));
+                            footprint.Add(item.newpos(bearing + 180 + angle1, dist1));
+                            footprint.Add(item.newpos(bearing - angle1, dist1));
 
                             GMapPolygon poly = new GMapPolygon(footprint, a.ToString());
                             poly.Stroke = new Pen(Color.FromArgb(250 - ((a * 5) % 240), 250 - ((a * 3) % 240), 250 - ((a * 9) % 240)), 1);

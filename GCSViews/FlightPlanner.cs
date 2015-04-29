@@ -2776,10 +2776,10 @@ namespace MissionPlanner.GCSViews
                 drawnpolygon.Points.Add(new PointLatLng(rect.Top, rect.Right));
                 drawnpolygon.Points.Add(point);
                 drawnpolygon.Points.Add(new PointLatLng(rect.Bottom, rect.Left));
-             /*   addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), MouseDownStart.Lng, MouseDownStart.Lat, 0);
+                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), MouseDownStart.Lng, MouseDownStart.Lat, 0);
                 addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Top, rect.Right).Lng, new PointLatLng(rect.Top, rect.Right).Lat, 0);
                 addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), point.Lng, point.Lat, 0);
-                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Bottom, rect.Left).Lng, new PointLatLng(rect.Bottom, rect.Left).Lat, 0); */
+                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Bottom, rect.Left).Lng, new PointLatLng(rect.Bottom, rect.Left).Lat, 0); 
             }
             isMouseDraging = false;
         }
@@ -2804,6 +2804,14 @@ namespace MissionPlanner.GCSViews
                         currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
                     }
                 }
+            }
+            else 
+            {
+               // drawnpolygonsoverlay.Markers.Remove()
+                polygonsoverlay.Polygons.Remove(boxpoly);
+                drawnpolygonsoverlay.Polygons.Remove(boxpoly);
+
+                MainMap.Invalidate();
             }
         }
 
@@ -2843,7 +2851,7 @@ namespace MissionPlanner.GCSViews
                     list1.Add(new PointLatLng(rect.Bottom, rect.Left));
 
                     if (boxpoly != null)
-                        polygonsoverlay.Polygons.Remove(boxpoly);
+                        drawnpolygonsoverlay.Polygons.Remove(boxpoly);
 
                     boxpoly = null;
 
@@ -2853,7 +2861,7 @@ namespace MissionPlanner.GCSViews
                     boxpoly.Stroke = new Pen(Color.Red, 2);
                     boxpoly.Fill = Brushes.Transparent;
 
-                    polygonsoverlay.Polygons.Add(boxpoly);
+                    drawnpolygonsoverlay.Polygons.Add(boxpoly);
                     MainMap.UpdatePolygonLocalPosition(boxpoly);
 
                     MainMap.Invalidate();
@@ -3405,6 +3413,8 @@ namespace MissionPlanner.GCSViews
             if (drawnpolygon == null)
                 return;
             drawnpolygon.Points.Clear();
+
+            drawnpolygonsoverlay.Polygons.Clear();
             drawnpolygonsoverlay.Markers.Clear();
             MainMap.Invalidate();
 
