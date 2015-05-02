@@ -38,6 +38,7 @@ namespace MissionPlanner.Wizard
             this.hudWizard = new MissionPlanner.Controls.HUD();
             this.bindingSourceHud = new System.Windows.Forms.BindingSource(this.components);
             this.radialGradientBG1 = new MissionPlanner.Controls.GradientBG();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
@@ -53,6 +54,11 @@ namespace MissionPlanner.Wizard
             this.panel1.Controls.Add(this.hudWizard);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // BUT_start
             // 
@@ -189,8 +195,6 @@ namespace MissionPlanner.Wizard
             // 
             // _5AccelCalib
             // 
-            //this.Close += new System.Windows.Forms.FormClosingEventHandler(AccelCalib_Close);
-            this.Load += new System.EventHandler(ShowHorizon);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.BackgroundImage = global::MissionPlanner.Properties.Resources.planebackground;
@@ -199,6 +203,7 @@ namespace MissionPlanner.Wizard
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_5AccelCalib";
             resources.ApplyResources(this, "$this");
+            this.Load += new System.EventHandler(this.ShowHorizon);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();
@@ -217,6 +222,7 @@ namespace MissionPlanner.Wizard
         private Label label2;
         private Controls.MyButton BUT_start;
         private Controls.HUD hudWizard;
+        private Timer timer1;
 
     }
 }

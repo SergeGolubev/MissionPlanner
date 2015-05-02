@@ -71,6 +71,8 @@ namespace MissionPlanner.Wizard
             //catch { busy = false; CustomMessageBox.Show(Strings.ErrorNoResponce, Strings.ERROR); return; }
 
             calibration.Show();
+            timer1.Start();
+           
             // start thread to update display 
             //System.Threading.ThreadPool.QueueUserWorkItem(readmessage, this);
             //BUT_continue.Focus();
@@ -224,14 +226,24 @@ namespace MissionPlanner.Wizard
 
         private void hudWizard_Load(object sender, EventArgs e)
         {
-            hudWizard.Controls["_batterylevel"].Hide();
-            hudWizard.Controls["_gpshdop"].Hide();
+            //hudWizard.Controls["_batterylevel"].Hide();
+            //hudWizard.Controls["_gpshdop"].Hide();
         }
 
         public void AccelCalib_Close()
         {
             accelDispalying = false;
             accel_thread.Abort();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!calibration.Busy() )
+            {
+                timer1.Stop();
+                accelDispalying = true;
+                accel_thread = new Thread(updateAccelerometrDisplay);
+                accel_thread.Start();
+            }
         }
     }
 }

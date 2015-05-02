@@ -96,7 +96,7 @@ namespace MissionPlanner.Wizard
                 return 0;
             }
 
-            if (!fwdone)
+            /*if (!fwdone)
             {
                 pdr = new ProgressReporterDialogue();
 
@@ -108,7 +108,7 @@ namespace MissionPlanner.Wizard
 
                 if (pdr.doWorkArgs.CancelRequested || !string.IsNullOrEmpty(pdr.doWorkArgs.ErrorMessage))
                     return 0;
-            }
+            } */
 
             if (MainV2.comPort.BaseStream.IsOpen)
                 MainV2.comPort.BaseStream.Close();
@@ -163,7 +163,7 @@ namespace MissionPlanner.Wizard
             if (usebeta)
                firmwareurl = "https://raw.github.com/diydrones/binary/master/dev/firmware2.xml";
 
-            List<Utilities.Firmware.software> swlist = fw.getFWList(firmwareurl);
+            List<Utilities.Firmware.software> swlist = fw.getFWList(/*firmwareurl*/);
 
             if (swlist.Count == 0)
             {

@@ -13,7 +13,7 @@ namespace MissionPlanner.Wizard
     public partial class DialCalib : Form
     {
         byte count = 0;
-        bool busy ;
+        bool busy;
         public DialCalib()
         {
             InitializeComponent();
