@@ -43,7 +43,7 @@ namespace MissionPlanner.GCSViews
         public bool quickadd = false;
         bool isonline = true;
         bool sethome = false;
-        
+
         enum Mode
         {
             waypoint,
@@ -53,6 +53,7 @@ namespace MissionPlanner.GCSViews
             removePoint,
             removePolygon,
             waitForClick,
+            land,
 
         };
 
@@ -61,19 +62,22 @@ namespace MissionPlanner.GCSViews
         //bool polygongridmode = false;
         Hashtable param = new Hashtable();
         bool splinemode = false;
-        bool isMouseDown = false;
-        bool isMouseDraging = false;
         altmode currentaltmode = altmode.Relative;
-
-        GMapPolygon wppoly;
-        GMapPolygon boxpoly;
-        List<PointLatLng> list1 = new List<PointLatLng>();
 
         bool grid_chkd = false;
 
         public static FlightPlanner instance = null;
 
         public bool autopan { get; set; }
+
+
+        public GMapRoute land = new GMapRoute("landing");
+        public PointLatLng land_first = new PointLatLng(0, 0);
+        public PointLatLng land_second = new PointLatLng(0, 0);
+        public GMapMarker land_marker_first = new GMarkerGoogle(new PointLatLng(), GMarkerGoogleType.red);
+        public GMapMarker land_marker_second = new GMarkerGoogle(new PointLatLng(), GMarkerGoogleType.red);
+        //public Polygon land_polygon;
+
 
         public List<PointLatLngAlt> pointlist = new List<PointLatLngAlt>(); // used to calc distance
         public List<PointLatLngAlt> fullpointlist = new List<PointLatLngAlt>();
@@ -83,16 +87,6 @@ namespace MissionPlanner.GCSViews
         private ComponentResourceManager rm = new ComponentResourceManager(typeof(FlightPlanner));
 
         private Dictionary<string, string[]> cmdParamNames = new Dictionary<string, string[]>();
-
-        mode currentmode = mode.panmode;
-
-        enum mode
-        {
-            panmode,
-            drawbox,
-            editbox,
-            movebox,
-        }
 
         public enum altmode
         {
@@ -129,28 +123,6 @@ namespace MissionPlanner.GCSViews
         /// <param name="lat"></param>
         /// <param name="lng"></param>
         /// <param name="alt"></param>
-        /// 
-
-        private void toolStripButtonpan_Click(object sender, EventArgs e)
-        {
-            currentmode = mode.panmode;
-        }
-
-        private void toolStripButtonbox_Click(object sender, EventArgs e)
-        {
-            currentmode = mode.drawbox;
-        }
-
-        private void toolStripButtoneditbox_Click(object sender, EventArgs e)
-        {
-            currentmode = mode.editbox;
-        }
-
-        private void toolStripButtonmovebox_Click(object sender, EventArgs e)
-        {
-            currentmode = mode.movebox;
-        }
-
         public void callMeDrag(string pointno, double lat, double lng, int alt)
         {
             if (pointno == "")
@@ -360,18 +332,19 @@ namespace MissionPlanner.GCSViews
         /// <param name="alt"></param>
         public void AddWPToMap(double lat, double lng, int alt)
         {
-            switch (mode) {
+            switch (mode)
+            {
                 case Mode.polygon:
                     addPolygonPointToolStripMenuItem_Click(null, null);
                     return;
                 case Mode.greenZone:
-                    green.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);                 
+                    green.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
                     return;
                 case Mode.redZone:
                     red.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
                     return;
             }
-           
+
             if (sethome)
             {
                 sethome = false;
@@ -491,9 +464,9 @@ namespace MissionPlanner.GCSViews
 
             blue = new Polygon(this, "blue", GMarkerGoogleType.blue, Color.Blue, Brushes.Transparent);
             green = new Polygon(this, "green", GMarkerGoogleType.green, Color.Green, new SolidBrush(Color.FromArgb(30, Color.Green)));
-            
+
             red = new MultiPolygon(this);
-            
+
             MainMap.Overlays.Add(poioverlay);
 
 
@@ -1357,9 +1330,9 @@ namespace MissionPlanner.GCSViews
                         }
 
                         list.ForEach(x =>
-                            {
-                                wproute.Add(x);
-                            });
+                        {
+                            wproute.Add(x);
+                        });
 
 
                         splinepnts.Clear();
@@ -1540,7 +1513,7 @@ namespace MissionPlanner.GCSViews
                     }
                     sw.Close();
 
-                    //lbl_wpfile.Text = "Saved "+Path.GetFileName(file);
+                    lbl_wpfile.Text = "Saved " + Path.GetFileName(file);
                 }
                 catch (Exception) { CustomMessageBox.Show(Strings.ERROR); }
             }
@@ -1649,7 +1622,7 @@ namespace MissionPlanner.GCSViews
 
                     MainV2.comPort.giveComport = false;
 
-                    //BUT_read.Enabled = true;
+                    BUT_read.Enabled = true;
 
                     writeKML();
 
@@ -2306,7 +2279,7 @@ namespace MissionPlanner.GCSViews
                     readQGC110wpfile(file);
                 }
 
-                //lbl_wpfile.Text = "Loaded "+Path.GetFileName(file);
+                lbl_wpfile.Text = "Loaded " + Path.GetFileName(file);
             }
         }
 
@@ -2469,7 +2442,7 @@ namespace MissionPlanner.GCSViews
         Polygon green;
         internal Polygon blue;
         MultiPolygon red;
-        
+
         // layers
         GMapOverlay top; // not currently used
         public static GMapOverlay objectsoverlay; // where the markers a drawn
@@ -2480,7 +2453,7 @@ namespace MissionPlanner.GCSViews
         //GMapOverlay drawnpolygonsoverlay;
         //List<GMapOverlay> drawnredoverlays;
         //GMapOverlay drawngreenoverlay;
-        
+
         GMapOverlay kmlpolygonsoverlay;
         GMapOverlay geofenceoverlay;
         static GMapOverlay rallypointoverlay;
@@ -2491,6 +2464,8 @@ namespace MissionPlanner.GCSViews
         GMapMarkerRect CurentRectMarker = null;
         GMapMarkerRallyPt CurrentRallyPt = null;
         GMapMarker CurrentGMapMarker = null;
+        bool isMouseDown = false;
+        bool isMouseDraging = false;
         bool isMouseClickOffMenu = false;
         PointLatLng MouseDownStart;
         internal PointLatLng MouseDownEnd;
@@ -2585,7 +2560,7 @@ namespace MissionPlanner.GCSViews
                 domainUpDown1_ValueChanged(null, null);
             }
             return;
-            
+
         }
 
         void MainMap_OnMapTypeChanged(GMapProvider type)
@@ -2744,7 +2719,8 @@ namespace MissionPlanner.GCSViews
                 return blue;
             if (t.Equals(GMarkerGoogleType.green))
                 return green;
-            if (t.Equals(GMarkerGoogleType.red)) {
+            if (t.Equals(GMarkerGoogleType.red))
+            {
                 int poly = int.Parse(CurentRectMarker.InnerMarker.Tag.ToString().Replace("grid", "").Split(new Char[] { '\\' })[0]);
                 return red.getPoly(poly);
             }
@@ -2766,7 +2742,7 @@ namespace MissionPlanner.GCSViews
             }
             return null;
         }
-        
+
 
 
         void MainMap_MouseUp(object sender, MouseEventArgs e)
@@ -2786,30 +2762,30 @@ namespace MissionPlanner.GCSViews
                 return;
             }
 
-            if (currentmode != mode.drawbox)
+            if (isMouseDown) // mouse down on some other object and dragged to here.
             {
-                if (isMouseDown) // mouse down on some other object and dragged to here.
+                if (e.Button == MouseButtons.Left)
                 {
                     isMouseDown = false;
                 }
                 if (!isMouseDraging)
                 {
                     if (mode == Mode.waitForClick)
-                    {   
-                        
+                    {
+
                         if (CurentRectMarker != null && ((GMarkerGoogle)CurentRectMarker.InnerMarker).Type.Equals(GMarkerGoogleType.red))
                         {
                             red.setCurrent(CurentRectMarker.InnerMarker.Tag);
-                            mode = Mode.redZone; 
+                            mode = Mode.redZone;
                         }
                         else if (CurentRectMarker == null)
                         {
-                            mode = Mode.redZone; 
+                            mode = Mode.redZone;
                             red.AddNewPolygon();
                             AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
                         }
                         return;
-                    } 
+                    }
                     else if (CurentRectMarker != null)
                     {
                         if (mode == Mode.removePoint)
@@ -2831,20 +2807,16 @@ namespace MissionPlanner.GCSViews
                         }
                         // cant add WP in existing rect
                     }
-                    if (!isMouseDraging)
-                    {
-                        if (CurentRectMarker != null)
-                        {
-                            // cant add WP in existing rect
-                        }
-                        else
-                        {
-                            AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
-                        }
-                    }
                     else
                     {
-                        if (CurentRectMarker != null)
+                        AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
+                    }
+                }
+                else
+                {
+                    if (CurentRectMarker != null)
+                    {
+                        if (CurentRectMarker.InnerMarker.Tag.ToString().Contains("grid"))
                         {
                             updatePolygonByColour(MouseDownEnd);
                         }
@@ -2852,6 +2824,7 @@ namespace MissionPlanner.GCSViews
                         {
                             callMeDrag(CurentRectMarker.InnerMarker.Tag.ToString(), currentMarker.Position.Lat, currentMarker.Position.Lng, -1);
                         }
+                        CurentRectMarker = null;
                     }
                     else if (draw_rect)
                     {
@@ -2864,29 +2837,19 @@ namespace MissionPlanner.GCSViews
                             isMouseDraging = false;
                             return;
                         }
-                        p.addRect(MouseDownStart, new PointLatLng(rect.Top, rect.Right), 
+                        p.addRect(MouseDownStart, new PointLatLng(rect.Top, rect.Right),
                                                 point, new PointLatLng(rect.Bottom, rect.Left));
                     }
+                    else if (mode == Mode.land)
+                    {
+                        isMouseDraging = false;
+                        PointLatLng first = MouseDownStart;
+                        PointLatLng second = MainMap.FromLocalToLatLng(e.X, e.Y);
+                        CalculateLanding(first, second);
+                    }
                 }
-
             }
-            else
-            {
-                PointLatLng point = MainMap.FromLocalToLatLng(e.X, e.Y);
-                var rect = RectangleF.FromLTRB((float)MouseDownStart.Lng, (float)MouseDownStart.Lat, (float)point.Lng, (float)point.Lat);
 
-                //if (boxpoly != null)
-                //    drawnpolygon.Polygons.Remove(boxpoly);
-
-                drawnpolygon.Points.Add(MouseDownStart);
-                drawnpolygon.Points.Add(new PointLatLng(rect.Top, rect.Right));
-                drawnpolygon.Points.Add(point);
-                drawnpolygon.Points.Add(new PointLatLng(rect.Bottom, rect.Left));
-                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), MouseDownStart.Lng, MouseDownStart.Lat, 0);
-                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Top, rect.Right).Lng, new PointLatLng(rect.Top, rect.Right).Lat, 0);
-                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), point.Lng, point.Lat, 0);
-                addpolygonmarkergrid(drawnpolygon.Points.Count.ToString(), new PointLatLng(rect.Bottom, rect.Left).Lng, new PointLatLng(rect.Bottom, rect.Left).Lat, 0); 
-            }
             isMouseDraging = false;
         }
 
@@ -2898,12 +2861,12 @@ namespace MissionPlanner.GCSViews
                 Polygon p = getPolyFromMarker(CurentRectMarker);
 
                 p.update(point);
-                
+
                 MainMap.Invalidate();
-                
+
             }
-            catch { }    
-        } 
+            catch { }
+        }
 
         void MainMap_MouseDown(object sender, MouseEventArgs e)
         {
@@ -2913,26 +2876,16 @@ namespace MissionPlanner.GCSViews
             MouseDownStart = MainMap.FromLocalToLatLng(e.X, e.Y);
 
             //   Console.WriteLine("MainMap MD");
-            if (currentmode != mode.drawbox)
+
+            if (e.Button == MouseButtons.Left && Control.ModifierKeys != Keys.Alt)
             {
-                if (e.Button == MouseButtons.Left && Control.ModifierKeys != Keys.Alt)
+                isMouseDown = true;
+                isMouseDraging = false;
+
+                if (currentMarker.IsVisible)
                 {
-                    isMouseDown = true;
-                    isMouseDraging = false;
-
-                    if (currentMarker.IsVisible)
-                    {
-                        currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
-                    }
+                    currentMarker.Position = MainMap.FromLocalToLatLng(e.X, e.Y);
                 }
-            }
-            else 
-            {
-               // drawnpolygonsoverlay.Markers.Remove()
-                polygonsoverlay.Polygons.Remove(boxpoly);
-                drawnpolygonsoverlay.Polygons.Remove(boxpoly);
-
-                MainMap.Invalidate();
             }
         }
 
@@ -2954,84 +2907,56 @@ namespace MissionPlanner.GCSViews
                 SetMouseDisplay(point.Lat, point.Lng, 0);
             }
 
-            if (currentmode == mode.drawbox)
+            //draging
+            if (e.Button == MouseButtons.Left && isMouseDown)
             {
-                if (e.Button == MouseButtons.Left)
+                isMouseDraging = true;
+                if (CurrentRallyPt != null)
                 {
-                    var rect = RectangleF.FromLTRB((float)MouseDownStart.Lng, (float)MouseDownStart.Lat, (float)point.Lng, (float)point.Lat);
+                    PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);
 
-                    list1.Clear();
-
-                    // tl
-                    list1.Add(MouseDownStart);
-                    // tr
-                    list1.Add(new PointLatLng(rect.Top, rect.Right));
-                    // br
-                    list1.Add(point);
-                    // bl
-                    list1.Add(new PointLatLng(rect.Bottom, rect.Left));
-
-                    if (boxpoly != null)
-                        drawnpolygonsoverlay.Polygons.Remove(boxpoly);
-
-                    boxpoly = null;
-
-                    boxpoly = new GMapPolygon(list1, "boxpoly");
-
-                    boxpoly.IsHitTestVisible = true;
-                    boxpoly.Stroke = new Pen(Color.Red, 2);
-                    boxpoly.Fill = Brushes.Transparent;
-
-                    drawnpolygonsoverlay.Polygons.Add(boxpoly);
-                    MainMap.UpdatePolygonLocalPosition(boxpoly);
-
-                    MainMap.Invalidate();
+                    CurrentRallyPt.Position = pnew;
                 }
-            }
-            else
-            {
-                //draging
-                if (e.Button == MouseButtons.Left && isMouseDown)
+                else if (CurentRectMarker != null) // left click pan
                 {
                     // check if this is a grid point
                     if (CurentRectMarker.InnerMarker.Tag.ToString().Contains("grid"))
                         updatePolygonByColour(point);
 
-                        PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);
+                    PointLatLng pnew = MainMap.FromLocalToLatLng(e.X, e.Y);
 
-                        // adjust polyline point while we drag
-                        try
+                    // adjust polyline point while we drag
+                    try
+                    {
+                        if (CurrentGMapMarker.Tag is int)
                         {
-                            if (CurrentGMapMarker.Tag is int)
-                            {
 
-                                int? pIndex = (int?)CurentRectMarker.Tag;
-                                if (pIndex.HasValue)
+                            int? pIndex = (int?)CurentRectMarker.Tag;
+                            if (pIndex.HasValue)
+                            {
+                                if (pIndex < wppolygon.Points.Count)
                                 {
-                                    if (pIndex < wppolygon.Points.Count)
+                                    wppolygon.Points[pIndex.Value] = pnew;
+                                    lock (thisLock)
                                     {
-                                        wppolygon.Points[pIndex.Value] = pnew;
-                                        lock (thisLock)
-                                        {
-                                            MainMap.UpdatePolygonLocalPosition(wppolygon);
-                                        }
+                                        MainMap.UpdatePolygonLocalPosition(wppolygon);
                                     }
                                 }
                             }
                         }
-                        catch { }
+                    }
+                    catch { }
 
-                        // update rect and marker pos.
-                        if (currentMarker.IsVisible)
-                        {
-                            currentMarker.Position = pnew;
-                        }
-                        CurentRectMarker.Position = pnew;
+                    // update rect and marker pos.
+                    if (currentMarker.IsVisible)
+                    {
+                        currentMarker.Position = pnew;
+                    }
+                    CurentRectMarker.Position = pnew;
 
-                        if (CurentRectMarker.InnerMarker != null)
-                        {
-                            CurentRectMarker.InnerMarker.Position = pnew;
-                        }
+                    if (CurentRectMarker.InnerMarker != null)
+                    {
+                        CurentRectMarker.InnerMarker.Position = pnew;
                     }
                 }
                 else if (CurrentGMapMarker != null)
@@ -3044,21 +2969,15 @@ namespace MissionPlanner.GCSViews
                 {
                     double latdif = MouseDownStart.Lat - point.Lat;
                     double lngdif = MouseDownStart.Lng - point.Lng;
-                    if (!draw_rect)
-                    try
-                    {
-                        double latdif = MouseDownStart.Lat - point.Lat;
-                        double lngdif = MouseDownStart.Lng - point.Lng;
-
+                    if ((!draw_rect) && !(mode == Mode.land))
                         try
                         {
                             lock (thisLock)
                             {
-                                    MainMap.Position = new PointLatLng(center.Position.Lat + latdif, center.Position.Lng + lngdif);
+                                MainMap.Position = new PointLatLng(center.Position.Lat + latdif, center.Position.Lng + lngdif);
                             }
                         }
                         catch { }
-                    }
                 }
             }
         }
@@ -3448,11 +3367,11 @@ namespace MissionPlanner.GCSViews
         {
             if (mode != Mode.greenZone)
             {
-             //   CustomMessageBox.Show("You will remain in safety zone mode until you clear the polygon or create a grid/upload a fence");
+                //   CustomMessageBox.Show("You will remain in safety zone mode until you clear the polygon or create a grid/upload a fence");
                 mode = Mode.greenZone;
             }
         }
-        
+
 
         private void BUT_RedZone_Click(object sender, EventArgs e)
         {
@@ -3471,7 +3390,7 @@ namespace MissionPlanner.GCSViews
         {
             if (mode != Mode.polygon)
             {
-              //  CustomMessageBox.Show("You will remain in polygon mode until you clear the polygon or create a grid/upload a fence");
+                //  CustomMessageBox.Show("You will remain in polygon mode until you clear the polygon or create a grid/upload a fence");
                 mode = Mode.polygon;
             }
         }
@@ -3584,9 +3503,10 @@ namespace MissionPlanner.GCSViews
                         {
                             string[] tag = CurentRectMarker.InnerMarker.Tag.ToString().Replace("grid", "").Split(new Char[] { '\\' });
                             red.removePoint(int.Parse(tag[0]), int.Parse(tag[1]));
-                        
+
                         }
-                        else {
+                        else
+                        {
                             int.TryParse(CurentRectMarker.InnerMarker.Tag.ToString().Replace("grid", ""), out no);
                             if (type.Equals(GMarkerGoogleType.blue))
                             {
@@ -4366,7 +4286,7 @@ namespace MissionPlanner.GCSViews
         private void gridToolStripMenuItem_Click(object sender, EventArgs e)
         {
             mode = Mode.waypoint;
-           
+
             if (blue.polygon == null || blue.polygon.Points.Count == 0)
             {
                 CustomMessageBox.Show("Right click the map to draw a polygon", "Area", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -6061,18 +5981,18 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void Survey_Grid_Click(object sender, EventArgs e)
         {
-            currentmode = mode.panmode;
-           // var gridui = new GridUIv3(this);
-           // MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
 
-            if ((new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.blue.polygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.blue.polygon.Stroke })  != null && (new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.blue.polygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.blue.polygon.Stroke }).Points.Count > 2)
+            // var gridui = new GridUIv3(this);
+            // MissionPlanner.Utilities.ThemeManager.ApplyThemeTo(gridui);
+
+            if ((new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.blue.polygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.blue.polygon.Stroke }) != null && (new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.blue.polygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.blue.polygon.Stroke }).Points.Count > 2)
             {
                 panelAction.Visible = false;
                 panel6.Visible = true;
 
                 panelWaypoints.Visible = false;
-                StatsPanel.Visible = true ;
-           
+                StatsPanel.Visible = true;
+
                 init(sender, e);
             }
             else
@@ -6080,7 +6000,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 if (CustomMessageBox.Show("No polygon defined. Load a file?", "Load File", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     LoadGrid();
-                    
+
                     panelAction.Visible = false;
                     panel6.Visible = true;
                     init(sender, e);
@@ -6139,6 +6059,69 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             {
                 ((MyButton)c).BGGradTop = Color.Violet;
             }
+        }
+
+        private void myButton1_Click(object sender, EventArgs e)
+        {
+            if ((grid == null) || (grid.Count == 0))
+            {
+                CustomMessageBox.Show("Please define a grid!");
+            }
+            else
+            {
+                CustomMessageBox.Show("Specify a direction by dragging your mouse");
+                mode = Mode.land;
+                Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+            }
+        }
+
+        private void myButton2_Click(object sender, EventArgs e)
+        {
+            if ((grid != null) && (grid.Count != 0))
+            {
+                routesoverlay.Routes.Clear();
+                routesoverlay.Polygons.Clear();
+                routesoverlay.Markers.Clear();
+                Commands.Rows.Clear();
+                routesOverlay.Routes.Clear();
+                routesOverlay.Polygons.Clear();
+                routesOverlay.Markers.Clear();
+                grid.Clear();
+                objectsoverlay.Markers.Clear();
+
+                //      list.Clear();
+                blue.redrawPolygonSurvey(new List<PointLatLng>(list));
+            }
+        }
+
+        private void CalculateLanding(PointLatLng first, PointLatLng second)
+        {
+            routesOverlay.Markers.Remove(land_marker_first);
+            routesOverlay.Markers.Remove(land_marker_second);
+            routesOverlay.Routes.Remove(land);
+
+            Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+            if ((land_first.Lat != 0) && (land_first.Lng != 0))
+                Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+
+            land.Clear();
+
+            land_first = first;
+            land_second = second;
+            land_marker_first = new GMarkerGoogle(first, GMarkerGoogleType.green);
+            land_marker_second = new GMarkerGoogle(second, GMarkerGoogleType.arrow);
+            routesOverlay.Markers.Add(land_marker_first);
+            routesOverlay.Markers.Add(land_marker_second);
+
+
+            land.Points.Add(first);
+            land.Points.Add(second);
+            AddWPToMap(first.Lat, first.Lng, 50);
+            AddWPToMap(second.Lat, second.Lng, 2);
+
+            land.Stroke = new Pen(Color.Green, 2);
+            routesOverlay.Routes.Add(land);
+            MainMap.Invalidate();
         }
 
     }

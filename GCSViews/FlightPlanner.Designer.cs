@@ -1,64 +1,64 @@
 ﻿namespace MissionPlanner.GCSViews
-{
-    partial class FlightPlanner
-    {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+ {
+     partial class FlightPlanner
+     {
+         /// <summary> 
+         /// Required designer variable.
+         /// </summary>
+         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+         /// <summary> 
+         /// Clean up any resources being used.
+         /// </summary>
+         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+         protected override void Dispose(bool disposing)
+         {
+             if (disposing && (components != null))
+             {
+                 components.Dispose();
+             }
 
-            if (currentMarker != null)
-                currentMarker.Dispose();
-            if (blue.polygon != null)
-                blue.polygon.Dispose();
-            if (kmlpolygonsoverlay != null)
-                kmlpolygonsoverlay.Dispose();
-            if (wppolygon != null)
-                wppolygon.Dispose();
-            if (top != null)
-                top.Dispose();
-            if (geofencepolygon != null)
-                geofencepolygon.Dispose();
-            if (geofenceoverlay != null)
-                geofenceoverlay.Dispose();
-            if (blue.overlay != null)
-                blue.overlay.Dispose();
-            if (center != null)
-                center.Dispose(); 
+             if (currentMarker != null)
+                 currentMarker.Dispose();
+             if (blue.polygon != null)
+                 blue.polygon.Dispose();
+             if (kmlpolygonsoverlay != null)
+                 kmlpolygonsoverlay.Dispose();
+             if (wppolygon != null)
+                 wppolygon.Dispose();
+             if (top != null)
+                 top.Dispose();
+             if (geofencepolygon != null)
+                 geofencepolygon.Dispose();
+             if (geofenceoverlay != null)
+                 geofenceoverlay.Dispose();
+             if (blue.overlay != null)
+                 blue.overlay.Dispose();
+             if (center != null)
+                 center.Dispose();
 
-            base.Dispose(disposing);
-        }
+             base.Dispose(disposing);
+         }
 
 
-        #region Windows Form Designer generated code
+         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+         /// <summary>
+         /// Required method for Designer support - do not modify
+         /// the contents of this method with the code editor.
+         /// </summary>
+         private void InitializeComponent()
+         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightPlanner));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Commands = new System.Windows.Forms.DataGridView();
             this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,6 +94,7 @@
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BUT_removePolygon = new MissionPlanner.Controls.MyButton();
             this.BUT_Polygon = new MissionPlanner.Controls.MyButton();
@@ -211,19 +212,20 @@
             this.panelAction = new BSE.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonpan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonbox = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonmovebox = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtoneditbox = new System.Windows.Forms.ToolStripButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.Survey_Grid = new MissionPlanner.Controls.MyButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chk_grid = new System.Windows.Forms.CheckBox();
             this.lbl_status = new System.Windows.Forms.Label();
             this.comboBoxMapType = new System.Windows.Forms.ComboBox();
             this.lnk_kml = new System.Windows.Forms.LinkLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_wpfile = new System.Windows.Forms.Label();
+            this.BUT_loadwpfile = new MissionPlanner.Controls.MyButton();
+            this.BUT_saveWPFile = new MissionPlanner.Controls.MyButton();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.BUT_write = new MissionPlanner.Controls.MyButton();
+            this.BUT_read = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
@@ -325,8 +327,9 @@
             this.panelAction.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -351,14 +354,14 @@
             // 
             this.Commands.AllowUserToAddRows = false;
             resources.ApplyResources(this.Commands, "Commands");
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Commands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Command,
             this.Param1,
@@ -375,17 +378,17 @@
             this.Dist,
             this.AZ});
             this.Commands.Name = "Commands";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.Format = "N0";
-            dataGridViewCellStyle13.NullValue = "0";
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = "0";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Commands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellContentClick);
             this.Commands.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellEndEdit);
             this.Commands.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Commands_DataError);
@@ -398,9 +401,9 @@
             // Command
             // 
             this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            this.Command.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            this.Command.DefaultCellStyle = dataGridViewCellStyle2;
             this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             resources.ApplyResources(this.Command, "Command");
             this.Command.Name = "Command";
@@ -464,7 +467,7 @@
             // Up
             // 
             this.Up.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Up.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Up.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.Up, "Up");
             this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
             this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -473,8 +476,8 @@
             // Down
             // 
             this.Down.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Down.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Down.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.Down, "Down");
             this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
             this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -548,8 +551,8 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -557,8 +560,8 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -673,10 +676,22 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.myButton1);
             this.panel8.Controls.Add(this.groupBox1);
             this.panel8.Controls.Add(this.BUT_Rect);
             resources.ApplyResources(this.panel8, "panel8");
             this.panel8.Name = "panel8";
+            // 
+            // myButton1
+            // 
+            this.myButton1.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.myButton1.BGGradTop = System.Drawing.Color.White;
+            resources.ApplyResources(this.myButton1, "myButton1");
+            this.myButton1.Name = "myButton1";
+            this.myButton1.Outline = System.Drawing.Color.Black;
+            this.myButton1.TextColor = System.Drawing.Color.Black;
+            this.myButton1.UseVisualStyleBackColor = true;
+            this.myButton1.Click += new System.EventHandler(this.myButton1_Click);
             // 
             // groupBox1
             // 
@@ -690,7 +705,6 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Click);
-           
             // 
             // BUT_removePolygon
             // 
@@ -1216,6 +1230,7 @@
             // 
             this.saveWPFileToolStripMenuItem.Name = "saveWPFileToolStripMenuItem";
             resources.ApplyResources(this.saveWPFileToolStripMenuItem, "saveWPFileToolStripMenuItem");
+            this.saveWPFileToolStripMenuItem.Click += new System.EventHandler(this.saveWPFileToolStripMenuItem_Click);
             // 
             // loadKMLFileToolStripMenuItem
             // 
@@ -1602,6 +1617,8 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.coords1);
             resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
@@ -1609,55 +1626,10 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Controls.Add(this.myButton2);
-            this.panel4.Controls.Add(this.myButton1);
             this.panel4.Controls.Add(this.Survey_Grid);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
-            // 
-            // toolStrip1
-            // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonpan,
-            this.toolStripButtonbox,
-            this.toolStripButtonmovebox,
-            this.toolStripButtoneditbox});
-            this.toolStrip1.Name = "toolStrip1";
-            // 
-            // toolStripButtonpan
-            // 
-            this.toolStripButtonpan.BackColor = System.Drawing.Color.Black;
-            this.toolStripButtonpan.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.toolStripButtonpan, "toolStripButtonpan");
-            this.toolStripButtonpan.Name = "toolStripButtonpan";
-            this.toolStripButtonpan.Click += new System.EventHandler(this.toolStripButtonpan_Click_1);
-            // 
-            // toolStripButtonbox
-            // 
-            this.toolStripButtonbox.BackColor = System.Drawing.Color.Black;
-            this.toolStripButtonbox.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.toolStripButtonbox, "toolStripButtonbox");
-            this.toolStripButtonbox.Name = "toolStripButtonbox";
-            this.toolStripButtonbox.Click += new System.EventHandler(this.toolStripButtonbox_Click_1);
-            // 
-            // toolStripButtonmovebox
-            // 
-            this.toolStripButtonmovebox.BackColor = System.Drawing.Color.Black;
-            this.toolStripButtonmovebox.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.toolStripButtonmovebox, "toolStripButtonmovebox");
-            this.toolStripButtonmovebox.Name = "toolStripButtonmovebox";
-            this.toolStripButtonmovebox.Click += new System.EventHandler(this.toolStripButtonmovebox_Click_1);
-            // 
-            // toolStripButtoneditbox
-            // 
-            this.toolStripButtoneditbox.BackColor = System.Drawing.Color.Black;
-            this.toolStripButtoneditbox.ForeColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.toolStripButtoneditbox, "toolStripButtoneditbox");
-            this.toolStripButtoneditbox.Name = "toolStripButtoneditbox";
-            this.toolStripButtoneditbox.Click += new System.EventHandler(this.toolStripButtoneditbox_Click_1);
             // 
             // myButton2
             // 
@@ -1665,13 +1637,6 @@
             this.myButton2.Name = "myButton2";
             this.myButton2.UseVisualStyleBackColor = true;
             this.myButton2.Click += new System.EventHandler(this.myButton2_Click);
-            // 
-            // myButton1
-            // 
-            resources.ApplyResources(this.myButton1, "myButton1");
-            this.myButton1.Name = "myButton1";
-            this.myButton1.UseVisualStyleBackColor = true;
-            this.myButton1.Click += new System.EventHandler(this.myButton1_Click_1);
             // 
             // Survey_Grid
             // 
@@ -1715,6 +1680,54 @@
             this.lnk_kml.Name = "lnk_kml";
             this.lnk_kml.TabStop = true;
             this.lnk_kml.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_kml_LinkClicked);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbl_wpfile);
+            this.panel2.Controls.Add(this.BUT_loadwpfile);
+            this.panel2.Controls.Add(this.BUT_saveWPFile);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // lbl_wpfile
+            // 
+            resources.ApplyResources(this.lbl_wpfile, "lbl_wpfile");
+            this.lbl_wpfile.Name = "lbl_wpfile";
+            // 
+            // BUT_loadwpfile
+            // 
+            resources.ApplyResources(this.BUT_loadwpfile, "BUT_loadwpfile");
+            this.BUT_loadwpfile.Name = "BUT_loadwpfile";
+            this.BUT_loadwpfile.UseVisualStyleBackColor = true;
+            this.BUT_loadwpfile.Click += new System.EventHandler(this.BUT_loadwpfile_Click);
+            // 
+            // BUT_saveWPFile
+            // 
+            resources.ApplyResources(this.BUT_saveWPFile, "BUT_saveWPFile");
+            this.BUT_saveWPFile.Name = "BUT_saveWPFile";
+            this.BUT_saveWPFile.UseVisualStyleBackColor = true;
+            this.BUT_saveWPFile.Click += new System.EventHandler(this.BUT_saveWPFile_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.BUT_write);
+            this.panel5.Controls.Add(this.BUT_read);
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Name = "panel5";
+            // 
+            // BUT_write
+            // 
+            resources.ApplyResources(this.BUT_write, "BUT_write");
+            this.BUT_write.Name = "BUT_write";
+            this.BUT_write.UseVisualStyleBackColor = true;
+            this.BUT_write.Click += new System.EventHandler(this.BUT_write_Click);
+            // 
+            // BUT_read
+            // 
+            resources.ApplyResources(this.BUT_read, "BUT_read");
+            this.BUT_read.Name = "BUT_read";
+            this.BUT_read.UseVisualStyleBackColor = true;
+            this.BUT_read.Click += new System.EventHandler(this.BUT_read_Click);
             // 
             // panel1
             // 
@@ -2389,11 +2402,11 @@
             this.panelAction.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -2420,250 +2433,260 @@
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).EndInit();
             this.ResumeLayout(false);
 
-        }
+         }
 
 
-        #endregion
+         #endregion
 
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView Commands;
-        private System.Windows.Forms.CheckBox CHK_verifyheight;
-        private Controls.MyButton BUT_Add;
-        private System.Windows.Forms.TextBox TXT_WPRad;
-        private System.Windows.Forms.TextBox TXT_DefaultAlt;
-        private System.Windows.Forms.Label LBL_WPRad;
-        private System.Windows.Forms.Label LBL_defalutalt;
-        private System.Windows.Forms.TextBox TXT_loiterrad;
-        private System.Windows.Forms.Label label5;
-        private BSE.Windows.Forms.Panel panelWaypoints;
-        private System.Windows.Forms.Panel panelMap;
-        private Controls.myGMAP MainMap;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lbl_distance;
-        private System.Windows.Forms.Label lbl_prevdist;
-        private BSE.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panelBASE;
-        private System.Windows.Forms.Label lbl_homedist;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolStripMenuItem clearMissionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem polygonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPolygonPointToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearPolygonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loiterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loiterForeverToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loitertimeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loitercirclesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jumpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jumpstartToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jumpwPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem deleteWPToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem geoFenceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GeoFencedownloadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setReturnLocationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadFromFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem GeoFenceuploadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem setROIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoWPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createWpCircleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mapToolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ContextMeasure;
-        private System.Windows.Forms.ToolStripMenuItem rotateMapToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zoomToToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem prefetchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kMLOverlayToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem elevationGraphToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rTLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem landToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem takeoffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fileLoadSaveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadWPFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveWPFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trackerHomeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem flyToHereToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reverseWPsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadAndAppendToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem savePolygonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadPolygonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
-        public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem insertWpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rallyPointsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem getRallyPointsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveRallyPointsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setRallyPointToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearRallyPointsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadKMLFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyAltToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem loadFromFileToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem prefetchWPPathToolStripMenuItem;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox TXT_altwarn;
-        private System.Windows.Forms.ToolStripMenuItem pOIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poiaddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poideleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem poieditToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enterUTMCoordToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadSHPFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem switchDockingToolStripMenuItem;
-        private BSE.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.ToolStripMenuItem insertSplineWPToolStripMenuItem;
-        private System.Windows.Forms.CheckBox CHK_splinedefault;
-        private System.Windows.Forms.ToolStripMenuItem createSplineCircleToolStripMenuItem;
-        private System.Windows.Forms.ComboBox CMB_altmode;
-        private System.Windows.Forms.ToolStripMenuItem fromSHPToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Command;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Param1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Param2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Param3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Param4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alt;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.DataGridViewImageColumn Up;
-        private System.Windows.Forms.DataGridViewImageColumn Down;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AZ;
-        private BSE.Windows.Forms.Panel panelAction;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.CheckBox chk_grid;
-        private System.Windows.Forms.Label lbl_status;
-        private System.Windows.Forms.ComboBox comboBoxMapType;
-        private System.Windows.Forms.LinkLabel lnk_kml;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.TextBox TXT_homealt;
-        private System.Windows.Forms.TextBox TXT_homelng;
-        private System.Windows.Forms.TextBox TXT_homelat;
-        private Controls.Coords coords1;
-        private Controls.MyTrackBar trackBar1;
-        private BSE.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Controls.MyButton Survey_Grid;
-        private System.Windows.Forms.Panel panel7;
-        private Controls.MyButton BUT_Accept;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabSimple;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.CheckBox CHK_toandland_RTL;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.CheckBox CHK_toandland;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TrackBar TBAR_overlap;
-        private System.Windows.Forms.ComboBox CMB_camera;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TrackBar TBAR_zoom;
-        private System.Windows.Forms.Label TXT_cmpixel;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox CHK_advanced;
-        private System.Windows.Forms.CheckBox CHK_internals;
-        private System.Windows.Forms.CheckBox CHK_grid1;
-        private System.Windows.Forms.CheckBox CHK_markers;
-        private System.Windows.Forms.CheckBox CHK_boundary;
-        private System.Windows.Forms.TabPage tabCamera;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.CheckBox CHK_usespeed;
-        private System.Windows.Forms.NumericUpDown NUM_UpDownFlySpeed;
-        private System.Windows.Forms.TextBox TXT_max_flight_time;
-        private System.Windows.Forms.TextBox TXT_max_dive_angle;
-        private System.Windows.Forms.TextBox TXT_max_climb_angle;
-        private System.Windows.Forms.TextBox TXT_turn_radius;
-        private System.Windows.Forms.TextBox TXT_max_alt;
-        private System.Windows.Forms.TextBox TXT_min_alt;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown NUM_repttime;
-        private System.Windows.Forms.NumericUpDown num_reptpwm;
-        private System.Windows.Forms.NumericUpDown NUM_reptservo;
-        private System.Windows.Forms.RadioButton rad_digicam;
-        private System.Windows.Forms.RadioButton rad_repeatservo;
-        private System.Windows.Forms.RadioButton rad_trigdist;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label9;
-        private Controls.MyButton BUT_samplephoto;
-        private System.Windows.Forms.TextBox TXT_sensheight;
-        private System.Windows.Forms.TextBox TXT_senswidth;
-        private System.Windows.Forms.TextBox TXT_imgheight;
-        private System.Windows.Forms.TextBox TXT_imgwidth;
-        private System.Windows.Forms.NumericUpDown NUM_focallength;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label8;
-        private Controls.MyButton BUT_save;
-        private System.Windows.Forms.TabPage tabGrid;
-        private System.Windows.Forms.GroupBox groupBox_copter;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox CHK_copter_headinghold;
-        private System.Windows.Forms.TextBox TXT_headinghold;
-        private System.Windows.Forms.CheckBox CHK_copter_headingholdlock;
-        private System.Windows.Forms.NumericUpDown NUM_copter_delay;
-        private System.Windows.Forms.Button BUT_headingholdplus;
-        private System.Windows.Forms.Button BUT_headingholdminus;
-        private Controls.MyButton Decline;
-        private System.Windows.Forms.Label TXT_overlap;
-        private System.Windows.Forms.CheckBox CHK_camdirection;
-        private System.Windows.Forms.RadioButton RadioPortrait;
-        private System.Windows.Forms.RadioButton RadioLandspace;
-        private Controls.MyLabel myLabel1;
-        private BSE.Windows.Forms.Panel StatsPanel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lbl_altitude;
-        private System.Windows.Forms.Label lbl_photoevery;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label lbl_flighttime;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label lbl_distbetweenlines;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label lbl_footprint;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label lbl_strips;
-        private System.Windows.Forms.Label lbl_pictures;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label lbl_spacing;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label lbl_area;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel8;
-        private Controls.MyButton BUT_Rect;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private Controls.MyButton BUT_removePolygon;
-        private Controls.MyButton BUT_Polygon;
-        private Controls.MyButton BUT_Waypoints;
-        private Controls.MyButton BUT_RedZone;
-        private Controls.MyButton BUT_removePoint;
-        private Controls.MyButton BUT_GreenZone;
-    }
-}
+         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+         private System.Windows.Forms.Label label6;
+         private System.Windows.Forms.DataGridView Commands;
+         private System.Windows.Forms.CheckBox CHK_verifyheight;
+         private Controls.MyButton BUT_Add;
+         private System.Windows.Forms.TextBox TXT_WPRad;
+         private System.Windows.Forms.TextBox TXT_DefaultAlt;
+         private System.Windows.Forms.Label LBL_WPRad;
+         private System.Windows.Forms.Label LBL_defalutalt;
+         private System.Windows.Forms.TextBox TXT_loiterrad;
+         private System.Windows.Forms.Label label5;
+         private BSE.Windows.Forms.Panel panelWaypoints;
+         private System.Windows.Forms.Panel panelMap;
+         private Controls.myGMAP MainMap;
+         private System.Windows.Forms.Label label11;
+         private System.Windows.Forms.Label lbl_distance;
+         private System.Windows.Forms.Label lbl_prevdist;
+         private BSE.Windows.Forms.Splitter splitter1;
+         private System.Windows.Forms.Panel panelBASE;
+         private System.Windows.Forms.Label lbl_homedist;
+         private System.Windows.Forms.ToolTip toolTip1;
+         private System.Windows.Forms.ToolStripMenuItem clearMissionToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem polygonToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem addPolygonPointToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem clearPolygonToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loiterToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loiterForeverToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loitertimeToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loitercirclesToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem jumpToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem jumpstartToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem jumpwPToolStripMenuItem;
+         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+         private System.Windows.Forms.ToolStripMenuItem deleteWPToolStripMenuItem;
+         private System.Windows.Forms.Timer timer1;
+         private System.Windows.Forms.ToolStripMenuItem geoFenceToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem GeoFencedownloadToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem setReturnLocationToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadFromFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+         private System.Windows.Forms.ToolStripMenuItem GeoFenceuploadToolStripMenuItem;
+         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+         private System.Windows.Forms.ToolStripMenuItem setROIToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem autoWPToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem createWpCircleToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem mapToolToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem ContextMeasure;
+         private System.Windows.Forms.ToolStripMenuItem rotateMapToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem zoomToToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem prefetchToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem kMLOverlayToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem elevationGraphToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem rTLToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem landToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem takeoffToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem fileLoadSaveToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadWPFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem saveWPFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem trackerHomeToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem flyToHereToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem reverseWPsToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadAndAppendToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem savePolygonToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadPolygonToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem areaToolStripMenuItem;
+         public System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+         private System.Windows.Forms.ToolStripMenuItem insertWpToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem rallyPointsToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem getRallyPointsToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem saveRallyPointsToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem setRallyPointToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem clearRallyPointsToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadKMLFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem modifyAltToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem saveToFileToolStripMenuItem1;
+         private System.Windows.Forms.ToolStripMenuItem loadFromFileToolStripMenuItem1;
+         private System.Windows.Forms.ToolStripMenuItem prefetchWPPathToolStripMenuItem;
+         private System.Windows.Forms.Label label17;
+         private System.Windows.Forms.TextBox TXT_altwarn;
+         private System.Windows.Forms.ToolStripMenuItem pOIToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem poiaddToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem poideleteToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem poieditToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem enterUTMCoordToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem loadSHPFileToolStripMenuItem;
+         private System.Windows.Forms.ToolStripMenuItem switchDockingToolStripMenuItem;
+         private BSE.Windows.Forms.Splitter splitter2;
+         private System.Windows.Forms.ToolStripMenuItem insertSplineWPToolStripMenuItem;
+         private System.Windows.Forms.CheckBox CHK_splinedefault;
+         private System.Windows.Forms.ToolStripMenuItem createSplineCircleToolStripMenuItem;
+         private System.Windows.Forms.ComboBox CMB_altmode;
+         private System.Windows.Forms.ToolStripMenuItem fromSHPToolStripMenuItem;
+         private System.Windows.Forms.DataGridViewComboBoxColumn Command;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Param1;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Param2;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Param3;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Param4;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Lat;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Lon;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Alt;
+         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+         private System.Windows.Forms.DataGridViewImageColumn Up;
+         private System.Windows.Forms.DataGridViewImageColumn Down;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Grad;
+         private System.Windows.Forms.DataGridViewTextBoxColumn Dist;
+         private System.Windows.Forms.DataGridViewTextBoxColumn AZ;
+         private BSE.Windows.Forms.Panel panelAction;
+         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+         private System.Windows.Forms.Panel panel4;
+         private System.Windows.Forms.Panel panel3;
+         private System.Windows.Forms.CheckBox chk_grid;
+         private System.Windows.Forms.Label lbl_status;
+         private System.Windows.Forms.ComboBox comboBoxMapType;
+         private System.Windows.Forms.LinkLabel lnk_kml;
+         private System.Windows.Forms.Panel panel2;
+         private System.Windows.Forms.Label lbl_wpfile;
+         private Controls.MyButton BUT_loadwpfile;
+         private Controls.MyButton BUT_saveWPFile;
+         private System.Windows.Forms.Panel panel5;
+         private Controls.MyButton BUT_write;
+         private Controls.MyButton BUT_read;
+         private System.Windows.Forms.Panel panel1;
+         private System.Windows.Forms.LinkLabel label4;
+         private System.Windows.Forms.Label label3;
+         private System.Windows.Forms.Label label2;
+         private System.Windows.Forms.Label Label1;
+         private System.Windows.Forms.TextBox TXT_homealt;
+         private System.Windows.Forms.TextBox TXT_homelng;
+         private System.Windows.Forms.TextBox TXT_homelat;
+         private Controls.Coords coords1;
+         private Controls.MyTrackBar trackBar1;
+         private BSE.Windows.Forms.Panel panel6;
+         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+         private Controls.MyButton Survey_Grid;
+         private System.Windows.Forms.Panel panel7;
+         private Controls.MyButton BUT_Accept;
+         private System.Windows.Forms.TabControl tabControl1;
+         private System.Windows.Forms.TabPage tabSimple;
+         private System.Windows.Forms.GroupBox groupBox6;
+         private System.Windows.Forms.Label label32;
+         private System.Windows.Forms.Label label36;
+         private System.Windows.Forms.Label label45;
+         private System.Windows.Forms.CheckBox CHK_toandland_RTL;
+         private System.Windows.Forms.Label label44;
+         private System.Windows.Forms.CheckBox CHK_toandland;
+         private System.Windows.Forms.Label label43;
+         private System.Windows.Forms.TrackBar TBAR_overlap;
+         private System.Windows.Forms.ComboBox CMB_camera;
+         private System.Windows.Forms.Label label37;
+         private System.Windows.Forms.Label label12;
+         private System.Windows.Forms.TrackBar TBAR_zoom;
+         private System.Windows.Forms.Label TXT_cmpixel;
+         private System.Windows.Forms.GroupBox groupBox4;
+         private System.Windows.Forms.CheckBox CHK_advanced;
+         private System.Windows.Forms.CheckBox CHK_footprints;
+         private System.Windows.Forms.CheckBox CHK_internals;
+         private System.Windows.Forms.CheckBox CHK_grid1;
+         private System.Windows.Forms.CheckBox CHK_markers;
+         private System.Windows.Forms.CheckBox CHK_boundary;
+         private System.Windows.Forms.TabPage tabCamera;
+         private System.Windows.Forms.GroupBox groupBox8;
+         private System.Windows.Forms.CheckBox CHK_usespeed;
+         private System.Windows.Forms.NumericUpDown NUM_UpDownFlySpeed;
+         private System.Windows.Forms.TextBox TXT_max_flight_time;
+         private System.Windows.Forms.TextBox TXT_max_dive_angle;
+         private System.Windows.Forms.TextBox TXT_max_climb_angle;
+         private System.Windows.Forms.TextBox TXT_turn_radius;
+         private System.Windows.Forms.TextBox TXT_max_alt;
+         private System.Windows.Forms.TextBox TXT_min_alt;
+         private System.Windows.Forms.Label label42;
+         private System.Windows.Forms.Label label41;
+         private System.Windows.Forms.Label label40;
+         private System.Windows.Forms.Label label39;
+         private System.Windows.Forms.Label label38;
+         private System.Windows.Forms.Label label29;
+         private System.Windows.Forms.Label label21;
+         private System.Windows.Forms.GroupBox groupBox3;
+         private System.Windows.Forms.Label label18;
+         private System.Windows.Forms.Label label7;
+         private System.Windows.Forms.Label label16;
+         private System.Windows.Forms.NumericUpDown NUM_repttime;
+         private System.Windows.Forms.NumericUpDown num_reptpwm;
+         private System.Windows.Forms.NumericUpDown NUM_reptservo;
+         private System.Windows.Forms.RadioButton rad_digicam;
+         private System.Windows.Forms.RadioButton rad_repeatservo;
+         private System.Windows.Forms.RadioButton rad_trigdist;
+         private System.Windows.Forms.GroupBox groupBox2;
+         private System.Windows.Forms.Label label14;
+         private System.Windows.Forms.Label label9;
+         private Controls.MyButton BUT_samplephoto;
+         private System.Windows.Forms.TextBox TXT_sensheight;
+         private System.Windows.Forms.TextBox TXT_senswidth;
+         private System.Windows.Forms.TextBox TXT_imgheight;
+         private System.Windows.Forms.TextBox TXT_imgwidth;
+         private System.Windows.Forms.NumericUpDown NUM_focallength;
+         private System.Windows.Forms.Label label10;
+         private System.Windows.Forms.Label label13;
+         private System.Windows.Forms.Label label8;
+         private Controls.MyButton BUT_save;
+         private System.Windows.Forms.TabPage tabGrid;
+         private System.Windows.Forms.GroupBox groupBox_copter;
+         private System.Windows.Forms.Label label15;
+         private System.Windows.Forms.CheckBox CHK_copter_headinghold;
+         private System.Windows.Forms.TextBox TXT_headinghold;
+         private System.Windows.Forms.CheckBox CHK_copter_headingholdlock;
+         private System.Windows.Forms.NumericUpDown NUM_copter_delay;
+         private System.Windows.Forms.Button BUT_headingholdplus;
+         private System.Windows.Forms.Button BUT_headingholdminus;
+         private Controls.MyButton Decline;
+         private System.Windows.Forms.Label TXT_overlap;
+         private System.Windows.Forms.CheckBox CHK_camdirection;
+         private System.Windows.Forms.RadioButton RadioPortrait;
+         private System.Windows.Forms.RadioButton RadioLandspace;
+         private Controls.MyLabel myLabel1;
+         private BSE.Windows.Forms.Panel StatsPanel;
+         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+         private System.Windows.Forms.GroupBox groupBox5;
+         private System.Windows.Forms.Label lbl_altitude;
+         private System.Windows.Forms.Label lbl_photoevery;
+         private System.Windows.Forms.Label label35;
+         private System.Windows.Forms.Label lbl_flighttime;
+         private System.Windows.Forms.Label label31;
+         private System.Windows.Forms.Label lbl_distbetweenlines;
+         private System.Windows.Forms.Label label19;
+         private System.Windows.Forms.Label label25;
+         private System.Windows.Forms.Label lbl_footprint;
+         private System.Windows.Forms.Label label30;
+         private System.Windows.Forms.Label lbl_strips;
+         private System.Windows.Forms.Label lbl_pictures;
+         private System.Windows.Forms.Label label33;
+         private System.Windows.Forms.Label label34;
+         private System.Windows.Forms.Label lbl_spacing;
+         private System.Windows.Forms.Label label27;
+         private System.Windows.Forms.Label label20;
+         private System.Windows.Forms.Label lbl_area;
+         private System.Windows.Forms.Label label23;
+         private System.Windows.Forms.Label label22;
+         private System.Windows.Forms.Panel panel8;
+         private Controls.MyButton BUT_Rect;
+         private System.Windows.Forms.GroupBox groupBox1;
+         private Controls.MyButton BUT_removePolygon;
+         private Controls.MyButton BUT_Polygon;
+         private Controls.MyButton BUT_Waypoints;
+         private Controls.MyButton BUT_RedZone;
+         private Controls.MyButton BUT_removePoint;
+         private Controls.MyButton BUT_GreenZone;
+         private Controls.MyButton myButton1;
+         private Controls.MyButton myButton2;
+     }
+ }

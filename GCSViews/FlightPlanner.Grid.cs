@@ -102,7 +102,9 @@ namespace MissionPlanner.GCSViews
         public void init(object sender, EventArgs e)
         {
 
-            
+            //     InitializeComponent();
+
+
             list = MainV2.instance.FlightPlanner.blue.polygon.Points;
             if (MainV2.config["distunits"] != null)
                 DistUnits = MainV2.config["distunits"].ToString();
@@ -188,7 +190,7 @@ namespace MissionPlanner.GCSViews
             TBAR_zoom.Value = (int)griddata.alt;
             Angle = griddata.angle;
             RadioLandspace.Checked = griddata.camdir;
-            
+
             CHK_usespeed.Checked = griddata.usespeed;
 
             Distance = griddata.dist;
@@ -537,7 +539,7 @@ namespace MissionPlanner.GCSViews
 
                             double startangle = 0;
 
-                            if (!RadioLandspace.Checked)
+                            if (RadioLandspace.Checked)
                             {
                                 startangle = 90;
                             }
@@ -545,7 +547,7 @@ namespace MissionPlanner.GCSViews
                             float sensorwidth = float.Parse(TXT_senswidth.Text);
                             float sensorheight = float.Parse(TXT_sensheight.Text);
 
-                            double angle1 = startangle - (Math.Atan(sensorwidth/sensorheight) * rad2deg);
+                            double angle1 = startangle - (Math.Atan(sensorwidth / sensorheight) * rad2deg);
                             double dist1 = Math.Sqrt(Math.Pow(fovh / 2.0, 2) + Math.Pow(fovv / 2.0, 2));
 
                             double bearing = (double)Angle;// (prevpoint.GetBearing(item) + 360.0) % 360;
@@ -596,7 +598,7 @@ namespace MissionPlanner.GCSViews
             if (chk_grid.Checked)
                 routesOverlay.Routes.Add(wproute);
             */
-            
+
             // Update Stats 
             if (DistUnits == "Feet")
             {
@@ -658,7 +660,7 @@ namespace MissionPlanner.GCSViews
             lbl_flighttime.Text = secondsToNice(seconds);
             seconds = ((routetotal * 1000.0) / (flyspeedms));
             lbl_photoevery.Text = secondsToNice(((double)Spacing / flyspeedms));
-        
+
             MainMap.HoldInvalidation = false;
             if (!isMouseDown)
                 MainMap.ZoomAndCenterMarkers("routes");
@@ -1391,9 +1393,9 @@ namespace MissionPlanner.GCSViews
 
                 // Redraw the polygon in FP
                 blue.redrawPolygonSurvey(new List<PointLatLng>(list));
-        
-        //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
-             
+
+                //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+
                 savesettings();
 
                 MainV2.instance.FlightPlanner.quickadd = false;
@@ -1406,8 +1408,8 @@ namespace MissionPlanner.GCSViews
                 StatsPanel.Visible = false;
                 panelWaypoints.Visible = true;
 
-       
-       //         this.Close();
+
+                //         this.Close();
             }
             else
             {
@@ -1421,15 +1423,15 @@ namespace MissionPlanner.GCSViews
             routesOverlay.Polygons.Clear();
             routesOverlay.Markers.Clear();
             grid.Clear();
-      //      list.Clear();
+            //      list.Clear();
             blue.redrawPolygonSurvey(new List<PointLatLng>(list));
-          
+
             panel6.Visible = false;
             panelAction.Visible = true;
 
             StatsPanel.Visible = false;
             panelWaypoints.Visible = true;
-         }
+        }
 
 
         /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

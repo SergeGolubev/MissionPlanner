@@ -211,12 +211,12 @@ namespace MissionPlanner.GCSViews
             }
             public void removePoint(int poly, int point)
             {
-                polygons[poly].removePoint(point);                
+                polygons[poly].removePoint(point);
             }
 
             public void Clear(object tag)
             {
-                int poly = int.Parse(tag.ToString().Replace("grid", "").Split(new Char[]{'\\'})[0]);
+                int poly = int.Parse(tag.ToString().Replace("grid", "").Split(new Char[] { '\\' })[0]);
                 polygons[poly].Clear();
                 polygons.Remove(poly);
                 current = -1;
@@ -224,7 +224,7 @@ namespace MissionPlanner.GCSViews
 
             public void setCurrent(object tag)
             {
-                current = int.Parse(tag.ToString().Replace("grid", "").Split(new Char[]{'\\'})[0]);
+                current = int.Parse(tag.ToString().Replace("grid", "").Split(new Char[] { '\\' })[0]);
             }
 
             public void Clear()
