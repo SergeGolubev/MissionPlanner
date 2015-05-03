@@ -142,7 +142,7 @@ namespace MissionPlanner
         string wpno = "";
 
         public GMapMarkerWP(PointLatLng p, string wpno)
-            : base(p, GMarkerGoogleType.green)
+            : base(p, GMarkerGoogleType.yellow)
         {
             this.wpno = wpno;
         }

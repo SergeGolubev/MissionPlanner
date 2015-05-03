@@ -20,8 +20,8 @@
 
             if (currentMarker != null)
                 currentMarker.Dispose();
-            if (drawnpolygon != null)
-                drawnpolygon.Dispose();
+            if (blue.polygon != null)
+                blue.polygon.Dispose();
             if (kmlpolygonsoverlay != null)
                 kmlpolygonsoverlay.Dispose();
             if (wppolygon != null)
@@ -32,8 +32,8 @@
                 geofencepolygon.Dispose();
             if (geofenceoverlay != null)
                 geofenceoverlay.Dispose();
-            if (drawnpolygonsoverlay != null)
-                drawnpolygonsoverlay.Dispose();
+            if (blue.overlay != null)
+                blue.overlay.Dispose();
             if (center != null)
                 center.Dispose(); 
 
@@ -93,6 +93,15 @@
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BUT_removePolygon = new MissionPlanner.Controls.MyButton();
+            this.BUT_Polygon = new MissionPlanner.Controls.MyButton();
+            this.BUT_Waypoints = new MissionPlanner.Controls.MyButton();
+            this.BUT_RedZone = new MissionPlanner.Controls.MyButton();
+            this.BUT_removePoint = new MissionPlanner.Controls.MyButton();
+            this.BUT_GreenZone = new MissionPlanner.Controls.MyButton();
+            this.BUT_Rect = new MissionPlanner.Controls.MyButton();
             this.lbl_distance = new System.Windows.Forms.Label();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
@@ -176,6 +185,29 @@
             this.rad_repeatservo = new System.Windows.Forms.RadioButton();
             this.rad_trigdist = new System.Windows.Forms.RadioButton();
             this.panelBASE = new System.Windows.Forms.Panel();
+            this.StatsPanel = new BSE.Windows.Forms.Panel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lbl_altitude = new System.Windows.Forms.Label();
+            this.lbl_photoevery = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.lbl_flighttime = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lbl_distbetweenlines = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lbl_footprint = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lbl_strips = new System.Windows.Forms.Label();
+            this.lbl_pictures = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.lbl_spacing = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lbl_area = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.panelAction = new BSE.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -219,18 +251,17 @@
             this.label43 = new System.Windows.Forms.Label();
             this.TBAR_overlap = new System.Windows.Forms.TrackBar();
             this.label37 = new System.Windows.Forms.Label();
-            this.CHK_camdirection = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.TBAR_zoom = new System.Windows.Forms.TrackBar();
             this.TXT_cmpixel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CHK_footprints = new System.Windows.Forms.CheckBox();
             this.CHK_internals = new System.Windows.Forms.CheckBox();
             this.CHK_grid1 = new System.Windows.Forms.CheckBox();
             this.CHK_markers = new System.Windows.Forms.CheckBox();
             this.CHK_boundary = new System.Windows.Forms.CheckBox();
             this.tabCamera = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.CHK_usespeed = new System.Windows.Forms.CheckBox();
             this.NUM_UpDownFlySpeed = new System.Windows.Forms.NumericUpDown();
             this.TXT_max_flight_time = new System.Windows.Forms.TextBox();
             this.TXT_max_dive_angle = new System.Windows.Forms.TextBox();
@@ -246,9 +277,11 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.myLabel1 = new MissionPlanner.Controls.MyLabel();
+            this.RadioLandspace = new System.Windows.Forms.RadioButton();
+            this.RadioPortrait = new System.Windows.Forms.RadioButton();
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BUT_samplephoto = new MissionPlanner.Controls.MyButton();
             this.TXT_sensheight = new System.Windows.Forms.TextBox();
             this.TXT_senswidth = new System.Windows.Forms.TextBox();
             this.TXT_imgheight = new System.Windows.Forms.TextBox();
@@ -257,6 +290,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.CHK_usespeed = new System.Windows.Forms.CheckBox();
+            this.BUT_samplephoto = new MissionPlanner.Controls.MyButton();
             this.BUT_save = new MissionPlanner.Controls.MyButton();
             this.CHK_advanced = new System.Windows.Forms.CheckBox();
             this.CMB_camera = new System.Windows.Forms.ComboBox();
@@ -271,10 +306,12 @@
             this.BUT_headingholdminus = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.CHK_footprints = new System.Windows.Forms.CheckBox();
+            this.CHK_camdirection = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -282,6 +319,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_reptpwm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_reptservo)).BeginInit();
             this.panelBASE.SuspendLayout();
+            this.StatsPanel.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.panelAction.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -619,6 +659,7 @@
             // 
             // panelMap
             // 
+            this.panelMap.Controls.Add(this.panel8);
             this.panelMap.Controls.Add(this.lbl_distance);
             this.panelMap.Controls.Add(this.lbl_homedist);
             this.panelMap.Controls.Add(this.lbl_prevdist);
@@ -629,6 +670,102 @@
             this.panelMap.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelMap.Name = "panelMap";
             this.panelMap.Resize += new System.EventHandler(this.panelMap_Resize);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.groupBox1);
+            this.panel8.Controls.Add(this.BUT_Rect);
+            resources.ApplyResources(this.panel8, "panel8");
+            this.panel8.Name = "panel8";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BUT_removePolygon);
+            this.groupBox1.Controls.Add(this.BUT_Polygon);
+            this.groupBox1.Controls.Add(this.BUT_Waypoints);
+            this.groupBox1.Controls.Add(this.BUT_RedZone);
+            this.groupBox1.Controls.Add(this.BUT_removePoint);
+            this.groupBox1.Controls.Add(this.BUT_GreenZone);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Click);
+           
+            // 
+            // BUT_removePolygon
+            // 
+            this.BUT_removePolygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BUT_removePolygon.BGGradTop = System.Drawing.Color.White;
+            resources.ApplyResources(this.BUT_removePolygon, "BUT_removePolygon");
+            this.BUT_removePolygon.Name = "BUT_removePolygon";
+            this.BUT_removePolygon.Outline = System.Drawing.Color.MidnightBlue;
+            this.BUT_removePolygon.UseVisualStyleBackColor = true;
+            this.BUT_removePolygon.Click += new System.EventHandler(this.BUT_removePolygon_Click);
+            // 
+            // BUT_Polygon
+            // 
+            this.BUT_Polygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BUT_Polygon.BGGradTop = System.Drawing.Color.Blue;
+            resources.ApplyResources(this.BUT_Polygon, "BUT_Polygon");
+            this.BUT_Polygon.Name = "BUT_Polygon";
+            this.BUT_Polygon.Outline = System.Drawing.Color.Black;
+            this.BUT_Polygon.TextColor = System.Drawing.Color.Black;
+            this.BUT_Polygon.UseVisualStyleBackColor = true;
+            this.BUT_Polygon.Click += new System.EventHandler(this.BUT_Polygon_Click);
+            // 
+            // BUT_Waypoints
+            // 
+            this.BUT_Waypoints.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BUT_Waypoints.BGGradTop = System.Drawing.Color.Yellow;
+            resources.ApplyResources(this.BUT_Waypoints, "BUT_Waypoints");
+            this.BUT_Waypoints.Name = "BUT_Waypoints";
+            this.BUT_Waypoints.Outline = System.Drawing.Color.Black;
+            this.BUT_Waypoints.TextColor = System.Drawing.Color.Black;
+            this.BUT_Waypoints.UseVisualStyleBackColor = true;
+            this.BUT_Waypoints.Click += new System.EventHandler(this.BUT_Waypoints_Click);
+            // 
+            // BUT_RedZone
+            // 
+            this.BUT_RedZone.BGGradBot = System.Drawing.Color.Red;
+            this.BUT_RedZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.BUT_RedZone, "BUT_RedZone");
+            this.BUT_RedZone.Name = "BUT_RedZone";
+            this.BUT_RedZone.Outline = System.Drawing.Color.Black;
+            this.BUT_RedZone.TextColor = System.Drawing.Color.Black;
+            this.BUT_RedZone.UseVisualStyleBackColor = true;
+            this.BUT_RedZone.Click += new System.EventHandler(this.BUT_RedZone_Click);
+            // 
+            // BUT_removePoint
+            // 
+            this.BUT_removePoint.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.BUT_removePoint.BGGradTop = System.Drawing.Color.White;
+            resources.ApplyResources(this.BUT_removePoint, "BUT_removePoint");
+            this.BUT_removePoint.Name = "BUT_removePoint";
+            this.BUT_removePoint.Outline = System.Drawing.Color.MidnightBlue;
+            this.BUT_removePoint.UseVisualStyleBackColor = true;
+            this.BUT_removePoint.Click += new System.EventHandler(this.BUT_removePoint_Click);
+            // 
+            // BUT_GreenZone
+            // 
+            this.BUT_GreenZone.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.BUT_GreenZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.BUT_GreenZone, "BUT_GreenZone");
+            this.BUT_GreenZone.Name = "BUT_GreenZone";
+            this.BUT_GreenZone.Outline = System.Drawing.Color.Black;
+            this.BUT_GreenZone.TextColor = System.Drawing.Color.Black;
+            this.BUT_GreenZone.UseVisualStyleBackColor = true;
+            this.BUT_GreenZone.Click += new System.EventHandler(this.BUT_GreenZone_Click);
+            // 
+            // BUT_Rect
+            // 
+            this.BUT_Rect.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BUT_Rect.BGGradTop = System.Drawing.Color.White;
+            resources.ApplyResources(this.BUT_Rect, "BUT_Rect");
+            this.BUT_Rect.Name = "BUT_Rect";
+            this.BUT_Rect.Outline = System.Drawing.Color.Black;
+            this.BUT_Rect.TextColor = System.Drawing.Color.Black;
+            this.BUT_Rect.UseVisualStyleBackColor = true;
+            this.BUT_Rect.Click += new System.EventHandler(this.BUT_Rect_Click);
             // 
             // lbl_distance
             // 
@@ -1258,6 +1395,7 @@
             // 
             // panelBASE
             // 
+            this.panelBASE.Controls.Add(this.StatsPanel);
             this.panelBASE.Controls.Add(this.splitter2);
             this.panelBASE.Controls.Add(this.splitter1);
             this.panelBASE.Controls.Add(this.panelMap);
@@ -1267,6 +1405,168 @@
             this.panelBASE.Controls.Add(this.panel6);
             resources.ApplyResources(this.panelBASE, "panelBASE");
             this.panelBASE.Name = "panelBASE";
+            // 
+            // StatsPanel
+            // 
+            this.StatsPanel.AssociatedSplitter = this.splitter1;
+            this.StatsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.StatsPanel.CaptionFont = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Bold);
+            this.StatsPanel.CaptionHeight = 21;
+            this.StatsPanel.ColorScheme = BSE.Windows.Forms.ColorScheme.Custom;
+            this.StatsPanel.Controls.Add(this.flowLayoutPanel3);
+            this.StatsPanel.CustomColors.BorderColor = System.Drawing.Color.Black;
+            this.StatsPanel.CustomColors.CaptionCloseIcon = System.Drawing.Color.White;
+            this.StatsPanel.CustomColors.CaptionExpandIcon = System.Drawing.Color.White;
+            this.StatsPanel.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(193)))), ((int)(((byte)(31)))));
+            this.StatsPanel.CustomColors.CaptionGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(226)))), ((int)(((byte)(150)))));
+            this.StatsPanel.CustomColors.CaptionGradientMiddle = System.Drawing.Color.Transparent;
+            this.StatsPanel.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.Transparent;
+            this.StatsPanel.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.Transparent;
+            this.StatsPanel.CustomColors.CaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.StatsPanel.CustomColors.CollapsedCaptionText = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.StatsPanel.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.StatsPanel.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.StatsPanel.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.StatsPanel, "StatsPanel");
+            this.StatsPanel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.StatsPanel.Image = null;
+            this.StatsPanel.Name = "StatsPanel";
+            this.StatsPanel.ShowExpandIcon = true;
+            this.StatsPanel.ToolTipTextCloseIcon = null;
+            this.StatsPanel.ToolTipTextExpandIconPanelCollapsed = null;
+            this.StatsPanel.ToolTipTextExpandIconPanelExpanded = null;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.groupBox5);
+            resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lbl_altitude);
+            this.groupBox5.Controls.Add(this.lbl_photoevery);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.lbl_flighttime);
+            this.groupBox5.Controls.Add(this.label31);
+            this.groupBox5.Controls.Add(this.lbl_distbetweenlines);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.label25);
+            this.groupBox5.Controls.Add(this.lbl_footprint);
+            this.groupBox5.Controls.Add(this.label30);
+            this.groupBox5.Controls.Add(this.lbl_strips);
+            this.groupBox5.Controls.Add(this.lbl_pictures);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.lbl_spacing);
+            this.groupBox5.Controls.Add(this.label27);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.lbl_area);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Controls.Add(this.label22);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // lbl_altitude
+            // 
+            resources.ApplyResources(this.lbl_altitude, "lbl_altitude");
+            this.lbl_altitude.Name = "lbl_altitude";
+            // 
+            // lbl_photoevery
+            // 
+            resources.ApplyResources(this.lbl_photoevery, "lbl_photoevery");
+            this.lbl_photoevery.Name = "lbl_photoevery";
+            // 
+            // label35
+            // 
+            resources.ApplyResources(this.label35, "label35");
+            this.label35.Name = "label35";
+            // 
+            // lbl_flighttime
+            // 
+            resources.ApplyResources(this.lbl_flighttime, "lbl_flighttime");
+            this.lbl_flighttime.Name = "lbl_flighttime";
+            // 
+            // label31
+            // 
+            resources.ApplyResources(this.label31, "label31");
+            this.label31.Name = "label31";
+            // 
+            // lbl_distbetweenlines
+            // 
+            resources.ApplyResources(this.lbl_distbetweenlines, "lbl_distbetweenlines");
+            this.lbl_distbetweenlines.Name = "lbl_distbetweenlines";
+            // 
+            // label19
+            // 
+            resources.ApplyResources(this.label19, "label19");
+            this.label19.Name = "label19";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(this.label25, "label25");
+            this.label25.Name = "label25";
+            // 
+            // lbl_footprint
+            // 
+            resources.ApplyResources(this.lbl_footprint, "lbl_footprint");
+            this.lbl_footprint.Name = "lbl_footprint";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(this.label30, "label30");
+            this.label30.Name = "label30";
+            // 
+            // lbl_strips
+            // 
+            resources.ApplyResources(this.lbl_strips, "lbl_strips");
+            this.lbl_strips.Name = "lbl_strips";
+            // 
+            // lbl_pictures
+            // 
+            resources.ApplyResources(this.lbl_pictures, "lbl_pictures");
+            this.lbl_pictures.Name = "lbl_pictures";
+            // 
+            // label33
+            // 
+            resources.ApplyResources(this.label33, "label33");
+            this.label33.Name = "label33";
+            // 
+            // label34
+            // 
+            resources.ApplyResources(this.label34, "label34");
+            this.label34.Name = "label34";
+            // 
+            // lbl_spacing
+            // 
+            resources.ApplyResources(this.lbl_spacing, "lbl_spacing");
+            this.lbl_spacing.Name = "lbl_spacing";
+            // 
+            // label27
+            // 
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.Name = "label27";
+            // 
+            // label20
+            // 
+            resources.ApplyResources(this.label20, "label20");
+            this.label20.Name = "label20";
+            // 
+            // lbl_area
+            // 
+            resources.ApplyResources(this.lbl_area, "lbl_area");
+            this.lbl_area.Name = "lbl_area";
+            // 
+            // label23
+            // 
+            resources.ApplyResources(this.label23, "label23");
+            this.label23.Name = "label23";
+            // 
+            // label22
+            // 
+            resources.ApplyResources(this.label22, "label22");
+            this.label22.Name = "label22";
             // 
             // panelAction
             // 
@@ -1550,7 +1850,6 @@
             this.groupBox6.Controls.Add(this.label43);
             this.groupBox6.Controls.Add(this.TBAR_overlap);
             this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Controls.Add(this.CHK_camdirection);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.TBAR_zoom);
             this.groupBox6.Controls.Add(this.TXT_cmpixel);
@@ -1635,15 +1934,6 @@
             resources.ApplyResources(this.label37, "label37");
             this.label37.Name = "label37";
             // 
-            // CHK_camdirection
-            // 
-            resources.ApplyResources(this.CHK_camdirection, "CHK_camdirection");
-            this.CHK_camdirection.Checked = true;
-            this.CHK_camdirection.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.CHK_camdirection.Name = "CHK_camdirection";
-            this.CHK_camdirection.UseVisualStyleBackColor = true;
-            this.CHK_camdirection.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
-            // 
             // label12
             // 
             resources.ApplyResources(this.label12, "label12");
@@ -1677,6 +1967,13 @@
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // CHK_footprints
+            // 
+            resources.ApplyResources(this.CHK_footprints, "CHK_footprints");
+            this.CHK_footprints.Name = "CHK_footprints";
+            this.CHK_footprints.UseVisualStyleBackColor = true;
+            this.CHK_footprints.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
             // 
             // CHK_internals
             // 
@@ -1723,7 +2020,6 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.CHK_usespeed);
             this.groupBox8.Controls.Add(this.NUM_UpDownFlySpeed);
             this.groupBox8.Controls.Add(this.TXT_max_flight_time);
             this.groupBox8.Controls.Add(this.TXT_max_dive_angle);
@@ -1741,12 +2037,6 @@
             resources.ApplyResources(this.groupBox8, "groupBox8");
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.TabStop = false;
-            // 
-            // CHK_usespeed
-            // 
-            resources.ApplyResources(this.CHK_usespeed, "CHK_usespeed");
-            this.CHK_usespeed.Name = "CHK_usespeed";
-            this.CHK_usespeed.UseVisualStyleBackColor = true;
             // 
             // NUM_UpDownFlySpeed
             // 
@@ -1835,9 +2125,11 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.myLabel1);
+            this.groupBox2.Controls.Add(this.RadioLandspace);
+            this.groupBox2.Controls.Add(this.RadioPortrait);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.BUT_samplephoto);
             this.groupBox2.Controls.Add(this.TXT_sensheight);
             this.groupBox2.Controls.Add(this.TXT_senswidth);
             this.groupBox2.Controls.Add(this.TXT_imgheight);
@@ -1846,9 +2138,29 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.BUT_save);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // myLabel1
+            // 
+            resources.ApplyResources(this.myLabel1, "myLabel1");
+            this.myLabel1.Name = "myLabel1";
+            this.myLabel1.resize = false;
+            // 
+            // RadioLandspace
+            // 
+            resources.ApplyResources(this.RadioLandspace, "RadioLandspace");
+            this.RadioLandspace.Name = "RadioLandspace";
+            this.RadioLandspace.UseVisualStyleBackColor = true;
+            this.RadioLandspace.CheckedChanged += new System.EventHandler(this.domainUpDown1_ValueChanged);
+            // 
+            // RadioPortrait
+            // 
+            resources.ApplyResources(this.RadioPortrait, "RadioPortrait");
+            this.RadioPortrait.Checked = true;
+            this.RadioPortrait.Name = "RadioPortrait";
+            this.RadioPortrait.TabStop = true;
+            this.RadioPortrait.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -1859,12 +2171,6 @@
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            // 
-            // BUT_samplephoto
-            // 
-            resources.ApplyResources(this.BUT_samplephoto, "BUT_samplephoto");
-            this.BUT_samplephoto.Name = "BUT_samplephoto";
-            this.BUT_samplephoto.UseVisualStyleBackColor = true;
             // 
             // TXT_sensheight
             // 
@@ -1931,6 +2237,18 @@
             // 
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
+            // 
+            // CHK_usespeed
+            // 
+            resources.ApplyResources(this.CHK_usespeed, "CHK_usespeed");
+            this.CHK_usespeed.Name = "CHK_usespeed";
+            this.CHK_usespeed.UseVisualStyleBackColor = true;
+            // 
+            // BUT_samplephoto
+            // 
+            resources.ApplyResources(this.BUT_samplephoto, "BUT_samplephoto");
+            this.BUT_samplephoto.Name = "BUT_samplephoto";
+            this.BUT_samplephoto.UseVisualStyleBackColor = true;
             // 
             // BUT_save
             // 
@@ -2031,12 +2349,13 @@
             this.timer1.Interval = 1200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // CHK_footprints
+            // CHK_camdirection
             // 
-            resources.ApplyResources(this.CHK_footprints, "CHK_footprints");
-            this.CHK_footprints.Name = "CHK_footprints";
-            this.CHK_footprints.UseVisualStyleBackColor = true;
-            this.CHK_footprints.CheckedChanged += new System.EventHandler(this.CHK_footprints_CheckedChanged);
+            resources.ApplyResources(this.CHK_camdirection, "CHK_camdirection");
+            this.CHK_camdirection.Checked = true;
+            this.CHK_camdirection.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CHK_camdirection.Name = "CHK_camdirection";
+            this.CHK_camdirection.UseVisualStyleBackColor = true;
             // 
             // FlightPlanner
             // 
@@ -2053,6 +2372,8 @@
             this.panelWaypoints.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -2061,6 +2382,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_reptpwm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_reptservo)).EndInit();
             this.panelBASE.ResumeLayout(false);
+            this.StatsPanel.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.panelAction.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -2244,7 +2569,6 @@
         private System.Windows.Forms.TrackBar TBAR_overlap;
         private System.Windows.Forms.ComboBox CMB_camera;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.CheckBox CHK_camdirection;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TrackBar TBAR_zoom;
         private System.Windows.Forms.Label TXT_cmpixel;
@@ -2305,13 +2629,41 @@
         private System.Windows.Forms.Button BUT_headingholdminus;
         private Controls.MyButton Decline;
         private System.Windows.Forms.Label TXT_overlap;
-        private Controls.MyButton myButton1;
-        private Controls.MyButton myButton2;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButtonpan;
-        private System.Windows.Forms.ToolStripButton toolStripButtonbox;
-        private System.Windows.Forms.ToolStripButton toolStripButtonmovebox;
-        private System.Windows.Forms.ToolStripButton toolStripButtoneditbox;
-        private System.Windows.Forms.CheckBox CHK_footprints;
+        private System.Windows.Forms.CheckBox CHK_camdirection;
+        private System.Windows.Forms.RadioButton RadioPortrait;
+        private System.Windows.Forms.RadioButton RadioLandspace;
+        private Controls.MyLabel myLabel1;
+        private BSE.Windows.Forms.Panel StatsPanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label lbl_altitude;
+        private System.Windows.Forms.Label lbl_photoevery;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label lbl_flighttime;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lbl_distbetweenlines;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lbl_footprint;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lbl_strips;
+        private System.Windows.Forms.Label lbl_pictures;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label lbl_spacing;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbl_area;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel8;
+        private Controls.MyButton BUT_Rect;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private Controls.MyButton BUT_removePolygon;
+        private Controls.MyButton BUT_Polygon;
+        private Controls.MyButton BUT_Waypoints;
+        private Controls.MyButton BUT_RedZone;
+        private Controls.MyButton BUT_removePoint;
+        private Controls.MyButton BUT_GreenZone;
     }
 }

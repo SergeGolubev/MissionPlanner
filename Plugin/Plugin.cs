@@ -131,11 +131,11 @@ namespace MissionPlanner.Plugin
         /// <summary>
         /// The polygon drawn by the user on the FP page
         /// </summary>
-        public GMapPolygon FPDrawnPolygon { get { return new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.drawnpolygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.drawnpolygon.Stroke }; } }
+        public GMapPolygon FPDrawnPolygon { get { return new GMapPolygon(new List<PointLatLng>(MainV2.instance.FlightPlanner.blue.polygon.Points), "Poly Copy") { Stroke = MainV2.instance.FlightPlanner.blue.polygon.Stroke }; } }
 
         public void RedrawFPPolygon(List<PointLatLngAlt> list)
         {
-            MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+            MainV2.instance.FlightPlanner.blue.redrawPolygonSurvey(list);
         }
 
         /// <summary>

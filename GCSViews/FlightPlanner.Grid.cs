@@ -102,10 +102,8 @@ namespace MissionPlanner.GCSViews
         public void init(object sender, EventArgs e)
         {
 
-            //     InitializeComponent();
-
-
-            list = MainV2.instance.FlightPlanner.drawnpolygon.Points;
+            
+            list = MainV2.instance.FlightPlanner.blue.polygon.Points;
             if (MainV2.config["distunits"] != null)
                 DistUnits = MainV2.config["distunits"].ToString();
             routesOverlay = new GMapOverlay("routes");
@@ -189,8 +187,8 @@ namespace MissionPlanner.GCSViews
             CMB_camera.Text = griddata.camera;
             TBAR_zoom.Value = (int)griddata.alt;
             Angle = griddata.angle;
-            CHK_camdirection.Checked = griddata.camdir;
-
+            RadioLandspace.Checked = griddata.camdir;
+            
             CHK_usespeed.Checked = griddata.usespeed;
 
             Distance = griddata.dist;
@@ -224,7 +222,7 @@ namespace MissionPlanner.GCSViews
             griddata.camera = CMB_camera.Text;
             griddata.alt = TBAR_zoom.Value;
             griddata.angle = Angle;
-            griddata.camdir = CHK_camdirection.Checked;
+            griddata.camdir = RadioLandspace.Checked;
 
             griddata.usespeed = CHK_usespeed.Checked;
 
@@ -260,7 +258,7 @@ namespace MissionPlanner.GCSViews
 
                 loadsetting("grid_alt", TBAR_zoom);
                 //  loadsetting("grid_angle", NUM_angle);
-                loadsetting("grid_camdir", CHK_camdirection);
+                loadsetting("grid_camdir", RadioLandspace);
 
                 loadsetting("grid_usespeed", CHK_usespeed);
 
@@ -328,7 +326,7 @@ namespace MissionPlanner.GCSViews
             MainV2.config["grid_camera"] = CMB_camera.Text;
             MainV2.config["grid_alt"] = TBAR_zoom.Value.ToString();
             MainV2.config["grid_angle"] = Angle.ToString();
-            MainV2.config["grid_camdir"] = CHK_camdirection.Checked.ToString();
+            MainV2.config["grid_camdir"] = RadioLandspace.Checked.ToString();
 
             MainV2.config["grid_usespeed"] = CHK_usespeed.Checked.ToString();
 
@@ -500,11 +498,11 @@ namespace MissionPlanner.GCSViews
 
             if (CHK_boundary.Checked)
             {
-                redrawPolygonSurvey(new List<PointLatLng>(list));
+                blue.redrawPolygonSurvey(new List<PointLatLng>(list));
             }
             else
             {
-                drawnpolygonsoverlay.Clear();
+                blue.overlay.Clear();
             }
 
 
@@ -523,7 +521,7 @@ namespace MissionPlanner.GCSViews
 
                     if (CHK_internals.Checked)
                     {
-                        routesOverlay.Markers.Add(new GMarkerGoogle(item, GMarkerGoogleType.green) { ToolTipText = a.ToString(), ToolTipMode = MarkerTooltipMode.OnMouseOver });
+                        routesOverlay.Markers.Add(new GMarkerGoogle(item, GMarkerGoogleType.yellow) { ToolTipText = a.ToString(), ToolTipMode = MarkerTooltipMode.OnMouseOver });
                         a++;
 
                         segment.Add(prevpoint);
@@ -539,7 +537,7 @@ namespace MissionPlanner.GCSViews
 
                             double startangle = 0;
 
-                            if (!CHK_camdirection.Checked)
+                            if (!RadioLandspace.Checked)
                             {
                                 startangle = 90;
                             }
@@ -598,7 +596,7 @@ namespace MissionPlanner.GCSViews
             if (chk_grid.Checked)
                 routesOverlay.Routes.Add(wproute);
             */
-            /*
+            
             // Update Stats 
             if (DistUnits == "Feet")
             {
@@ -661,7 +659,6 @@ namespace MissionPlanner.GCSViews
             seconds = ((routetotal * 1000.0) / (flyspeedms));
             lbl_photoevery.Text = secondsToNice(((double)Spacing / flyspeedms));
         
-             * */
             MainMap.HoldInvalidation = false;
             if (!isMouseDown)
                 MainMap.ZoomAndCenterMarkers("routes");
@@ -833,7 +830,7 @@ namespace MissionPlanner.GCSViews
                 // Imperial
                 inchpixel = (((viewheight / imageheight) * 100) * 0.393701).ToString("0.00 inches");
 
-                if (CHK_camdirection.Checked)
+                if (RadioLandspace.Checked)
                 {
                     Spacing = (decimal)((1 - (overlap / 100.0f)) * viewheight);
                     Distance = (decimal)((1 - (sidelap / 100.0f)) * viewwidth);
@@ -1393,10 +1390,10 @@ namespace MissionPlanner.GCSViews
                 }
 
                 // Redraw the polygon in FP
-                redrawPolygonSurvey(new List<PointLatLng>(list));
-
-                //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
-
+                blue.redrawPolygonSurvey(new List<PointLatLng>(list));
+        
+        //        MainV2.instance.FlightPlanner.redrawPolygonSurvey(list);
+             
                 savesettings();
 
                 MainV2.instance.FlightPlanner.quickadd = false;
@@ -1406,7 +1403,11 @@ namespace MissionPlanner.GCSViews
                 panel6.Visible = false;
                 panelAction.Visible = true;
 
-                //         this.Close();
+                StatsPanel.Visible = false;
+                panelWaypoints.Visible = true;
+
+       
+       //         this.Close();
             }
             else
             {
@@ -1420,11 +1421,15 @@ namespace MissionPlanner.GCSViews
             routesOverlay.Polygons.Clear();
             routesOverlay.Markers.Clear();
             grid.Clear();
-            //      list.Clear();
-            redrawPolygonSurvey(new List<PointLatLng>(list));
+      //      list.Clear();
+            blue.redrawPolygonSurvey(new List<PointLatLng>(list));
+          
             panel6.Visible = false;
             panelAction.Visible = true;
-        }
+
+            StatsPanel.Visible = false;
+            panelWaypoints.Visible = true;
+         }
 
 
         /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
