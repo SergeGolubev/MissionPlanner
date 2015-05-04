@@ -16,7 +16,7 @@ using ProjNet.CoordinateSystems.Transformations;
 
 namespace MissionPlanner
 {
-    public class Grid
+    public class Grid1
     {
         public static MissionPlanner.Plugin.PluginHost Host2;
 
@@ -78,7 +78,7 @@ namespace MissionPlanner
             return (- C * C + A * A + B * B) / (2 * A * B);
         }
 
-        public static List<PointLatLngAlt> CreateGrid(List<PointLatLngAlt> polygon, double altitude, double distance, double spacing, double angle, double turn_radius, StartPosition startpos, bool shutter)
+        public static List<PointLatLngAlt> CreateGrid(List<PointLatLng> polygon, double altitude, double distance, double spacing, double angle, double turn_radius, StartPosition startpos, bool shutter)
         {
             if (spacing < 10 && spacing != 0)
                 spacing = 10;
@@ -101,9 +101,12 @@ namespace MissionPlanner
 
             List<PointLatLngAlt> ans = new List<PointLatLngAlt>();
 
-            int utmzone = polygon[0].GetUTMZone();
+            int utmzone = ((PointLatLngAlt)polygon[0]).GetUTMZone();
 
-            List<utmpos> utmpositions = utmpos.ToList(PointLatLngAlt.ToUTM(utmzone, polygon), utmzone);
+            List<PointLatLngAlt> AltPolygon = new List<PointLatLngAlt>();
+            polygon.ForEach(pnt => { AltPolygon.Add(pnt); });
+
+            List<utmpos> utmpositions = utmpos.ToList(PointLatLngAlt.ToUTM(utmzone, AltPolygon), utmzone);
 
             if (utmpositions[0] != utmpositions[utmpositions.Count - 1])
                 utmpositions.Add(utmpositions[0]); // make a full loop
@@ -283,7 +286,7 @@ namespace MissionPlanner
             {
                 default:
                 case StartPosition.Home:
-                    startposutm = new utmpos(Host2.cs.HomeLocation);
+                    startposutm = new utmpos(MainV2.comPort.MAV.cs.HomeLocation);
                     break;
                 case StartPosition.BottomLeft:
                     startposutm = new utmpos(area.Left, area.Bottom, utmzone);
