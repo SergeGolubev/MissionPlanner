@@ -832,7 +832,7 @@ namespace MissionPlanner.GCSViews
                 // Imperial
                 inchpixel = (((viewheight / imageheight) * 100) * 0.393701).ToString("0.00 inches");
 
-                if (RadioLandspace.Checked)
+                if (!RadioLandspace.Checked)
                 {
                     Spacing = (decimal)((1 - (overlap / 100.0f)) * viewheight);
                     Distance = (decimal)((1 - (sidelap / 100.0f)) * viewwidth);

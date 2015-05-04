@@ -339,6 +339,8 @@ namespace MissionPlanner
                 if (flightForward)
                 {
                     newstart = newpos(closest.p1, 180 + angle, 2 * turn_radius);
+                    addtomap(new utmpos(closest.p1), "M");
+                    tmp.Add((new utmpos(closest.p1) { Tag = "M" }));
 
                     if (spacing > 0)
                     {
@@ -361,8 +363,8 @@ namespace MissionPlanner
 
 
                     newend = newpos(closest.p2, angle, 2 * turn_radius);
-                  //  if (overshoot1 > 0)
-                   //     ans.Add(new utmpos(closest.p2) { Tag = "M" });
+                    addtomap(new utmpos(closest.p2), "M");
+                    tmp.Add((new utmpos(closest.p2) { Tag = "M" }));
 
                     lastpnt = closest.p2;
 
@@ -376,6 +378,8 @@ namespace MissionPlanner
                 else
                 {
                     newstart = newpos(closest.p2, 180 + angle, -2 * turn_radius);
+                    addtomap(new utmpos(closest.p2), "M");
+                    tmp.Add((new utmpos(closest.p2) { Tag = "M" }));
                     
                     if (spacing > 0)
                     {
@@ -397,9 +401,9 @@ namespace MissionPlanner
                     }
 
                     newend = newpos(closest.p1, angle, -2 * turn_radius);
-                 //   if (overshoot2 > 0)
-                 //       ans.Add(new utmpos(closest.p1) { Tag = "M" });
-                    
+                    addtomap(new utmpos(closest.p1), "M");
+                    tmp.Add((new utmpos(closest.p1) { Tag = "M" }));
+                 
                     lastpnt = closest.p1;
 
                     grid.Remove(closest);
