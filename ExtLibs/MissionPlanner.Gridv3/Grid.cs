@@ -78,7 +78,7 @@ namespace MissionPlanner
             return (- C * C + A * A + B * B) / (2 * A * B);
         }
 
-        public static List<PointLatLngAlt> CreateGrid(List<PointLatLngAlt> polygon, double altitude, double distance, double spacing, double angle, double overshoot1,double overshoot2, StartPosition startpos, bool shutter, float minLaneSeparation)
+        public static List<PointLatLngAlt> CreateGrid(List<PointLatLngAlt> polygon, double altitude, double distance, double spacing, double angle, double turn_radius, StartPosition startpos, bool shutter)
         {
             if (spacing < 10 && spacing != 0)
                 spacing = 10;
@@ -89,12 +89,7 @@ namespace MissionPlanner
             if (polygon.Count == 0)
                 return new List<PointLatLngAlt>();
 
-            
-            // Make a non round number in case of corner cases
-            if (minLaneSeparation != 0)
-                minLaneSeparation += 0.5F;
-            // Lane Separation in meters
-            double minLaneSeparationINMeters = minLaneSeparation * distance;
+            double minLaneSeparationINMeters = 2 * turn_radius;
          /*
             if (minLaneSeparationINMeters < MinDistanceBetweenLines)
             {
@@ -336,7 +331,7 @@ namespace MissionPlanner
 
                 if (flightForward)
                 {
-                    newstart = newpos(closest.p1, 180 + angle, overshoot1);
+                    newstart = newpos(closest.p1, 180 + angle, 2 * turn_radius);
 
                     if (spacing > 0)
                     {
@@ -357,7 +352,7 @@ namespace MissionPlanner
                     }
 
 
-                    newend = newpos(closest.p2, angle, overshoot1);
+                    newend = newpos(closest.p2, angle, 2 * turn_radius);
                   //  if (overshoot1 > 0)
                    //     ans.Add(new utmpos(closest.p2) { Tag = "M" });
 
@@ -372,7 +367,7 @@ namespace MissionPlanner
                 }
                 else
                 {
-                    newstart = newpos(closest.p2, 180 + angle, -overshoot2);
+                    newstart = newpos(closest.p2, 180 + angle, -2 * turn_radius);
                     
                     if (spacing > 0)
                     {
@@ -392,7 +387,7 @@ namespace MissionPlanner
                         }
                     }
 
-                    newend = newpos(closest.p1, angle, -overshoot2);
+                    newend = newpos(closest.p1, angle, -2 * turn_radius);
                  //   if (overshoot2 > 0)
                  //       ans.Add(new utmpos(closest.p1) { Tag = "M" });
                     
@@ -444,11 +439,11 @@ namespace MissionPlanner
                             tmpAngle += 180;
                         }
                        
-                        midpos = newpos(oldend, 90 + tmpAngle, 2 * minLaneSeparationINMeters);                      
+                        midpos = newpos(oldend, 90 + tmpAngle, minLaneSeparationINMeters);                      
                         ans.Add(midpos);
-                        midpos = newpos(midpos, angle, 2 * sign * minLaneSeparationINMeters);
+                        midpos = newpos(midpos, angle, sign * minLaneSeparationINMeters);
                         ans.Add(midpos);
-                        midpos = newpos(midpos, 270 + tmpAngle, 2 *minLaneSeparationINMeters);
+                        midpos = newpos(midpos, 270 + tmpAngle, minLaneSeparationINMeters);
                         ans.Add(midpos);
                     }
                 } else {
@@ -457,27 +452,27 @@ namespace MissionPlanner
                     {
                         if (Math.Pow(startposutm.GetDistance(newstart), 2) * (1 - cos_phi * cos_phi) > 4 * Math.Pow(minLaneSeparationINMeters, 2))
                         {
-                            utmpos midpos = newpos(newstart, 90 + angle, 2 * minLaneSeparationINMeters);
+                            utmpos midpos = newpos(newstart, 90 + angle, minLaneSeparationINMeters);
                             if (midpos.GetDistance(startposutm) > startposutm.GetDistance(newstart))
                             {
-                                midpos = newpos(newstart, 270 + angle, 2 * minLaneSeparationINMeters);
+                                midpos = newpos(newstart, 270 + angle, minLaneSeparationINMeters);
                             }
                             ans.Add(midpos);
                         }
                         else
                         {
-                            utmpos midpos = newpos(newstart, 90 + angle, 2 * minLaneSeparationINMeters);
+                            utmpos midpos = newpos(newstart, 90 + angle, minLaneSeparationINMeters);
                             double tmpAngle = angle;
                             if (midpos.GetDistance(startposutm) < startposutm.GetDistance(newstart))
                             {
                                 tmpAngle += 180;
                             }
                             int sign = flightForward ? -1 : 1;
-                            midpos = newpos(newstart, 90 + tmpAngle, 2 * minLaneSeparationINMeters);
+                            midpos = newpos(newstart, 90 + tmpAngle, minLaneSeparationINMeters);
                             ans.Add(midpos);
-                            midpos = newpos(midpos, angle, 2 * sign * minLaneSeparationINMeters);
+                            midpos = newpos(midpos, angle, sign * minLaneSeparationINMeters);
                             ans.Add(midpos);
-                            midpos = newpos(midpos, 270 + tmpAngle, 2 * minLaneSeparationINMeters);
+                            midpos = newpos(midpos, 270 + tmpAngle, minLaneSeparationINMeters);
                             ans.Add(midpos);
                         }
                     }

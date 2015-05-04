@@ -43,6 +43,10 @@ namespace MissionPlanner
         public string inchpixel = "";
         public string feet_fovH = "";
         public string feet_fovV = "";
+        public string fovH = "";
+        public string fovV = "";
+        public decimal Angle;
+
 
         internal PointLatLng MouseDownStart = new PointLatLng();
         internal PointLatLng MouseDownEnd;
@@ -73,10 +77,8 @@ namespace MissionPlanner
             public bool camdir;
             public bool usespeed;
             public decimal dist;
-            public decimal overshoot1;
-            public decimal overshoot2;
+            public decimal turn_radius;
             public decimal overlap;
-            public decimal sidelap;
             public decimal spacing;
             public string startfrom;
             public bool autotakeoff;
@@ -123,12 +125,9 @@ namespace MissionPlanner
             if (plugin.Host.config["distunits"] != null)
                 DistUnits = plugin.Host.config["distunits"].ToString();
 
-            CMB_startfrom.DataSource = Enum.GetNames(typeof(Grid.StartPosition));
-            CMB_startfrom.SelectedIndex = 0;
-
             // set and angle that is good
-            NUM_angle.Value = (decimal)((getAngleOfLongestSide(list) + 360) % 360);
-            TXT_headinghold.Text = (Math.Round(NUM_angle.Value)).ToString();
+            Angle = (decimal)((getAngleOfLongestSide(list) + 360) % 360);
+            TXT_headinghold.Text = (Math.Round(Angle)).ToString();
         }
 
         private void GridUI_Load(object sender, EventArgs e)
@@ -147,7 +146,7 @@ namespace MissionPlanner
             TRK_zoom.Value = (float)map.Zoom;
 
             label1.Text += " (" + CurrentState.DistanceUnit+")";
-            label24.Text += " (" + CurrentState.SpeedUnit + ")";
+            label21.Text += " (" + CurrentState.SpeedUnit + ")";
         }
 
         private void GridUI_Resize(object sender, EventArgs e)
@@ -199,21 +198,17 @@ namespace MissionPlanner
             list = griddata.poly;
 
             CMB_camera.Text = griddata.camera;
-            NUM_altitude.Value = griddata.alt;
-            NUM_angle.Value = griddata.angle;
+            TBAR_zoom.Value = (int)griddata.alt;
+            Angle = griddata.angle;
             CHK_camdirection.Checked = griddata.camdir;
 
             CHK_usespeed.Checked = griddata.usespeed;
 
             NUM_Distance.Value = griddata.dist;
-            NUM_overshoot.Value = griddata.overshoot1;
-            NUM_overshoot2.Value = griddata.overshoot2;
-            num_overlap.Value = griddata.overlap;
-            num_sidelap.Value = griddata.sidelap;
+            TXT_turn_radius.Text = griddata.turn_radius.ToString();
+            TBAR_overlap.Value = (int)griddata.overlap;
             NUM_spacing.Value = griddata.spacing;
-
-            CMB_startfrom.Text = griddata.startfrom;
-
+            
             CHK_toandland.Checked = griddata.autotakeoff;
             CHK_toandland_RTL.Checked = griddata.autotakeoff_RTL;
 
@@ -229,8 +224,6 @@ namespace MissionPlanner
             NUM_copter_delay.Value = griddata.copter_delay;
             //CHK_copter_headinghold.Checked = griddata.copter_headinghold_chk; //UNcomment after adding headinghold offset function
 
-            // Plane Settings
-            NUM_Lane_Dist.Value = griddata.minlaneseparation;
         }
 
         GridData savegriddata()
@@ -240,21 +233,17 @@ namespace MissionPlanner
             griddata.poly = list;
 
             griddata.camera = CMB_camera.Text;
-            griddata.alt = NUM_altitude.Value;
-            griddata.angle = NUM_angle.Value;
+            griddata.alt = TBAR_zoom.Value;
+            griddata.angle = Angle;
             griddata.camdir = CHK_camdirection.Checked;
 
             griddata.usespeed = CHK_usespeed.Checked;
 
 
             griddata.dist = NUM_Distance.Value;
-            griddata.overshoot1 = NUM_overshoot.Value;
-            griddata.overshoot2 = NUM_overshoot2.Value;
-            griddata.overlap = num_overlap.Value;
-            griddata.sidelap = num_sidelap.Value;
+            griddata.turn_radius = decimal.Parse(TXT_turn_radius.Text);
+            griddata.overlap = TBAR_overlap.Value;
             griddata.spacing = NUM_spacing.Value;
-
-            griddata.startfrom = CMB_startfrom.Text;
 
             griddata.autotakeoff = CHK_toandland.Checked;
             griddata.autotakeoff_RTL = CHK_toandland_RTL.Checked;
@@ -272,9 +261,6 @@ namespace MissionPlanner
             griddata.copter_headinghold_chk = CHK_copter_headinghold.Checked;
             griddata.copter_headinghold = NUM_spacing.Value;
 
-            // Plane Settings
-            griddata.minlaneseparation = NUM_Lane_Dist.Value;
-
             return griddata;
         }
 
@@ -283,20 +269,16 @@ namespace MissionPlanner
             if (plugin.Host.config.ContainsKey("grid_camera"))
             {
 
-                loadsetting("grid_alt", NUM_altitude);
+                loadsetting("grid_alt", TBAR_zoom);
                 //  loadsetting("grid_angle", NUM_angle);
                 loadsetting("grid_camdir", CHK_camdirection);
 
                 loadsetting("grid_usespeed", CHK_usespeed);
 
                 loadsetting("grid_dist", NUM_Distance);
-                loadsetting("grid_overshoot1", NUM_overshoot);
-                loadsetting("grid_overshoot2", NUM_overshoot2);
-                loadsetting("grid_overlap", num_overlap);
-                loadsetting("grid_sidelap", num_sidelap);
+                loadsetting("grid_turn_radius", TXT_turn_radius);
+                loadsetting("grid_overlap", TBAR_overlap);
                 loadsetting("grid_spacing", NUM_spacing);
-
-                loadsetting("grid_startfrom", CMB_startfrom);
 
                 loadsetting("grid_autotakeoff", CHK_toandland);
                 loadsetting("grid_autotakeoff_RTL", CHK_toandland_RTL);
@@ -317,8 +299,6 @@ namespace MissionPlanner
                 loadsetting("grid_copter_delay", NUM_copter_delay);
                 //loadsetting("grid_copter_headinghold_chk", CHK_copter_headinghold);
 
-                // Plane Settings
-                loadsetting("grid_min_lane_separation", NUM_Lane_Dist);
             }
         }
 
@@ -337,6 +317,10 @@ namespace MissionPlanner
                     {
                         ((ComboBox)item).Text = plugin.Host.config[key].ToString();
                     }
+                    else if (item is TextBox)
+                    {
+                        ((TextBox)item).Text = plugin.Host.config[key].ToString();
+                    }
                     else if (item is CheckBox)
                     {
                         ((CheckBox)item).Checked = bool.Parse(plugin.Host.config[key].ToString());
@@ -353,20 +337,16 @@ namespace MissionPlanner
         void savesettings()
         {
             plugin.Host.config["grid_camera"] = CMB_camera.Text;
-            plugin.Host.config["grid_alt"] = NUM_altitude.Value.ToString();
-            plugin.Host.config["grid_angle"] = NUM_angle.Value.ToString();
+            plugin.Host.config["grid_alt"] = TBAR_zoom.Value.ToString();
+            plugin.Host.config["grid_angle"] = Angle.ToString();
             plugin.Host.config["grid_camdir"] = CHK_camdirection.Checked.ToString();
 
             plugin.Host.config["grid_usespeed"] = CHK_usespeed.Checked.ToString();
 
             plugin.Host.config["grid_dist"] = NUM_Distance.Value.ToString();
-            plugin.Host.config["grid_overshoot1"] = NUM_overshoot.Value.ToString();
-            plugin.Host.config["grid_overshoot2"] = NUM_overshoot2.Value.ToString();
-            plugin.Host.config["grid_overlap"] = num_overlap.Value.ToString();
-            plugin.Host.config["grid_sidelap"] = num_sidelap.Value.ToString();
+            plugin.Host.config["grid_turn_radius"] = TXT_turn_radius.Text;
+            plugin.Host.config["grid_overlap"] = TBAR_overlap.Value.ToString();
             plugin.Host.config["grid_spacing"] = NUM_spacing.Value.ToString();
-
-            plugin.Host.config["grid_startfrom"] = CMB_startfrom.Text;
 
             plugin.Host.config["grid_autotakeoff"] = CHK_toandland.Checked.ToString();
             plugin.Host.config["grid_autotakeoff_RTL"] = CHK_toandland_RTL.Checked.ToString();
@@ -383,8 +363,6 @@ namespace MissionPlanner
             plugin.Host.config["grid_copter_delay"] = NUM_copter_delay.Value.ToString();
             plugin.Host.config["grid_copter_headinghold_chk"] = CHK_copter_headinghold.Checked.ToString();
 
-            // Plane Settings
-            plugin.Host.config["grid_min_lane_separation"] = NUM_Lane_Dist.Value.ToString();
         }
 
         private void xmlcamera(bool write, string filename = "cameras.xml")
@@ -514,7 +492,7 @@ namespace MissionPlanner
 
             // new grid system test
 
-            grid = Grid.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)NUM_altitude.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)NUM_angle.Value, (double)NUM_overshoot.Value, (double)NUM_overshoot2.Value, (Grid.StartPosition)Enum.Parse(typeof(Grid.StartPosition), CMB_startfrom.Text), false, (float)NUM_Lane_Dist.Value);
+            grid = Grid.CreateGrid(list, CurrentState.fromDistDisplayUnit((double)TBAR_zoom.Value), (double)NUM_Distance.Value, (double)NUM_spacing.Value, (double)Angle, double.Parse(TXT_turn_radius.Text), (Grid.StartPosition)Enum.Parse(typeof(Grid.StartPosition), "Home"), false);
 
             List<PointLatLng> list2 = new List<PointLatLng>();
 
@@ -558,10 +536,10 @@ namespace MissionPlanner
                     }
                     try
                     {
-                        if (TXT_fovH.Text != "")
+                        if (fovH != "")
                         {
-                            double fovh = double.Parse(TXT_fovH.Text);
-                            double fovv = double.Parse(TXT_fovV.Text);
+                            double fovh = double.Parse(fovH);
+                            double fovv = double.Parse(fovV);
 
                             double startangle = 0;
 
@@ -573,7 +551,7 @@ namespace MissionPlanner
                             double angle1 = startangle - (Math.Tan((fovv / 2.0) / (fovh / 2.0)) * rad2deg);
                             double dist1 = Math.Sqrt(Math.Pow(fovh / 2.0, 2) + Math.Pow(fovv / 2.0, 2));
 
-                            double bearing = (double)NUM_angle.Value;// (prevpoint.GetBearing(item) + 360.0) % 360;
+                            double bearing = (double)Angle;// (prevpoint.GetBearing(item) + 360.0) % 360;
 
                             List<PointLatLng> footprint = new List<PointLatLng>();
                             footprint.Add(item.newpos(bearing + angle1, dist1));
@@ -658,7 +636,7 @@ namespace MissionPlanner
                 }
 
                 lbl_spacing.Text = (NUM_spacing.Value * 3.2808399m).ToString("#") + " ft";
-                lbl_grndres.Text = inchpixel;
+                lbl_altitude.Text = (TBAR_zoom.Value * 3.2808399m).ToString("#") + " ft";
                 lbl_distbetweenlines.Text = (NUM_Distance.Value * 3.2808399m).ToString("0.##") + " ft";
                 lbl_footprint.Text = feet_fovH + " x " + feet_fovV + " ft";
             }
@@ -668,9 +646,9 @@ namespace MissionPlanner
                 lbl_area.Text = calcpolygonarea(list).ToString("#") + " m^2";
                 lbl_distance.Text = routetotal.ToString("0.##") + " km";
                 lbl_spacing.Text = NUM_spacing.Value.ToString("#") + " m";
-                lbl_grndres.Text = TXT_cmpixel.Text;
+                lbl_altitude.Text = TBAR_zoom.Value.ToString();
                 lbl_distbetweenlines.Text = NUM_Distance.Value.ToString("0.##") + " m";
-                lbl_footprint.Text = TXT_fovH.Text + " x " + TXT_fovV.Text + " m";
+                lbl_footprint.Text = fovH + " x " + fovV + " m";
             }
 
             double flyspeedms = CurrentState.fromSpeedDisplayUnit((double)NUM_UpDownFlySpeed.Value);
@@ -822,15 +800,15 @@ namespace MissionPlanner
             {
                 // entered values
                 float focallen = (float)NUM_focallength.Value;
-                float flyalt = (float)NUM_altitude.Value;
+                float flyalt = (float)TBAR_zoom.Value;
                 int imagewidth = int.Parse(TXT_imgwidth.Text);
                 int imageheight = int.Parse(TXT_imgheight.Text);
 
                 float sensorwidth = float.Parse(TXT_senswidth.Text);
                 float sensorheight = float.Parse(TXT_sensheight.Text);
 
-                int overlap = (int)num_overlap.Value;
-                int sidelap = (int)num_sidelap.Value;
+                int overlap = (int)TBAR_overlap.Value;
+                int sidelap = (int)TBAR_overlap.Value;
 
 
                 // scale      mm / mm
@@ -840,8 +818,8 @@ namespace MissionPlanner
                 float viewwidth = (sensorwidth * flscale / 1000);
                 float viewheight = (sensorheight * flscale / 1000);
 
-                TXT_fovH.Text = viewwidth.ToString("#.#");
-                TXT_fovV.Text = viewheight.ToString("#.#");
+                fovH = viewwidth.ToString("#.#");
+                fovV = viewheight.ToString("#.#");
                 // Imperial
                 feet_fovH = (viewwidth * 3.2808399f).ToString("#.#");
                 feet_fovV = (viewheight * 3.2808399f).ToString("#.#");
@@ -850,7 +828,7 @@ namespace MissionPlanner
                 float fovv = (float)(Math.Atan(sensorheight / (2 * focallen)) * rad2deg * 2);
 
                 //    mm  / pixels * 100
-                TXT_cmpixel.Text = ((viewheight / imageheight) * 100).ToString("0.00 cm");
+                TXT_cmpixel.Text = ((viewheight / imageheight) * 100).ToString("0.00 cm/pix");
                 // Imperial
                 inchpixel = (((viewheight / imageheight) * 100) * 0.393701).ToString("0.00 inches");
 
@@ -871,8 +849,9 @@ namespace MissionPlanner
 
         private void CalcHeadingHold()
         {
-            int previous = (int)Math.Round(Convert.ToDecimal(((UpDownBase)NUM_angle).Text)); //((UpDownBase)sender).Text
-            int current = (int)Math.Round(NUM_angle.Value);
+           // int previous = (int)Math.Round(Convert.ToDecimal(((UpDownBase)NUM_angle).Text)); //((UpDownBase)sender).Text
+            int previous = (int)Math.Round(Angle); 
+            int current = (int)Math.Round(Angle);
 
             int change = current - previous;
             
@@ -1127,12 +1106,10 @@ namespace MissionPlanner
         {
             if (CHK_advanced.Checked)
             {
-                tabControl1.TabPages.Add(tabGrid);
                 tabControl1.TabPages.Add(tabCamera);
             }
             else
             {
-                tabControl1.TabPages.Remove(tabGrid);
                 tabControl1.TabPages.Remove(tabCamera);
             }
         }
@@ -1165,7 +1142,7 @@ namespace MissionPlanner
             else
             {
                 TXT_headinghold.ReadOnly = true;
-                TXT_headinghold.Text = Decimal.Round(NUM_angle.Value).ToString();
+                TXT_headinghold.Text = Decimal.Round(Angle).ToString();
             }
         }
 
@@ -1460,5 +1437,17 @@ namespace MissionPlanner
             // doCalc
             domainUpDown1_ValueChanged(sender, e);
         }
+
+        private void TXT_min_alt_TextChanged(object sender, EventArgs e)
+        {
+            TBAR_zoom.Minimum = int.Parse(TXT_min_alt.Text);
+        }
+
+        private void TXT_max_alt_TextChanged(object sender, EventArgs e)
+        {
+            TBAR_zoom.Maximum = int.Parse(TXT_max_alt.Text);
+        }
+
+
     }
 }
