@@ -1851,7 +1851,7 @@ namespace MissionPlanner.Controls
 		
 		void drawstring(Graphics e, string text, Font font, float fontsize, SolidBrush brush, float x, float y)
         {
-            if (text == null || text == "")
+            if (text == null || text == "" )
                 return;
 
                        
