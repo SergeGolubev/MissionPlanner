@@ -2789,6 +2789,26 @@ namespace MissionPlanner
             DBT_USERDEFINED = 0xFFFF,
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                MenuConfigTune.Visible = true;
+                MenuSimulation.Visible = true;
+                MenuTerminal.Visible = true;
+                MenuHelp.Visible = true;
+            }
+            else
+            {
+                this.MenuConfigTune.Visible = false;
+                this.MenuSimulation.Visible = false;
+                this.MenuTerminal.Visible = false;
+                this.MenuHelp.Visible = false;
+                MainMenu.Items.Remove(MenuTerminal);
+                MainMenu.Refresh();
+            }
+        }
+
         private void MainMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             foreach (ToolStripItem item in MainMenu.Items)
@@ -2828,6 +2848,26 @@ namespace MissionPlanner
         private void readonlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainV2.comPort.ReadOnly = readonlyToolStripMenuItem.Checked;
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                MenuConfigTune.Visible = true;
+                MenuSimulation.Visible = true;
+                MenuTerminal.Visible = true;
+                MenuDonate.Visible = true;
+            }
+            else
+            {
+                MenuConfigTune.Visible = false;
+                MenuSimulation.Visible = false;
+                MenuTerminal.Visible = false;
+                MenuDonate.Visible = false;
+                //MainMenu.Items.Remove(MenuTerminal);
+               // MainMenu.Refresh();
+            }
         }
 
 
