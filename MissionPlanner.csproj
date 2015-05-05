@@ -6078,7 +6078,6 @@
     <None Include="Resources\simulation.png" />
     <None Include="Resources\terminal.png" />
     <None Include="Resources\helpwizard.png" />
-    <None Include="Resources\donate.png" />
     <None Include="Resources\hardwareconfig02.png" />
     <None Include="Resources\bgdark.jpg" />
     <None Include="Resources\splashdark.jpg" />
@@ -6208,6 +6207,7 @@
     <None Include="Resources\pixhawk.jpg" />
     <Content Include="Resources\rover.png" />
     <Content Include="Resources\splash.jpg" />
+    <None Include="Resources\donate.png" />
     <Content Include="Scripts\datetime.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
