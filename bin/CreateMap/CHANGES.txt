@@ -1,0 +1,35 @@
+version 0.6.0
+
+- several bugs have been detected and removed
+- added possibility to reconstruct unlimited large scenes in highest possible level of detail see ini\README.txt
+- added possibility to simplify mesh into choosen number of triangles 
+- added possibility to create new mesh with one texture file (merge texture files)
+- added possibility for beta testing of the first version of our final mesh refinement step (still in developement)
+- added possibility for testing of experimental version of better texturing approach
+- added possibility to generate georeferenced DEM and ortoPhoto
+- more parameters described
+
+version 0.5
+
+- several critical bugs have been detected and removed
+- added visualSfM_CMPMVS.bat for complete 3D reconstruction just from images using VisualSfM (v0.5.18 and higher) + CMPMVS
+- you can use parameters doComputeDEMandOrtoPhoto, doGenerateVideoFrames to turn on and off (default is on) the dem+ortoPhoto and video computation
+
+version 0.4
+
+- qs file export for QSplat viewer available at http://graphics.stanford.edu/software/qsplat/download.html
+- flyover video export (including stereo video)
+- DEM + ortophoto export
+- much better and higher quality planesweeping
+- higher quality mesh
+- several bugs has been detected and removed
+
+version 0.3
+
+- found bug in ini files there has to be hallucinationsFiltering instead of fullSpaceHull 
+- slightly updated files (ini\defaultCons2.ini, ini\defaultCons3.ini, ini\README.txt, README.txt)
+- no change in binary
+
+version 0.2
+
+- first release
