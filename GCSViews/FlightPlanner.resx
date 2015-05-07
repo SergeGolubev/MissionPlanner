@@ -824,6 +824,12 @@
   <data name="pictureBox7.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <data name="pictureBox7.ToolTip" xml:space="preserve">
+    <value>Rectangle drawing mode</value>
+  </data>
   <data name="&gt;&gt;pictureBox7.Name" xml:space="preserve">
     <value>pictureBox7</value>
   </data>
@@ -847,6 +853,9 @@
   </data>
   <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
+  </data>
+  <data name="pictureBox2.ToolTip" xml:space="preserve">
+    <value>Remove waypoint</value>
   </data>
   <data name="&gt;&gt;pictureBox2.Name" xml:space="preserve">
     <value>pictureBox2</value>
@@ -872,6 +881,9 @@
   <data name="pictureBox6.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
   </data>
+  <data name="pictureBox6.ToolTip" xml:space="preserve">
+    <value>Define a grid polygon</value>
+  </data>
   <data name="&gt;&gt;pictureBox6.Name" xml:space="preserve">
     <value>pictureBox6</value>
   </data>
@@ -895,6 +907,9 @@
   </data>
   <data name="pictureBox5.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
+  </data>
+  <data name="pictureBox5.ToolTip" xml:space="preserve">
+    <value>Define a safe zone</value>
   </data>
   <data name="&gt;&gt;pictureBox5.Name" xml:space="preserve">
     <value>pictureBox5</value>
@@ -920,6 +935,9 @@
   <data name="pictureBox4.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
+  <data name="pictureBox4.ToolTip" xml:space="preserve">
+    <value>Remove polygon</value>
+  </data>
   <data name="&gt;&gt;pictureBox4.Name" xml:space="preserve">
     <value>pictureBox4</value>
   </data>
@@ -944,6 +962,9 @@
   <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
+  <data name="pictureBox3.ToolTip" xml:space="preserve">
+    <value>Define a danger zone</value>
+  </data>
   <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
     <value>pictureBox3</value>
   </data>
@@ -967,6 +988,9 @@
   </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
+  </data>
+  <data name="pictureBox1.ToolTip" xml:space="preserve">
+    <value>Place a waypoint</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
@@ -1012,6 +1036,9 @@
   </data>
   <data name="pictureBox8.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
+  </data>
+  <data name="pictureBox8.ToolTip" xml:space="preserve">
+    <value>Define landing site</value>
   </data>
   <data name="&gt;&gt;pictureBox8.Name" xml:space="preserve">
     <value>pictureBox8</value>
@@ -6569,9 +6596,6 @@
   <data name="&gt;&gt;BUT_headingholdminus.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 17</value>
-  </metadata>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>269, 17</value>
   </metadata>
