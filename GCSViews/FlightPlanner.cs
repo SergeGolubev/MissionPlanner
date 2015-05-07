@@ -2811,9 +2811,9 @@ namespace MissionPlanner.GCSViews
                     {
                         AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
                         if ((mode == Mode.waypoint) && (checkifinpolygon(red, currentMarker.Position)))
-                            CustomMessageBox.Show("NO");
+                            CustomMessageBox.Show("No");
                         else
-                            CustomMessageBox.Show("YES");
+                            CustomMessageBox.Show("Yes");
                     }
                 }
                 else
