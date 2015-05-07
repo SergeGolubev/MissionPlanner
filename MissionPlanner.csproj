@@ -6195,6 +6195,7 @@
     <None Include="Resources\heli.png" />
     <None Include="Resources\irregular10.png" />
     <None Include="Resources\irregular11.png" />
+    <None Include="Resources\map4.png" />
     <Content Include="Resources\MAVCmd.zh-TW.txt" />
     <Content Include="Resources\MAVParam.zh-TW.txt" />
     <Content Include="Resources\new frames-01.png" />
