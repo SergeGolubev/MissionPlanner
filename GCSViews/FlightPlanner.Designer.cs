@@ -51,14 +51,14 @@
          {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightPlanner));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Commands = new System.Windows.Forms.DataGridView();
             this.Command = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Param1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,16 +93,15 @@
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BUT_removePolygon = new MissionPlanner.Controls.MyButton();
-            this.BUT_Polygon = new MissionPlanner.Controls.MyButton();
-            this.BUT_Waypoints = new MissionPlanner.Controls.MyButton();
-            this.BUT_RedZone = new MissionPlanner.Controls.MyButton();
-            this.BUT_removePoint = new MissionPlanner.Controls.MyButton();
-            this.BUT_GreenZone = new MissionPlanner.Controls.MyButton();
-            this.BUT_Rect = new MissionPlanner.Controls.MyButton();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_distance = new System.Windows.Forms.Label();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
@@ -312,8 +311,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -354,14 +360,14 @@
             // 
             this.Commands.AllowUserToAddRows = false;
             resources.ApplyResources(this.Commands, "Commands");
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Commands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.Commands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Command,
             this.Param1,
@@ -378,17 +384,17 @@
             this.Dist,
             this.AZ});
             this.Commands.Name = "Commands";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = "0";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.Format = "N0";
+            dataGridViewCellStyle13.NullValue = "0";
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.Commands.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.Commands.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.Commands.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellContentClick);
             this.Commands.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Commands_CellEndEdit);
             this.Commands.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Commands_DataError);
@@ -401,9 +407,9 @@
             // Command
             // 
             this.Command.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            this.Command.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(68)))), ((int)(((byte)(69)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            this.Command.DefaultCellStyle = dataGridViewCellStyle10;
             this.Command.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             resources.ApplyResources(this.Command, "Command");
             this.Command.Name = "Command";
@@ -467,7 +473,7 @@
             // Up
             // 
             this.Up.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.Up.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Up.DefaultCellStyle = dataGridViewCellStyle11;
             resources.ApplyResources(this.Up, "Up");
             this.Up.Image = ((System.Drawing.Image)(resources.GetObject("Up.Image")));
             this.Up.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -476,8 +482,8 @@
             // Down
             // 
             this.Down.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Down.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Down.DefaultCellStyle = dataGridViewCellStyle12;
             resources.ApplyResources(this.Down, "Down");
             this.Down.Image = ((System.Drawing.Image)(resources.GetObject("Down.Image")));
             this.Down.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -551,8 +557,8 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle15;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -560,8 +566,8 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle16;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -662,7 +668,9 @@
             // 
             // panelMap
             // 
-            this.panelMap.Controls.Add(this.panel8);
+            this.panelMap.Controls.Add(this.pictureBox7);
+            this.panelMap.Controls.Add(this.groupBox1);
+            this.panelMap.Controls.Add(this.pictureBox8);
             this.panelMap.Controls.Add(this.lbl_distance);
             this.panelMap.Controls.Add(this.lbl_homedist);
             this.panelMap.Controls.Add(this.lbl_prevdist);
@@ -674,112 +682,96 @@
             this.panelMap.Name = "panelMap";
             this.panelMap.Resize += new System.EventHandler(this.panelMap_Resize);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.myButton1);
-            this.panel8.Controls.Add(this.groupBox1);
-            this.panel8.Controls.Add(this.BUT_Rect);
-            resources.ApplyResources(this.panel8, "panel8");
-            this.panel8.Name = "panel8";
-            // 
-            // myButton1
-            // 
-            this.myButton1.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.myButton1.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.myButton1, "myButton1");
-            this.myButton1.Name = "myButton1";
-            this.myButton1.Outline = System.Drawing.Color.Black;
-            this.myButton1.TextColor = System.Drawing.Color.Black;
-            this.myButton1.UseVisualStyleBackColor = true;
-            this.myButton1.Click += new System.EventHandler(this.myButton1_Click);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BUT_removePolygon);
-            this.groupBox1.Controls.Add(this.BUT_Polygon);
-            this.groupBox1.Controls.Add(this.BUT_Waypoints);
-            this.groupBox1.Controls.Add(this.BUT_RedZone);
-            this.groupBox1.Controls.Add(this.BUT_removePoint);
-            this.groupBox1.Controls.Add(this.BUT_GreenZone);
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox6);
+            this.groupBox1.Controls.Add(this.pictureBox5);
+            this.groupBox1.Controls.Add(this.pictureBox4);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Click);
             // 
-            // BUT_removePolygon
+            // pictureBox7
             // 
-            this.BUT_removePolygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BUT_removePolygon.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.BUT_removePolygon, "BUT_removePolygon");
-            this.BUT_removePolygon.Name = "BUT_removePolygon";
-            this.BUT_removePolygon.Outline = System.Drawing.Color.MidnightBlue;
-            this.BUT_removePolygon.UseVisualStyleBackColor = true;
-            this.BUT_removePolygon.Click += new System.EventHandler(this.BUT_removePolygon_Click);
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
+            this.pictureBox7.BackgroundImage = global::MissionPlanner.Properties.Resources.screen77;
+            resources.ApplyResources(this.pictureBox7, "pictureBox7");
+            this.pictureBox7.InitialImage = global::MissionPlanner.Properties.Resources.screen77;
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
-            // BUT_Polygon
+            // pictureBox8
             // 
-            this.BUT_Polygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BUT_Polygon.BGGradTop = System.Drawing.Color.Blue;
-            resources.ApplyResources(this.BUT_Polygon, "BUT_Polygon");
-            this.BUT_Polygon.Name = "BUT_Polygon";
-            this.BUT_Polygon.Outline = System.Drawing.Color.Black;
-            this.BUT_Polygon.TextColor = System.Drawing.Color.Black;
-            this.BUT_Polygon.UseVisualStyleBackColor = true;
-            this.BUT_Polygon.Click += new System.EventHandler(this.BUT_Polygon_Click);
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BackgroundImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.plane24;
+            resources.ApplyResources(this.pictureBox8, "pictureBox8");
+            this.pictureBox8.InitialImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
-            // BUT_Waypoints
+            // pictureBox2
             // 
-            this.BUT_Waypoints.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BUT_Waypoints.BGGradTop = System.Drawing.Color.Yellow;
-            resources.ApplyResources(this.BUT_Waypoints, "BUT_Waypoints");
-            this.BUT_Waypoints.Name = "BUT_Waypoints";
-            this.BUT_Waypoints.Outline = System.Drawing.Color.Black;
-            this.BUT_Waypoints.TextColor = System.Drawing.Color.Black;
-            this.BUT_Waypoints.UseVisualStyleBackColor = true;
-            this.BUT_Waypoints.Click += new System.EventHandler(this.BUT_Waypoints_Click);
+            this.pictureBox2.BackgroundImage = global::MissionPlanner.Properties.Resources.pointer17;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.InitialImage = global::MissionPlanner.Properties.Resources.pointer17;
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // BUT_RedZone
+            // pictureBox6
             // 
-            this.BUT_RedZone.BGGradBot = System.Drawing.Color.Red;
-            this.BUT_RedZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            resources.ApplyResources(this.BUT_RedZone, "BUT_RedZone");
-            this.BUT_RedZone.Name = "BUT_RedZone";
-            this.BUT_RedZone.Outline = System.Drawing.Color.Black;
-            this.BUT_RedZone.TextColor = System.Drawing.Color.Black;
-            this.BUT_RedZone.UseVisualStyleBackColor = true;
-            this.BUT_RedZone.Click += new System.EventHandler(this.BUT_RedZone_Click);
+            this.pictureBox6.BackgroundImage = global::MissionPlanner.Properties.Resources.irregular10;
+            resources.ApplyResources(this.pictureBox6, "pictureBox6");
+            this.pictureBox6.InitialImage = global::MissionPlanner.Properties.Resources.irregular10;
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
-            // BUT_removePoint
+            // pictureBox5
             // 
-            this.BUT_removePoint.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BUT_removePoint.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.BUT_removePoint, "BUT_removePoint");
-            this.BUT_removePoint.Name = "BUT_removePoint";
-            this.BUT_removePoint.Outline = System.Drawing.Color.MidnightBlue;
-            this.BUT_removePoint.UseVisualStyleBackColor = true;
-            this.BUT_removePoint.Click += new System.EventHandler(this.BUT_removePoint_Click);
+            this.pictureBox5.BackgroundImage = global::MissionPlanner.Properties.Resources.shield114;
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
+            this.pictureBox5.InitialImage = global::MissionPlanner.Properties.Resources.shield114;
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
-            // BUT_GreenZone
+            // pictureBox4
             // 
-            this.BUT_GreenZone.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BUT_GreenZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            resources.ApplyResources(this.BUT_GreenZone, "BUT_GreenZone");
-            this.BUT_GreenZone.Name = "BUT_GreenZone";
-            this.BUT_GreenZone.Outline = System.Drawing.Color.Black;
-            this.BUT_GreenZone.TextColor = System.Drawing.Color.Black;
-            this.BUT_GreenZone.UseVisualStyleBackColor = true;
-            this.BUT_GreenZone.Click += new System.EventHandler(this.BUT_GreenZone_Click);
+            this.pictureBox4.BackgroundImage = global::MissionPlanner.Properties.Resources.irregular11;
+            resources.ApplyResources(this.pictureBox4, "pictureBox4");
+            this.pictureBox4.InitialImage = global::MissionPlanner.Properties.Resources.irregular11;
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // BUT_Rect
+            // pictureBox3
             // 
-            this.BUT_Rect.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BUT_Rect.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.BUT_Rect, "BUT_Rect");
-            this.BUT_Rect.Name = "BUT_Rect";
-            this.BUT_Rect.Outline = System.Drawing.Color.Black;
-            this.BUT_Rect.TextColor = System.Drawing.Color.Black;
-            this.BUT_Rect.UseVisualStyleBackColor = true;
-            this.BUT_Rect.Click += new System.EventHandler(this.BUT_Rect_Click);
+            this.pictureBox3.BackgroundImage = global::MissionPlanner.Properties.Resources.warning41;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
+            this.pictureBox3.InitialImage = global::MissionPlanner.Properties.Resources.warning41;
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MissionPlanner.Properties.Resources.pointer16;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.InitialImage = global::MissionPlanner.Properties.Resources.pointer16;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbl_distance
             // 
@@ -2385,8 +2377,15 @@
             this.panelWaypoints.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
-            this.panel8.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -2677,16 +2676,15 @@
          private System.Windows.Forms.Label lbl_area;
          private System.Windows.Forms.Label label23;
          private System.Windows.Forms.Label label22;
-         private System.Windows.Forms.Panel panel8;
-         private Controls.MyButton BUT_Rect;
-         private System.Windows.Forms.GroupBox groupBox1;
-         private Controls.MyButton BUT_removePolygon;
-         private Controls.MyButton BUT_Polygon;
-         private Controls.MyButton BUT_Waypoints;
-         private Controls.MyButton BUT_RedZone;
-         private Controls.MyButton BUT_removePoint;
-         private Controls.MyButton BUT_GreenZone;
-         private Controls.MyButton myButton1;
          private Controls.MyButton myButton2;
+         private System.Windows.Forms.PictureBox pictureBox2;
+         private System.Windows.Forms.GroupBox groupBox1;
+         private System.Windows.Forms.PictureBox pictureBox7;
+         private System.Windows.Forms.PictureBox pictureBox8;
+         private System.Windows.Forms.PictureBox pictureBox6;
+         private System.Windows.Forms.PictureBox pictureBox5;
+         private System.Windows.Forms.PictureBox pictureBox4;
+         private System.Windows.Forms.PictureBox pictureBox3;
+         private System.Windows.Forms.PictureBox pictureBox1;
      }
  }

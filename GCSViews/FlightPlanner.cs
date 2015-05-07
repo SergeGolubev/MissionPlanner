@@ -6040,11 +6040,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             if (draw_rect)
             {
                 draw_rect = false;
-                BUT_Rect.BGGradTop = Color.White;
             }
             else
             {
-                BUT_Rect.BGGradTop = Color.Black;
                 draw_rect = true;
             }
         }
@@ -6053,7 +6051,11 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             foreach (Control c in groupBox1.Controls)
             {
-                ((MyButton)c).BGGradTop = Color.Violet;
+                if (c != sender)
+                {
+                    ((PictureBox)c).Size = new Size(32, 32);
+                    ((PictureBox)c).BorderStyle = BorderStyle.None;
+                }
             }
         }
 
@@ -6118,6 +6120,98 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             land.Stroke = new Pen(Color.Green, 2);
             routesOverlay.Routes.Add(land);
             MainMap.Invalidate();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            mode = Mode.waypoint;
+            pictureBox1.Size = new Size(37, 37);
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            mode = Mode.removePoint;
+            pictureBox2.Size = new Size(37, 37);
+            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            mode = Mode.waitForClick;
+            pictureBox3.Size = new Size(37, 37);
+            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
+            /*
+            red.AddNewPolygon();
+            
+            if (mode != Mode.redZone)
+            {
+                mode = Mode.redZone;
+            }*/
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            mode = Mode.removePolygon;
+            pictureBox4.Size = new Size(37, 37);
+            pictureBox4.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            mode = Mode.greenZone;
+            pictureBox5.Size = new Size(37, 37);
+            pictureBox5.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            mode = Mode.polygon;
+            pictureBox6.Size = new Size(37, 37);
+            pictureBox6.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            if (draw_rect)
+            {
+                draw_rect = false;
+                pictureBox7.Size = new Size(32, 32);
+                pictureBox7.BorderStyle = BorderStyle.None;
+            }
+            else
+            {
+                draw_rect = true;
+                pictureBox7.Size = new Size(37, 37);
+                pictureBox7.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if ((grid == null) || (grid.Count == 0))
+            {
+                CustomMessageBox.Show("Please define a grid!");
+            }
+            else
+            {
+                if (mode != Mode.land)
+                {
+                    CustomMessageBox.Show("Specify a direction by dragging your mouse");
+                    mode = Mode.land;
+                    Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+
+                    pictureBox8.Size = new Size(37, 37);
+                    pictureBox8.BorderStyle = BorderStyle.Fixed3D;
+                }
+                else
+                {
+                    mode = Mode.waypoint;
+
+                    pictureBox8.Size = new Size(32, 32);
+                    pictureBox8.BorderStyle = BorderStyle.None;
+                }
+            }
         }
 
     }

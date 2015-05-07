@@ -67,11 +67,11 @@ namespace MissionPlanner
             this.MenuFlightData,
             this.MenuFlightPlanner,
             this.MenuInitConfig,
+            this.MenuHelp,
             this.MenuConfigTune,
             this.MenuSimulation,
             this.MenuDonate,
             this.MenuTerminal,
-            this.MenuHelp,
             this.MenuConnect,
             this.toolStripConnectionControl});
             resources.ApplyResources(this.MainMenu, "MainMenu");
