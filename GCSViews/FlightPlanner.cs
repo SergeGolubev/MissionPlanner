@@ -2810,6 +2810,10 @@ namespace MissionPlanner.GCSViews
                     else
                     {
                         AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
+                        if ((mode == Mode.waypoint) && (checkifinpolygon(red, currentMarker.Position)))
+                            CustomMessageBox.Show("NO");
+                        else
+                            CustomMessageBox.Show("YES");
                     }
                 }
                 else
@@ -6124,6 +6128,37 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
                 MainMap.Invalidate();
             }
+        }
+
+        private double cross_product(PointLatLng a, PointLatLng b, PointLatLng p)
+        {
+            return (a.Lat - p.Lat) * (b.Lng - p.Lng) - (a.Lng - p.Lng) * (b.Lat - p.Lat);
+        }
+
+        private double dot_product(PointLatLng a, PointLatLng b, PointLatLng p)
+        {
+            return (a.Lat - p.Lat) * (b.Lat - p.Lat) + (a.Lng - p.Lng) * (b.Lng - p.Lng);
+        }
+
+        private bool checkifinpolygon(MultiPolygon poly, PointLatLng point)
+        {
+            double eps = 10e-12;
+            double ans = 0;
+            Dictionary<int, Polygon> list;
+            list = poly.getAllPolygons();
+            int count = poly.CountPolygons();
+            for (int i = 0; i < count; i++)
+            {
+                ans = 0;
+                int numpoints = list[i].polygon.Points.Count;
+                for (int j = 1; j < numpoints + 1; j++)
+                {
+                    ans += Math.Atan2(cross_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point), dot_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point));
+                }
+                if (!(ans < eps && ans > -eps))
+                    return false;
+            }
+            return true;
         }
 
         private void CalculateLanding(PointLatLng first, PointLatLng second)

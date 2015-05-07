@@ -176,13 +176,16 @@ namespace MissionPlanner.GCSViews
             private int Count;
             private FlightPlanner host;
 
-
             public MultiPolygon(FlightPlanner host)
             {
                 polygons = new Dictionary<int, Polygon>();
                 current = -1;
                 Count = 0;
                 this.host = host;
+            }
+            public int CountPolygons()
+            {
+                return this.Count;
             }
 
             public void AddNewPolygon()
@@ -232,6 +235,11 @@ namespace MissionPlanner.GCSViews
                 polygons.Clear();
                 Count = 0;
                 current = -1;
+            }
+
+            public Dictionary<int, Polygon> getAllPolygons()
+            {
+                return this.polygons;
             }
 
             public Polygon getPoly(int poly)
