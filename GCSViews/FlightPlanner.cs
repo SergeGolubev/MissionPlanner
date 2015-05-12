@@ -415,6 +415,8 @@ namespace MissionPlanner.GCSViews
             {
                 c.Click += new System.EventHandler(this.groupBox1_Click);
             }
+            groupBox1_Click(null, null);
+            BUT_Waypoints_Click(null, null);
 
             MainMap.MapScaleInfoEnabled = false;
             MainMap.ScalePen = new Pen(Color.Red);
@@ -3366,6 +3368,8 @@ namespace MissionPlanner.GCSViews
                 //   CustomMessageBox.Show("You will remain in safety zone mode until you clear the polygon or create a grid/upload a fence");
                 mode = Mode.greenZone;
             }
+            BUT_GreenZone.BGGradTop = Color.Gray;
+            BUT_GreenZone.Invalidate();
         }
 
 
@@ -3373,6 +3377,9 @@ namespace MissionPlanner.GCSViews
         {
 
             mode = Mode.waitForClick;
+            
+            BUT_RedZone.BGGradTop = Color.Gray;
+            BUT_RedZone.Invalidate();
             /*
             red.AddNewPolygon();
             
@@ -3389,6 +3396,9 @@ namespace MissionPlanner.GCSViews
                 //  CustomMessageBox.Show("You will remain in polygon mode until you clear the polygon or create a grid/upload a fence");
                 mode = Mode.polygon;
             }
+            
+            BUT_Polygon.BGGradTop = Color.Gray;
+            BUT_Polygon.Invalidate();
         }
 
         private void addPolygonPointToolStripMenuItem_Click(object sender, EventArgs e)
@@ -6021,16 +6031,22 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         private void BUT_Waypoints_Click(object sender, EventArgs e)
         {
             mode = Mode.waypoint;
+            BUT_Waypoints.BGGradTop = Color.Gray;
+            BUT_Waypoints.Invalidate();
         }
 
         private void BUT_removePoint_Click(object sender, EventArgs e)
         {
             mode = Mode.removePoint;
+            BUT_removePoint.BGGradTop = Color.Gray;
+            BUT_removePoint.Invalidate();
         }
 
         private void BUT_removePolygon_Click(object sender, EventArgs e)
         {
             mode = Mode.removePolygon;
+            BUT_removePolygon.BGGradTop = Color.Gray;
+            BUT_removePolygon.Invalidate();
         }
 
         bool draw_rect = false;
@@ -6047,13 +6063,16 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 BUT_Rect.BGGradTop = Color.Black;
                 draw_rect = true;
             }
+            BUT_Rect.Invalidate();
         }
 
         private void groupBox1_Click(object sender, EventArgs e)
         {
-            foreach (Control c in groupBox1.Controls)
-            {
-                ((MyButton)c).BGGradTop = Color.Violet;
+            foreach (Control c in groupBox1.Controls){
+                if (!c.Equals(sender)) { 
+                    ((MyButton)c).BGGradTop = Color.White;
+                    c.Invalidate();
+                }
             }
         }
 

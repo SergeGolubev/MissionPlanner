@@ -729,8 +729,8 @@
             // 
             // BUT_Waypoints
             // 
-            this.BUT_Waypoints.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BUT_Waypoints.BGGradTop = System.Drawing.Color.Yellow;
+            this.BUT_Waypoints.BGGradBot = System.Drawing.Color.Yellow;
+            this.BUT_Waypoints.BGGradTop = System.Drawing.Color.Gray;
             resources.ApplyResources(this.BUT_Waypoints, "BUT_Waypoints");
             this.BUT_Waypoints.Name = "BUT_Waypoints";
             this.BUT_Waypoints.Outline = System.Drawing.Color.Black;
