@@ -6075,20 +6075,54 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void myButton2_Click(object sender, EventArgs e)
         {
-            if ((grid != null) && (grid.Count != 0))
+            if (Commands.RowCount != 0)
             {
-                routesoverlay.Routes.Clear();
-                routesoverlay.Polygons.Clear();
-                routesoverlay.Markers.Clear();
-                Commands.Rows.Clear();
-                routesOverlay.Routes.Clear();
-                routesOverlay.Polygons.Clear();
-                routesOverlay.Markers.Clear();
-                grid.Clear();
-                objectsoverlay.Markers.Clear();
+                if (routesoverlay != null)
+                {
+                    routesoverlay.Routes.Clear();
+                    routesoverlay.Polygons.Clear();
+                    routesoverlay.Markers.Clear();
+                    routesoverlay.Clear();
+                }
+                //Commands.Rows.Clear();
+                if (routesOverlay != null)
+                {
+                    routesOverlay.Routes.Clear();
+                    routesOverlay.Polygons.Clear();
+                    routesOverlay.Markers.Clear();
+                    routesOverlay.Clear();
+                }
+                if (grid != null)
+                    grid.Clear();
 
-                //      list.Clear();
-                blue.redrawPolygonSurvey(new List<PointLatLng>(list));
+                if (objectsoverlay.Markers != null)
+                {
+                    objectsoverlay.Clear();
+                    objectsoverlay.Markers.Clear();
+                    objectsoverlay.Polygons.Clear();
+                    objectsoverlay.Routes.Clear();
+                }
+
+                if (polygonsoverlay != null)
+                {
+                    polygonsoverlay.Clear();
+                    polygonsoverlay.Markers.Clear();
+                    polygonsoverlay.Polygons.Clear();
+                    polygonsoverlay.Routes.Clear();
+                }
+                while (Commands.RowCount != 0)
+                {
+                    Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+                }
+
+                if (blue != null)
+                    blue.Clear();
+                if (red != null)
+                    red.Clear();
+                if (green != null)
+                    green.Clear();
+
+                MainMap.Invalidate();
             }
         }
 
