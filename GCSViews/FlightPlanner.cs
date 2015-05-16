@@ -2558,6 +2558,13 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(null, null);
+                bool res = true;
+                foreach(PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (!res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
             }
             return;
 
@@ -2810,10 +2817,6 @@ namespace MissionPlanner.GCSViews
                     else
                     {
                         AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
-                        if ((mode == Mode.waypoint) && (checkifinpolygon(red, currentMarker.Position)))
-                            CustomMessageBox.Show("No");
-                        else
-                            CustomMessageBox.Show("Yes");
                     }
                 }
                 else
@@ -3402,6 +3405,14 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(sender, e);
+
+                bool res = true;
+                foreach (PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (!res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
             }
         }
 
@@ -6020,6 +6031,14 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
             domainUpDown1_ValueChanged(sender, e);
+
+            bool res = true;
+            foreach (PointLatLng p in grid)
+            {
+                res = res | checkifinpolygon(red, p);
+            }
+            if (!res)
+                CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
         }
 
         private void BUT_Waypoints_Click(object sender, EventArgs e)

@@ -117,6 +117,14 @@ namespace MissionPlanner.GCSViews
 
             domainUpDown1_ValueChanged(sender, e);
 
+            bool res = false;
+            foreach (PointLatLng p in grid)
+            {
+                res = res | checkifinpolygon(red, p);
+            }
+            if (res)
+                CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
+
         }
 
         private void GridUI_Load(object sender, EventArgs e)
