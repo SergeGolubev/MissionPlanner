@@ -117,6 +117,14 @@ namespace MissionPlanner.GCSViews
 
             domainUpDown1_ValueChanged(sender, e);
 
+            bool res = false;
+            foreach (PointLatLng p in grid)
+            {
+                res = res | checkifinpolygon(red, p);
+            }
+            if (!res)
+                CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
+
         }
 
         private void GridUI_Load(object sender, EventArgs e)
@@ -585,6 +593,7 @@ namespace MissionPlanner.GCSViews
                 GMapRoute seg = new GMapRoute(segment, "segment" + a.ToString());
                 seg.Stroke = new Pen(Color.Yellow, 4);
                 seg.Stroke.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+                //seg.IsVisible = false;
                 seg.IsHitTestVisible = true;
                 if (CHK_grid1.Checked)
                     routesOverlay.Routes.Add(seg);

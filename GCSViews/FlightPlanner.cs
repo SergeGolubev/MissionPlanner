@@ -388,6 +388,7 @@ namespace MissionPlanner.GCSViews
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+       
         public FlightPlanner()
         {
             instance = this;
@@ -1257,7 +1258,7 @@ namespace MissionPlanner.GCSViews
         private void RegenerateWPRoute(List<PointLatLngAlt> fullpointlist)
         {
 
-
+            MainMap.Overlays.Remove(routesOverlay);
             route.Clear();
             homeroute.Clear();
 
@@ -2560,6 +2561,13 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(null, null);
+                bool res = true;
+                foreach(PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (!res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
             }
             return;
 
@@ -3361,46 +3369,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void BUT_GreenZone_Click(object sender, EventArgs e)
-        {
-            if (mode != Mode.greenZone)
-            {
-                //   CustomMessageBox.Show("You will remain in safety zone mode until you clear the polygon or create a grid/upload a fence");
-                mode = Mode.greenZone;
-            }
-            BUT_GreenZone.BGGradTop = Color.Gray;
-            BUT_GreenZone.Invalidate();
-        }
-
-
-        private void BUT_RedZone_Click(object sender, EventArgs e)
-        {
-
-            mode = Mode.waitForClick;
-            
-            BUT_RedZone.BGGradTop = Color.Gray;
-            BUT_RedZone.Invalidate();
-            /*
-            red.AddNewPolygon();
-            
-            if (mode != Mode.redZone)
-            {
-                mode = Mode.redZone;
-            }*/
-        }
-
-        private void BUT_Polygon_Click(object sender, EventArgs e)
-        {
-            if (mode != Mode.polygon)
-            {
-                //  CustomMessageBox.Show("You will remain in polygon mode until you clear the polygon or create a grid/upload a fence");
-                mode = Mode.polygon;
-            }
-            
-            BUT_Polygon.BGGradTop = Color.Gray;
-            BUT_Polygon.Invalidate();
-        }
-
         private void addPolygonPointToolStripMenuItem_Click(object sender, EventArgs e)
         {
             blue.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
@@ -3408,6 +3376,14 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(sender, e);
+
+                bool res = true;
+                foreach (PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (!res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
             }
         }
 
@@ -6026,51 +6002,24 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
             domainUpDown1_ValueChanged(sender, e);
-        }
 
-        private void BUT_Waypoints_Click(object sender, EventArgs e)
-        {
-            mode = Mode.waypoint;
-            BUT_Waypoints.BGGradTop = Color.Gray;
-            BUT_Waypoints.Invalidate();
-        }
-
-        private void BUT_removePoint_Click(object sender, EventArgs e)
-        {
-            mode = Mode.removePoint;
-            BUT_removePoint.BGGradTop = Color.Gray;
-            BUT_removePoint.Invalidate();
-        }
-
-        private void BUT_removePolygon_Click(object sender, EventArgs e)
-        {
-            mode = Mode.removePolygon;
-            BUT_removePolygon.BGGradTop = Color.Gray;
-            BUT_removePolygon.Invalidate();
-        }
-
-        bool draw_rect = false;
-
-        private void BUT_Rect_Click(object sender, EventArgs e)
-        {
-            if (draw_rect)
+            bool res = true;
+            foreach (PointLatLng p in grid)
             {
-                draw_rect = false;
-                BUT_Rect.BGGradTop = Color.White;
+                res = res | checkifinpolygon(red, p);
             }
-            else
-            {
-                BUT_Rect.BGGradTop = Color.Black;
-                draw_rect = true;
-            }
-            BUT_Rect.Invalidate();
+            if (!res)
+                CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
         }
 
         private void groupBox1_Click(object sender, EventArgs e)
         {
-            foreach (Control c in groupBox1.Controls){
-                if (!c.Equals(sender)) { 
-                    ((MyButton)c).BGGradTop = Color.White;
+            foreach (Control c in groupBox1.Controls)
+            {
+                if (c != sender)
+                {
+                    ((PictureBox)c).Size = new Size(32, 32);
+                    ((PictureBox)c).BorderStyle = BorderStyle.None;
                     c.Invalidate();
                 }
             }
@@ -6092,28 +6041,93 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void myButton2_Click(object sender, EventArgs e)
         {
-            if ((grid != null) && (grid.Count != 0))
+            if (Commands.RowCount != 0)
             {
-                routesoverlay.Routes.Clear();
-                routesoverlay.Polygons.Clear();
-                routesoverlay.Markers.Clear();
-                Commands.Rows.Clear();
-                routesOverlay.Routes.Clear();
-                routesOverlay.Polygons.Clear();
-                routesOverlay.Markers.Clear();
-                grid.Clear();
-                objectsoverlay.Markers.Clear();
+                if (routesoverlay != null)
+                {
+                    routesoverlay.Routes.Clear();
+                    routesoverlay.Polygons.Clear();
+                    routesoverlay.Markers.Clear();
+                    routesoverlay.Clear();
+                }
+                //Commands.Rows.Clear();
+                if (routesOverlay != null)
+                {
+                    routesOverlay.Routes.Clear();
+                    routesOverlay.Polygons.Clear();
+                    routesOverlay.Markers.Clear();
+                    routesOverlay.Clear();
+                }
+                if (grid != null)
+                    grid.Clear();
 
-                //      list.Clear();
-                blue.redrawPolygonSurvey(new List<PointLatLng>(list));
+                if (objectsoverlay.Markers != null)
+                {
+                    objectsoverlay.Clear();
+                    objectsoverlay.Markers.Clear();
+                    objectsoverlay.Polygons.Clear();
+                    objectsoverlay.Routes.Clear();
+                }
+
+                if (polygonsoverlay != null)
+                {
+                    polygonsoverlay.Clear();
+                    polygonsoverlay.Markers.Clear();
+                    polygonsoverlay.Polygons.Clear();
+                    polygonsoverlay.Routes.Clear();
+                }
+                while (Commands.RowCount != 0)
+                {
+                    Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+                }
+
+                if (blue != null)
+                    blue.Clear();
+                if (red != null)
+                    red.Clear();
+                if (green != null)
+                    green.Clear();
+
+                MainMap.Invalidate();
             }
+        }
+
+        private double cross_product(PointLatLng a, PointLatLng b, PointLatLng p)
+        {
+            return (a.Lat - p.Lat) * (b.Lng - p.Lng) - (a.Lng - p.Lng) * (b.Lat - p.Lat);
+        }
+
+        private double dot_product(PointLatLng a, PointLatLng b, PointLatLng p)
+        {
+            return (a.Lat - p.Lat) * (b.Lat - p.Lat) + (a.Lng - p.Lng) * (b.Lng - p.Lng);
+        }
+
+        private bool checkifinpolygon(MultiPolygon poly, PointLatLng point)
+        {
+            double eps = 10e-12;
+            double ans = 0;
+            Dictionary<int, Polygon> list;
+            list = poly.getAllPolygons();
+            int count = poly.CountPolygons();
+            for (int i = 0; i < count; i++)
+            {
+                ans = 0;
+                int numpoints = list[i].polygon.Points.Count;
+                for (int j = 1; j < numpoints + 1; j++)
+                {
+                    ans += Math.Atan2(cross_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point), dot_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point));
+                }
+                if (!(ans < eps && ans > -eps))
+                    return false;
+            }
+            return true;
         }
 
         private void CalculateLanding(PointLatLng first, PointLatLng second)
         {
-            routesOverlay.Markers.Remove(land_marker_first);
-            routesOverlay.Markers.Remove(land_marker_second);
-            routesOverlay.Routes.Remove(land);
+            routesoverlay.Markers.Remove(land_marker_first);
+            routesoverlay.Markers.Remove(land_marker_second);
+            routesoverlay.Routes.Remove(land);
 
             Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
             if ((land_first.Lat != 0) && (land_first.Lng != 0))
@@ -6125,8 +6139,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             land_second = second;
             land_marker_first = new GMarkerGoogle(first, GMarkerGoogleType.green);
             land_marker_second = new GMarkerGoogle(second, GMarkerGoogleType.arrow);
-            routesOverlay.Markers.Add(land_marker_first);
-            routesOverlay.Markers.Add(land_marker_second);
+            routesoverlay.Markers.Add(land_marker_first);
+            routesoverlay.Markers.Add(land_marker_second);
 
 
             land.Points.Add(first);
@@ -6135,8 +6149,109 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             AddWPToMap(second.Lat, second.Lng, 2);
 
             land.Stroke = new Pen(Color.Green, 2);
-            routesOverlay.Routes.Add(land);
+            routesoverlay.Routes.Add(land);
             MainMap.Invalidate();
+        }
+
+        bool draw_rect = false;
+
+        private void BUT_Waypoints_Click(object sender, EventArgs e)
+        {
+            mode = Mode.waypoint;
+            BUT_Waypoints.Size = new Size(37, 37);
+            BUT_Waypoints.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Waypoints.Invalidate();
+        }
+
+        private void BUT_removePoint_Click(object sender, EventArgs e)
+        {
+            mode = Mode.removePoint;
+            BUT_removePoint.Size = new Size(37, 37);
+            BUT_removePoint.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Waypoints.Invalidate();
+        }
+
+        private void BUT_RedZone_Click(object sender, EventArgs e)
+        {
+            mode = Mode.waitForClick;
+            BUT_RedZone.Size = new Size(37, 37);
+            BUT_RedZone.BorderStyle = BorderStyle.Fixed3D;
+            BUT_RedZone.Invalidate();
+        }
+
+        private void BUT_removePolygon_Click(object sender, EventArgs e)
+        {
+            mode = Mode.removePolygon;
+            BUT_removePolygon.Size = new Size(37, 37);
+            BUT_removePolygon.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void BUT_GreenZone_Click(object sender, EventArgs e)
+        {
+            mode = Mode.greenZone;
+            BUT_GreenZone.Size = new Size(37, 37);
+            BUT_GreenZone.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void BUT_Polygon_Click(object sender, EventArgs e)
+        {
+            mode = Mode.polygon;
+            BUT_Polygon.Size = new Size(37, 37);
+            BUT_Polygon.BorderStyle = BorderStyle.Fixed3D;
+        }
+
+        private void BUT_Rect_Click(object sender, EventArgs e)
+        {
+            if (draw_rect)
+            {
+                draw_rect = false;
+                BUT_Rect.Size = new Size(32, 32);
+                BUT_Rect.BorderStyle = BorderStyle.None;
+            }
+            else
+            {
+                draw_rect = true;
+                BUT_Rect.Size = new Size(37, 37);
+                BUT_Rect.BorderStyle = BorderStyle.Fixed3D;
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if ((grid == null) || (grid.Count == 0))
+            {
+                CustomMessageBox.Show("Please define a grid!");
+            }
+            else
+            {
+                if (mode != Mode.land)
+                {
+                    CustomMessageBox.Show("Specify a direction by dragging your mouse");
+                    mode = Mode.land;
+                    Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
+
+                    pictureBox8.Size = new Size(37, 37);
+                    pictureBox8.BorderStyle = BorderStyle.Fixed3D;
+                }
+                else
+                {
+                    mode = Mode.waypoint;
+
+                    pictureBox8.Size = new Size(32, 32);
+                    pictureBox8.BorderStyle = BorderStyle.None;
+                }
+            }
+        }
+
+        private void BUT_startMission_Click(object sender, EventArgs e)
+        {
+        //   host.MenuFlightData_Click(null, null);
+
+            try
+            {
+                MainV2.comPort.setWPCurrent(0); // set nav to
+            }
+            catch { }
         }
 
     }

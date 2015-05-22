@@ -742,7 +742,7 @@ namespace MissionPlanner
             _connectionControl.CMB_serialport.Items.Add("UDPCl");
         }
 
-        private void MenuFlightData_Click(object sender, EventArgs e)
+        public void MenuFlightData_Click(object sender, EventArgs e)
         {
             MyView.ShowScreen("FlightData");
         }
