@@ -84,7 +84,7 @@ namespace CreateMap
             catch (Exception e1)
             {
             };
-            progressBar1.PerformStep(); ;
+            progressBar1.PerformStep();
         }
         void startSFM()
         {
@@ -93,11 +93,14 @@ namespace CreateMap
             procSFM = new Process();
             procSFM.StartInfo.FileName = pathToVisualSFM;
             procSFM.StartInfo.UseShellExecute = false;
-            procSFM.StartInfo.CreateNoWindow = true;
+            procSFM.StartInfo.CreateNoWindow = false;
             //procSFM.StartInfo.RedirectStandardOutput = true;
             procSFM.StartInfo.Arguments = "sfm+cmp " + ImagePath + " " + outPath + @"\result";
+            //procSFM.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
             procSFM.Start();
         }
+
+        
 
         void startCMPMVS()
         {
@@ -105,10 +108,11 @@ namespace CreateMap
             label1.Text = "Шаг 2 из 3 : создание карты";
             procCMPMVS = new Process();
             procCMPMVS.StartInfo.FileName = pathToCMPMVS;
-            procCMPMVS.StartInfo.UseShellExecute = true;
-            procCMPMVS.StartInfo.CreateNoWindow = true;
-           // procCMPMVS.StartInfo.RedirectStandardOutput = true;
+            procCMPMVS.StartInfo.UseShellExecute = false;
+            procCMPMVS.StartInfo.CreateNoWindow = false;
+            //procCMPMVS.StartInfo.RedirectStandardOutput = true;
             procCMPMVS.StartInfo.Arguments = outPath + @"\result.nvm.cmp\00\mvs.ini doComputeDEMandOrtoPhoto=TRUE ";
+            //procCMPMVS.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
             procCMPMVS.Start();
         }
 
