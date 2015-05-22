@@ -123,7 +123,7 @@ namespace MissionPlanner.GCSViews
                 res = res | checkifinpolygon(red, p);
             }
             if (!res)
-                CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
+                CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
 
         }
 
