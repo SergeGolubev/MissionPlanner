@@ -122,7 +122,7 @@ namespace MissionPlanner.GCSViews
             {
                 res = res | checkifinpolygon(red, p);
             }
-            if (res)
+            if (!res)
                 CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
 
         }
@@ -593,6 +593,7 @@ namespace MissionPlanner.GCSViews
                 GMapRoute seg = new GMapRoute(segment, "segment" + a.ToString());
                 seg.Stroke = new Pen(Color.Yellow, 4);
                 seg.Stroke.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+                //seg.IsVisible = false;
                 seg.IsHitTestVisible = true;
                 if (CHK_grid1.Checked)
                     routesOverlay.Routes.Add(seg);

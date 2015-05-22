@@ -1255,7 +1255,7 @@ namespace MissionPlanner.GCSViews
         private void RegenerateWPRoute(List<PointLatLngAlt> fullpointlist)
         {
 
-
+            MainMap.Overlays.Remove(routesOverlay);
             route.Clear();
             homeroute.Clear();
 
@@ -6182,9 +6182,9 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
 
         private void CalculateLanding(PointLatLng first, PointLatLng second)
         {
-            routesOverlay.Markers.Remove(land_marker_first);
-            routesOverlay.Markers.Remove(land_marker_second);
-            routesOverlay.Routes.Remove(land);
+            routesoverlay.Markers.Remove(land_marker_first);
+            routesoverlay.Markers.Remove(land_marker_second);
+            routesoverlay.Routes.Remove(land);
 
             Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
             if ((land_first.Lat != 0) && (land_first.Lng != 0))
@@ -6196,8 +6196,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             land_second = second;
             land_marker_first = new GMarkerGoogle(first, GMarkerGoogleType.green);
             land_marker_second = new GMarkerGoogle(second, GMarkerGoogleType.arrow);
-            routesOverlay.Markers.Add(land_marker_first);
-            routesOverlay.Markers.Add(land_marker_second);
+            routesoverlay.Markers.Add(land_marker_first);
+            routesoverlay.Markers.Add(land_marker_second);
 
 
             land.Points.Add(first);
@@ -6206,7 +6206,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             AddWPToMap(second.Lat, second.Lng, 2);
 
             land.Stroke = new Pen(Color.Green, 2);
-            routesOverlay.Routes.Add(land);
+            routesoverlay.Routes.Add(land);
             MainMap.Invalidate();
         }
 
