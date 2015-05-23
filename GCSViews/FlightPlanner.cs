@@ -6256,5 +6256,12 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             catch { }
         }
 
+        private void BUT_Launch_Wizard_Click(object sender, EventArgs e)
+        {
+            Wizard.Wizard wiz = new Wizard.Wizard();
+
+            wiz.ShowDialog(this);
+        }
+
     }
 }

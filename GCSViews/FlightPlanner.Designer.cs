@@ -93,6 +93,9 @@
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.BUT_Rect = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BUT_removePoint = new System.Windows.Forms.PictureBox();
             this.BUT_Polygon = new System.Windows.Forms.PictureBox();
@@ -100,8 +103,6 @@
             this.BUT_removePolygon = new System.Windows.Forms.PictureBox();
             this.BUT_RedZone = new System.Windows.Forms.PictureBox();
             this.BUT_Waypoints = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.BUT_Rect = new System.Windows.Forms.PictureBox();
             this.lbl_distance = new System.Windows.Forms.Label();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
@@ -188,6 +189,10 @@
             this.StatsPanel = new BSE.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.panel9 = new BSE.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
+            this.myButton3 = new MissionPlanner.Controls.MyButton();
             this.lbl_altitude = new System.Windows.Forms.Label();
             this.lbl_photoevery = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -211,6 +216,7 @@
             this.panelAction = new BSE.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BUT_startMission = new MissionPlanner.Controls.MyButton();
             this.myButton2 = new MissionPlanner.Controls.MyButton();
             this.Survey_Grid = new MissionPlanner.Controls.MyButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -308,15 +314,13 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CHK_camdirection = new System.Windows.Forms.CheckBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
-            this.myButton3 = new MissionPlanner.Controls.MyButton();
-            this.panel9 = new BSE.Windows.Forms.Panel();
-            this.BUT_startMission = new MissionPlanner.Controls.MyButton();
+            this.BUT_Launch_Wizard = new MissionPlanner.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_removePoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_Polygon)).BeginInit();
@@ -324,8 +328,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BUT_removePolygon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_RedZone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_Waypoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -336,6 +338,7 @@
             this.StatsPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panelAction.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -360,8 +363,6 @@
             this.tabGrid.SuspendLayout();
             this.groupBox_copter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // Commands
@@ -689,6 +690,40 @@
             this.panelMap.Name = "panelMap";
             this.panelMap.Resize += new System.EventHandler(this.panelMap_Resize);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox7.Controls.Add(this.BUT_Rect);
+            this.groupBox7.Controls.Add(this.pictureBox8);
+            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox7.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.groupBox7, "groupBox7");
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.TabStop = false;
+            // 
+            // BUT_Rect
+            // 
+            this.BUT_Rect.BackColor = System.Drawing.Color.White;
+            this.BUT_Rect.BackgroundImage = global::MissionPlanner.Properties.Resources.screen77;
+            resources.ApplyResources(this.BUT_Rect, "BUT_Rect");
+            this.BUT_Rect.InitialImage = global::MissionPlanner.Properties.Resources.screen77;
+            this.BUT_Rect.Name = "BUT_Rect";
+            this.BUT_Rect.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_Rect, resources.GetString("BUT_Rect.ToolTip"));
+            this.BUT_Rect.Click += new System.EventHandler(this.BUT_Rect_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BackgroundImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.plane24;
+            resources.ApplyResources(this.pictureBox8, "pictureBox8");
+            this.pictureBox8.InitialImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox8, resources.GetString("pictureBox8.ToolTip"));
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
@@ -765,29 +800,6 @@
             this.BUT_Waypoints.Tag = "321";
             this.toolTip1.SetToolTip(this.BUT_Waypoints, resources.GetString("BUT_Waypoints.ToolTip"));
             this.BUT_Waypoints.Click += new System.EventHandler(this.BUT_Waypoints_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.White;
-            this.pictureBox8.BackgroundImage = global::MissionPlanner.Properties.Resources.plane24;
-            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.plane24;
-            resources.ApplyResources(this.pictureBox8, "pictureBox8");
-            this.pictureBox8.InitialImage = global::MissionPlanner.Properties.Resources.plane24;
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox8, resources.GetString("pictureBox8.ToolTip"));
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
-            // BUT_Rect
-            // 
-            this.BUT_Rect.BackColor = System.Drawing.Color.White;
-            this.BUT_Rect.BackgroundImage = global::MissionPlanner.Properties.Resources.screen77;
-            resources.ApplyResources(this.BUT_Rect, "BUT_Rect");
-            this.BUT_Rect.InitialImage = global::MissionPlanner.Properties.Resources.screen77;
-            this.BUT_Rect.Name = "BUT_Rect";
-            this.BUT_Rect.TabStop = false;
-            this.toolTip1.SetToolTip(this.BUT_Rect, resources.GetString("BUT_Rect.ToolTip"));
-            this.BUT_Rect.Click += new System.EventHandler(this.BUT_Rect_Click);
             // 
             // lbl_distance
             // 
@@ -1493,6 +1505,52 @@
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.TabStop = false;
             // 
+            // panel9
+            // 
+            this.panel9.AssociatedSplitter = null;
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.CaptionFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.panel9.CaptionHeight = 27;
+            this.panel9.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
+            this.panel9.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel9.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
+            this.panel9.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel9.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.panel9.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.panel9.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CollapsedCaptionText = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.panel9.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel9.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.panel9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel9.Image = null;
+            resources.ApplyResources(this.panel9, "panel9");
+            this.panel9.Name = "panel9";
+            this.panel9.ToolTipTextCloseIcon = null;
+            this.panel9.ToolTipTextExpandIconPanelCollapsed = null;
+            this.panel9.ToolTipTextExpandIconPanelExpanded = null;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.myButton1);
+            this.panel8.Controls.Add(this.myButton3);
+            resources.ApplyResources(this.panel8, "panel8");
+            this.panel8.Name = "panel8";
+            // 
+            // myButton1
+            // 
+            resources.ApplyResources(this.myButton1, "myButton1");
+            this.myButton1.Name = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            // 
+            // myButton3
+            // 
+            resources.ApplyResources(this.myButton3, "myButton3");
+            this.myButton3.Name = "myButton3";
+            this.myButton3.UseVisualStyleBackColor = true;
+            // 
             // lbl_altitude
             // 
             resources.ApplyResources(this.lbl_altitude, "lbl_altitude");
@@ -1636,11 +1694,20 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.BUT_Launch_Wizard);
             this.panel4.Controls.Add(this.BUT_startMission);
             this.panel4.Controls.Add(this.myButton2);
             this.panel4.Controls.Add(this.Survey_Grid);
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
+            // 
+            // BUT_startMission
+            // 
+            resources.ApplyResources(this.BUT_startMission, "BUT_startMission");
+            this.BUT_startMission.Name = "BUT_startMission";
+            this.toolTip1.SetToolTip(this.BUT_startMission, resources.GetString("BUT_startMission.ToolTip"));
+            this.BUT_startMission.UseVisualStyleBackColor = true;
+            this.BUT_startMission.Click += new System.EventHandler(this.BUT_startMission_Click);
             // 
             // myButton2
             // 
@@ -2382,70 +2449,12 @@
             this.CHK_camdirection.Name = "CHK_camdirection";
             this.CHK_camdirection.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // BUT_Launch_Wizard
             // 
-            this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox7.Controls.Add(this.BUT_Rect);
-            this.groupBox7.Controls.Add(this.pictureBox8);
-            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox7.ForeColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.groupBox7, "groupBox7");
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.TabStop = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.myButton1);
-            this.panel8.Controls.Add(this.myButton3);
-            resources.ApplyResources(this.panel8, "panel8");
-            this.panel8.Name = "panel8";
-            // 
-            // myButton1
-            // 
-            resources.ApplyResources(this.myButton1, "myButton1");
-            this.myButton1.Name = "myButton1";
-            this.myButton1.UseVisualStyleBackColor = true;
-            // 
-            // myButton3
-            // 
-            resources.ApplyResources(this.myButton3, "myButton3");
-            this.myButton3.Name = "myButton3";
-            this.myButton3.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.AssociatedSplitter = null;
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.CaptionFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.panel9.CaptionHeight = 27;
-            this.panel9.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.panel9.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
-            this.panel9.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
-            this.panel9.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel9.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
-            this.panel9.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.panel9.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel9.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.panel9.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel9.CustomColors.CollapsedCaptionText = System.Drawing.SystemColors.ControlText;
-            this.panel9.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
-            this.panel9.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.panel9.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
-            this.panel9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel9.Image = null;
-            resources.ApplyResources(this.panel9, "panel9");
-            this.panel9.Name = "panel9";
-            this.panel9.ToolTipTextCloseIcon = null;
-            this.panel9.ToolTipTextExpandIconPanelCollapsed = null;
-            this.panel9.ToolTipTextExpandIconPanelExpanded = null;
-            // 
-            // BUT_startMission
-            // 
-            resources.ApplyResources(this.BUT_startMission, "BUT_startMission");
-            this.BUT_startMission.Name = "BUT_startMission";
-            this.toolTip1.SetToolTip(this.BUT_startMission, resources.GetString("BUT_startMission.ToolTip"));
-            this.BUT_startMission.UseVisualStyleBackColor = true;
-            this.BUT_startMission.Click += new System.EventHandler(this.BUT_startMission_Click);
+            resources.ApplyResources(this.BUT_Launch_Wizard, "BUT_Launch_Wizard");
+            this.BUT_Launch_Wizard.Name = "BUT_Launch_Wizard";
+            this.BUT_Launch_Wizard.UseVisualStyleBackColor = true;
+            this.BUT_Launch_Wizard.Click += new System.EventHandler(this.BUT_Launch_Wizard_Click);
             // 
             // FlightPlanner
             // 
@@ -2462,6 +2471,9 @@
             this.panelWaypoints.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BUT_removePoint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_Polygon)).EndInit();
@@ -2469,8 +2481,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.BUT_removePolygon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_RedZone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BUT_Waypoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -2483,6 +2493,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panelAction.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -2515,8 +2526,6 @@
             this.groupBox_copter.ResumeLayout(false);
             this.groupBox_copter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
          }
@@ -2779,5 +2788,6 @@
          private Controls.MyButton myButton1;
          private Controls.MyButton myButton3;
          private Controls.MyButton BUT_startMission;
+         private Controls.MyButton BUT_Launch_Wizard;
      }
  }
