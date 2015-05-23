@@ -122,7 +122,7 @@ namespace MissionPlanner.GCSViews
             {
                 res = res | checkifinpolygon(red, p);
             }
-            if (!res)
+            if (res)
                 CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
 
         }
@@ -1023,6 +1023,13 @@ namespace MissionPlanner.GCSViews
 
                     list[CurrentGMapMarkerIndex] = new PointLatLngAlt(pnew);
                     domainUpDown1_ValueChanged(sender, e);
+                    bool res = false;
+                    foreach (PointLatLng p in grid)
+                    {
+                        res = res | checkifinpolygon(red, p);
+                    }
+                    if (res)
+                        CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
                 }
                 else // left click pan
                 {
@@ -1465,6 +1472,13 @@ namespace MissionPlanner.GCSViews
         {
             // doCalc
             domainUpDown1_ValueChanged(sender, e);
+            bool res = false;
+            foreach (PointLatLng p in grid)
+            {
+                res = res | checkifinpolygon(red, p);
+            }
+            if (res)
+                CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
         }
 
         private void TXT_min_alt_TextChanged(object sender, EventArgs e)
