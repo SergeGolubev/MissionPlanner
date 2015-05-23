@@ -42,12 +42,12 @@ namespace MissionPlanner.Wizard
 
         private void BUT_continue_Click(object sender, EventArgs e)
         {
-            count++;
             if (BUT_continue.Text == "Finish")
             {
                 busy = false;
                 this.Close();
             }
+            count++;
             try
             {
                  MainV2.comPort.sendPacket(new MAVLink.mavlink_command_ack_t() { command = 1, result = count });
@@ -89,42 +89,42 @@ namespace MissionPlanner.Wizard
         {
             this.Invoke((MethodInvoker)delegate()
             {
-                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("initi") /*|| count == 0*/ ) // #### добавлено второе условие
+                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("initi") )/*&& count == 0 )*/ // #### добавлено второе условие
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("level") /*|| count == 1 */)
+                if (MainV2.comPort.MAV.cs.message.ToLower().Contains("level") )/*&& count == 1 )*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("left") /*|| count == 2*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("left") )/* && count == 2)*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration07;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("right") /*|| count == 3*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("right") ) /*&& count == 3)*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration05;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("down") /*|| count == 4*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("down") )/* && count == 4)*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration04;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("up") /*|| count == 5*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("up") ) /*&& count == 5)*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration06;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("back") /*|| count == 6*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("back") )/* && count == 6)*/
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration03;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;
                 }
-                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("calibration") /*|| count == 7*/)
+                else if (MainV2.comPort.MAV.cs.message.ToLower().Contains("calibration") ) /*&& count == 7) */
                 {
                     imageLabel1.Image = MissionPlanner.Properties.Resources.calibration01;
                     imageLabel1.Text = MainV2.comPort.MAV.cs.message;

@@ -153,7 +153,6 @@ namespace MissionPlanner.Wizard
             this.hudWizard.VSync = false;
             this.hudWizard.wpno = 0;
             this.hudWizard.xtrack_error = 0F;
-            this.hudWizard.Load += new System.EventHandler(this.hudWizard_Load);
             // 
             // bindingSourceHud
             // 
@@ -203,7 +202,6 @@ namespace MissionPlanner.Wizard
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "_5AccelCalib";
             resources.ApplyResources(this, "$this");
-            this.Load += new System.EventHandler(this.ShowHorizon);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).EndInit();

@@ -332,6 +332,8 @@ namespace MissionPlanner.GCSViews
         /// <param name="alt"></param>
         public void AddWPToMap(double lat, double lng, int alt)
         {
+            if ((checkifinpolygon(red, new PointLatLng(lat, lng))))
+                CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
             switch (mode)
             {
                 case Mode.polygon:
@@ -342,6 +344,7 @@ namespace MissionPlanner.GCSViews
                     return;
                 case Mode.redZone:
                     red.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
+                    checkallpoints();
                     return;
             }
 
@@ -388,6 +391,7 @@ namespace MissionPlanner.GCSViews
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
+       
         public FlightPlanner()
         {
             instance = this;
@@ -415,6 +419,8 @@ namespace MissionPlanner.GCSViews
             {
                 c.Click += new System.EventHandler(this.groupBox1_Click);
             }
+            groupBox1_Click(null, null);
+            BUT_Waypoints_Click(null, null);
 
             MainMap.MapScaleInfoEnabled = false;
             MainMap.ScalePen = new Pen(Color.Red);
@@ -1255,7 +1261,7 @@ namespace MissionPlanner.GCSViews
         private void RegenerateWPRoute(List<PointLatLngAlt> fullpointlist)
         {
 
-
+            MainMap.Overlays.Remove(routesOverlay);
             route.Clear();
             homeroute.Clear();
 
@@ -2558,6 +2564,7 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(null, null);
+                checkallpoints();
             }
             return;
 
@@ -2744,6 +2751,19 @@ namespace MissionPlanner.GCSViews
         }
 
 
+        void checkallpoints()
+        {
+            if ((grid != null) && (grid.Count != 0) && (red.CountPolygons() != 0))
+            {
+                bool res = false;
+                foreach (PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
+            }
+        }
 
         void MainMap_MouseUp(object sender, MouseEventArgs e)
         {
@@ -2777,6 +2797,7 @@ namespace MissionPlanner.GCSViews
                         {
                             red.setCurrent(CurentRectMarker.InnerMarker.Tag);
                             mode = Mode.redZone;
+
                         }
                         else if (CurentRectMarker == null)
                         {
@@ -2810,10 +2831,6 @@ namespace MissionPlanner.GCSViews
                     else
                     {
                         AddWPToMap(currentMarker.Position.Lat, currentMarker.Position.Lng, 0);
-                        if ((mode == Mode.waypoint) && (checkifinpolygon(red, currentMarker.Position)))
-                            CustomMessageBox.Show("No");
-                        else
-                            CustomMessageBox.Show("Yes");
                     }
                 }
                 else
@@ -2853,7 +2870,7 @@ namespace MissionPlanner.GCSViews
                     }
                 }
             }
-
+            checkallpoints();
             isMouseDraging = false;
         }
 
@@ -3363,38 +3380,6 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void BUT_GreenZone_Click(object sender, EventArgs e)
-        {
-            if (mode != Mode.greenZone)
-            {
-                //   CustomMessageBox.Show("You will remain in safety zone mode until you clear the polygon or create a grid/upload a fence");
-                mode = Mode.greenZone;
-            }
-        }
-
-
-        private void BUT_RedZone_Click(object sender, EventArgs e)
-        {
-
-            mode = Mode.waitForClick;
-            /*
-            red.AddNewPolygon();
-            
-            if (mode != Mode.redZone)
-            {
-                mode = Mode.redZone;
-            }*/
-        }
-
-        private void BUT_Polygon_Click(object sender, EventArgs e)
-        {
-            if (mode != Mode.polygon)
-            {
-                //  CustomMessageBox.Show("You will remain in polygon mode until you clear the polygon or create a grid/upload a fence");
-                mode = Mode.polygon;
-            }
-        }
-
         private void addPolygonPointToolStripMenuItem_Click(object sender, EventArgs e)
         {
             blue.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
@@ -3402,6 +3387,8 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(sender, e);
+
+                checkallpoints();
             }
         }
 
@@ -6020,35 +6007,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
         {
             TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
             domainUpDown1_ValueChanged(sender, e);
-        }
 
-        private void BUT_Waypoints_Click(object sender, EventArgs e)
-        {
-            mode = Mode.waypoint;
-        }
-
-        private void BUT_removePoint_Click(object sender, EventArgs e)
-        {
-            mode = Mode.removePoint;
-        }
-
-        private void BUT_removePolygon_Click(object sender, EventArgs e)
-        {
-            mode = Mode.removePolygon;
-        }
-
-        bool draw_rect = false;
-
-        private void BUT_Rect_Click(object sender, EventArgs e)
-        {
-            if (draw_rect)
-            {
-                draw_rect = false;
-            }
-            else
-            {
-                draw_rect = true;
-            }
+            checkallpoints();
         }
 
         private void groupBox1_Click(object sender, EventArgs e)
@@ -6059,6 +6019,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 {
                     ((PictureBox)c).Size = new Size(32, 32);
                     ((PictureBox)c).BorderStyle = BorderStyle.None;
+                    c.Invalidate();
                 }
             }
         }
@@ -6156,17 +6117,20 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 {
                     ans += Math.Atan2(cross_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point), dot_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point));
                 }
-                if (!(ans < eps && ans > -eps))
+                if ((ans < eps && ans > -eps))
                     return false;
             }
-            return true;
+            if (count != 0)
+                return true;
+            else
+                return false;
         }
 
         private void CalculateLanding(PointLatLng first, PointLatLng second)
         {
-            routesOverlay.Markers.Remove(land_marker_first);
-            routesOverlay.Markers.Remove(land_marker_second);
-            routesOverlay.Routes.Remove(land);
+            routesoverlay.Markers.Remove(land_marker_first);
+            routesoverlay.Markers.Remove(land_marker_second);
+            routesoverlay.Routes.Remove(land);
 
             Commands.Rows.RemoveAt(Commands.Rows.Count - 1);
             if ((land_first.Lat != 0) && (land_first.Lng != 0))
@@ -6178,8 +6142,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             land_second = second;
             land_marker_first = new GMarkerGoogle(first, GMarkerGoogleType.green);
             land_marker_second = new GMarkerGoogle(second, GMarkerGoogleType.arrow);
-            routesOverlay.Markers.Add(land_marker_first);
-            routesOverlay.Markers.Add(land_marker_second);
+            routesoverlay.Markers.Add(land_marker_first);
+            routesoverlay.Markers.Add(land_marker_second);
 
 
             land.Points.Add(first);
@@ -6188,72 +6152,70 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             AddWPToMap(second.Lat, second.Lng, 2);
 
             land.Stroke = new Pen(Color.Green, 2);
-            routesOverlay.Routes.Add(land);
+            routesoverlay.Routes.Add(land);
             MainMap.Invalidate();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        bool draw_rect = false;
+
+        private void BUT_Waypoints_Click(object sender, EventArgs e)
         {
             mode = Mode.waypoint;
-            pictureBox1.Size = new Size(37, 37);
-            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Waypoints.Size = new Size(37, 37);
+            BUT_Waypoints.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Waypoints.Invalidate();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void BUT_removePoint_Click(object sender, EventArgs e)
         {
             mode = Mode.removePoint;
-            pictureBox2.Size = new Size(37, 37);
-            pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+            BUT_removePoint.Size = new Size(37, 37);
+            BUT_removePoint.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Waypoints.Invalidate();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void BUT_RedZone_Click(object sender, EventArgs e)
         {
             mode = Mode.waitForClick;
-            pictureBox3.Size = new Size(37, 37);
-            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
-            /*
-            red.AddNewPolygon();
-            
-            if (mode != Mode.redZone)
-            {
-                mode = Mode.redZone;
-            }*/
+            BUT_RedZone.Size = new Size(37, 37);
+            BUT_RedZone.BorderStyle = BorderStyle.Fixed3D;
+            BUT_RedZone.Invalidate();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void BUT_removePolygon_Click(object sender, EventArgs e)
         {
             mode = Mode.removePolygon;
-            pictureBox4.Size = new Size(37, 37);
-            pictureBox4.BorderStyle = BorderStyle.Fixed3D;
+            BUT_removePolygon.Size = new Size(37, 37);
+            BUT_removePolygon.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void BUT_GreenZone_Click(object sender, EventArgs e)
         {
             mode = Mode.greenZone;
-            pictureBox5.Size = new Size(37, 37);
-            pictureBox5.BorderStyle = BorderStyle.Fixed3D;
+            BUT_GreenZone.Size = new Size(37, 37);
+            BUT_GreenZone.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        private void BUT_Polygon_Click(object sender, EventArgs e)
         {
             mode = Mode.polygon;
-            pictureBox6.Size = new Size(37, 37);
-            pictureBox6.BorderStyle = BorderStyle.Fixed3D;
+            BUT_Polygon.Size = new Size(37, 37);
+            BUT_Polygon.BorderStyle = BorderStyle.Fixed3D;
         }
 
-        private void pictureBox7_Click(object sender, EventArgs e)
+        private void BUT_Rect_Click(object sender, EventArgs e)
         {
             if (draw_rect)
             {
                 draw_rect = false;
-                pictureBox7.Size = new Size(32, 32);
-                pictureBox7.BorderStyle = BorderStyle.None;
+                BUT_Rect.Size = new Size(32, 32);
+                BUT_Rect.BorderStyle = BorderStyle.None;
             }
             else
             {
                 draw_rect = true;
-                pictureBox7.Size = new Size(37, 37);
-                pictureBox7.BorderStyle = BorderStyle.Fixed3D;
+                BUT_Rect.Size = new Size(37, 37);
+                BUT_Rect.BorderStyle = BorderStyle.Fixed3D;
             }
         }
 
@@ -6282,6 +6244,17 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     pictureBox8.BorderStyle = BorderStyle.None;
                 }
             }
+        }
+
+        private void BUT_startMission_Click(object sender, EventArgs e)
+        {
+        //   host.MenuFlightData_Click(null, null);
+
+            try
+            {
+                MainV2.comPort.setWPCurrent(0); // set nav to
+            }
+            catch { }
         }
 
     }

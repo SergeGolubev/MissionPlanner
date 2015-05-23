@@ -97,11 +97,11 @@
             // 
             this.button2.AutoSize = true;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(346, 358);
+            this.button2.Location = new System.Drawing.Point(328, 358);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 32);
+            this.button2.Size = new System.Drawing.Size(125, 32);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Continue";
+            this.button2.Text = "Продолжить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

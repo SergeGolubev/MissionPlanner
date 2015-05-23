@@ -113,14 +113,5 @@ namespace MissionPlanner.Wizard
             LBL_Height.Text = MainV2.comPort.MAV.cs.alt.ToString("0.00") + " m";
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

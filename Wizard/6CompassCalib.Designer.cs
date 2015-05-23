@@ -40,6 +40,7 @@ namespace MissionPlanner.Wizard
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
             this.gMapControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,28 +98,26 @@ namespace MissionPlanner.Wizard
             // gMapControl1
             // 
             this.gMapControl1.Bearing = 0F;
-            this.gMapControl1.CanDragMap = true;
+            this.gMapControl1.CanDragMap = false;
             this.gMapControl1.Controls.Add(this.pictureBox1);
             this.gMapControl1.EmptyTileColor = System.Drawing.Color.Gray;
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
             resources.ApplyResources(this.gMapControl1, "gMapControl1");
-            this.gMapControl1.MarkersEnabled = true;
+            this.gMapControl1.MarkersEnabled = false;
             this.gMapControl1.MaxZoom = 24;
             this.gMapControl1.MinZoom = 0;
             this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gMapControl1.Name = "gMapControl1";
             this.gMapControl1.NegativeMode = false;
-            this.gMapControl1.PolygonsEnabled = true;
+            this.gMapControl1.PolygonsEnabled = false;
             this.gMapControl1.RetryLoadTile = 0;
-            this.gMapControl1.RoutesEnabled = true;
+            this.gMapControl1.RoutesEnabled = false;
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
             this.gMapControl1.Zoom = 3D;
-            this.gMapControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseDown);
-            this.gMapControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gMapControl1_MouseMove);
             // 
             // pictureBox1
             // 
@@ -138,11 +137,21 @@ namespace MissionPlanner.Wizard
             this.timer2.Interval = 500;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.LargeChange = 2;
+            resources.ApplyResources(this.vScrollBar1, "vScrollBar1");
+            this.vScrollBar1.Maximum = 24;
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Value = 21;
+            this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
+            // 
             // _6CompassCalib
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.BUT_MagCalibrationLive);
@@ -166,6 +175,7 @@ namespace MissionPlanner.Wizard
         private Timer timer2;
         protected internal Controls.GradientBG radialGradientBG1;
         private Controls.myGMAP gMapControl1;
+        private VScrollBar vScrollBar1;
 
     }
 }

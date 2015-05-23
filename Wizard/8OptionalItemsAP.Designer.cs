@@ -112,13 +112,11 @@ namespace MissionPlanner.Wizard
             // 
             resources.ApplyResources(this.Label_Height, "Label_Height");
             this.Label_Height.Name = "Label_Height";
-            this.Label_Height.Click += new System.EventHandler(this.label5_Click);
             // 
             // LBL_Height
             // 
             resources.ApplyResources(this.LBL_Height, "LBL_Height");
             this.LBL_Height.Name = "LBL_Height";
-            this.LBL_Height.Click += new System.EventHandler(this.label6_Click);
             // 
             // label2
             // 
