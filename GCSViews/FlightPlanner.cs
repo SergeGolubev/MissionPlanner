@@ -6086,7 +6086,8 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                     red.Clear();
                 if (green != null)
                     green.Clear();
-
+                if (red != null)
+                    red.Clear();
                 MainMap.Invalidate();
             }
         }
