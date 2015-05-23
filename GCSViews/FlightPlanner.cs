@@ -332,6 +332,8 @@ namespace MissionPlanner.GCSViews
         /// <param name="alt"></param>
         public void AddWPToMap(double lat, double lng, int alt)
         {
+            if ((checkifinpolygon(red, new PointLatLng(lat, lng))))
+                CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
             switch (mode)
             {
                 case Mode.polygon:
@@ -342,6 +344,7 @@ namespace MissionPlanner.GCSViews
                     return;
                 case Mode.redZone:
                     red.addPoint(MouseDownStart.Lat, MouseDownStart.Lng);
+                    checkallpoints();
                     return;
             }
 
@@ -2558,13 +2561,7 @@ namespace MissionPlanner.GCSViews
             if (panel6.Visible)
             {
                 domainUpDown1_ValueChanged(null, null);
-                bool res = true;
-                foreach(PointLatLng p in grid)
-                {
-                    res = res | checkifinpolygon(red, p);
-                }
-                if (!res)
-                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
+                checkallpoints();
             }
             return;
 
@@ -2751,6 +2748,19 @@ namespace MissionPlanner.GCSViews
         }
 
 
+        void checkallpoints()
+        {
+            if ((grid != null) && (grid.Count != 0) && (red.CountPolygons() != 0))
+            {
+                bool res = false;
+                foreach (PointLatLng p in grid)
+                {
+                    res = res | checkifinpolygon(red, p);
+                }
+                if (res)
+                    CustomMessageBox.Show("Your path lies in the restricted zone, consider altering it");
+            }
+        }
 
         void MainMap_MouseUp(object sender, MouseEventArgs e)
         {
@@ -2784,6 +2794,7 @@ namespace MissionPlanner.GCSViews
                         {
                             red.setCurrent(CurentRectMarker.InnerMarker.Tag);
                             mode = Mode.redZone;
+
                         }
                         else if (CurentRectMarker == null)
                         {
@@ -2856,7 +2867,7 @@ namespace MissionPlanner.GCSViews
                     }
                 }
             }
-
+            checkallpoints();
             isMouseDraging = false;
         }
 
@@ -3406,13 +3417,7 @@ namespace MissionPlanner.GCSViews
             {
                 domainUpDown1_ValueChanged(sender, e);
 
-                bool res = true;
-                foreach (PointLatLng p in grid)
-                {
-                    res = res | checkifinpolygon(red, p);
-                }
-                if (!res)
-                    CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
+                checkallpoints();
             }
         }
 
@@ -6032,13 +6037,7 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
             TXT_overlap.Text = TBAR_overlap.Value.ToString() + "%";
             domainUpDown1_ValueChanged(sender, e);
 
-            bool res = true;
-            foreach (PointLatLng p in grid)
-            {
-                res = res | checkifinpolygon(red, p);
-            }
-            if (!res)
-                CustomMessageBox.Show("Your path lies in the restricted zone; consider altering it");
+            checkallpoints();
         }
 
         private void BUT_Waypoints_Click(object sender, EventArgs e)
@@ -6174,10 +6173,13 @@ Column 1: Field type (RALLY is the only one at the moment -- may have RALLY_LAND
                 {
                     ans += Math.Atan2(cross_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point), dot_product(list[i].polygon.Points[(j - 1) % numpoints], list[i].polygon.Points[(j % numpoints)], point));
                 }
-                if (!(ans < eps && ans > -eps))
+                if ((ans < eps && ans > -eps))
                     return false;
             }
-            return true;
+            if (count != 0)
+                return true;
+            else
+                return false;
         }
 
         private void CalculateLanding(PointLatLng first, PointLatLng second)
