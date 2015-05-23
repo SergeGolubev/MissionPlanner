@@ -289,7 +289,6 @@ namespace MissionPlanner
             log.Info("Mainv2 ctor");
 
             ShowAirports = true;
-
             // setup adsb
             Utilities.adsb.UpdatePlanePosition += adsb_UpdatePlanePosition;
 
@@ -599,11 +598,11 @@ namespace MissionPlanner
 
             if (Program.Logo != null && Program.vvvvz)
             {
-                MenuDonate.Click -= this.toolStripMenuItem1_Click;
-                MenuDonate.Text = "";
-                MenuDonate.Image = Program.Logo;
+                MenuCreateMap.Click -= this.CreateMap_Click;
+                MenuCreateMap.Text = "";
+                MenuCreateMap.Image = Program.Logo;
 
-                MenuDonate.Click += MenuCustom_Click;
+                MenuCreateMap.Click += MenuCustom_Click;
 
                 MenuFlightData.Visible = false;
                 MenuFlightPlanner.Visible = true;
@@ -626,9 +625,11 @@ namespace MissionPlanner
             }
 
 
-            MenuDonate.Text = "CREATE MAP";
-        }
+            MenuCreateMap.Text = "CREATE MAP";
+            checkBox1_CheckedChanged_1(null, null);
 
+        }
+ 
         private void BGLoadAirports(object nothing)
         {
             // read airport list
@@ -741,7 +742,7 @@ namespace MissionPlanner
             _connectionControl.CMB_serialport.Items.Add("UDPCl");
         }
 
-        private void MenuFlightData_Click(object sender, EventArgs e)
+        public void MenuFlightData_Click(object sender, EventArgs e)
         {
             MyView.ShowScreen("FlightData");
         }
@@ -2621,7 +2622,7 @@ namespace MissionPlanner
             Console.WriteLine("MainV2_KeyDown " + e.ToString());
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        private void CreateMap_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"..\CreateMap\CreateMap.exe");
            /*try
@@ -2792,7 +2793,7 @@ namespace MissionPlanner
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (CHK_Anvanced.Checked)
             {
                 MenuConfigTune.Visible = true;
                 MenuSimulation.Visible = true;
@@ -2853,24 +2854,26 @@ namespace MissionPlanner
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (CHK_Anvanced.Checked)
             {
                 MenuConfigTune.Visible = true;
                 MenuSimulation.Visible = true;
                 MenuTerminal.Visible = true;
-                MenuDonate.Visible = true;
+                MenuCreateMap.Visible = true;
+                MenuInitConfig.Visible = true;
             }
             else
             {
                 MenuConfigTune.Visible = false;
                 MenuSimulation.Visible = false;
                 MenuTerminal.Visible = false;
-                MenuDonate.Visible = false;
+                //MenuDonate.Visible = false;
+                MenuInitConfig.Visible = false;
+            
                 //MainMenu.Items.Remove(MenuTerminal);
                // MainMenu.Refresh();
             }
         }
-
 
     }
 }

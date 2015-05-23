@@ -44,14 +44,14 @@ namespace MissionPlanner
             this.MenuInitConfig = new System.Windows.Forms.ToolStripButton();
             this.MenuConfigTune = new System.Windows.Forms.ToolStripButton();
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
-            this.MenuDonate = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuCreateMap = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuTerminal = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CHK_Anvanced = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -67,11 +67,11 @@ namespace MissionPlanner
             this.MenuFlightData,
             this.MenuFlightPlanner,
             this.MenuInitConfig,
+            this.MenuHelp,
             this.MenuConfigTune,
             this.MenuSimulation,
-            this.MenuDonate,
+            this.MenuCreateMap,
             this.MenuTerminal,
-            this.MenuHelp,
             this.MenuConnect,
             this.toolStripConnectionControl});
             resources.ApplyResources(this.MainMenu, "MainMenu");
@@ -152,14 +152,14 @@ namespace MissionPlanner
             this.MenuSimulation.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.MenuSimulation.Click += new System.EventHandler(this.MenuSimulation_Click);
             // 
-            // MenuDonate
+            // MenuCreateMap
             // 
-            resources.ApplyResources(this.MenuDonate, "MenuDonate");
-            this.MenuDonate.ForeColor = System.Drawing.Color.White;
-            this.MenuDonate.Image = global::MissionPlanner.Properties.Resources.donate;
-            this.MenuDonate.Name = "MenuDonate";
-            this.MenuDonate.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.MenuDonate.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            resources.ApplyResources(this.MenuCreateMap, "MenuCreateMap");
+            this.MenuCreateMap.ForeColor = System.Drawing.Color.White;
+            this.MenuCreateMap.Image = global::MissionPlanner.Properties.Resources.donate;
+            this.MenuCreateMap.Name = "MenuCreateMap";
+            this.MenuCreateMap.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.MenuCreateMap.Click += new System.EventHandler(this.CreateMap_Click);
             // 
             // MenuTerminal
             // 
@@ -208,24 +208,27 @@ namespace MissionPlanner
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.BackgroundImage = global::MissionPlanner.Properties.Resources.bgdark;
+            this.panel1.Controls.Add(this.CHK_Anvanced);
             this.panel1.Controls.Add(this.MainMenu);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
-            // checkBox1
+            // CHK_Anvanced
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            resources.ApplyResources(this.CHK_Anvanced, "CHK_Anvanced");
+            this.CHK_Anvanced.BackColor = System.Drawing.Color.Transparent;
+            this.CHK_Anvanced.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CHK_Anvanced.Name = "CHK_Anvanced";
+            this.CHK_Anvanced.UseVisualStyleBackColor = false;
+            this.CHK_Anvanced.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // MainV2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
             this.KeyPreview = true;
@@ -239,7 +242,6 @@ namespace MissionPlanner
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -259,10 +261,10 @@ namespace MissionPlanner
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip CTX_mainmenu;
         private System.Windows.Forms.ToolStripMenuItem autoHideToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MenuDonate;
+        private System.Windows.Forms.ToolStripMenuItem MenuCreateMap;
         public System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem fullScreenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readonlyToolStripMenuItem;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CHK_Anvanced;
     }
 }

@@ -93,16 +93,15 @@
             this.BUT_Add = new MissionPlanner.Controls.MyButton();
             this.splitter2 = new BSE.Windows.Forms.Splitter();
             this.panelMap = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.myButton1 = new MissionPlanner.Controls.MyButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BUT_removePolygon = new MissionPlanner.Controls.MyButton();
-            this.BUT_Polygon = new MissionPlanner.Controls.MyButton();
-            this.BUT_Waypoints = new MissionPlanner.Controls.MyButton();
-            this.BUT_RedZone = new MissionPlanner.Controls.MyButton();
-            this.BUT_removePoint = new MissionPlanner.Controls.MyButton();
-            this.BUT_GreenZone = new MissionPlanner.Controls.MyButton();
-            this.BUT_Rect = new MissionPlanner.Controls.MyButton();
+            this.BUT_removePoint = new System.Windows.Forms.PictureBox();
+            this.BUT_Polygon = new System.Windows.Forms.PictureBox();
+            this.BUT_GreenZone = new System.Windows.Forms.PictureBox();
+            this.BUT_removePolygon = new System.Windows.Forms.PictureBox();
+            this.BUT_RedZone = new System.Windows.Forms.PictureBox();
+            this.BUT_Waypoints = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.BUT_Rect = new System.Windows.Forms.PictureBox();
             this.lbl_distance = new System.Windows.Forms.Label();
             this.lbl_homedist = new System.Windows.Forms.Label();
             this.lbl_prevdist = new System.Windows.Forms.Label();
@@ -309,11 +308,24 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CHK_camdirection = new System.Windows.Forms.CheckBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.myButton1 = new MissionPlanner.Controls.MyButton();
+            this.myButton3 = new MissionPlanner.Controls.MyButton();
+            this.panel9 = new BSE.Windows.Forms.Panel();
+            this.BUT_startMission = new MissionPlanner.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.Commands)).BeginInit();
             this.panelWaypoints.SuspendLayout();
             this.panelMap.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_removePoint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Polygon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_GreenZone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_removePolygon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_RedZone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Waypoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -348,6 +360,8 @@
             this.tabGrid.SuspendLayout();
             this.groupBox_copter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // Commands
@@ -662,7 +676,8 @@
             // 
             // panelMap
             // 
-            this.panelMap.Controls.Add(this.panel8);
+            this.panelMap.Controls.Add(this.groupBox7);
+            this.panelMap.Controls.Add(this.groupBox1);
             this.panelMap.Controls.Add(this.lbl_distance);
             this.panelMap.Controls.Add(this.lbl_homedist);
             this.panelMap.Controls.Add(this.lbl_prevdist);
@@ -674,111 +689,104 @@
             this.panelMap.Name = "panelMap";
             this.panelMap.Resize += new System.EventHandler(this.panelMap_Resize);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.myButton1);
-            this.panel8.Controls.Add(this.groupBox1);
-            this.panel8.Controls.Add(this.BUT_Rect);
-            resources.ApplyResources(this.panel8, "panel8");
-            this.panel8.Name = "panel8";
-            // 
-            // myButton1
-            // 
-            this.myButton1.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.myButton1.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.myButton1, "myButton1");
-            this.myButton1.Name = "myButton1";
-            this.myButton1.Outline = System.Drawing.Color.Black;
-            this.myButton1.TextColor = System.Drawing.Color.Black;
-            this.myButton1.UseVisualStyleBackColor = true;
-            this.myButton1.Click += new System.EventHandler(this.myButton1_Click);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.BUT_removePolygon);
-            this.groupBox1.Controls.Add(this.BUT_Polygon);
-            this.groupBox1.Controls.Add(this.BUT_Waypoints);
-            this.groupBox1.Controls.Add(this.BUT_RedZone);
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.BUT_removePoint);
+            this.groupBox1.Controls.Add(this.BUT_Polygon);
             this.groupBox1.Controls.Add(this.BUT_GreenZone);
+            this.groupBox1.Controls.Add(this.BUT_removePolygon);
+            this.groupBox1.Controls.Add(this.BUT_RedZone);
+            this.groupBox1.Controls.Add(this.BUT_Waypoints);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox1.ForeColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Click);
             // 
-            // BUT_removePolygon
+            // BUT_removePoint
             // 
-            this.BUT_removePolygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BUT_removePolygon.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.BUT_removePolygon, "BUT_removePolygon");
-            this.BUT_removePolygon.Name = "BUT_removePolygon";
-            this.BUT_removePolygon.Outline = System.Drawing.Color.MidnightBlue;
-            this.BUT_removePolygon.UseVisualStyleBackColor = true;
-            this.BUT_removePolygon.Click += new System.EventHandler(this.BUT_removePolygon_Click);
+            this.BUT_removePoint.BackgroundImage = global::MissionPlanner.Properties.Resources.pointer17;
+            resources.ApplyResources(this.BUT_removePoint, "BUT_removePoint");
+            this.BUT_removePoint.InitialImage = global::MissionPlanner.Properties.Resources.pointer17;
+            this.BUT_removePoint.Name = "BUT_removePoint";
+            this.BUT_removePoint.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_removePoint, resources.GetString("BUT_removePoint.ToolTip"));
+            this.BUT_removePoint.Click += new System.EventHandler(this.BUT_removePoint_Click);
             // 
             // BUT_Polygon
             // 
-            this.BUT_Polygon.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.BUT_Polygon.BGGradTop = System.Drawing.Color.Blue;
+            this.BUT_Polygon.BackgroundImage = global::MissionPlanner.Properties.Resources.irregular10;
             resources.ApplyResources(this.BUT_Polygon, "BUT_Polygon");
+            this.BUT_Polygon.InitialImage = global::MissionPlanner.Properties.Resources.irregular10;
             this.BUT_Polygon.Name = "BUT_Polygon";
-            this.BUT_Polygon.Outline = System.Drawing.Color.Black;
-            this.BUT_Polygon.TextColor = System.Drawing.Color.Black;
-            this.BUT_Polygon.UseVisualStyleBackColor = true;
+            this.BUT_Polygon.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_Polygon, resources.GetString("BUT_Polygon.ToolTip"));
             this.BUT_Polygon.Click += new System.EventHandler(this.BUT_Polygon_Click);
-            // 
-            // BUT_Waypoints
-            // 
-            this.BUT_Waypoints.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BUT_Waypoints.BGGradTop = System.Drawing.Color.Yellow;
-            resources.ApplyResources(this.BUT_Waypoints, "BUT_Waypoints");
-            this.BUT_Waypoints.Name = "BUT_Waypoints";
-            this.BUT_Waypoints.Outline = System.Drawing.Color.Black;
-            this.BUT_Waypoints.TextColor = System.Drawing.Color.Black;
-            this.BUT_Waypoints.UseVisualStyleBackColor = true;
-            this.BUT_Waypoints.Click += new System.EventHandler(this.BUT_Waypoints_Click);
-            // 
-            // BUT_RedZone
-            // 
-            this.BUT_RedZone.BGGradBot = System.Drawing.Color.Red;
-            this.BUT_RedZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            resources.ApplyResources(this.BUT_RedZone, "BUT_RedZone");
-            this.BUT_RedZone.Name = "BUT_RedZone";
-            this.BUT_RedZone.Outline = System.Drawing.Color.Black;
-            this.BUT_RedZone.TextColor = System.Drawing.Color.Black;
-            this.BUT_RedZone.UseVisualStyleBackColor = true;
-            this.BUT_RedZone.Click += new System.EventHandler(this.BUT_RedZone_Click);
-            // 
-            // BUT_removePoint
-            // 
-            this.BUT_removePoint.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.BUT_removePoint.BGGradTop = System.Drawing.Color.White;
-            resources.ApplyResources(this.BUT_removePoint, "BUT_removePoint");
-            this.BUT_removePoint.Name = "BUT_removePoint";
-            this.BUT_removePoint.Outline = System.Drawing.Color.MidnightBlue;
-            this.BUT_removePoint.UseVisualStyleBackColor = true;
-            this.BUT_removePoint.Click += new System.EventHandler(this.BUT_removePoint_Click);
             // 
             // BUT_GreenZone
             // 
-            this.BUT_GreenZone.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.BUT_GreenZone.BGGradTop = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BUT_GreenZone.BackgroundImage = global::MissionPlanner.Properties.Resources.shield114;
             resources.ApplyResources(this.BUT_GreenZone, "BUT_GreenZone");
+            this.BUT_GreenZone.InitialImage = global::MissionPlanner.Properties.Resources.shield114;
             this.BUT_GreenZone.Name = "BUT_GreenZone";
-            this.BUT_GreenZone.Outline = System.Drawing.Color.Black;
-            this.BUT_GreenZone.TextColor = System.Drawing.Color.Black;
-            this.BUT_GreenZone.UseVisualStyleBackColor = true;
+            this.BUT_GreenZone.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_GreenZone, resources.GetString("BUT_GreenZone.ToolTip"));
             this.BUT_GreenZone.Click += new System.EventHandler(this.BUT_GreenZone_Click);
+            // 
+            // BUT_removePolygon
+            // 
+            this.BUT_removePolygon.BackgroundImage = global::MissionPlanner.Properties.Resources.irregular11;
+            resources.ApplyResources(this.BUT_removePolygon, "BUT_removePolygon");
+            this.BUT_removePolygon.InitialImage = global::MissionPlanner.Properties.Resources.irregular11;
+            this.BUT_removePolygon.Name = "BUT_removePolygon";
+            this.BUT_removePolygon.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_removePolygon, resources.GetString("BUT_removePolygon.ToolTip"));
+            this.BUT_removePolygon.Click += new System.EventHandler(this.BUT_removePolygon_Click);
+            // 
+            // BUT_RedZone
+            // 
+            this.BUT_RedZone.BackgroundImage = global::MissionPlanner.Properties.Resources.warning41;
+            resources.ApplyResources(this.BUT_RedZone, "BUT_RedZone");
+            this.BUT_RedZone.InitialImage = global::MissionPlanner.Properties.Resources.warning41;
+            this.BUT_RedZone.Name = "BUT_RedZone";
+            this.BUT_RedZone.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_RedZone, resources.GetString("BUT_RedZone.ToolTip"));
+            this.BUT_RedZone.Click += new System.EventHandler(this.BUT_RedZone_Click);
+            // 
+            // BUT_Waypoints
+            // 
+            this.BUT_Waypoints.Image = global::MissionPlanner.Properties.Resources.map4;
+            resources.ApplyResources(this.BUT_Waypoints, "BUT_Waypoints");
+            this.BUT_Waypoints.InitialImage = global::MissionPlanner.Properties.Resources.map4;
+            this.BUT_Waypoints.Name = "BUT_Waypoints";
+            this.BUT_Waypoints.TabStop = false;
+            this.BUT_Waypoints.Tag = "321";
+            this.toolTip1.SetToolTip(this.BUT_Waypoints, resources.GetString("BUT_Waypoints.ToolTip"));
+            this.BUT_Waypoints.Click += new System.EventHandler(this.BUT_Waypoints_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
+            this.pictureBox8.BackgroundImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Image = global::MissionPlanner.Properties.Resources.plane24;
+            resources.ApplyResources(this.pictureBox8, "pictureBox8");
+            this.pictureBox8.InitialImage = global::MissionPlanner.Properties.Resources.plane24;
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox8, resources.GetString("pictureBox8.ToolTip"));
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // BUT_Rect
             // 
-            this.BUT_Rect.BGGradBot = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BUT_Rect.BGGradTop = System.Drawing.Color.White;
+            this.BUT_Rect.BackColor = System.Drawing.Color.White;
+            this.BUT_Rect.BackgroundImage = global::MissionPlanner.Properties.Resources.screen77;
             resources.ApplyResources(this.BUT_Rect, "BUT_Rect");
+            this.BUT_Rect.InitialImage = global::MissionPlanner.Properties.Resources.screen77;
             this.BUT_Rect.Name = "BUT_Rect";
-            this.BUT_Rect.Outline = System.Drawing.Color.Black;
-            this.BUT_Rect.TextColor = System.Drawing.Color.Black;
-            this.BUT_Rect.UseVisualStyleBackColor = true;
+            this.BUT_Rect.TabStop = false;
+            this.toolTip1.SetToolTip(this.BUT_Rect, resources.GetString("BUT_Rect.ToolTip"));
             this.BUT_Rect.Click += new System.EventHandler(this.BUT_Rect_Click);
             // 
             // lbl_distance
@@ -817,7 +825,7 @@
             // MainMap
             // 
             resources.ApplyResources(this.MainMap, "MainMap");
-            this.MainMap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.MainMap.BackColor = System.Drawing.Color.Transparent;
             this.MainMap.Bearing = 0F;
             this.MainMap.CanDragMap = true;
             this.MainMap.ContextMenuStrip = this.contextMenuStrip1;
@@ -1459,6 +1467,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.panel9);
+            this.groupBox5.Controls.Add(this.panel8);
             this.groupBox5.Controls.Add(this.lbl_altitude);
             this.groupBox5.Controls.Add(this.lbl_photoevery);
             this.groupBox5.Controls.Add(this.label35);
@@ -1626,6 +1636,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.BUT_startMission);
             this.panel4.Controls.Add(this.myButton2);
             this.panel4.Controls.Add(this.Survey_Grid);
             resources.ApplyResources(this.panel4, "panel4");
@@ -1635,6 +1646,7 @@
             // 
             resources.ApplyResources(this.myButton2, "myButton2");
             this.myButton2.Name = "myButton2";
+            this.toolTip1.SetToolTip(this.myButton2, resources.GetString("myButton2.ToolTip"));
             this.myButton2.UseVisualStyleBackColor = true;
             this.myButton2.Click += new System.EventHandler(this.myButton2_Click);
             // 
@@ -2370,6 +2382,71 @@
             this.CHK_camdirection.Name = "CHK_camdirection";
             this.CHK_camdirection.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox7.Controls.Add(this.BUT_Rect);
+            this.groupBox7.Controls.Add(this.pictureBox8);
+            this.groupBox7.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox7.ForeColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.groupBox7, "groupBox7");
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.myButton1);
+            this.panel8.Controls.Add(this.myButton3);
+            resources.ApplyResources(this.panel8, "panel8");
+            this.panel8.Name = "panel8";
+            // 
+            // myButton1
+            // 
+            resources.ApplyResources(this.myButton1, "myButton1");
+            this.myButton1.Name = "myButton1";
+            this.myButton1.UseVisualStyleBackColor = true;
+            // 
+            // myButton3
+            // 
+            resources.ApplyResources(this.myButton3, "myButton3");
+            this.myButton3.Name = "myButton3";
+            this.myButton3.UseVisualStyleBackColor = true;
+            // 
+            // panel9
+            // 
+            this.panel9.AssociatedSplitter = null;
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.CaptionFont = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.panel9.CaptionHeight = 27;
+            this.panel9.CustomColors.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
+            this.panel9.CustomColors.CaptionCloseIcon = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CaptionExpandIcon = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CaptionGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel9.CustomColors.CaptionGradientEnd = System.Drawing.SystemColors.ButtonFace;
+            this.panel9.CustomColors.CaptionGradientMiddle = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.panel9.CustomColors.CaptionSelectedGradientBegin = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.panel9.CustomColors.CaptionSelectedGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.panel9.CustomColors.CaptionText = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.CollapsedCaptionText = System.Drawing.SystemColors.ControlText;
+            this.panel9.CustomColors.ContentGradientBegin = System.Drawing.SystemColors.ButtonFace;
+            this.panel9.CustomColors.ContentGradientEnd = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
+            this.panel9.CustomColors.InnerBorderColor = System.Drawing.SystemColors.Window;
+            this.panel9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel9.Image = null;
+            resources.ApplyResources(this.panel9, "panel9");
+            this.panel9.Name = "panel9";
+            this.panel9.ToolTipTextCloseIcon = null;
+            this.panel9.ToolTipTextExpandIconPanelCollapsed = null;
+            this.panel9.ToolTipTextExpandIconPanelExpanded = null;
+            // 
+            // BUT_startMission
+            // 
+            resources.ApplyResources(this.BUT_startMission, "BUT_startMission");
+            this.BUT_startMission.Name = "BUT_startMission";
+            this.toolTip1.SetToolTip(this.BUT_startMission, resources.GetString("BUT_startMission.ToolTip"));
+            this.BUT_startMission.UseVisualStyleBackColor = true;
+            this.BUT_startMission.Click += new System.EventHandler(this.BUT_startMission_Click);
+            // 
             // FlightPlanner
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -2385,8 +2462,15 @@
             this.panelWaypoints.PerformLayout();
             this.panelMap.ResumeLayout(false);
             this.panelMap.PerformLayout();
-            this.panel8.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_removePoint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Polygon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_GreenZone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_removePolygon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_RedZone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Waypoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUT_Rect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -2431,6 +2515,8 @@
             this.groupBox_copter.ResumeLayout(false);
             this.groupBox_copter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_copter_delay)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
          }
@@ -2677,16 +2763,21 @@
          private System.Windows.Forms.Label lbl_area;
          private System.Windows.Forms.Label label23;
          private System.Windows.Forms.Label label22;
-         private System.Windows.Forms.Panel panel8;
-         private Controls.MyButton BUT_Rect;
-         private System.Windows.Forms.GroupBox groupBox1;
-         private Controls.MyButton BUT_removePolygon;
-         private Controls.MyButton BUT_Polygon;
-         private Controls.MyButton BUT_Waypoints;
-         private Controls.MyButton BUT_RedZone;
-         private Controls.MyButton BUT_removePoint;
-         private Controls.MyButton BUT_GreenZone;
-         private Controls.MyButton myButton1;
          private Controls.MyButton myButton2;
+         private System.Windows.Forms.PictureBox BUT_Rect;
+         private System.Windows.Forms.PictureBox pictureBox8;
+         private System.Windows.Forms.GroupBox groupBox1;
+         private System.Windows.Forms.PictureBox BUT_removePoint;
+         private System.Windows.Forms.PictureBox BUT_Polygon;
+         private System.Windows.Forms.PictureBox BUT_GreenZone;
+         private System.Windows.Forms.PictureBox BUT_removePolygon;
+         private System.Windows.Forms.PictureBox BUT_RedZone;
+         private System.Windows.Forms.PictureBox BUT_Waypoints;
+         private System.Windows.Forms.GroupBox groupBox7;
+         private BSE.Windows.Forms.Panel panel9;
+         private System.Windows.Forms.Panel panel8;
+         private Controls.MyButton myButton1;
+         private Controls.MyButton myButton3;
+         private Controls.MyButton BUT_startMission;
      }
  }

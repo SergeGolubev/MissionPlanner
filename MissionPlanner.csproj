@@ -2452,6 +2452,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainV2.resx">
       <DependentUpon>MainV2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GCSViews\ConfigurationView\ConfigFirmware.resx">
       <DependentUpon>ConfigFirmware.cs</DependentUpon>
@@ -6193,6 +6194,9 @@
     <None Include="Resources\marker_06.png" />
     <None Include="Resources\marker_07.png" />
     <None Include="Resources\heli.png" />
+    <None Include="Resources\irregular10.png" />
+    <None Include="Resources\irregular11.png" />
+    <None Include="Resources\map4.png" />
     <Content Include="Resources\MAVCmd.zh-TW.txt" />
     <Content Include="Resources\MAVParam.zh-TW.txt" />
     <Content Include="Resources\new frames-01.png" />
@@ -6205,9 +6209,15 @@
     <None Include="Resources\PlusFramesGreen_04.png" />
     <None Include="Resources\PlusFramesGreen_06.png" />
     <None Include="Resources\pixhawk.jpg" />
+    <None Include="Resources\plane24.png" />
+    <None Include="Resources\pointer16.png" />
+    <None Include="Resources\pointer17.png" />
     <Content Include="Resources\rover.png" />
+    <None Include="Resources\screen77.png" />
+    <None Include="Resources\shield114.png" />
     <Content Include="Resources\splash.jpg" />
     <None Include="Resources\donate.png" />
+    <None Include="Resources\warning41.png" />
     <Content Include="Scripts\datetime.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
