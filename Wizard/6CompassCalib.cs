@@ -35,22 +35,56 @@ namespace MissionPlanner.Wizard
     {
         private float prevDegree;
         internal PointLatLng MouseDownStart = new PointLatLng();
+        internal static GMapOverlay tfrpolygons;
+        internal static GMapOverlay kmlpolygons;
+        internal static GMapOverlay geofence;
+        internal static GMapOverlay rallypointoverlay;
+        internal static GMapOverlay poioverlay = new GMapOverlay("POI"); // poi layer
+        GMapOverlay polygons;
+        GMapOverlay routes;
+        GMapRoute route;
         public _6CompassCalib()
         {
             InitializeComponent();
 
             // map configuring
             gMapControl1.CacheLocation = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "gmapcache" + Path.DirectorySeparatorChar;
-            gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
+            gMapControl1.MapProvider = GoogleMapProvider.Instance;
             gMapControl1.MinZoom = 0;
             gMapControl1.MaxZoom = 24;
-            gMapControl1.Zoom = 3;
+            gMapControl1.Zoom = 24 - vScrollBar1.Value;
             gMapControl1.DisableFocusOnMouseEnter = true;
             gMapControl1.RoutesEnabled = true;
             gMapControl1.PolygonsEnabled = true;
 
+             tfrpolygons = new GMapOverlay("tfrpolygons");
+            gMapControl1.Overlays.Add(tfrpolygons);
+            tfrpolygons.IsVisibile = true;
+
+            kmlpolygons = new GMapOverlay("kmlpolygons");
+            gMapControl1.Overlays.Add(kmlpolygons);
+            kmlpolygons.IsVisibile = true;
+
+            geofence = new GMapOverlay("geofence");
+            gMapControl1.Overlays.Add(geofence);
+            geofence.IsVisibile = true;
+            
+            polygons = new GMapOverlay("polygons");
+            gMapControl1.Overlays.Add(polygons);
+            polygons.IsVisibile = true;
+            
+            routes = new GMapOverlay("routes");
+            gMapControl1.Overlays.Add(routes);
+            routes.IsVisibile = true;
+           
+            
+            rallypointoverlay = new GMapOverlay("rally points");
+            gMapControl1.Overlays.Add(rallypointoverlay);
+            rallypointoverlay.IsVisibile = true;
+
+            gMapControl1.Overlays.Add(poioverlay);
             gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
-            //gMapControl1.Position = new PointLatLng( 243, 67);
+            poioverlay.IsVisibile = true;
             prevDegree = 0;     
         }
 
@@ -254,36 +288,14 @@ namespace MissionPlanner.Wizard
         private void timer2_Tick(object sender, EventArgs e)
         { 
             gMapControl1.Position = new PointLatLng(MainV2.comPort.MAV.cs.lat, MainV2.comPort.MAV.cs.lng);
-            //gMapControl1.Position = new PointLatLng(12, 67); /////////////////////////////////////////////////////// поменять
             pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictureBox1.Image.Width / 2), MainV2.comPort.MAV.cs.yaw - prevDegree);
-            //pictureBox1.Image = (Image)RotateImage((Bitmap)pictureBox1.Image, new PointF(pictureBox1.Image.Height / 2, pictur);
             prevDegree = MainV2.comPort.MAV.cs.yaw;
         }
 
-        //methods of Map
 
-        private void gMapControl1_MouseDown(object sender, MouseEventArgs e)
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            MouseDownStart = gMapControl1.FromLocalToLatLng(e.X, e.Y);
-
-        }
-
-
-        private void gMapControl1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                PointLatLng point = gMapControl1.FromLocalToLatLng(e.X, e.Y);
-
-                double latdif = MouseDownStart.Lat - point.Lat;
-                double lngdif = MouseDownStart.Lng - point.Lng;
-
-                try
-                {
-                    gMapControl1.Position = new PointLatLng(gMapControl1.Position.Lat + latdif, gMapControl1.Position.Lng + lngdif);
-                }
-                catch { }
-            }
+            gMapControl1.Zoom = 24 - vScrollBar1.Value;
         }
     }
 }

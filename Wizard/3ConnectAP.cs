@@ -21,6 +21,7 @@ namespace MissionPlanner.Wizard
         string comport = "";
         bool fwdone = false;
         private bool usebeta;
+        int frequency = 115200;
 
         public _3ConnectAP()
         {
@@ -114,7 +115,7 @@ namespace MissionPlanner.Wizard
                 MainV2.comPort.BaseStream.Close();
 
             // setup for over usb
-            MainV2.comPort.BaseStream.BaudRate = 115200;
+            MainV2.comPort.BaseStream.BaudRate = frequency;
             MainV2.comPort.BaseStream.PortName = comport;
 
 
@@ -284,7 +285,7 @@ namespace MissionPlanner.Wizard
             }
 
             MainV2.comPort.BaseStream.PortName = CMB_port.Text;
-            MainV2.comPort.BaseStream.BaudRate = 115200;
+            MainV2.comPort.BaseStream.BaudRate = frequency;
 
             if (!MainV2.comPort.BaseStream.IsOpen)
                 MainV2.comPort.Open(true);
@@ -310,6 +311,18 @@ namespace MissionPlanner.Wizard
         private void CMB_port_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                frequency = 57600;
+            }
+            else
+            {
+                frequency = 115200;
+            }
         }
 
         

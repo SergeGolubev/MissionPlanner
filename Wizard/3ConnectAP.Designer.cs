@@ -39,6 +39,7 @@ namespace MissionPlanner.Wizard
             this.CMB_port = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radialGradientBG1.Image)).BeginInit();
@@ -111,6 +112,7 @@ namespace MissionPlanner.Wizard
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.checkBox1);
             this.panel4.Controls.Add(this.CMB_port);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label8);
@@ -138,6 +140,13 @@ namespace MissionPlanner.Wizard
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
             this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // _3ConnectAP
             // 
@@ -171,6 +180,7 @@ namespace MissionPlanner.Wizard
         private Label label8;
         private PictureBox pictureBox1;
         private ComboBox CMB_port;
+        private CheckBox checkBox1;
 
     }
 }

@@ -161,7 +161,7 @@ namespace MissionPlanner.Wizard
             if(wiz_main.screens.IndexOf(wiz_main.current) == 2 ) 
                 AccelCalib.AccelCalib_Close(); // добавлено для прекращения показа в случае закрытия окна
             if (wiz_main.screens.IndexOf(wiz_main.current) == 6)
-                finish.Finish_Close(); // остановка таймера
+                finish.Deactivate(); // остановка таймера
             try
              {
                 wiz_main.ShowScreen("");
